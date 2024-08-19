@@ -1,0 +1,49 @@
+
+int main()
+{
+	KaguTest(20025,0);
+	ch[299] = 1;
+	ch[420] = 50;
+	ch[421] = 50;
+	ch[422] = 50;
+	KaguTest(30046,0);
+	KaguTest(20010,0);
+	if (ch[420] == 999)
+	{
+		KaguTest(30032,700);
+	}
+	else
+	{
+		KaguTest(30033,150);
+	}
+
+	Wait(20);
+	
+	GetCharPos(0,ch[420],ch[421],ch[422]);
+	ch[422] = ch[422] - 100;
+	ch[423] = 1881;
+	ch[424] = 0;
+	ch[425] = 0;
+	ch[426] = 0;
+	ch[427] = 100;
+	ch[428] = 0;
+	KaguTest(30045,0);
+
+	Wait(40);
+	
+	Mes("You got a ~Silver Medal.~");
+	KaguTest(20022,76);
+//	GetItem(76);
+
+//	ch[1792]++;
+	
+	Wait(90);
+	ch[420] = 100;
+	ch[421] = 100;
+	ch[422] = 100;
+	KaguTest(30046,0);
+	KaguTest(30032,0);
+	KaguTest(30033,100);
+	Wait(20);
+	ch[299] = 0;
+}

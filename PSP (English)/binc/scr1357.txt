@@ -1,0 +1,5 @@
+
+int main()
+{
+	Message(0,"Just looking at these makes","my tummy rumble...","","");
+}

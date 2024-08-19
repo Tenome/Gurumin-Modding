@@ -1,0 +1,93 @@
+
+int main()
+{
+	TekiStop(1);
+	ch[302] = 1;
+	int y;
+
+	ch[420] = 100000;
+	ch[427] = 7;
+	KaguTest(30015,3);
+
+	ch[420] = 15;
+	ch[429] = 1;
+	KaguTest(30036,0);
+	ch[420] = 900;
+	ch[421] = -2250;
+	KaguTest(30070,0);
+	Look(58,59);
+	Look(59,58);
+	KaguTest(30038,58);
+	KaguTest(30038,59);
+	Wait(30);
+	
+	KaguTest(30020,0);
+	y = ch[421];
+
+	SaveCamera();
+	
+	if (y > -2250)
+	{
+		// ‚­‚à‚ª‚í
+		ch[420] = 1913;
+		ch[421] = -2769;
+		ch[422] = -803;
+		ch[423] = 504;
+		ch[424] = -2229;
+		ch[425] = -1154;
+		KaguTest(30019,1);
+		CrossFade();
+		KaguTest(30061,0);
+		ch[424] = 750;
+		ch[425] = -1535;
+		ch[426] = 12;
+		KaguTest(30060,0);
+		Walk(ch[421],ch[422],ch[423]);
+	}
+	else
+	{
+		// “ü‚èŒû‘¤
+		ch[420] = 1913;
+		ch[421] = -1731;
+		ch[422] = -803;
+		ch[423] = 504;
+		ch[424] = -2271;
+		ch[425] = -1154;
+		KaguTest(30019,1);
+		CrossFade();
+		KaguTest(30061,0);
+		ch[424] = 750;
+		ch[425] = -2855;
+		ch[426] = 12;
+		KaguTest(30060,0);
+		Walk(ch[421],ch[422],ch[423]);
+	}
+	Wait(30);
+	ch[420] = 900;
+	ch[421] = -2250;
+	KaguTest(30070,0);
+
+	ch[420] = 15;
+	ch[429] = 1;
+	KaguTest(30036,58);
+	Wait(40);
+	ch[420] = 900;
+	ch[421] = -2250;
+	KaguTest(30070,0);
+
+	ch[420] = 13;
+	ch[429] = 1;
+	KaguTest(30036,59);
+	Wait(ch[423]/2 + 50);
+	ch[420] = 900;
+	ch[421] = -2250;
+	KaguTest(30070,0);
+
+	KaguTest(30019,0);
+	RestoreCamera();
+	CrossFade();
+	Wait(15);
+	Message(0,"Something going on? ","","","");
+
+	TekiStop(0);
+}

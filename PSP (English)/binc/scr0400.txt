@@ -1,0 +1,36 @@
+
+int main()
+{
+	if (!ch[512] && !ch[1542])
+	{
+		// 壊されたイベントまだ
+		Mes("A giant stone is blocking you.");
+		return 0;
+	}
+
+	{
+		if (!ch[1542])
+		{
+			// 石版２回目以降
+			Message(0,"I have to find Doug.","","","");
+//			Message(0,"たしか、ラディスの森にいるとか……","","","");
+		}
+		else if (!ch[1502])
+		{
+			Black(0,100,30);
+			Wait(30);
+//			PlayMovie("skowa0.txt",0);
+			ch[1502] = 1;
+//			PlayMovie("ouen.txt",0);
+			ch[1503] = 1;
+			Black(0,100,0);
+			LoadMap(208);
+			Walk(-5,0,1);
+			KaguTest(30057,0);
+			Black(0,0,30);
+			Wait(30);
+
+//			Event(150);
+		}
+	}
+}

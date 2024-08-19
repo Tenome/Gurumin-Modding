@@ -1,0 +1,28 @@
+
+int main()
+{
+	//BGM(0);
+	//Wait(60);
+	Lock();
+	Mouse(0);
+	PlayMovie("saraware.txt",0);
+	Black(0,100,0);
+	Wait(5);
+//	Black(0,0,15);
+	Walk(0,-5,1);
+	KaguTest(30057,0);
+	Mouse(1);
+//	BGM(5);
+	//CharPos(17,-50895,-412,15);
+	ch[512]=1;
+	LoadMap(401);
+	CharPos(0,-150,1100,0);
+	Black(0,100,0);
+	Black(0,0,30);
+	ResetFade();
+	Unlock();
+	
+	ch[3983] = 0;
+	
+}
+

@@ -1,0 +1,43 @@
+
+int main()
+{
+	int x;
+	int y;
+	int z;
+
+	SE(950);
+	Black(0,100,30);
+	Wait(30);
+
+	ch[2497] = 0;
+
+	SaveCamera();
+	GetCharPos(0,x,y,z);
+
+	LoadMap(204);
+//	TekiStop(1);
+	Camera(Door2C(10),500,150,200);
+	CharPos(0,-100000,0,0);
+	ResetFade();
+	Wait(25);
+	Black(0,0,10);
+	Wait(10);
+
+	Event(102);
+	Wait(50);
+	Black(0,100,10);
+	Wait(10);
+
+	ch[2497] = 1;
+	Camera(-1,0,0,0);
+	LoadMap(204);
+	CharPos(0,x,y,z + 5);
+	TekiStop(1);
+	RestoreCamera();
+	ResetFade();
+	Black(0,0,30);
+	Wait(30);
+
+	TekiStop(0);
+
+}

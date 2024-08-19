@@ -1,0 +1,6 @@
+
+int main()
+{
+	Message(0,"When you do a ~bench press~,","do you ~press benches~?","","");
+	Message(0,"Or does the bench","~press~ you...?","","");
+}

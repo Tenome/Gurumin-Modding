@@ -1,0 +1,62 @@
+
+int main()
+{
+	if (ch[2497])
+	{
+		WaitD(0);
+		ch[50] = 0;
+		string st1,st2;
+		SelStart(50);
+		st1 = "Leave " + StageName(ch[1107]-2260);
+		st2 = "Don't leave " + StageName(ch[1107]-2260);
+		SelText(st1,1);
+		SelText(st2,2);
+		SelEnd();
+		
+		if (ch[50] == 1)
+		{
+			MapEvent(0);
+			Walk(8,0,30);
+			Black(0,100,30);
+			Wait(30);
+			
+			KaguTest(10100,0);
+			KaguTest(99999,0);
+			TekiStop(0);
+			MapEvent(1);
+		}
+		else
+		{
+			MapEvent(0);
+
+			KaguTest(30058,0);
+			while(ch[420])
+			{
+				Walk(ch[421],ch[422],ch[423]);
+				Wait(ch[423]);
+				KaguTest(30058,0);
+			}
+
+			Walk(-8,0,20);
+			Wait(20);
+			MapEvent(1);
+			TekiStop(0);
+		}
+	}
+	else
+	{
+		KaguTest(40002,0);
+		
+		MapEvent(0);
+		
+		Walk(-8,0,15);
+		Black(0,100,15);
+		Wait(15);
+		Event(110);
+
+		MapEvent(1);
+		
+		// ムービーチェック
+		PostScr(935);
+	}
+}

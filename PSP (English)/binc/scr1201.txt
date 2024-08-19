@@ -1,0 +1,35 @@
+
+int main()
+{
+	KaguTest(20056,0);
+	if (ch[420])
+	{
+		// 魔法のツボ扱い
+		PostScr(1308);
+		return 0;
+	}
+
+	Wait(30);
+	KaguTest(20010,0);
+	ch[421] = ch[420];
+	if (ch[420] != 308 || !ch[2497])
+	{
+		ch[421] = 0;
+		if (!ch[3974])
+		{
+			KaguTest(30076,5);
+		}
+		else
+		{
+			// 召喚中
+			KaguTest2(20002,0,"You can't use that now.");
+		}
+	}
+	if (!ch[420] || (ch[421] == 308 && ch[2497]) )
+	{
+		// 置けなかった
+//		GetItem(55);
+		Mes("You can't use this here.");
+	}
+	Wait(30);
+}

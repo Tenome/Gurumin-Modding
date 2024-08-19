@@ -1,0 +1,5 @@
+
+int main()
+{
+	Message(0,"There's some liquid inside.","What could it be?","","");
+}

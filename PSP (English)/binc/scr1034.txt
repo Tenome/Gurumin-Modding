@@ -1,0 +1,111 @@
+
+int main()
+{
+	int hako1;
+	int hako2;
+	int hako3;
+	int x,y,z;
+
+	TekiStop(1);
+	MapEvent(0);
+	
+	if (ch[260])
+	{
+		// 既に扉あいてる
+		Mes("Nothing happened.");
+		Walk(-5,0,30);
+		Wait(30);
+		TekiStop(0);
+		MapEvent(1);
+		return 0;
+	}
+	
+	ch[421] = 0;
+	KaguTest(30034,1);
+	
+	White(0,100,20);
+	SE(954);
+	Wait(20);
+	White(0,0,30);
+	Walk(-5,0,30);
+
+	ch[420] = 15;
+	ch[421] = 3300;
+	ch[422] = 2025;
+	ch[423] = 1950;
+	KaguTest(30029,0);
+	hako1 = ch[424];
+	ch[421] = 1;
+	KaguTest(30131,hako1);
+	ch[420] = 14;
+	ch[421] = 2175;
+	ch[422] = 1875;
+	ch[423] = 2400;
+	KaguTest(30029,0);
+	hako2 = ch[424];
+	ch[421] = 1;
+	KaguTest(30131,hako2);
+	ch[420] = 13;
+	ch[421] = 3300;
+	ch[422] = 2100;
+	ch[423] = 2110;
+	KaguTest(30029,0);
+	hako3 = ch[424];
+	ch[421] = 1;
+	KaguTest(30131,hako3);
+	
+	SaveCamera();
+
+	Wait(20);
+	
+	GetCharPos(hako1,x,y,z);
+//	ch[421] = x;
+//	ch[422] = y - 1000;
+//	ch[423] = z + 400;
+//	KaguTest(30010,0);
+	Camera(hako1,x,y - 1000,z + 400);
+	CrossFade();
+	Wait(45);
+	GetCharPos(hako2,x,y,z);
+	ch[421] = x;
+	ch[422] = y - 1000;
+	ch[423] = z + 400;
+	KaguTest(30010,0);
+	Camera(hako2,x,y - 1000,z + 400);
+	CrossFade();
+	Wait(45);
+//	GetCharPos(hako3,x,y,z);
+//	ch[421] = x;
+//	ch[422] = y - 1000;
+//	ch[423] = z + 400;
+//	KaguTest(30010,0);
+//	Camera(hako3,x,y - 1000,z + 400);
+//	CrossFade();
+//	Wait(45);
+	
+	Camera(-1,0,0,0);
+	RestoreCamera();
+	CrossFade();
+	Wait(15);
+	
+	if (ch[16])
+	{
+		Mes("New boxes appeared.");
+	}
+	else
+	{
+		Mes("Boxes appeared.");
+		ch[16] = 1;
+		
+		// 赤スライム三人衆発生
+		ch[420] = 100000;
+		ch[427] = 0;
+		KaguTest(30016,99);
+	}
+
+	Wait(15);
+	
+	TekiStop(0);
+	MapEvent(1);
+}
+ 

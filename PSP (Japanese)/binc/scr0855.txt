@@ -1,0 +1,20 @@
+
+int main()
+{
+	MapEvent(0);
+//	Walk(0,-8,11);
+//	Wait(11);
+//	Black(0,100,15);
+//	Wait(15);
+	ch[3997] = 1;
+	Event(2);
+	Event(1001);
+	Black(0,100,0);
+	Wait(5);
+	Black(0,0,15);
+//	Scop(0);
+	Walk(0,-5,20);
+	Wait(20);
+	MapEvent(1);
+}
+ 

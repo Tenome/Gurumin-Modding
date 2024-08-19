@@ -1,0 +1,42 @@
+
+int main()
+{
+	Message(0,"~Today's fortune.~","","","");
+	Message(0,"A fortunetelling machine?","","","");
+	
+	SelStart(50);
+	SelText("Have your fortune told",1);
+	SelText("Don't have your fortune told",2);
+	SelEnd();
+	
+	if (ch[50] != 1)
+	{
+		return 0;
+	}
+
+	switch(rand() % 10)
+	{
+	case 0://‘å‹g
+	case 2:
+	case 6:
+	case 8:
+		Message(0,"~You are incredibly lucky today. ","Miss Lucky, that's you.~","","");
+		Message(0,"Whoever wrote this is boring...","","","");
+		break;
+	case 1://‘å‹¥
+		Message(0,"~You'll have bad luck today,","but try your best to laugh it off.~","","");
+		Message(0,"Hmm... suddenly I feel like","kicking this machine.","","");
+		break;
+	case 3:
+	case 4:
+	case 5://‹g
+		Message(0,"~Your day will be ","ordinary in every way","possible.~","");
+		Message(0,"...Not much of a","fortune, huh?","","");
+		break;
+	case 7:
+	case 9:// ––‹g
+		Message(0,"~Today you will be moderately","lucky. Try to make the best ","of any situation.~","");
+		Message(0,"I guess that makes","sense... But it seems","kind of generic.","");
+		break;
+	}
+}

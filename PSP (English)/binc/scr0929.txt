@@ -1,0 +1,433 @@
+
+int main()
+{
+	// かぶりものチェック
+	int kabu;
+	kabu = 0;
+	if (ch[3962])
+	{
+		// アフロかぶってる
+		WaitD(0);
+		Message(0,"What about Poco's Afro?","","","");
+		kabu = 1;
+	}
+	if (ch[3963])
+	{
+		// ソンブレロかぶってる
+		WaitD(0);
+		if (ch[2034])
+		{
+			//パリン
+			Message(0,"I should return","Francois to Pierre.","","");
+		}
+		else
+		{
+			//パリン
+			Message(0,"Pierre needs Francois.","I have to find him.","","");
+		}
+		kabu = 1;
+	}
+	if (ch[3964])
+	{
+		// ファラオかぶってる
+		WaitD(0);
+		Message(0,"I'm worried about Rocko.","","","");
+		Message(0,"Should I get rid of it?","","","");
+		kabu = 1;
+	}
+	if (ch[3965])
+	{
+		// 鼻眼鏡つけてる
+		WaitD(0);
+		Message(0,"Chucky's attitude will","freeze the whole village!","","");
+		Message(0,"I have to do something.","","","");
+		kabu = 1;
+	}
+	if (kabu)
+	{
+		// 何かかぶってた
+		MapEvent(0);
+		KaguTest(30058,0);
+		while(ch[420])
+		{
+			Walk(ch[421],ch[422],ch[423]);
+			Wait(ch[423]);
+			KaguTest(30058,0);
+		}
+		Walk(0,8,20);
+		Wait(20);
+		MapEvent(1);
+		TekiStop(0);
+		return 0;
+	}
+
+
+	if (!ch[2300])
+	{
+		// ドリルまだ
+		// ストッパー
+		WaitD(0);
+		Message(0,"Pino is trying to show","me something.","","");
+		MapEvent(0);
+		KaguTest(30058,0);
+		while(ch[420])
+		{
+			Walk(ch[421],ch[422],ch[423]);
+			Wait(ch[423]);
+			KaguTest(30058,0);
+		}
+		Walk(0,8,20);
+		Wait(20);
+		MapEvent(1);
+		TekiStop(0);
+		return 0;
+	}
+
+	if (ch[1538])
+	{
+		// バッドエンド？
+		if (ch[1792] != 522133279)
+		{
+			// すたっふロールへ？
+			//ピノ
+			ch[400] = 18;
+			Look(18,0);
+			KaguTest(12000,18);
+			Camera(18,-730,-1589,370);
+			ch[421] = -730;
+			ch[422] = -1589;
+			ch[423] = 370;
+			KaguTest(30010,0);
+//			Camera(-1,0,0,0);
+//			ch[420] = -56;
+//			ch[421] = -1589;
+//			ch[422] = 370;
+//			ch[423] = -34;
+//			ch[424] = -533;
+//			ch[425] = 70;
+//			KaguTest(30019,1);
+			CrossFade();
+			ch[420] = -1;
+			Message(18,"Parin!","","","");
+
+			//※呼びかけて走り寄ってくるピノ
+			Look(0,18);
+			Walk2(18,0,-16,91);
+			ch[429] = 0;
+			Camera(-1,0,0,0);
+			KaguTest(30039,0);
+			KaguTest(30077,18);
+			ch[420] = -730;
+			ch[421] = -1155;
+			ch[422] = 465;
+			ch[423] = -5;
+			ch[424] = -1812;
+			ch[425] = 70;
+			KaguTest(30093,90);
+			KaguTest(30019,14);
+			Look(18,0);
+			Look(0,18);
+			CharPos(0,23,-1886,0);
+			Wait(20);
+			Look(18,0);
+			Look(0,18);
+			Wait(20);
+			Look(18,0);
+			Look(0,18);
+			Wait(20);
+			Look(18,0);
+			Look(0,18);
+			Wait(20);
+			Look(18,0);
+			Look(0,18);
+			Wait(10);
+			Look(18,0);
+			Look(0,18);
+
+			//ピノ
+			ch[420] = 18;
+			Message(18,"Going to the human town?","","","");
+
+			//パリン
+			Message(0,"Well, I was going to...","Why?","","");
+
+			//ピノ
+			Message(18,"Puku told me I'm not","to go out until this","Dark Mist clears up.","");
+			Message(18,"But it's so boring here...","Let's go to town together!","","");
+
+			//パリン
+			Message(0,"OK then. Let's go.","","","");
+
+			//ピノ
+			Message(18,"Great!","","","");
+			ch[420] = -1;
+
+			ch[420] = -14;
+			ch[421] = -1198;
+			ch[422] = 525;
+			ch[423] = 18;
+			ch[424] = -2101;
+			ch[425] = 250;
+			KaguTest(30093,100);
+			//※２人、並んで街の方向へ歩き出す。
+			//　そのまま画面ブラックアウト。
+			Walk2(18,0,-5,100);
+			ch[429] = 0;
+			KaguTest(30039,0);
+			Walk(0,-5,100);
+			Wait(30);
+			Black(0,100,90);
+			Wait(90);
+			KaguTest(30019,0);
+
+			ch[420] = 22;
+			KaguTest(12002,18);
+
+			//⇒スタッフロール・バッドエンドバージョンへ
+			Mouse(0);
+//			Black(0,100,15);
+//			Wait(15);
+			ch[2300] = 0;
+			{
+//				LoadMapB(998);
+//				SetWaku(1);
+//				Black(0,0,0);
+//				Mes("バッドエンドスタッフロール予定。");
+//				SetWaku(0);
+
+				KaguTest(20066,0);
+//				PlayMovie("EP_6.txt",0);
+				BGM(8);
+				PlayAVI("be.avi",1);
+				Black(0,100,0);
+//				BGM(0);
+			}
+//			Wait(90);
+//			LoadMapB(998);
+//			Black(0,100,0);
+//			ch[2005] = 1;
+//			KaguTest(99999,1);
+//			KaguTest(99982,0);
+//			ch[298] = 1;
+//			KaguTest(99990,0);
+//			KaguTest(99998,0);
+
+//			Black(0,100,30);
+//			Wait(30);
+
+			BGM(0);
+			Mouse(1);
+			SetWaku(1);
+			LoadMapB(998);
+			Black(0,100,0);
+			CharPos(0,-200000,0,0);
+			CharPos(16,0,0,0);
+			KaguTest(30078,16);
+			Camera(16,-1000,0,350);
+			Wait(30);
+			Black(0,0,15);
+			Wait(30);
+			
+			Message(16,"You haven't reached the real ending yet!","","","");
+			Message(16,"Try playing just a little","bit more!","","");
+
+			Black(0,100,15);
+			Wait(15);
+			Camera(-1,0,0,0);
+			KaguTest(30077,16);
+
+			TekiStop(0);
+			// 終わり
+			MapEvent(1);
+//			SetWaku(0);
+			Reset();
+			Mouse(1);
+			
+			return 0;
+		}
+		else
+		{
+			// モトロに話していない
+			MapEvent(0);
+			WaitD(0);
+			Message(0,"I have no business in town.","","","");
+			KaguTest(30058,0);
+			while(ch[420])
+			{
+				Walk(ch[421],ch[422],ch[423]);
+				Wait(ch[423]);
+				KaguTest(30058,0);
+			}
+			Walk(0,5,20);
+			Wait(20);
+			MapEvent(1);
+		}
+		return 0;
+	}
+	
+	if (ch[2300] && !ch[2001])
+	{
+		ch[2001] = 1;
+		MapEvent(0);
+		Walk(0,-8,15);
+		White(0,100,15);
+		Wait(15);
+		Event(351);
+		Event(1000);
+		KaguTest2(10012,0,"teet.mmv");
+		Wait(5);
+		CharPos(15,-150,1940,100);
+		Wait(5);
+		CharPos(15,-150,1940,100);
+//		Walk(0,-8,60);
+		CharPos(0,-115,2815,250);
+		White(0,0,15);
+		Wait(15);
+		CharPos(15,-150,1940,100);
+//		Wait(60);
+
+		ch[420] = 15;
+		ch[429] = 1;
+		KaguTest(30036,0);
+		ch[420] = 15;
+		KaguTest(30063,0);
+		KaguTest(30061,0);
+		ch[400] = 115;
+		ch[424] = -156;
+		ch[425] = 2600;
+		ch[420] = 1;
+		ch[426] = 12;
+		KaguTest(30060,15);
+		Walk2(15,ch[421]/2,ch[422]/2,ch[423]*2);
+		Wait(ch[423]*2);
+
+		//シリンダー
+		Message(15,"Parin, that drill...","Where did you get it?","","");
+		//パリン
+		Message(0,"Nice huh? It's mine.","","","");
+		//シリンダー
+		Message(15,"That's quite an old model.","Don't make 'em like that anymore.","","");
+		Message(15,"I do demolition, but I'm also","good with machines.","","");
+		Message(15,"I may be able to get","some parts for your drill.","","");
+		//パリン
+		Message(0,"Really?","","","");
+		//シリンダー
+		Message(15,"All for free if you go","out on a date with me.","","");
+		//パリン
+		Message(0,"...I'll pay, thanks.","","","");
+		//シリンダー
+		Message(15,"Haha! Why don't we talk more","about drills over a cup of tea?","","");
+
+		KaguTest(30063,-1);
+		
+		MMV("teet.mmv");
+		KaguTest2(10012,1,"teet.mmv");
+		MapEvent(1);	
+		ch[400] = -1;
+		ch[420] = 15;
+		ch[421] = 0;
+		KaguTest(20044,0);
+		ch[421] = 1;
+		KaguTest(20044,0);
+		ch[421] = 2;
+		KaguTest(20044,15);
+		ch[421] = 3;
+		KaguTest(20044,19);
+		ch[421] = 4;
+		KaguTest(20044,12);
+		ch[421] = 5;
+		KaguTest(20044,1);
+		return 0;
+	}
+	
+	if (ch[2526] && !ch[2529])
+	{
+		ch[2529] = 1;
+		MapEvent(0);
+		Walk(0,-8,15);
+		White(0,100,15);
+		Wait(15);
+		Event(351);
+		Event(1000);
+		KaguTest2(10012,0,"teet.mmv");
+		Wait(5);
+		CharPos(13,-150,1940,100);
+		Wait(5);
+		CharPos(13,-150,1940,100);
+//		Walk(0,-8,20);
+		CharPos(0,-115,2815,250);
+		White(0,0,15);
+		Wait(15);
+		CharPos(13,-150,1940,100);
+//		Black(0,0,20);
+//		Wait(20);
+
+		ch[420] = 15;
+		ch[429] = 1;
+		KaguTest(30036,0);
+		ch[420] = 13;
+		KaguTest(30063,0);
+		ch[400] = 113;
+		ch[424] = -156;
+		ch[425] = 2600;
+		ch[420] = 1;
+		ch[426] = 12;
+		KaguTest(30060,13);
+		Walk2(13,ch[421],ch[422],ch[423]);
+		Wait(ch[423]);
+
+		//プレーン
+		ch[400] = 13;
+		Message(13,"Hi Parin! People have","been talking about you.","","");
+		//パリン
+		Message(0,"I don't get it.","","","");
+		//プレーン
+		Message(13,"Now now, Parin!","","","");
+		Message(13,"I know you did it!","Shortcake is so expensive now!","","");
+		//パリン
+		Message(0,"? ? ?","","","");
+		KaguTest(30063,-1);
+		
+		MMV("teet.mmv");
+		KaguTest2(10012,1,"teet.mmv");
+		MapEvent(1);	
+		ch[400] = -1;
+		ch[420] = 13;
+		ch[421] = 0;
+		KaguTest(20044,0);
+		ch[421] = 1;
+		KaguTest(20044,0);
+		ch[421] = 2;
+		KaguTest(20044,15);
+		ch[421] = 3;
+		KaguTest(20044,19);
+		ch[421] = 4;
+		KaguTest(20044,12);
+		ch[421] = 5;
+		KaguTest(20044,1);
+		return 0;
+	}
+
+	MapEvent(0);
+	White(0,100,11);
+	Walk(0,-8,11);
+	Wait(11);
+	
+	ch[3997] = 0;
+	Event(351);
+	Event(1000);
+	KaguTest2(10012,0,"teet.mmv");
+	Wait(5);
+	White(0,0,15);
+	CharPos(0,-115,2815,250);
+	MMV("teet.mmv");
+	KaguTest2(10012,1,"teet.mmv");
+	
+//	Scop(0);
+
+	Walk(0,-5,20);
+	Wait(20);
+	
+	MapEvent(1);	
+}
+ 

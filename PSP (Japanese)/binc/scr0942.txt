@@ -1,0 +1,30 @@
+
+int main()
+{
+	// –Ø” •²Ó•–Ø” ”­¶
+	White(0,100,20);
+	SE(954);
+	Wait(20);
+	White(0,0,20);
+	Walk(0,-5,20);
+
+	ch[420] = 3899;
+	ch[421] = -150;
+	ch[422] = 1725;
+	ch[423] = 400;
+	KaguTest(30029,0);
+	ch[421] = -1;
+	KaguTest(30131,ch[424]);
+	
+	// ƒJƒƒ‰
+	TekiStop(1);
+	SaveCamera();
+	Camera(ch[424],-150,3150,400);
+	Wait(45);
+	Camera(-1,0,0,0);
+	CrossFade();
+	TekiStop(0);
+	ch[421] = 1;
+	KaguTest(30131,ch[424]);
+}
+ 

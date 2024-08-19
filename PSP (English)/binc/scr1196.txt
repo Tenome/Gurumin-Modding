@@ -1,0 +1,66 @@
+
+int main()
+{
+	ch[400] = 18;
+	ch[2329] = 1;
+	
+	// ‰ï˜b
+	//ƒsƒm
+	Message(18,"Parin!","","","");
+	//ƒpƒŠƒ“
+	Message(0,"Pino, there you are.","","","");
+	//ƒsƒm
+	Message(18,"Everyone... the village...","","","");
+	Message(18,"You just saved Puku...","and now this...","","");
+	//ƒpƒŠƒ“
+	Message(0,"Don't worry.","","","");
+	Message(0,"Those Phantoms aren't","in the village anymore.","","");
+	//ƒsƒm
+	Message(18,"...Really?","Ok, I'm going home.","","");
+	Message(18,"Puku and Poco also escaped.","Maybe they're back already...","","");
+	
+	// ƒpƒŠƒ“”ð‚¯‚é
+	ch[424] = 50;
+	ch[425] = -17;
+	ch[426] = 7;
+	KaguTest(30061,0);
+	KaguTest(30060,0);
+	Walk(ch[421],ch[422],ch[423]);
+	ch[429] = 0;
+	KaguTest(30039,0);
+	Wait(ch[423]);
+
+	// ƒsƒm—§‚¿‹Ž‚é
+	ch[400] = 118;
+	KaguTest(30005,0);
+	KaguTest(30062,0);
+	ch[420] = 18;
+	KaguTest(30063,0);
+	ch[400] = 118;
+	ch[424] = -125;
+	ch[425] = 0;
+	ch[420] = 1;
+	ch[426] = 12;
+	KaguTest(30061,0);
+	KaguTest(30060,18);
+	Walk2(18,ch[421],ch[422],ch[423]);
+	ch[429] = 0;
+	KaguTest(30039,0);
+	Wait(ch[423]);
+	KaguTest(30061,0);
+	ch[424] = -500;
+	ch[425] = 0;
+	ch[426] = 12;
+	KaguTest(30061,0);
+	KaguTest(30060,18);
+	Walk2(18,ch[421],ch[422],ch[423]);
+	ch[429] = 0;
+	KaguTest(30039,0);
+	Wait(ch[423]-15);
+	ch[420] = 3;
+	KaguTest(30064,18);
+	Wait(15);
+	CharPos(18,-200000,0,0);
+	KaguTest(30063,-1);
+	ch[400] = -1;
+}

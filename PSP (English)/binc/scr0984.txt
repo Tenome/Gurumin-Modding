@@ -1,0 +1,7 @@
+
+int main()
+{
+//	Mes("「この先行き止まり」と書かれている。");
+	Message(0,"~This one's a mistaken path.","Yours, M.~","","");
+}
+ 

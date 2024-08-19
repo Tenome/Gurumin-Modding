@@ -1,0 +1,9 @@
+
+int main()
+{
+	Message(0,"Something is written here.","","","");
+	Message(0,"~Flammable. Take caution.","Yours, M.~","","");
+	
+	Message(0,"What could it mean?","","","");
+}
+ 

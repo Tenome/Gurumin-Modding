@@ -1,0 +1,45 @@
+
+int main()
+{
+	MapEvent(0);
+	if (ch[2002])
+	{
+		// のぞきクエスト中
+		//パリン
+		Message(0,"First, I have to find Cylinder.","","","");
+	}
+	if (ch[2010])
+	{
+		// ビラ貼りクエスト中
+		if (ch[2012] && ch[2013] && ch[2014])
+		{
+			Message(0,"I better tell Disk that","I've put up all his ads.","","");
+		}
+		else
+		{
+			Message(0,"I'm not done putting up all the","ads for the discount shop.","","");
+		}
+	}
+	if (ch[2018])
+	{
+		// わらしべクエスト途中（限りなく実行する可能性の高い予定）
+		Message(0,"I sense I still have","something to do.","","");
+	}
+	if (ch[2020])
+	{
+		KaguTest(20001,54);
+		if (ch[430])
+		{
+			Message(0,"I have to give that","medal I found to Grandpa.","","");
+		}
+		else
+		{
+			Message(0,"Grandpa's medal. I still","have to find it.","","");
+		}
+	}
+	
+	Walk(0,-8,15);
+	Wait(15);
+	
+	MapEvent(1);
+}

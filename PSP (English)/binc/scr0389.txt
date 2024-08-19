@@ -1,0 +1,907 @@
+
+int main()
+{
+	ch[400] = 15;
+	ch[215]++;
+
+	int qnuke;
+	qnuke = 0;
+	if (ch[2007] && !ch[2018])
+	{
+		// クエスト中
+		if (ch[2002])
+		{
+			// のぞきクエスト中
+			// いないはず（念のため）
+			qnuke = 1;
+		}
+		if (ch[2010])
+		{
+			// ビラ貼りクエスト中
+			qnuke = 1;
+		}
+		if (ch[2020])
+		{
+			// プラチナメダルクエスト中
+			qnuke = 1;
+		}
+		
+		if (!qnuke)
+		{
+			ch[400] = -1;
+			return 0;
+		}
+	}
+
+
+//	if (ch[2018])
+	if (ch[2501] != 6)
+	{
+		// わらしべクエスト中
+		KaguTest(20001,25);
+		if (ch[430])
+		{
+			//シリンダー
+			Message(15,"Quite a difficult","looking book you've","got there, Parin.","");
+
+			//パリン
+			Message(0,"This Alchemy Book?","","","");
+
+			//シリンダー
+			Message(15,"I may be an engineer","but I love to","learn new things.","");
+			Message(15,"We should trade.","How about this book instead?","","");
+
+			//パリン
+			Message(0,"That's a bit more interesting","looking. I'll take it.","","");
+
+			//シリンダー
+			Message(15,"Haha. Thank you!","","","");
+
+			//システム
+			Mes("You got a ~Manga.~");
+			KaguTest(20022,27);
+			KaguTest(20002,25);
+			GetItem(27);
+			Wait(60);
+			ch[400] = -1;
+			ch[215] = 0;
+			return 0;
+		}
+	}
+
+
+	if (ch[2530] && !ch[2531])
+	{
+		ch[2531] = 1;
+		// 臭いパーツゲットだぜ！
+		//シリンダー
+		Message(15,"Oh ho, it's Parin.","","","");
+		Message(15,"I'll tell you a secret,","if you'll have tea with me?","","");
+
+		//パリン
+		Message(0,"Tea is not gonna happen.","Tell me the secret anyway.","","");
+
+		//シリンダー
+		Message(15,"Hahaha. OK then.","Don't be too shocked.","","");
+		Message(15,"I am a great demolitions","expert, but 3 years ago","I made a mistake.","");
+
+		//パリン
+		Message(0,"A mistake?","","","");
+
+		//シリンダー
+		Message(15,"That's right.","I was smoking on","the job...","");
+
+		//パリン
+		Message(0,"Smoking...?","That's so dangerous!","You work with explosives!","");
+
+		//シリンダー
+		Message(15,"Haha. Yes, I know...","","","");
+		Message(15,"I accidentally dropped","my cigarette on some gunpowder.","","");
+
+		//パリン
+		Message(0,"And!?","","","");
+
+		//シリンダー
+		Message(15,"I was in a small wood.","The entire area blew up...","","");
+		Message(15,"Now my friends are always","calling me ~Old Sparky.~","","");
+
+		//パリン
+		Message(0,"But you're still alive?","","","");
+
+		//シリンダー
+		Message(15,"I was sent flying into a river.","Can't believe I'm still here.","","");
+		Message(15,"...Ah, I should be getting","back to the mines.","","");
+
+		//パリン
+		Message(0,"People who skip work","get fired, don't they?","","");
+
+		//シリンダー
+		Message(15,"I'm not skipping work.","One of my best drill parts broke.","","");
+		Message(15,"How about in exchange for","this part, we go on a date?","","");
+
+		//パリン
+		Message(0,"Forget it!!","","","");
+		Message(0,"I don't need your broken parts,","and I don't want to date you!","","");
+
+		//シリンダー
+		Message(15,"Just take it.","","","");
+		Message(15,"It's full of my blood, sweat and tears!","","","");
+
+		//パリン
+		Message(0,"Stop it! I don't want it!","","","");
+
+		Mes("The ~Sweaty Parts~ were forced on you!");
+		Wait(60);
+		Black(0,100,10);
+		Wait(10);
+		ch[2532] = 1;
+		Scop(0);
+		Scop(1);
+		GetItem(29);
+		Black(0,0,10);
+		KaguTest(20023,0);
+		Mes("Your drill is cursed!!");
+		SE(483);
+		Wait(75);
+		Message(0,"Eek!!","","","");
+		ch[400] = -1;
+		ch[215] = 0;
+		return 0;
+	}
+	
+	if (ch[1571])// && !ch[1538])
+	{
+		if (ch[215] < 2)
+		{
+			//シリンダー
+			Message(15,"Wow, some earthquake!","","","");
+			Message(15,"I looked rather bad in front","of Fan just now... jeez...","","");
+			Message(15,"I hope the miners are OK...","I should go check on them.","","");
+			Message(15,"Oh, and will you be","buying any drill parts?","","");
+		}
+		else
+		{
+			//シリンダー
+			Message(15,"Oh ho, it's Parin.","Want to see some drill parts?","","");
+		}
+	}
+	if (ch[1513] && !ch[1571])
+	{
+		if (ch[215] < 2)
+		{
+			//シリンダー
+			Message(15,"Hehe. You finally promised to","go on a date with me!","","");
+			//パリン
+			Message(0,"That was an imposter!","It doesn't count.","","");
+			//シリンダー
+			Message(15,"An imposter? Well,","I guess it doesn't count.","","");
+			Message(15,"Oh, and will you be","buying any drill parts?","","");
+		}
+		else
+		{
+			//シリンダー
+			Message(15,"Oh ho, it's Parin.","Want to buy any drill parts?","","");
+		}
+	}
+	if (ch[1505] && !ch[1513])
+	{
+		if (!ch[2527])
+		{
+			if (ch[215] < 2)
+			{
+				//シリンダー
+				Message(15,"Fan was looking for you","a little bit ago, Parin.","","");
+				//パリン
+				Message(0,"What could it be?","","","");
+				//シリンダー
+				Message(15,"Now why can't she just","take a look at me? Why?","","");
+				Message(15,"...Ahem.","Buying any drill parts?","","");
+			}
+			else
+			{
+				//シリンダー
+				Message(15,"Fan was looking for you","a little bit ago, Parin.","","");
+				Message(15,"While you're here,","buying any drill parts?","","");
+			}
+		}
+		else
+		{
+			if (ch[215] < 2)
+			{
+				//シリンダー
+				Message(15,"Oh Parin... hehe.","I'll be seeing you soon!","","");
+				Message(15,"At the cake shop, right?","","","");
+				//パリン
+				Message(0,"What... the?","","","");
+				//シリンダー
+				Message(15,"Haha! Nervous? How cute.","It's just one little date.","","");
+				//パリン
+				Message(0,"Date!? I promised","what?? What are you...","","");
+				//シリンダー
+				Message(15,"Don't play dumb now.","I'll be waiting, Parin!","","");
+				Message(15,"Since you're here,","buying any drill parts?","","");
+			}
+			else
+			{
+				//シリンダー
+				Message(15,"I'll be waiting at the","cake shop Parin!","","");
+				Message(15,"Since you're here,","buying any drill parts?","","");
+			}
+		}
+	}
+	if (ch[1542] && !ch[1505])
+	{
+		if (ch[215] < 2)
+		{
+			//シリンダー
+			Message(15,"I just saw you come flying","out of the cake shop.","Did you get in a fight with Fan?","");
+			//パリン
+			Message(0,"What?","No, not really.","","");
+			//シリンダー
+			Message(15,"Oh. That's good to hear.","","","");
+			//パリン
+			Message(0,"? ? ?","","","");
+			//シリンダー
+			Message(15,"Since you're here,","buying any drill parts?","","");
+		}
+		else
+		{
+			//シリンダー
+			Message(15,"You really flew out of","Fan's shop. I really thought","you guys were fighting...","");
+			Message(15,"While you're here,","buying any drill parts?","","");
+		}
+	}
+	if (ch[507] && !ch[1542])
+	{
+		if(ch[215] < 2)
+		{
+			//シリンダー
+			Message(15,"Cough! Cough!","","","");
+			//パリン
+			Message(0,"What's wrong?","","","");
+			//シリンダー
+			Message(15,"I breathed in some poisonous","gas in the mines... Cough.","","");
+			Message(15,"I'm not faking being","sick so that Fan will notice","me, or anything... hahaha...","");
+			//パリン
+			Message(0,"..............","","","");
+			//シリンダー
+			Message(15,"Since you're here,","need any drill parts?","","");
+		}
+		else
+		{
+			//シリンダー
+			Message(15,"I breathed in some poisonous","gas in the mines... Cough.","","");
+			Message(15,"Oh, will you be","buying any drill parts?","","");
+		}
+	}
+	if (ch[2330] && !ch[507])
+	{
+		//シリンダー
+		Message(15,"Not good.","I need to order some more","gunpowder for the mines...","");
+		Message(15,"Oh, will you be","buying any drill parts?","","");
+	}
+	if (ch[1545] && !ch[2330])
+	{
+		if (ch[215] < 2)
+		{
+			//シリンダー
+			Message(15,"I heard Fan scream","a bit ago.","","");
+			Message(15,"I came running, and she threw","knives and forks at me!","","");
+			Message(15,"Hahaha! How cute!","Such a shy girl...","","");
+			Message(15,"Since you're here,","need any drill parts?","","");
+		}
+		else
+		{
+			//シリンダー
+			Message(15,"That Fan, throwing","knives and forks at me.","","");
+			Message(15,"Isn't that cute? Haha!","She's just shy!","","");
+			Message(15,"Since you're here,","need any drill parts?","","");
+		}
+	}
+	if (ch[2300] && !ch[1545])
+	{
+		if(ch[215] < 2 && !ch[2001])
+		{
+			//シリンダー
+			Message(15,"Parin, that drill...","Where did you get it?","","");
+			//パリン
+			Message(0,"Nice huh? It's mine.","","","");
+			//シリンダー
+			Message(15,"That's quite an old model.","Don't make 'em like that anymore.","","");
+			Message(15,"I do demolition, but I'm also","good with machines.","","");
+			Message(15,"I may be able to get","some parts for your drill.","","");
+			//パリン
+			Message(0,"Really?","","","");
+			//シリンダー
+			Message(15,"All for free if you go","out on a date with me.","","");
+			//パリン
+			Message(0,"...I'll pay, thanks.","","","");
+			//シリンダー
+			Message(15,"Haha! Why don't we talk more","about drills over a cup of tea?","","");
+			ch[2001] = 1;
+		}
+		else
+		{
+			//シリンダー
+			Message(15,"Next time, let's talk","about drills over a cup of tea.","","");
+		}
+	}
+	if (ch[2552] && !ch[2300])
+	{
+		if(ch[215] < 2)
+		{
+			//シリンダー
+			Message(15,"I spent most of the morning","with Fan at the cake shop.","","");
+			Message(15,"Haha, she won't leave me alone!","","","");
+			//パリン
+			Message(0,"It's pretty obvious that","you're the one bothering her.","","");
+			//シリンダー
+			Message(15,"T-that's ridiculous!","Go ahead and ask her!","","");
+			Message(15,"...Ah, I should be","heading back to the mines.","","");
+		}
+		else
+		{
+			//シリンダー
+			Message(15,"I spent most of the morning","with Fan at the cake shop.","","");
+			Message(15,"Haha, she won't leave me alone!","","","");
+		}
+		ch[400] = -1;
+		return 0;
+	}
+	if (!ch[2552])
+	{
+		//OP前
+		if(!ch[2548])
+		{
+			Message(15,"Oh ho, young lady.","Did you just move here?","","");
+			Message(0,"That's right.","","","");
+			Message(15,"My name's Cylinder.","I'm a demolitions expert.","","");
+			Message(0,"Demolitions?","","","");
+			Message(15,"I plant explosives in the mines","and blow them up.","","");
+			Message(0,"Wow.","","","");
+			Message(15,"Girls your age aren't","too common here.","","");
+			//シリンダー
+			Message(15,"How about you and me","go on a date? My treat.","","");
+			Message(0,"(Him, date me?","Yuck! Friends is pushing it!)","","");
+			Message(0,"...I'm kinda busy.","For the next million years.","","");
+			//シリンダー
+			Message(15,"Hahaha! There's no","reason to be shy now!","","");
+
+			//パリン
+			Message(0,"I'm being rude, not shy!","Bye!!","","");
+
+			//シリンダー
+			Message(15,"I'll come pick you up","when I get off work.","","");
+
+			//パリン
+			Message(0,"I just told you, I'm NOT","interested! ","","");
+		}
+		else
+		{
+			//シリンダー
+			Message(15,"I'll see you later","Parin! Hehehe.","","");
+
+			//パリン
+			Message(0,"How about NEVER!","","","");
+		}
+		
+		ch[2548] = 1;
+		
+		if (ch[2547] && ch[2549] && ch[2550] && ch[2551])
+		{
+			// 全員と会話済み
+//			Message(0,"誰も相手してくれないのね。","","","");
+//			Message(0,"どこかに面白いことないかしら。","","","");
+//			Message(0,"路地裏にでも入ってみようかな。","","","");
+			ch[2553] = 1;
+		}
+		
+		ch[400] = -1;
+		return 0;
+	}
+
+	// ドリルパーツショップ
+	// シナリオ進行に応じて出すものを変える
+	int mg;
+	string str;
+	string txt;
+	int a;
+	int b;
+	int waribiki;
+	int tute;
+	int taikyu;
+	int kyouka;
+	taikyu = 0;
+	kyouka = 0;
+	a = 0;
+	ch[420] = 0;
+	ch[421] = 0;
+	ch[422] = 0;
+	ch[423] = 0;
+	ch[424] = 0;
+	ch[425] = 0;
+	ch[426] = 0;
+	ch[427] = 0;
+	ch[428] = 0;
+	ch[429] = 0;
+	ch[430] = 0;
+	
+	// 標準
+	if (!ch[1780])
+	{
+		ch[420] = 1;	// 立ちコンボ
+		a++;
+	}
+	if (!ch[1785])
+	{
+		ch[425] = 1;	// 地面回転
+		a++;
+	}
+	if (ch[1542])
+	{
+		if (!ch[1783] && ch[1780])
+		{
+			ch[423] = 1;	// ＰＭキック
+			a++;
+		}
+		if (!ch[1784])
+		{
+			ch[424] = 1;	// 回転下月
+			a++;
+		}
+	}
+	if (ch[2527])
+	{
+		if (!ch[1782] && ch[1783])
+		{
+			ch[422] = 1;	// ダッシュコンボ
+			a++;
+		}
+		if (!ch[1786] && ch[1785])
+		{
+			ch[426] = 1;	// 回転２
+			a++;
+		}
+	}
+	
+	if (ch[2068] && !ch[420] && !ch[1780])
+	{
+		// 前転斬り
+		ch[420] = 1;
+		a++;
+	}
+	if (ch[2069] && !ch[423] && !ch[1783] && ch[1780])
+	{
+		// ＰＭキック
+		ch[423] = 1;
+		a++;
+	}
+	if (ch[2070] && !ch[422] && !ch[1782] && ch[1783])
+	{
+		// ドラフレ
+		ch[422] = 1;
+		a++;
+	}
+	if (ch[2071] && !ch[424] && !ch[1784])
+	{
+		// 回転下月
+		ch[424] = 1;
+		a++;
+	}
+	if (ch[2072] && !ch[425] && !ch[1785])
+	{
+		// Ｄトルネード
+		ch[425] = 1;
+		a++;
+	}
+	if (ch[2073] && !ch[426] && !ch[1786] && ch[1785])
+	{
+		// 回転乱舞
+		ch[426] = 1;
+		a++;
+	}
+	KaguTest(20001,22);
+	if (ch[430] < 3)
+	{
+		taikyu = 1;
+		a++;
+	}
+	KaguTest(20001,19);
+	if (ch[430] < 3)
+	{
+		kyouka = 1;
+		a++;
+	}
+	
+	// 売りものがない
+	if (a == 0)
+	{
+		Message(15,"...Oops! I seem to be","fresh out of parts! ","","");
+		Message(15,"Check back with me later.","I'll get some more in.","","");
+		ch[400] = -1;
+		return 0;
+	}
+
+	ch[3976] = 100;
+	// モトロマジック適応
+	if (ch[3975] == 0)
+	{
+		ch[3975] = 100;
+	}
+	waribiki = (100 - ch[3975]) / 2;
+	waribiki = 100 - waribiki;
+	if (ch[2640])
+	{
+		waribiki = waribiki - 25;
+	}
+	// しりんだーは割引してはいけない
+	waribiki = 100;
+	ch[3976] = (ch[3976] * waribiki) / 100;
+	ShopStart();
+	if (ch[420])
+	{
+		ShopItem(1);
+	}
+	if (ch[425])
+	{
+		ShopItem(10);
+	}
+	if (ch[423])
+	{
+		ShopItem(6);
+	}
+	if (ch[424])
+	{
+		ShopItem(9);
+	}
+	if (ch[426])
+	{
+		ShopItem(11);
+	}
+	if (ch[422])
+	{
+		ShopItem(7);
+	}
+	if (taikyu)
+	{
+		ShopItem(22);
+	}
+	if (kyouka)
+	{
+		ShopItem(19);
+	}
+
+	ch[50] = ShopEnd2();
+
+	b = 0;
+
+	int aiteru;
+	int i;
+	aiteru = 0;
+
+	if (ch[50] > 0 && ch[50] != 22 && ch[50] != 19)
+	{
+		// ゲットだぜ
+		SE(893);
+		Wait(15);
+		KaguTest(30020,0);
+		ch[2649] = ch[420];
+		ch[2650] = ch[421];
+		ch[2651] = ch[422];
+		KaguTest(30020,15);
+		ch[2652] = ch[420];
+		ch[2653] = ch[421];
+		ch[2654] = ch[422];
+		KaguTest(20010,0);
+		ch[2656] = ch[420];
+
+		Black(0,100,15);
+		Wait(15);
+		ch[2655] = ch[50];
+		LoadMap(227);
+		ch[50] = ch[2655];
+		CharPos(0,-150,150,0);
+		Camera(0,0,-1000,370);
+//		KaguTest(30059,0);
+		Wait(10);
+//		KaguTest(20025,-30);
+		ch[420] = 1000;
+		ch[421] = -1000;
+		KaguTest(30070,0);
+		Wait(15);
+		KaguTest(30032,-100);
+		KaguTest(30033,85);
+		Wait(10);
+		Camera(-1,0,0,0);
+		Black(0,0,15);
+		Wait(15);
+	}
+	Camera(-1,0,0,0);
+	if (ch[50] == 22)
+	{
+		SE(893);
+		KaguTest(20034,ch[50]);
+		GetItem(22);
+	}
+	if (ch[50] == 19)
+	{
+		SE(893);
+		KaguTest(20034,ch[50]);
+		GetItem(19);
+	}
+
+	if (ch[50] == 1)
+	{
+		// 立ちコンボ
+		ch[1780] = 1;
+		ch[2130] = 1;
+		KaguTest(20034,ch[50]);
+		b = 1;
+		
+		KaguTest(10006,0);
+		KaguTest(10007,0);
+		KaguTest2(10008,0,"First use a Guard Dash.");
+		KaguTest(10010,10);
+		Message(0,"","","","");
+		KaguTest(10011,10);
+		
+		KaguTest(20027,43);
+		Wait2(15);
+		
+		KaguTest(10006,0);
+		KaguTest(10007,0);
+		KaguTest2(10008,0,"Then rotate the directional buttons and attack.");
+		KaguTest(10010,10);
+		Message(0,"","","","");
+		KaguTest(10011,10);
+		ch[420] = 1000;
+		ch[421] = 1000;
+		KaguTest(30070,0);
+		KaguTest(20027,23);
+		Wait2(60);
+
+		txt = "You learned the ~Forward Slash.~";
+		tute = 1;
+	}
+	if (ch[50] == 9)
+	{
+		ch[1784] = 1;
+		ch[2135] = 1;
+		KaguTest(20034,ch[50]);
+		b = 1;
+
+		KaguTest(10006,0);
+		KaguTest(10007,0);
+		KaguTest2(10008,0,"First jump.");
+		KaguTest(10010,10);
+		Message(0,"","","","");
+		KaguTest(10011,10);
+
+		KaguTest(30031,40);
+		Wait2(15);
+		KaguTest(30066,1);
+		
+		KaguTest(10006,0);
+		KaguTest(10007,0);
+		KaguTest2(10008,0,"Rotate the directional buttons and attack in midair!");
+		KaguTest(10010,10);
+		Message(0,"","","","");
+		KaguTest(10011,10);
+		KaguTest(30066,0);
+
+		KaguTest(20027,40);
+		KaguTest(20028,0);
+		Wait2(45);
+		txt = "You learned the ~Downward Lunge.~";
+		tute = 6;
+	}
+	if (ch[50] == 6)
+	{
+		ch[1783] = 1;
+		ch[2132] = 1;
+		KaguTest(20034,ch[50]);
+		b = 1;
+		
+		KaguTest(10006,0);
+		KaguTest(10007,0);
+		KaguTest2(10008,0,"First use a Guard Dash.");
+		KaguTest(10010,10);
+		Message(0,"","","","");
+		KaguTest(10011,10);
+		
+		KaguTest(20027,43);
+		Wait2(15);
+
+		KaguTest(10006,0);
+		KaguTest(10007,0);
+		KaguTest2(10008,0,"Then rotate the directional buttons and attack.");
+		KaguTest(10010,10);
+		Message(0,"","","","");
+		KaguTest(10011,10);
+
+		ch[420] = 1000;
+		ch[421] = 1000;
+		KaguTest(30070,0);
+		KaguTest(20027,22);
+		Wait2(60);
+
+		txt = "You learned the ~Pretty Missile.~";
+		tute = 3;
+	}
+	if (ch[50] == 10)
+	{
+		ch[1785] = 1;
+		ch[2136] = 1;
+		KaguTest(20034,ch[50]);
+		b = 1;
+
+		KaguTest(10006,0);
+		KaguTest(10007,0);
+		KaguTest2(10008,0,"Quickly rotate the directional buttons and attack.");
+		KaguTest(10010,10);
+		Message(0,"","","","");
+		KaguTest(10011,10);
+
+		KaguTest(20027,16);
+		Wait2(60);
+		txt = "You learned the ~Drill Tornado.~";
+		tute = 7;
+	}
+	if (ch[50] == 7)
+	{
+		ch[1782] = 1;
+		ch[2133] = 1;
+		KaguTest(20034,ch[50]);
+		b = 1;
+
+		KaguTest(10006,0);
+		KaguTest(10007,0);
+		KaguTest2(10008,0,"First use a Guard Dash.");
+		KaguTest(10010,10);
+		Message(0,"","","","");
+		KaguTest(10011,10);
+
+		KaguTest(20027,43);
+		Wait2(15);
+
+		KaguTest(10006,0);
+		KaguTest(10007,0);
+		KaguTest2(10008,0,"Then rotate the directional buttons and attack.");
+		KaguTest(10010,10);
+		Message(0,"","","","");
+		KaguTest(10011,10);
+
+		ch[420] = 1000;
+		ch[421] = 1000;
+		KaguTest(30070,0);
+		KaguTest(20027,25);
+		Wait2(75);
+
+		txt = "You learned the ~Dragon Flame.~";
+		tute = 4;
+	}
+	if (ch[50] == 11)
+	{
+		ch[1786] = 1;
+		ch[2137] = 1;
+		KaguTest(20034,ch[50]);
+		b = 1;
+
+		KaguTest(10006,0);
+		KaguTest(10007,0);
+		KaguTest2(10008,0,"First perform a Drill Tornado.");
+		KaguTest(10010,10);
+		Message(0,"","","","");
+		KaguTest(10011,10);
+
+		KaguTest(20027,16);
+		Wait2(45);
+
+		KaguTest(10006,0);
+		KaguTest(10007,0);
+		KaguTest2(10008,0,"When it is about to end, attack again.");
+		KaguTest(10010,10);
+		Message(0,"","","","");
+		KaguTest(10011,10);
+
+		KaguTest(20027,20);
+		Wait2(60);
+		txt = "You learned the ~Spinning Dance.~";
+		tute = 8;
+	}
+
+	if (b == 1)
+	{
+		KaguTest(20023,0);
+		Wait(15);
+		Mes(txt);
+		SE(955);
+		Wait(50);
+
+		KaguTest(20024,0);
+
+		// チュートリアル表示
+		if (tute > 0)
+		{
+			KaguTest(10006,0);
+			KaguTest(10007,7);
+
+			switch(tute)
+			{
+			case 1:
+				KaguTest2(10009,0,"dparts01.bmp");
+				break;
+			case 2:
+				KaguTest2(10009,0,"dparts02.bmp");
+				break;
+			case 3:
+				KaguTest2(10009,0,"dparts03.bmp");
+				break;
+			case 4:
+				KaguTest2(10009,0,"dparts04.bmp");
+				break;
+			case 5:
+				KaguTest2(10009,0,"dparts05.bmp");
+				break;
+			case 6:
+				KaguTest2(10009,0,"dparts08.bmp");
+				break;
+			case 7:
+				KaguTest2(10009,0,"dparts06.bmp");
+				break;
+			case 8:
+				KaguTest2(10009,0,"dparts07.bmp");
+				break;
+			case 9:
+				KaguTest2(10009,0,"dparts09.bmp");
+				break;
+			case 10:
+				KaguTest2(10009,0,"dparts10.bmp");
+				break;
+			}
+			ch[423] = 128;
+			ch[424] = 8;
+			ch[425] = 353;
+			ch[426] = 264;
+			ch[427] = 0;
+			ch[428] = 0;
+			ch[429] = 225;
+			ch[430] = 256;
+			ch[431] = 256;
+			KaguTest(10010,10);
+			Wait(10);
+			Message(0,"","","","");
+			ch[420] = 0;
+			KaguTest(10011,10);
+			Wait(10);
+		}
+
+		Black(0,100,15);
+		Wait(15);
+		LoadMap(ch[2656]);
+		CharPos(0,ch[2649],ch[2650],ch[2651]);
+		Wait(15);
+		CharPos(15,ch[2652],ch[2653],ch[2654]);
+		Look(0,15);
+		Look(15,0);
+		KaguTest(30059,0);
+		ch[400] = 15;
+		Black(0,0,15);
+		Wait(15);
+	}
+
+	ch[400] = -1;
+	Camera(-1,0,0,0);
+//	BGM(5);
+	KaguTest(30032,0);
+	KaguTest(30033,100);
+	return 0;
+
+//	if (a < 2)
+//	{
+//		// 妖精の粉売る
+//		ch[430] = 1;
+//	}
+
+	ch[400] = -1;
+}

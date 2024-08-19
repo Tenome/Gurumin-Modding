@@ -1,0 +1,244 @@
+
+int main()
+{
+	// ボスラッシュ中？
+	if (ch[2092])
+	{
+		// ブラックビーン戦へ
+		ch[2103] = 1;
+		KaguTest(40002,0);
+		
+		Blur(0,0,0);
+		TekiStop(1);
+		ch[2497] = 1;
+		KaguTest(100000,0);
+		LoadMapB(308);
+		Wait(5);
+		
+		SetSavePos2(6,0,150,0);
+		ch[1095] = 6;
+		// ムービー救援
+		CharPos(0,0,-600,0);
+		CharPos(58,0,0,0);
+		CharPos(25,-200000,0,0);
+
+		Wait(5);
+		Walk(0,1,1);
+		KaguTest(30057,0);
+
+		KaguTest2(10012,0,"boss09.mmv");
+		White(0,0,30);
+		Wait(30);
+		MMV("boss09.mmv");
+		KaguTest2(10012,1,"boss09.mmv");
+		TekiStop(0);
+		MapEvent(1);
+
+		return 0;
+	}
+
+	int f;
+	int tobu;
+//	White(0,0,0);
+//	White(0,100,30);
+	Wait(30);
+	KaguTest(40002,0);
+
+	// デバッグ
+	if (ch[3982] == 1)
+	{
+		// 純粋ボスラッシュ中
+//		ch[1790] = 3;
+//		ch[1791] = 100;
+		KaguTest(20051,0);
+		Scop(0);
+		Scop(1);
+		
+		Black(0,100,30);
+		Wait(30);
+		ch[2497] = 1;
+		LoadMapB(308);
+		MapEvent(1);
+		Wait(3);
+		
+//		BGM(7);
+
+		KaguTest(20020,0);
+		CharPos(0,0,-500,0);
+		
+		Black(0,0,15);
+		Wait(15);
+		
+		SetSavePos2(207,0,0,0);	// 死んだら手巣とマップに戻れ
+		MapEvent(1);
+//		BGM(7);
+		
+		return 0;
+	}
+	if (ch[3982] == 2)
+	{
+		// シナリオボスラッシュ中
+//		ch[1790] = 3;
+//		ch[1791] = 100;
+		KaguTest(20051,0);
+		Scop(0);
+		Scop(1);
+		
+		ch[1538]=1;
+//		PlayMovie("end1.txt",1);
+		ch[1538]=0;
+		Wait(10);
+
+		ch[2497] = 1;
+		LoadMapB(308);
+		Black(0,100,30);
+		Wait(30);
+		MapEvent(1);
+		Wait(3);
+		
+//		BGM(7);
+
+		KaguTest(20020,0);
+		CharPos(0,0,-300,0);
+		
+		Black(0,0,15);
+		Wait(15);
+		
+		SetSavePos2(207,0,0,0);	// 死んだら手巣とマップに戻れ
+		MapEvent(1);
+//		BGM(7);
+		
+		return 0;
+	}
+	if (ch[3982] == 3)
+	{
+		// ステージテスト中
+		TekiStop(1);
+
+		Black(0,0,15);
+		KaguTest(10500,120);
+			
+		if (ch[2270] < 1)
+		{
+			ch[2270]=1;
+		}
+			
+		Wait(90);
+
+		Message(0,"","","","");
+
+		KaguTest(10011,5);
+		KaguTest(99999,0);
+		return 0;
+	}
+	// デバッグここまで
+	TekiStop(1);
+	
+	// マップとパリン消す
+//	BGM(0);
+	KaguTest(30087,0);
+	CharPos(0,-200000,0,0);
+
+//	White(0,0,15);
+//	KaguTest(10500,120);
+//		
+//	if (ch[2270] < 1)
+//	{
+//		ch[2270]=1;
+//	}
+//		
+//	Wait(90);
+//
+//	Message(0,"","","","");
+//
+//	White(0,100,30);
+//	Wait(30);
+//	KaguTest(10011,5);
+//	Wait(5);
+
+//	PlayMovie("end1.txt",0);
+	KaguTest(99993,0);	// クリアフラグチェック
+	if (ch[420] || ch[421] || ch[422] || ch[425])
+	{
+		tobu = 1;
+	}
+	else
+	{
+		tobu = 0;
+	}
+	ch[1538] = 1;
+//	PlayMovie("GF_3.txt",tobu);
+	Mouse(0);
+	int movi;
+	KaguTest(20065,-40);
+	movi = PlayMovie("GF_3a.txt",tobu);
+	KaguTest(100000,0);
+	if (movi)
+	{
+		movi = PlayMovie2("GF_3b.txt",tobu);
+		KaguTest(100000,0);
+	}
+//	if (movi || ch[1792] != 522133279)
+	if (movi)
+	{
+		movi = PlayMovie2("GF_3c.txt",tobu);
+		KaguTest(100000,0);
+	}
+	Mouse(1);
+//	ch[1538]=0;
+	ResetFade();
+	Black(0,100,0);
+	Blur(2,0,1);
+	
+	KaguTest(10100,0);
+	ch[298] = 1;
+//	KaguTest(99999,0);
+//	KaguTest(99990,0);
+//	KaguTest(99998,0);
+	ch[1538]=1;
+	ch[1759] = 0;
+	ch[1760] = 0;
+	
+	// 家具持ってたら捨てる
+	KaguTest(10205,0);
+	
+	if (ch[1792] == 522133279)
+	{
+		Mouse(0);
+		ch[3600] = 1;
+		ch[2036] = 1;
+		PlayMovie("EP_1.txt",tobu);
+		ch[2036] = 0;
+		ch[3600] = 0;
+		ch[2288] = 0;
+		ch[2289] = 0;
+		ch[2290] = 0;
+		ch[2291] = 0;
+		LoadMapB(401);
+		Mouse(1);
+//		ch[2791] = 0;
+		Black(0,100,0);
+		Wait(5);
+//		Black(0,0,15);
+		Walk(0,5,1);
+		KaguTest(30057,0);
+		ch[3952] = 1;
+	}
+	else
+	{
+		ch[3952] = 1;
+		PlayMovie("EP_1b.txt",0);
+		LoadMapB(401);
+		CharPos(0,173,-220,50);
+		Black(0,100,0);
+		Wait(5);
+//		Black(0,0,15);
+		Walk(0,-5,1);
+		KaguTest(30057,0);
+	}
+	KaguTest(20066,0);
+	CharPos(0,-110,-346,28);
+	Black(0,0,15);
+	Wait(15);
+	return 0;
+}

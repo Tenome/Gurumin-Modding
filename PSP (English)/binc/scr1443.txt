@@ -1,0 +1,7 @@
+
+int main()
+{
+	Look(59,0);
+	Message(59,"Js[[u, O hirdd.","","","");
+	Look(59,18);
+}

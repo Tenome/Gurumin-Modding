@@ -1,0 +1,154 @@
+
+int main()
+{
+//	Wait(60);
+	// クリア表示
+	MapEvent(0);
+	TekiStop(1);
+
+	KaguTest(40002,0);
+
+	// ボスラッシュ中？
+	if (ch[2092])
+	{
+		KaguTest(10500,120);
+
+		Wait(90);
+		
+		Message(0,"","","","");
+		KaguTest(10011,5);
+		Wait(10);
+
+		KaguTest(20023,0);
+		Mes("Boss Rush Clear!");
+		SE(819);
+		Wait(60);
+		ch[2093] = 1;
+		
+
+
+		
+
+		int nyuu;
+		nyuu=0;
+		if(ch[455]<2)
+		{
+			if(!GetCf(5))
+			{
+				nyuu=1;
+			}
+			KaguTest(99992,5);
+		}
+		if(ch[455]==2 && !ch[3961])
+		{
+			if(!GetCf(7))
+			{
+				nyuu=1;
+			}
+			KaguTest(99992,7);
+		}
+		if(ch[455]==2 && ch[3961]==1)
+		{
+			if(!GetCf(6))
+			{
+				nyuu=1;
+			}
+			KaguTest(99992,6);
+		}
+		if(ch[455]==2 && ch[3961]==2)
+		{
+			if(!GetCf(9))
+			{
+				nyuu=1;
+			}
+			KaguTest(99992,9);
+		}
+
+		if(nyuu)
+		{
+			SE(564);
+			Mes("A new outfit has been unlocked.");
+			Wait(60);
+			Mes("Use your Dresser to change outfits.");
+			Wait(60);
+		}
+		Black(0,100,30);
+		Wait(30);
+		
+		KaguTest(100000,0);
+		ch[2497] = 0;
+		LoadMap(6);
+		CharPos(0,0,-300,0);
+		int x;
+		int y;
+		int z;
+		int i;
+		
+		for (i = 58;i < 66;i++)
+		{
+			GetCharPos(i,x,y,z);
+			if (x > -20000)
+			{
+				ch[420] = 2;
+				KaguTest(12005,i);
+				// 全員待機させる
+				ch[420] = 2;
+				ch[421] = 1;
+				ch[422] = 5;
+				KaguTest(12003,i);
+				ch[420] = -1;
+				Look(i,18);
+				KaguTest(12002,i);
+			}
+		}
+		Wait(5);
+		Look(0,18);
+		Look(18,0);
+		Black(0,0,30);
+		Wait(30);
+		MapEvent(1);
+		return 0;
+	}
+
+	// デバッグ
+	if (ch[3982] == 1)
+	{
+		// 純粋ボスラッシュ中
+		LoadMap(207);
+		CharPos(0,0,0,0);
+		Black(0,0,15);
+		Wait(15);
+		
+		KaguTest(10500,120);
+
+		Wait(90);
+		
+		Message(0,"","","","");
+		KaguTest(10011,5);
+
+		Mes("Boss Rush Clear!");
+		SE(819);
+	
+		return 0;
+	}
+	if (ch[3982] == 2)
+	{
+		// シナリオボスラッシュ中
+		LoadMap(207);
+		CharPos(0,0,0,0);
+		Black(0,0,15);
+		Wait(15);
+		
+		Mes("Boss Rush Clear!");
+		Blur(2,0,0);
+		return 0;
+	}
+	// デバッグここまで
+	
+	TekiStop(0);
+	
+	MapEvent(1);
+	
+	PostScr(1083);
+	return 0;
+}

@@ -1,0 +1,88 @@
+
+int main()
+{
+	Wait(60);
+
+	// ボスラッシュ中？
+	if (ch[2092])
+	{
+		// ロッキー戦へ
+		ch[2097] = 1;
+		KaguTest(40002,0);
+		
+		Blur(0,0,0);
+		TekiStop(1);
+		KaguTest(100000,0);
+		LoadMapB(306);
+		Wait(5);
+		KaguTest2(30014,0,"@tokaron");
+		KaguTest2(30014,0,"@monyo");
+		KaguTest2(30014,0,"@magicbelt1");
+		KaguTest2(30014,0,"@magicbelt2");
+		Event(160);
+		ch[300] = 1;
+		
+		SetSavePos2(6,0,150,0);
+		ch[1095] = 6;
+		// ムービー救援
+		CharPos(0,0,-600,0);
+
+		KaguTest(20020,0);
+//		CharPos(ch[425],0,-300,20);
+		CharPos(ch[425],0,700,0);
+		KaguTest(30028,ch[425]);
+		
+		ch[300] = 1;
+
+		Look(ch[425],0);
+		Look(0,ch[425]);
+
+		Wait(5);
+		Walk(0,1,1);
+		KaguTest(30057,0);
+
+		KaguTest2(10012,0,"boss05.mmv");
+		White(0,0,30);
+		Wait(30);
+		MMV("boss05.mmv");
+		KaguTest2(10012,1,"boss05.mmv");
+		TekiStop(0);
+		MapEvent(1);
+
+		LiftEnable(0);
+
+		return 0;
+	}
+
+	BGM(39);
+
+	if (ch[1513])
+	{
+		ch[423] = 0;
+		ch[424] = 2775;
+		ch[425] = 980;
+		KaguTest(30084,0);
+		CrossFade();
+		White(0,0,30);
+		Wait(30);
+	}
+	else
+	{
+		KaguTest(20041,0);
+		ch[421] = 0;
+		KaguTest(30034,100);
+		ch[423] = 0;
+		ch[424] = 2775;
+		ch[425] = 1460;
+		KaguTest(30081,0);
+		KaguTest(30019,9);
+		White(0,0,30);
+		Wait(30);
+		Wait(183);
+		KaguTest(30019,0);
+		KaguTest(30082,1887);
+		CrossFade();
+	}
+	KaguTest(30139,0);
+}
+ 

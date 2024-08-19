@@ -1,0 +1,259 @@
+
+int main()
+{
+	int x;
+	int y;
+	int z;
+	
+	int teki;
+
+	TekiStop(1);
+
+	GetCharPos(Door2C(52),x,y,z);
+	SaveCamera();
+	
+	KaguTest(30025,50);
+	teki = ch[420];
+
+	CharPos(teki-1,-200000,0,0);
+	CharPos(teki,1275,-150,0);
+	CharPos(teki+1,1275,0,0);
+	CharPos(teki+2,1425,0,0);
+	CharPos(teki+3,1300,-500,0);
+	CharPos(teki+4,1200,-500,0);
+	CharPos(teki+5,1250,-325,0);
+	CharPos(teki+6,770,-150,0);
+	
+	KaguTest(30038,teki);
+	KaguTest(30038,teki+1);
+	KaguTest(30038,teki+2);
+	KaguTest(30038,teki+3);
+	KaguTest(30038,teki+4);
+	KaguTest(30038,teki+5);
+
+	KaguTest(12000,teki);
+	KaguTest(12000,teki+1);
+	KaguTest(12000,teki+2);
+	KaguTest(12000,teki+3);
+	KaguTest(12000,teki+4);
+	KaguTest(12000,teki+5);
+
+	Look(teki,Door2C(52));
+	Look(teki+1,teki);
+	Look(teki+2,teki+1);
+	Look(teki+5,teki+3);
+	Look(teki+3,teki+5);
+	Look(teki+4,teki+5);
+
+	Camera(Door2C(52),x - 1500,y - 900,z + 450);
+	
+	Wait(30);	
+	
+	Mes("There's a group of Phantoms on the other side.");
+	Wait(60);
+
+	SelStart(50);
+	SelText("Observe them",1);
+	SelText("Ignore them",2);
+	SelEnd();
+	
+	if (ch[50] != 1)
+	{
+		RestoreCamera();
+		Camera(-1,0,0,0);
+		CrossFade();
+		
+		Wait(10);
+		
+		CharPos(teki,-200000,0,0);
+		CharPos(teki+1,-200000,0,0);
+		CharPos(teki+2,-200000,0,0);
+		CharPos(teki+3,-200000,0,0);
+		CharPos(teki+4,-200000,0,0);
+		CharPos(teki+5,-200000,0,0);
+//		CharPos(teki+6,-200000,0,0);
+		CharPos(teki+6,1425,-150,0);
+		TekiStop(0);
+		return 0;
+	}
+
+	// 角が「！」スライムがハート
+	ch[420] = 15;
+	ch[429] = 1;
+	KaguTest(30036,teki + 5);
+	Wait(45);
+	ch[420] = 13;
+	ch[429] = 1;
+	KaguTest(30036,teki + 3);
+	Wait(5);
+	ch[429] = 1;
+	KaguTest(30036,teki + 4);
+	Wait(60);
+	Look(teki+5,teki+4);
+	ch[420] = 15;
+	ch[429] = 1;
+	KaguTest(30036,teki + 5);
+	Wait(45);
+	ch[429] = 1;
+	KaguTest(30036,teki + 3);
+	KaguTest(30036,teki + 4);
+	Wait(45);
+
+	Look(teki + 3,teki);
+	Look(teki + 4,teki);
+	Look(teki + 5,teki);
+
+	Wait(5);
+
+	// 飛び乗る
+	ch[421] = 15;
+	Walk2(teki + 5,1,7,25);
+	ch[429] = 0;
+	KaguTest(30039,0);
+	Wait(5);
+	ch[421] = 30;
+	ch[422] = 1;
+	KaguTest(30037,teki + 5);
+	Wait(10);
+	Wait(5);
+	ch[420] = teki + 5;
+	KaguTest(30004,0);
+	Wait(5);
+	Look(teki + 5,Door2C(52));
+	Wait(15);
+	ch[420] = 15;
+	ch[429] = 1;
+	KaguTest(30036,teki + 5);
+	Wait(15);
+	Walk2(teki,5,0,570);
+	ch[429] = 0;
+	KaguTest(30039,0);
+	Walk2(teki+5,5,0,570);
+	ch[429] = 0;
+	KaguTest(30039,0);
+	ch[420] = 2;
+	ch[421] = 1;
+	ch[422] = 5;
+	KaguTest(12003,teki+5);
+
+	Wait(5);
+	Walk2(teki+1,0,-5,30);
+	ch[429] = 0;
+	KaguTest(30039,0);
+	Wait(5);
+	Walk2(teki+2,-5,0,30);
+	ch[429] = 0;
+	KaguTest(30039,0);
+	Wait(10);
+	Walk2(teki + 3,-1,4,40);
+	Wait(20);
+	Look(teki+1,teki);
+	Look(teki+2,teki+1);
+	Event(203);
+	Wait(20);
+	Walk2(teki + 3,-1,3,10);
+	Wait(10);
+	
+	// 次
+	Walk2(teki + 3,1,7,25);
+	ch[429] = 0;
+	KaguTest(30039,0);
+	Wait(5);
+	ch[421] = 30;
+	ch[422] = 1;
+	KaguTest(30037,teki + 3);
+	Wait(10);
+	Wait(5);
+	ch[420] = teki + 3;
+	KaguTest(30004,0);
+	Wait(5);
+	Look(teki + 3,Door2C(52));
+	Wait(15);
+	Walk2(teki+1,5,0,450);
+	ch[429] = 0;
+	KaguTest(30039,0);
+	Walk2(teki+3,5,0,450);
+	ch[429] = 0;
+	KaguTest(30039,0);
+	ch[420] = 2;
+	ch[421] = 1;
+	ch[422] = 5;
+	KaguTest(12003,teki+3);
+
+	Wait(5);
+	Walk2(teki+2,0,-5,30);
+	ch[429] = 0;
+	KaguTest(30039,0);
+	Wait(10);
+	Walk2(teki + 4,1,4,40);
+	Wait(20);
+	Look(teki+2,teki+1);
+	Wait(20);
+	Walk2(teki + 4,1,3,10);
+	Wait(10);
+
+	// 次
+	Walk2(teki + 4,1,7,25);
+	ch[429] = 0;
+	KaguTest(30039,0);
+	Wait(5);
+	ch[421] = 30;
+	ch[422] = 1;
+	KaguTest(30037,teki + 4);
+	Wait(10);
+	Wait(5);
+	ch[420] = teki + 4;
+	KaguTest(30004,0);
+	Wait(5);
+	Look(teki + 4,Door2C(52));
+	Wait(15);
+	Walk2(teki+2,5,0,390);
+	ch[429] = 0;
+	KaguTest(30039,0);
+	Walk2(teki+4,5,0,390);
+	ch[429] = 0;
+	KaguTest(30039,0);
+	ch[420] = 2;
+	ch[421] = 1;
+	ch[422] = 5;
+	KaguTest(12003,teki+4);
+
+	Wait(35);
+	Walk2(teki+6,8,0,100);
+	Look(teki+6,teki+3);
+	ch[429] = 0;
+	KaguTest(30039,0);
+	Wait(40);
+	ch[420] = 2011;
+	ch[429] = 1;
+	KaguTest(30036,teki + 6);
+	Wait(40);
+	Event(204);
+	Wait(75);
+
+	KaguTest(30038,0);
+
+	RestoreCamera();
+	Camera(-1,0,0,0);
+	CrossFade();
+	
+	Wait(10);
+	
+	KaguTest(30054,0);
+	CharPos(teki,-200000,0,0);
+	CharPos(teki+1,-200000,0,0);
+	CharPos(teki+2,-200000,0,0);
+	CharPos(teki+3,-200000,0,0);
+	CharPos(teki+4,-200000,0,0);
+	CharPos(teki+5,-200000,0,0);
+//	CharPos(teki+6,-200000,0,0);
+	CharPos(teki+6,1425,-150,0);
+	ch[420] = 3;
+	KaguTest(12005,teki+6);
+	
+	Message(0,"There's a trigger somewhere.","","","");
+	
+	TekiStop(0);
+
+}
+ 

@@ -1,0 +1,6 @@
+
+int main()
+{
+	Message(0,"Drinks, dishes and... a shovel?","","","");
+	Message(0,"It's a mining town all right...","","","");
+}

@@ -1,0 +1,108 @@
+
+int main()
+{
+	ch[400] = 17;
+	ch[2317] = 1;
+	
+	// 会話
+	//パリン
+	Message(0,"There you are! You're safe!","","","");
+	//プク
+	Message(17,"Glad you're OK, Parin.","","","");
+	Message(17,"I returned as the village","was being attacked.","","");
+	Message(17,"Pino, Poco and I escaped,","but we got separated.","","");
+	//パリン
+	Message(0,"I see.","","","");
+	//プク
+	Message(17,"Parin, can you","look for them?","","");
+	Message(17,"This place is so unfamiliar, and","I'm not good with humans...","","");
+
+	//⇒まだ誰も見つけていない場合
+	
+	if (!ch[2328] && !ch[2329])
+	{
+		// まだ誰もみつけていない
+		//パリン
+		Message(0,"I'll look for them, Puku.","","","");
+		//プク
+		Message(17,"Thank you.","I'll be back at the village.","","");
+	}
+	if (ch[2328] && !ch[2329])
+	{
+		// ポコだけみつけている
+		//パリン
+		Message(0,"I just found Poco.","","","");
+		Message(0,"Pino is still gone.","","","");
+		//プク
+		Message(17,"Please find her.","I'll be back at the village.","","");
+		//パリン
+		Message(0,"Ok, I'll look for her.","","","");
+	}
+	if (!ch[2328] && ch[2329])
+	{
+		// ピノだけみつけている
+		//パリン
+		Message(0,"I just found Pino.","","","");
+		Message(0,"Poco is still gone.","","","");
+		//プク
+		Message(17,"Please find him.","I'll be back at the village.","","");
+		//パリン
+		Message(0,"Ok, I'll look for him.","","","");
+	}
+	if (ch[2328] && ch[2329])
+	{
+		// 両方ともみつけている
+		//パリン
+		Message(0,"I found both of them.","They're at the village.","","");
+		//プク
+		Message(17,"Really? Great.","I'll go back too.","","");
+		//パリン
+		Message(0,"OK.","","","");
+	}
+	
+	// パリン避ける
+	ch[424] = 4050;
+	ch[425] = 1600;
+	ch[426] = 7;
+	KaguTest(30061,0);
+	KaguTest(30060,0);
+	Walk(ch[421],ch[422],ch[423]);
+	ch[429] = 0;
+	KaguTest(30039,0);
+	Wait(ch[423]);
+
+	// 兄たま逃亡
+	ch[420] = 17;
+	KaguTest(30063,0); // パリンは兄たまをみつめる
+	ch[400] = 117;
+	ch[424] = 3820;
+	ch[425] = 1525;
+	ch[420] = 1;
+	ch[426] = 12;
+	KaguTest(30061,0);
+	KaguTest(30060,17);
+	Walk2(17,ch[421]*2,ch[422]*2,ch[423]/2);
+	ch[429] = 0;
+	KaguTest(30039,0);
+	Wait(ch[423]/2);
+	KaguTest(30061,0);
+	ch[424] = 2720;
+	ch[425] = 1050;
+	ch[420] = 1;
+	ch[426] = 12;
+	KaguTest(30060,17);
+	if (ch[423] - 15 < 1)
+	{
+		ch[423] = 1;
+	}
+	Walk2(17,ch[421]*2,ch[422]*2,ch[423] / 2);
+	ch[429] = 0;
+	KaguTest(30039,0);
+	Wait((ch[423] / 2) - 15);
+	ch[420] = 3;
+	KaguTest(30064,17);
+	Wait(15);
+	CharPos(17,-200000,0,0);
+	KaguTest(30063,-1,);	
+	ch[400] = -1;
+}

@@ -1,0 +1,42 @@
+
+int main()
+{
+	TekiStop(1);
+	ch[420] = 400;
+	Event(1201);
+	KaguTest2(30025,0,"@ksk05_121");
+	KaguTest(20068,3);
+	GetItem(3);
+	Mes("You got the ~Fire Parts.~");
+	SE(956);
+//	Soubi(3);
+	Wait(60);
+	ch[2151]=1;
+
+	if (!ch[2105])
+	{
+		ch[2105] = 1;
+		// チュートリアル表示
+		KaguTest(10006,0);
+		KaguTest(10007,7);
+		KaguTest2(10009,0,"tute_22.bmp");
+		ch[423] = 128;
+		ch[424] = 8;
+		ch[425] = 353;
+		ch[426] = 264;
+		ch[427] = 0;
+		ch[428] = 0;
+		ch[429] = 225;
+		ch[430] = 256;
+		ch[431] = 256;
+		SE(399);
+		KaguTest(10010,10);
+		Wait(10);
+		Message(0,"","","","");
+		ch[420] = 0;
+		KaguTest(10011,10);
+		Wait(10);
+	}
+	
+	TekiStop(0);
+}

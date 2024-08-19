@@ -1,0 +1,23 @@
+
+int main()
+{
+	MapEvent(0);
+	Walk(8,0,5);
+	Black(0,100,5);
+	Wait(5);
+	Event(4);
+//	Scop(0);
+	Camera(0,-290,221,265);
+	ch[421] = -290;
+	ch[422] = 221;
+	ch[423] = 265;
+	KaguTest(30010,0);
+	Camera(-1,0,0,0);					
+	Walk(0,5,18);
+	Black(0,100,0);
+	Wait(5);
+	Black(0,0,13);
+	Wait(13);
+	MapEvent(1);
+}
+ 

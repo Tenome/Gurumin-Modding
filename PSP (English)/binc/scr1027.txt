@@ -1,0 +1,32 @@
+
+int main()
+{
+	if (ch[2520])
+	{
+		MapEvent(0);
+		Walk(-8,2,11);
+		Black(0,100,11);
+		Wait(11);
+	}
+	else
+	{
+		ch[2520] = 1;
+		Black(0,100,0);
+	}
+	CharPos(0,2535,-614,-600);
+	ch[3753] = 1;
+	LoadMap(601);
+	KaguTest(10600,ch[1107]-2260);
+	KaguTest2(10012,0,StageMMV(ch[420]));
+	Wait(15);
+	Walk(-5,2,15);
+	Black(0,0,15);
+	Wait(15);
+	KaguTest(10600,ch[1107]-2260);
+	MMV(StageMMV(ch[420]));
+	KaguTest2(10012,1,StageMMV(ch[420]));
+//	Event(237);
+	TekiStop(0);
+	ch[300] = 1;
+	MapEvent(1);
+}

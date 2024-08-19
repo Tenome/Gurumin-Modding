@@ -1,0 +1,49 @@
+
+int main()
+{
+	int ln;
+	int x;
+	int y;
+	int z;
+	
+	TekiStop(1);
+	ln = Door2C(1);
+	GetCharPos(ln,x,y,z);
+	SaveCamera();
+	ch[420] = 100000;
+	ch[427] = 2+4;
+	KaguTest(30015,1);
+	Walk2(58,0,-8,180);
+	ch[429] = 0;
+	KaguTest(30039,0);
+	Walk2(59,0,-8,180);
+	ch[429] = 0;
+	KaguTest(30039,0);
+	Walk2(60,0,-8,180);
+	ch[429] = 0;
+	KaguTest(30039,0);
+	Walk2(61,0,-8,190);
+	ch[429] = 0;
+	KaguTest(30039,0);
+	ch[420] = 2700;
+	ch[421] = 0;
+	KaguTest(30070,58);
+	KaguTest(30070,59);
+	KaguTest(30070,60);
+	KaguTest(30070,61);
+
+	Wait(30);
+	SE(950);
+	Camera(ln,3681,-1435,900);
+	CrossFade();
+	Wait(30);
+	Event(357);
+	Wait(90);
+	Camera(-1,0,0,0);
+	RestoreCamera();
+	CrossFade();
+	Wait(15);
+	ch[264] = 1;
+	TekiStop(0);
+}
+ 

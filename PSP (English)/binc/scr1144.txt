@@ -1,0 +1,155 @@
+
+int main()
+{
+	if (!ch[300])
+	{
+		ch[50] = 1;
+		if (ch[2539])
+		{
+			// 王子戦に飛ぶか選択できる
+			WaitD(0);
+			SelStart(50);
+			SelText("Fight Giga",1);
+			SelText("Fight the Prince",2);
+			SelEnd();
+		}
+		
+		if (ch[50] == 2)
+		{
+			// 王子戦に飛ぶ
+			Black(0,100,30);
+			Wait(30);
+
+			LoadMapB(306);
+			KaguTest2(10012,0,"boss06.mmv");
+			KaguTest2(30014,0,"@tokaron");
+			KaguTest2(30014,0,"@monyo");
+			KaguTest2(30014,0,"@magicbelt1");
+			KaguTest2(30014,0,"@magicbelt2");
+			SetSavePos2(306,-3150,-3375,-1125);
+			CharPos(12,-200000,0,0);
+			CharPos(78,0,675,0);
+			CharPos(0,0,-300,0);
+			BGM(31);
+
+			Event(160);
+			LiftEnable(0);
+			ch[300] = 1;
+			ch[301] = 1;
+			Black(0,0,15);
+			Wait(15);
+		//	Mes("王子戦闘予定");
+		//	Wait(60);
+		//	White(0,100,15);
+		//	Wait(15);
+		//	Event(106);
+			MMV("boss06.mmv");
+			KaguTest2(10012,1,"boss06.mmv");
+			
+			return 0;
+		}
+	
+		if (!ch[1571])
+		{
+			// リフト位置関連フラグ
+//			ch[2502] = 1;
+
+			Black(0,100,30);
+			Wait(30);
+			Lock();
+//			Scop2(58,1,"scop.it3");
+
+
+//			PlayMovie("nise.txt",ch[1570]);
+			Mouse(0);
+			KaguTest(20065,45);
+			PlayMovie("kdo_3_2.txt",ch[1570]);
+			Black(0,100,0);
+			Wait(5);
+//			Black(0,0,15);
+			Walk(0,5,1);
+			KaguTest(30057,0);
+			Mouse(1);
+//			BGM(19);//仮で洞窟ボスの曲
+			ch[1570] = 1;
+
+			LoadMapB(306);
+			SetSavePos2(306,-3150,-3375,-1125);
+//			BGM(19);
+			CharPos(0,0,-600,0);
+
+			TekiStop(1);
+	//		LiftEnable(0);
+			Black(0,100,0);
+			MapEvent(0);
+			ResetFade();
+			Black(0,0,30);	
+
+	//		CharPos(10,-500001,0,0);
+	//		CharPos(58,0,0,0);
+
+			Unlock();
+	//		LoadMap(306);
+
+
+			//Mes("イベント「偽パリン戦」");
+			
+			// リフトの移動
+			Event(160);
+
+			// 偽パリン戦やったフラグ	
+			ch[1570] = 1;
+			// 二度実行防止フラグ
+			ch[300] = 1;
+
+			// ゲームオーバー時用のリフト位置フラグ
+//			ch[2502] = 0;
+
+			MapEvent(1);
+
+			CharPos(10,-500001,0,0);
+	// モンスター_MONSHITO取得して配置
+		KaguTest(20020,0);
+	//		CharPos(ch[425],0,-300,0);
+			CharPos(ch[425],0,700,0);
+			KaguTest(30028,ch[425]);
+
+//			Scop2(ch[425],1,"scop.it3");
+
+//			KaguTest2(30013,50001,"fall_atari_ue");
+			TekiStop(0);
+		}
+		else
+		{
+			TekiStop(1);
+			
+			Black(0,100,30);
+			Wait(30);
+			CharPos(0,0,-600,0);
+
+			KaguTest(20020,0);
+	//		CharPos(ch[425],0,-300,20);
+			CharPos(ch[425],0,700,0);
+			KaguTest(30028,ch[425]);
+			
+//			Scop2(ch[425],1,"scop.it3");
+			ch[300] = 1;
+
+//			KaguTest2(30013,50001,"fall_atari_ue");
+			BGM(45);
+			
+			Look(ch[425],0);
+			Look(0,ch[425]);
+
+			TekiStop(0);
+			Black(0,0,30);
+			
+			Event(160);
+		}
+		MMV("boss05.mmv");
+	}
+
+//	SetSavePos2(306,0,-1050,-450);
+
+	LiftEnable(0);
+}

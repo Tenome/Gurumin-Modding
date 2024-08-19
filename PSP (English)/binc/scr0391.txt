@@ -1,0 +1,7 @@
+
+int main()
+{
+	ch[400] = 12;
+	Message(12,"I think things are going to be fine","with me and the other monsters.","","");
+	ch[400] = -1;
+}

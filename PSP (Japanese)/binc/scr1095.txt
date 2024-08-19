@@ -1,0 +1,119 @@
+
+int main()
+{
+	int leftgp;
+	int paygp;
+	
+	TekiStop(1);
+	
+	KaguTest(99993,0);
+	if (ch[424])
+	{
+		Message(0,"もう使えないみたいね","","","");
+		TekiStop(0);
+		return 0;
+	}
+	
+	if (ch[3975] == 0)
+	{
+		ch[3975] = 100;
+	}
+	ch[3976] = ch[3975];
+	Message(0,"服の自動販売機みたいね","","","");
+
+	KaguTest(20035,65500);
+	string str;
+	str = "￥" + ch[420] + "で買う";
+	SelStart(50);
+	SelText(str,1);
+	SelText("買わない",2);
+	SelEnd();
+	
+	if (ch[50] == 1)
+	{
+		// 金チェック
+		if (GetGP() < ch[420])
+		{
+			// 買えない
+			Message(0,"お金が足りないわ","","","");
+			TekiStop(0);
+			return 0;
+		}
+		
+		// 宝箱出す
+		SE(893);
+		SetGP(GetGP() - ch[420]);
+		ch[2502] = 1;
+
+		Wait(15);
+
+		SaveCamera();
+
+		// クリアフラグチェック
+		KaguTest(99993,0);
+		if (!ch[424])
+		{
+			// クリアフラグ立てる
+			KaguTest(99992,3);
+
+			// 着替え場所に移動する
+			ch[424] = -510;
+			ch[425] = 1950;
+			ch[426] = 16;
+			KaguTest(30061,0);
+			KaguTest(30060,0);
+			Walk(ch[421],ch[422],ch[423]);
+			KaguTest(30039,0);
+			Wait(ch[423]);
+			ch[424] = -725;
+			KaguTest(30061,0);
+			KaguTest(30060,0);
+			Walk(ch[421],ch[422],ch[423]);
+			KaguTest(30039,0);
+			Wait(ch[423]);
+
+			// 着替える
+			Black(0,100,15);
+			Wait(20);
+			KaguTest(20070,4);
+			ReloadChar();
+			SE(565);
+			Wait(75);
+			Walk(5,0,15);
+			Black(0,0,15);
+			Wait(15);
+
+			// メッセージ
+			SE(564);
+			KaguTest2(10008,0,"新しいコスチュームが追加されました。");
+			KaguTest2(10008,1,"クローゼットで着替えることが出来ます。");
+			KaguTest(20000,60);
+			Wait(60);
+		}
+
+//		ch[420] = 350;
+//		ch[421] = 1950;
+//		ch[422] = 520;
+//		ch[423] = -750;
+//		ch[424] = 1950;
+//		ch[425] = 180;
+//		KaguTest(30019,1);
+//		CrossFade();
+//		Wait(15);
+
+//		int ln;
+//		ln = Takara2C(2503);
+//		CharPos(ln,-750,1950,150);
+//		SE(566);
+//		KaguTest(30018,ln);
+//		Wait(60);
+
+//		KaguTest(30019,0);	
+//		RestoreCamera();
+//		CrossFade();
+	}
+	
+	TekiStop(0);
+	return 0;
+}
+ 

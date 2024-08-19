@@ -1,0 +1,6 @@
+
+int main()
+{
+	Message(0,"~Atomic Fusionator 576AX v.2~","","","");
+	Message(0,"Great name. Too ","bad it doesn't work.","","");
+}

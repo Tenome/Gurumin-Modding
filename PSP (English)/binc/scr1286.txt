@@ -1,0 +1,11 @@
+
+int main()
+{
+	KaguTest(10006,0);//”­Œ¾‰Šú‰»
+	
+	KaguTest2(10008,0,"The more of these Pictures I find,");
+	KaguTest2(10008,1,"the more I feel like collecting them all! ");
+	
+	KaguTest(10012,0);
+}
+ 

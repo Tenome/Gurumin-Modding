@@ -1,0 +1,13 @@
+
+int main()
+{
+	Look(62,0);
+	Message(62,"Giiiiigaaaa.","","","");
+	Message(0,"That's strange...","‚bouldn't talk in the PC version.","Maybe the collision detection is different...","");
+	Message(62,"Giga giga...","","","");
+	Message(0,"Poor thing.","You can only talk in one place,","and that's all you get to say...","");
+	Message(62,"~You called, master?~","","","");
+	Message(0,"That was your line, right?","","","");
+	Message(62,"Giga giga...","","","");
+	Look(62,18);
+}

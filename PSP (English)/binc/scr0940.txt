@@ -1,0 +1,9 @@
+
+int main()
+{
+	// ƒ‚ƒOƒŒƒk’T‚¹w—ßó‚¯‚Ä‚È‚¢
+	Message(0,"The tree is blocking my way.","","","");
+//	Mes("–Ø‚ª×–‚‚Å’Ê‚ê‚»‚¤‚É‚È‚¢B");
+
+	return 0;
+}

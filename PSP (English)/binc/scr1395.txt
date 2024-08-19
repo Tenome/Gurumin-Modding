@@ -1,0 +1,5 @@
+
+int main()
+{
+	Message(0,"Looks like a famous artist's","work, but I don't get it.","","");
+}

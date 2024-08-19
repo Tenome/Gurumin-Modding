@@ -1,0 +1,9 @@
+
+int main()
+{
+	KaguTest(10006,0);//”­Œ¾‰Šú‰»
+	
+	KaguTest2(10008,0,"Gotta put these up where they'll be easily seen.");
+	
+	KaguTest(10012,0);
+}

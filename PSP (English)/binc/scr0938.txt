@@ -1,0 +1,44 @@
+
+int main()
+{
+	TekiStop(1);
+	ch[420] = 400;
+	Event(1201);
+	ch[420] = -1150;
+	ch[421] = -975;
+	KaguTest2(30025,0,"@ito");
+	KaguTest(20068,14);
+	GetItem(14);
+	Mes("You got the ~Shock Parts.~");
+	SE(956);
+	Wait(40);
+	ch[2150]=1;
+	
+
+	if (!ch[2105])
+	{
+		ch[2105] = 1;
+		// チュートリアル表示
+		KaguTest(10006,0);
+		KaguTest(10007,7);
+		KaguTest2(10009,0,"tute_22.bmp");
+		ch[423] = 128;
+		ch[424] = 8;
+		ch[425] = 353;
+		ch[426] = 264;
+		ch[427] = 0;
+		ch[428] = 0;
+		ch[429] = 225;
+		ch[430] = 256;
+		ch[431] = 256;
+		SE(399);
+		KaguTest(10010,10);
+		Wait(10);
+		Message(0,"","","","");
+		ch[420] = 0;
+		KaguTest(10011,10);
+		Wait(10);
+	}
+
+	TekiStop(0);
+}

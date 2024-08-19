@@ -1,0 +1,45 @@
+
+int main()
+{
+	Message(0,"Books from Dad...","","","");
+	
+	SelStart(50);
+	SelText("Have a Read",1);
+	SelText("Don't read",2);
+	SelEnd();
+	
+	if (ch[50] == 1)
+	{
+		// ‰½‚©–{‚ð“Ç‚Þ
+		switch( rand() % 1)
+		{
+		case 0:
+			KaguTest(10006,0);
+			KaguTest(10007,0);
+			KaguTest2(10008,0,"#s090  Cities of #s170 the World");
+			KaguTest2(10008,1,"");
+			KaguTest2(10008,2,"Tiese#s080Most residents work in the nearby mine.");
+			KaguTest2(10008,3,"#s080Railways once used to haul ore now carry");
+			KaguTest2(10008,4,"#s080curious visitors to this tiny town.");
+			KaguTest2(10008,5,"#s080Could Tiese be the next big tourist attraction?");
+			KaguTest2(10008,6,"#s080Rumors of monsters appearing in the area");
+			KaguTest2(10008,7,"#s080have also piqued people's interest.");
+			KaguTest(10010,10);
+			Wait(10);
+			
+			Message(0,"","","","");
+			
+			KaguTest(10011,10);
+			Wait(10);
+
+			Message(0,"...Pretty boring actually.","","","");
+			break;
+		}
+	}
+	else
+	{
+		Message(0,"Too bad all of them","are so boring...","","");
+	}
+
+}
+ 

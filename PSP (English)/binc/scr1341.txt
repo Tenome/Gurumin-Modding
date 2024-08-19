@@ -1,0 +1,5 @@
+
+int main()
+{
+	Message(0,"I feel like smashing this trashcan.","","","");
+}

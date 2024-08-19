@@ -1,0 +1,487 @@
+
+int main()
+{
+	// クエスト開始
+	ch[2006] = 0;
+	ch[2007] = 1;
+	ch[2008] = 0;
+	ch[2009] = 0;
+	
+	string text;
+	string order;
+	string answer;
+	
+	int kyaku;
+	int seikai;
+	kyaku = 0;
+	seikai = 0;
+
+	KaguTest(12000,3);
+	// 客	
+	// ・プレーン
+	// ・シリンダー
+	// ・ポコ
+	// ・ディスク
+	// ・プチ
+	// ・ハイパボリック
+	
+	// プレーンやってくる
+	kyaku++;
+	KaguTest(12000,13);
+	CharPos(13,0,-450,0);
+	Look(0,13);
+	Look(3,13);
+	Walk2(13,0,7,110);
+	ch[420] = 0;
+	ch[421] = 0;
+	KaguTest(30070,13);
+	Wait(110);
+	Message(0,"May I help you?","","","");
+		// 注文処理
+	switch( rand() % 3)
+	{
+	case 0:
+		order = "IceCream";
+		answer = "IceCream";
+		break;
+	case 1:
+		order = "Crepe";
+		answer = "Crepe";
+		break;
+	case 2:
+		order = "Coffee";
+		answer = "Coffee";
+		break;
+	}
+	Message(13,"Could I have ",""+order+", please?","","");
+	text = Type(300);
+	
+	if (strcmp(text,answer) == 0 || strcmp(text,order) == 0)
+	{
+		seikai++;
+		Message(0,""+order+", coming up!","","","");
+		Wait(15);
+		SE(950);
+		Wait(15);
+		ch[420] = 13;
+		ch[429] = 1;
+		KaguTest(30036,13);
+	}
+	else
+	{
+		if (strcmp(text,"Blank") == 0)
+		{
+			Message(0,"..............","","","");
+			ch[420] = 8;
+			ch[429] = 1;
+			KaguTest(30036,0);
+			Wait(30);
+			ch[420] = 9;
+			ch[429] = 1;
+			KaguTest(30036,13);
+			Wait(30);
+			ch[420] = 4;
+			ch[429] = 1;
+			KaguTest(30036,3);
+			Wait(30);
+		}
+		else
+		{
+			Message(0,""+text+", coming up!","","","");
+			ch[420] = 4;
+			ch[429] = 1;
+			KaguTest(30036,3);
+			Wait(30);
+			ch[420] = 9;
+			ch[429] = 1;
+			KaguTest(30036,13);
+			Wait(30);
+			Message(13,"Just a minute!","I ordered "+order+"!!","","");
+		}
+		Message(13,"Never mind!","I'll come back when","you're not working!","");
+		ch[420] = 9;
+		ch[429] = 1;
+		KaguTest(30036,13);
+	}
+	Walk2(13,0,-7,110);
+	ch[420] = 0;
+	ch[421] = -450;
+	KaguTest(30070,13);
+	Message(0,"Thanks, come again!","","","");
+	KaguTest(20053,0);
+	Wait(ch[420]);
+	CharPos(13,-200000,0,0);
+	ch[420] = 60;
+	KaguTest(12002,13);
+
+
+
+	// シリンダーやってくる
+	kyaku++;
+	KaguTest(12000,15);
+	CharPos(15,0,-450,0);
+	Look(0,15);
+	Look(3,15);
+	Walk2(15,0,7,110);
+	ch[420] = 0;
+	ch[421] = 0;
+	KaguTest(30070,15);
+	Wait(110);
+	Message(0,"Can I help you?","","","");
+		// 注文処理
+	switch( rand() % 3)
+	{
+	case 0:
+		order = "Cake";
+		answer = "Cake";
+		break;
+	case 1:
+		order = "Crepe";
+		answer = "Crepe";
+		break;
+	case 2:
+		order = "Cocoa";
+		answer = "Cocoa";
+		break;
+	}
+	Message(15,"Let me have a ",""+order+"...","","");
+	text = Type(300);
+	
+	if (strcmp(text,answer) == 0)
+	{
+		seikai++;
+		Message(0,""+order+", coming up!","","","");
+		Wait(15);
+		SE(950);
+		Wait(15);
+		ch[420] = 13;
+		ch[429] = 1;
+		KaguTest(30036,15);
+	}
+	else
+	{
+		if (strcmp(text,"Blank") == 0)
+		{
+			Message(0,"..............","","","");
+			ch[420] = 8;
+			ch[429] = 1;
+			KaguTest(30036,0);
+			Wait(30);
+			ch[420] = 9;
+			ch[429] = 1;
+			KaguTest(30036,15);
+			Wait(30);
+			ch[420] = 4;
+			ch[429] = 1;
+			KaguTest(30036,3);
+			Wait(30);
+		}
+		else
+		{
+			Message(0,""+text+", coming up!","","","");
+			ch[420] = 4;
+			ch[429] = 1;
+			KaguTest(30036,3);
+			Wait(30);
+			ch[420] = 9;
+			ch[429] = 1;
+			KaguTest(30036,15);
+			Wait(30);
+			Message(15,"Wait a minute!","I ordered "+order+"!!","","");
+		}
+		Message(15,"Everyone makes mistakes.","Just forget about it today.","","");
+		ch[420] = 9;
+		ch[429] = 1;
+		KaguTest(30036,15);
+	}
+	Walk2(15,0,-7,110);
+	ch[420] = 0;
+	ch[421] = -450;
+	KaguTest(30070,15);
+	Message(0,"Thanks, come again!","","","");
+	KaguTest(20053,0);
+	Wait(ch[420]);
+	CharPos(15,-200000,0,0);
+	ch[420] = 60;
+	KaguTest(12002,15);
+
+
+
+	// ポコやってくる
+//	kyaku++;
+	KaguTest(12000,16);
+	CharPos(16,0,-450,0);
+	Look(0,16);
+	Look(3,16);
+	Walk2(16,0,7,110);
+	ch[420] = 0;
+	ch[421] = 0;
+	KaguTest(30070,16);
+	Wait(110);
+	Message(0,"Can I help you?","","","");
+	ch[420] = 8;
+	ch[429] = 1;
+	KaguTest(30036,3);
+	Wait(30);
+		// 注文処理
+	switch( rand() % 3)
+	{
+	case 0:
+		order = "Shortcake";
+		answer = "Shortcake";
+		break;
+	case 1:
+		order = "Ramen";
+		answer = "Ramen";
+		break;
+	case 2:
+		order = "ChocoCake";
+		answer = "ChocoCake";
+		break;
+	}
+	Message(16,"I want ",""+order+"!","","");
+	text = Type(300);
+	
+	if (strcmp(text,answer) == 0)
+	{
+		seikai++;
+		Message(0,""+order+", coming up!","","","");
+		Wait(15);
+		ch[420] = 8;
+		ch[429] = 1;
+		KaguTest(30036,3);
+		SE(950);
+		Wait(30);
+		ch[420] = 13;
+		ch[429] = 1;
+		KaguTest(30036,16);
+	}
+	else
+	{
+		if (strcmp(text,"Blank") == 0)
+		{
+			Message(0,"..............","","","");
+			ch[420] = 8;
+			ch[429] = 1;
+			KaguTest(30036,0);
+			Wait(30);
+			ch[420] = 9;
+			ch[429] = 1;
+			KaguTest(30036,16);
+			Wait(30);
+//			ch[420] = 4;
+//			KaguTest(30036,3);
+//			Wait(30);
+		}
+		else
+		{
+			Message(0,""+text+", coming up!","","","");
+			ch[420] = 8;
+			ch[429] = 1;
+			KaguTest(30036,3);
+			Wait(30);
+//			ch[420] = 4;
+//			KaguTest(30036,3);
+//			Wait(30);
+			ch[420] = 9;
+			ch[429] = 1;
+			KaguTest(30036,16);
+			Wait(30);
+			Message(16,"Hold it!","I ordered "+order+"!!","","");
+		}
+		Message(16,"Forget it.","Don't you train your staff?","","");
+		ch[420] = 9;
+		ch[429] = 1;
+		KaguTest(30036,16);
+	}
+	Walk2(16,0,-7,110);
+	ch[420] = 0;
+	ch[421] = -450;
+	KaguTest(30070,16);
+	Message(0,"Thanks, come again!","","","");
+	ch[420] = 8;
+	ch[429] = 1;
+	KaguTest(30036,3);
+
+	KaguTest(20053,0);
+	Wait(ch[420]);
+	CharPos(16,-200000,0,0);
+	ch[420] = 23;
+	KaguTest(12002,16);
+
+
+
+	// ハイパボリックやってくる
+	kyaku++;
+	KaguTest(12000,20);
+	CharPos(20,0,-450,0);
+	Look(0,20);
+	Look(3,20);
+	Walk2(20,0,7,110);
+	ch[420] = 0;
+	ch[421] = 0;
+	KaguTest(30070,20);
+	Wait(110);
+	Message(0,"Can I help you?","","","");
+		// 注文処理
+	switch( rand() % 3)
+	{
+	case 0:
+		order = "ChocoCake";
+		answer = "ChocoCake";
+		break;
+	case 1:
+		order = "ApplePie";
+		answer = "ApplePie";
+		break;
+	case 2:
+		order = "Potato";
+		answer = "Potato";
+		break;
+	}
+	Message(20,"I'd like a ",""+order+"...","","");
+	text = Type(300);
+	
+	if (strcmp(text,answer) == 0)
+	{
+		seikai++;
+		Message(0,""+order+", coming up!","","","");
+		Wait(15);
+		SE(950);
+		Wait(15);
+		ch[420] = 13;
+		ch[429] = 1;
+		KaguTest(30036,20);
+	}
+	else
+	{
+		if (strcmp(text,"Blank") == 0)
+		{
+			Message(0,"..............","","","");
+			ch[420] = 8;
+			ch[429] = 1;
+			KaguTest(30036,0);
+			Wait(30);
+			ch[420] = 9;
+			ch[429] = 1;
+			KaguTest(30036,20);
+			Wait(30);
+			ch[420] = 4;
+			ch[429] = 1;
+			KaguTest(30036,3);
+			Wait(30);
+		}
+		else
+		{
+			Message(0,""+text+", coming up!","","","");
+			ch[420] = 4;
+			ch[429] = 1;
+			KaguTest(30036,3);
+			Wait(30);
+			ch[420] = 9;
+			ch[429] = 1;
+			KaguTest(30036,20);
+			Wait(30);
+			Message(20,"Hold it hold it!","I ordered "+order+"!!","","");
+		}
+		Message(20,"My own granddaughter...","such a shame...","","");
+		ch[420] = 9;
+		ch[429] = 1;
+		KaguTest(30036,20);
+	}
+	Walk2(20,0,-7,110);
+	ch[420] = 0;
+	ch[421] = -450;
+	KaguTest(30070,20);
+	Message(0,"Thanks, come again!","","","");
+	KaguTest(20053,0);
+	Wait(ch[420]);
+	CharPos(20,-200000,0,0);
+	ch[420] = 60;
+	KaguTest(12002,20);
+
+
+	// 終了
+	Black(0,100,15);
+	Wait(15);
+	ch[2015] = 0;
+	
+	// ＮＰＣを戻す
+	ch[420] = 60;
+	KaguTest(12002,13);
+	KaguTest(12002,15);
+	ch[420] = 23;
+	KaguTest(12002,16);
+	ch[420] = 22;
+	KaguTest(12002,3);
+	
+	LoadMap(4);
+	CharPos(0,0,190,0);
+	Look(0,3);
+	Black(0,0,15);
+	Wait(15);
+
+	if (seikai > kyaku * 0.75)
+	{
+		// 合格
+		//ファン
+		Message(3,"That's enough for today.","","","");
+
+		//パリン
+		Message(0,"Whew, I'm exhausted...","","","");
+
+		//ファン
+		Message(3,"Heehee. That's the working life!","","","");
+		Message(3,"You did a good job so I'll ","forget what you owe me.","","");
+
+		//パリン
+		Message(0,"But it wasn't...","","","");
+
+		//ファン
+		Message(3,"And here is a little bonus.","","","");
+
+		//システム
+		SE(853);
+		KaguTest(10006,0);
+		KaguTest(10007,1);
+		KaguTest2(10008,0,"Got Picture #8: ~Redone in Clay!~");
+		KaguTest2(10008,2,"It has been added to your Album.");
+		KaguTest2(10008,3,"View it by selecting ~Album~ from the menu.");
+		KaguTest2(10009,0,"kb008s.bmp");
+		KaguTest(10010,10);
+		Wait(10);
+		Message(0,"","","","");
+		KaguTest(10011,10);
+
+		GetItem(2);
+
+		//ファン
+		Message(3,"And no more eating cakes","without paying, you hear?","","");
+
+		//パリン
+		Message(0,"...I told you, it wasn't me!","","","");
+
+		ch[2016] = 1;
+	}
+	else
+	{
+		// 不合格
+		//ファン
+		Message(3,"Parin...","","","");
+
+		//パリン
+		Message(0,"What?","","","");
+
+		//ファン
+		Message(3,"This isn't working...","","","");
+		Message(3,"You can't pay off your debt","working like this!","","");
+
+		//パリン
+		Message(0,"Ugh...","","","");
+		
+		ch[2017] = 1;
+	}
+	ch[2007] = 0;
+	ch[2015] = 0;
+}
+ 

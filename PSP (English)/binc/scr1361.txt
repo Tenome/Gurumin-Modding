@@ -1,0 +1,5 @@
+
+int main()
+{
+	Message(0,"This shelf is all medicine...","But I'm adorable AND healthy,","so I don't need any.","");
+}

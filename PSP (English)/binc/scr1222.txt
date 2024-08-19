@@ -1,0 +1,5 @@
+
+int main()
+{
+	Mes("This lever looks broken.");
+}

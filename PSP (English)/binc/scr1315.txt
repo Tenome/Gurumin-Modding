@@ -1,0 +1,265 @@
+
+int main()
+{
+	int pt;
+	
+	if (ch[301] == 16)
+	{
+		// ポコが呼び出された
+		ch[400] = 58;
+
+		ch[420] = 15;
+		ch[429] = 1;
+		KaguTest(30036,58);
+		
+		KaguTest(12004,16);
+		pt = ch[420];
+		KaguTest(12000,16);
+		ch[420] = 7;
+		ch[421] = 1;
+		ch[422] = 5;
+		KaguTest(12003,ch[301]);
+//		ch[420] = 3;
+//		KaguTest(30064,16);
+		Wait(15);
+		
+		Camera(58,1190,-450,370);
+		CrossFade();
+		Wait(15);
+		
+		SE(950);
+		//番人
+		Message(58,"So you're our entertainer today?","","","");
+		
+		ch[424] = 340;
+		ch[425] = 150;
+		ch[426] = 12;
+		KaguTest(30061,0);
+		KaguTest(30060,0);
+		Walk(ch[421],ch[422],ch[423]);
+		Wait(ch[423]);
+		Look(0,58);
+		
+		//パリン
+		Message(0,"If he can't do it, no one can.","","","");
+
+		ch[420] = 3;
+		KaguTest(30064,16);
+		Wait(25);
+		ch[420] = 2;
+		KaguTest(30064,16);
+		CharPos(16,340,275,0);
+		Look(16,58);
+		Wait(15);
+		//ポコ
+		Message(16,"All right guys!","Ready for my awesome dance?","","");
+		//番人
+		Message(58,"Yes. Quite entertaining.","","","");
+		//パリン
+		Message(0,"See?","Now open the door, please.","","");
+		//番人
+		Message(58,"Very well. You may pass.","","","");
+
+		Camera(-1,0,0,0);
+		ch[420] = 922;
+		ch[421] = -19;
+		ch[422] = 370;
+		ch[423] = -127;
+		ch[424] = 1;
+		ch[425] = 70;
+		KaguTest(30019,1);
+		CrossFade();
+		Wait(15);
+		Event(302);
+		Wait(30);
+		KaguTest(30019,0);
+		Camera(58,1190,-450,370);
+		CrossFade();
+		Wait(15);
+		//ポコ
+		Message(16,"? ? ?","","","");
+		Message(16,"I don't get it.","I'm going home.","","");
+		ch[420] = 3;
+		KaguTest(30064,16);
+		Wait(15);
+
+		CharPos(16,-200000,0,0);
+		ch[2045] = 1;
+		ch[420] = pt;
+		KaguTest(12002,16);
+		KaguTest(30019,0);
+		Camera(-1,0,0,0);
+		
+		ch[400] = -1;
+	}
+	if (ch[301] != 16 && ch[301] != 0)
+	{
+		// 何かが呼び出された
+		ch[400] = 58;
+
+		ch[420] = 15;
+		ch[429] = 1;
+		KaguTest(30036,58);
+		
+		KaguTest(12004,ch[301]);
+		pt = ch[420];
+		KaguTest(12000,ch[301]);
+		ch[420] = 2;
+		ch[421] = 1;
+		ch[422] = 5;
+		KaguTest(12003,ch[301]);
+		ch[420] = 1;
+		KaguTest(30041,ch[301]);
+
+		Wait(15);
+		
+		Camera(58,1190,-450,370);
+		CrossFade();
+		Wait(15);
+		
+		//番人
+		Message(58,"So you're our entertainer today?","","","");
+		
+		ch[424] = 340;
+		ch[425] = 150;
+		ch[426] = 12;
+		KaguTest(30061,0);
+		KaguTest(30060,0);
+
+		Walk(ch[421],ch[422],ch[423]);
+		Wait(ch[423]);
+		Look(0,58);
+		
+		//パリン
+		Message(0,"If he can't do it, no one can.","","","");
+
+		ch[420] = 3;
+		KaguTest(30064,ch[301]);
+		Wait(25);
+		ch[420] = 2;
+		KaguTest(30064,ch[301]);
+		CharPos(ch[301],340,275,0);
+		Look(ch[301],58);
+		Wait(15);
+
+		if (ch[301] == 11)
+		{
+			//チャッキー
+			Look(11,0);
+			Message(11,"What's green and runs?","","","");
+			Message(11,"My nose!","","","");
+
+			Fill(2,0.8);
+			ch[420] = -10000;
+			ch[421] = -10000;
+			ch[422] = 10000;
+			ch[423] = 10000;
+			KaguTest(20054,0);
+			SE(473);
+			Wait(60);
+			Fill(0,0.0);
+			ch[420] = -100000;
+			ch[421] = -100000;
+			ch[422] = -100000;
+			ch[423] = -100000;
+			KaguTest(20054,0);
+
+			//パリン
+			Message(0,"Well?","","","");
+
+			//番人
+			Message(58,"..............","","","");
+			Message(58,"...Oh, all right.","You may proceed.","","");
+
+			Look(11,58);
+		}
+		if (ch[301] == 7)
+		{
+			//イワオ
+			Message(7,"Hey g-guys. I'm Rocko...","","","");
+			Message(7,"Recently been suffering,","from a bit of... e-erosion.","","");
+			Message(7,"As a young boulder I was","hard and craggy, but now...","","");
+			Message(7,"Little bits of me","wash away with the rain","and wind, and I w-weather away...","");
+
+			//番人
+			Message(58,"Excuse me.","Could you please stop?","You are quite depressing.","");
+
+			//パリン
+			Message(0,"Yeah, he's really","a downer today.","","");
+
+			//番人
+			Message(58,"I will open the door.","Please... Go.","","");
+		}
+		if (ch[301] == 6)
+		{
+			//ピエール
+			Message(6,"Bonjour!","Today I'm going to tell you","about how Francois and I met!","");
+			Message(6,"The falling autumn leaves","danced a veritable ballet as","they fell from their trees.","");
+			Message(6,"I left my boarding house and","saw the golden rays of the sun","illuminating the city as if...","");
+
+			//番人
+			Message(58,"Stop. Your story sounds like","it will take forever to tell.","","");
+
+			//パリン
+			Message(0,"And it was getting good too...","","","");
+
+			//番人
+			Message(58,"I will open the door.","Please... Go.","","");
+		}
+//		ch[420] = 2009;
+//		ch[429] = 1;
+//		KaguTest(30036,58);
+//		Wait(30);
+
+		Camera(-1,0,0,0);
+		ch[420] = 922;
+		ch[421] = -19;
+		ch[422] = 370;
+		ch[423] = -127;
+		ch[424] = 1;
+		ch[425] = 70;
+		KaguTest(30019,1);
+		CrossFade();
+		Wait(15);
+		Event(302);
+		Wait(30);
+		KaguTest(30019,0);
+		Camera(58,1190,-450,370);
+		CrossFade();
+		Wait(15);
+
+		if (ch[301] == 11)
+		{
+			//チャッキー
+			Message(11,"? ? ?","","","");
+			Message(11,"...I'm hungry.","I'm going home.","","");
+		}
+		if (ch[301] == 7)
+		{
+			//イワオ
+			Message(7,"? ? ?","","","");
+			Message(7,"I-I'm all tired out.","I'll be going home now.","","");
+		}
+		if (ch[301] == 6)
+		{
+			//ピエール
+			Message(6,"? ? ?","","","");
+			Message(6,"What? No matter.","It's time for my midday snack.","I shall return home.","");
+		}
+
+		ch[420] = 3;
+		KaguTest(30064,ch[301]);
+		Wait(15);
+		CharPos(ch[301],-200000,0,0);
+
+		ch[420] = pt;
+		KaguTest(12002,ch[301]);
+		ch[2045] = 1;
+		
+		Camera(-1,0,0,0);
+		
+		ch[400] = -1;
+	}
+
+	// ブラックビーンはあり得ない
+}

@@ -1,0 +1,114 @@
+
+int main()
+{
+//	Mes("偽パリン倒した");
+
+//	Wait(100);
+	// クリア表示
+//	MapEvent(0);
+//	TekiStop(1);
+
+	KaguTest(40002,0);
+
+//	White(0,0,30);
+//	Wait(30);
+	
+	// デバッグ
+	if (ch[3982] == 1)
+	{
+		// 純粋ボスラッシュ中
+//		ch[1790]++;
+//		ch[1791] = 100;
+		KaguTest(20051,0);
+		Scop(0);
+		Scop(1);
+		
+		LoadMapB(307);
+		CharPos(18,235,75,6555);
+		CharPos(0,2100,0,6535);
+		ch[301] = 1;
+		
+		Black(0,0,30);
+		Wait(30);
+		SetSavePos2(207,0,0,0);	// 死んだら手巣とマップに戻れ
+//		BGM(7);
+		return 0;
+	}
+	if (ch[3982] == 2)
+	{
+		// シナリオボスラッシュ中
+//		ch[1790]++;
+//		ch[1791] = 100;
+		KaguTest(20051,0);
+		Scop(0);
+		Scop(1);
+		
+//		PlayMovie("nise2.txt",1);
+		ch[1513] = 1;
+		ch[1509] = 1;
+		Wait(10);
+//		PlayMovie("skowa2.txt",1);
+		ch[1510] = 1;
+		ch[1511] = 1;
+		Wait(10);
+//		PlayMovie("lasboss.txt",1);
+		ch[1514] = 1;
+		Wait(10);
+		
+		LoadMapB(307);
+		CharPos(18,235,75,6555);
+		CharPos(0,2100,0,6535);
+		ch[301] = 1;
+		
+		Black(0,0,30);
+		Wait(30);
+		SetSavePos2(207,0,0,0);	// 死んだら手巣とマップに戻れ
+//		BGM(7);
+		return 0;
+	}
+	// デバッグここまで
+	// 評価表示
+//	BGM(0);
+	KaguTest(10500,120);
+		
+	if (ch[2267] < 1)
+	{
+		ch[2267]=1;
+	}
+		
+	Wait(90);
+		
+	Message(0,"","","","");
+	
+
+	// ボス倒したことがある場合はそのまま退出
+	if (ch[1513])
+	{
+		Black(0,100,30);
+		Wait(30);
+		KaguTest(10011,5);
+		Wait(5);
+		KaguTest(10100,0);
+		KaguTest(99999,0);
+		TekiStop(0);
+		MapEvent(1);
+		return 0;
+	}	
+
+	TekiStop(0);
+
+	White(0,100,30);
+	Wait(30);
+	KaguTest(10011,5);
+	Wait(5);
+//	PlayMovie("yama_b1.txt",0);
+	Mouse(0);
+	KaguTest(20065,14);
+	PlayMovie("yam_3_3.txt",0);
+	
+	// エッグプラントへの道開けるイベント出す
+	PostScr(1240);
+	SetWaku(1);
+	KaguTest(99999,1);
+	Wait(15);
+}

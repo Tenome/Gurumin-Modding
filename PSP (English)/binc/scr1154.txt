@@ -1,0 +1,555 @@
+
+int main()
+{
+	int mg;
+	string str;
+	int nukeru;
+	int nukeru2;
+	int map;
+	nukeru = 0;
+	mg = 0;
+
+	KaguTest(20010,0);
+	map = ch[420];
+	ch[400] = 4;
+	if (ch[2526] && !ch[2527])
+	{
+		//ペケ
+		Message(4,"Hey, I'm having Doug and his brother","help with rebuilding the village.","","");
+		Message(4,"I just called them, so","they should arrive soon.","","");
+		nukeru = 1;
+	}
+	if (ch[2524] && !ch[2525])
+	{
+		// ペケにスポンサーを依頼
+		ch[2525] = 1;
+		ch[400] = 4;
+		
+		KaguTest(20008,0);
+		ch[2039] = ch[430];
+		
+		if (ch[2528])
+		{
+			Message(4,"What do you want?","","","");
+		}
+		else
+		{
+			//ペケ
+			Message(4,"Something you want?","","","");
+		}
+		ch[2528] = 1;
+		Message(0,"Actually...","","","");
+		Black(0,100,15);
+		Wait(30);
+		Black(0,0,15);
+		//ペケ
+		Message(4,"Me? Sponsor the Monster","Village construction?","","");
+		Message(4,"Ok, I don't mind.","","","");
+		//パリン
+		Message(0,"Well that was easy.","","","");
+		
+		if (ch[3957])
+		{
+			// ポポン中
+			//ペケ
+			Message(4,"Can hardly say ~no~ to","such a cute little girl.","","");
+			Message(4,"But here's the catch.","I'm extremely bored.","You must entertain me.","");
+
+			//パリン
+			Message(0,"Cute? Got that right.","Entertain you how?","","");
+
+			//ペケ
+			Message(4,"This time, let's play","a little game, shall we?","","");
+
+			//パリン
+			Message(0,"A game?","I wonder...","","");
+			ch[2554] = 1;
+		}
+		else
+		{
+			//ペケ
+			Message(4,"You've got the drill kid.","You're the boss.","","");
+			Message(4,"Just one catch...","","","");
+			//パリン
+			Message(0,"What?","","","");
+			//ペケ
+			Message(4,"Lately, I've been","extremely bored.","","");
+			Message(4,"I want you to","make me laugh.","","");
+			//パリン
+			Message(0,"Make you laugh?","...How?","","");
+			ch[400] = -1;
+			return 0;
+		}
+	}
+
+	ch[2528] = 1;
+	if (ch[2525] && !ch[2554])
+	{
+		ch[400] = 4;
+		KaguTest(20008,0);
+		nukeru = 1;
+
+		if (ch[430] == ch[2039])
+		{
+			// 初めて会ったときと同じ顔
+			//ペケ
+			Message(4,"Hurry up!","","","");
+			Message(4,"Hurry up and make me","laugh kid!","","");
+			ch[400] = -1;
+			return 0;
+		}
+		// お面系でなければすべて素顔扱い
+		switch(ch[430])
+		{
+		case 37:
+		case 41:
+		case 43:
+		case 44:
+		case 45:
+		case 46:
+		case 47:
+		case 57:
+		case 61:
+		case 62:
+			ch[430] = 0;
+		}
+
+		if ((ch[2039] != 42 && ch[430] == 42) || ((ch[2039] == 42 || ch[2039] == 56) && ch[430] == 0) || (ch[2039] != 56 && ch[430] == 56))
+		{
+			// 正解。
+			ch[2554] = 1;
+			if ((ch[2039] == 42 && ch[430] != 56) || (ch[2039] == 56 && ch[430] != 42))
+			{
+				// 素顔
+				//ペケ
+				Message(4,"...............","","","");
+				Message(4,"Ha...!","","","");
+
+				//パリン
+				Message(0,"? ? ?","","","");
+
+				//ペケ
+				Message(4,"Hahahahaaaa!","That mask is hilarious!","","");
+
+				//パリン
+				Message(0,"...Mask?","","","");
+				Message(0,"This is my real face!!","","","");
+
+				//ペケ
+				Message(4,"Oh... really?","","","");
+
+				//パリン
+				Message(0,"How dare you say something so ","rude to adorable little me!","","");
+				Message(0,"...But you are laughing.","I guess I win huh?","","");
+			}
+			else
+			{
+				// ガスマスク｜おさるの帽子
+				//ペケ
+				Message(4,"...............","","","");
+				Message(4,"Ha...!","","","");
+				Message(4,"Hahahahaaaa!","Your face is hilarious!","","");
+
+				//パリン
+				Message(0,"Yay! You laughed!","","","");
+
+				//ペケ
+				Message(4,"Wow kid. You really gave","me a good laugh there.","","");
+
+				//パリン
+				Message(0,"So I win, right?","","","");
+			}
+			//ペケ
+			Message(4,"That's right kid.","Hah, what a day eh?","","");
+
+			//パリン
+			Message(0,"Now, keep your promise","and sponsor the village.","","");
+
+			//ペケ
+			Message(4,"Uh, no...","","","");
+
+			//パリン
+			Message(0,"What!?","","","");
+
+			//ペケ
+			Message(4,"Changed my mind.","","","");
+			Message(4,"This time, let's play","a little game, shall we?","","");
+
+			//パリン
+			Message(0,"A game?","","","");
+
+			//ペケ
+			Message(4,"If you do well, I'll","sponsor the village.","","");
+			Message(4,"If you're not interested...","just get out of here.","","");
+
+			//パリン
+			Message(0,"You're twisted, know that?","","","");
+
+			//ペケ
+			Message(4,"So... make a choice.","","","");
+		}
+		if (!ch[2554])
+		{
+			if (ch[430] == 40 || ch[430] == 43 || ch[430] == 44 || ch[430] == 46 || ch[430] == 47 || ch[430] == 48 || ch[430] == 56 || ch[430] == 57 || ch[430] == 62 || ch[430] == 21 )
+			{
+				// 不正解。微妙
+				//ペケ
+				Message(4,"...............","","","");
+				Message(4,"Ha...","","","");
+				//パリン
+				Message(0,"You laughed! I saw you!","","","");
+				//ペケ
+				Message(4,"N-no I didn't!","","","");
+				ch[400] = -1;
+				return 0;
+			}
+			if (ch[430] != 42)
+			{
+				// 不正解。だめだめ
+				Message(4,"Try harder kid.","Come again.","","");
+				ch[400] = -1;
+				return 0;
+			}
+		}
+		
+	}
+
+	if (ch[2554] && !ch[2526])
+	{
+		// ミニゲームするか聞く
+		if (ch[2554] == 1)
+		{
+			ch[2554] = 2;
+		}
+		else
+		{
+			//ペケ
+			Message(4,"If you do well, I'll","sponsor the village.","","");
+			Message(4,"Just... get out of here if","you're not interested.","","");
+		}
+		
+		SelStart(50);
+		SelText("Let's see this game.",1);
+		SelText("I don't feel like it.",2);
+		SelEnd();
+		
+		if (ch[50] == 1)
+		{
+			mg = 1;
+		}
+		else
+		{
+			Message(4,"If you're up to it,","just drop by, kid.","","");
+			ch[400] = -1;
+			return 0;
+		}
+		nukeru = 1;
+	}
+
+	if (ch[2497])
+	{
+		return 0;
+	}
+
+	ch[400] = 4;
+	ch[204]++;
+	if (!nukeru)
+	{
+		if (ch[1538])
+		{
+			//ペケ
+			Message(4,"Monster Village is","coming along well, eh?","","");
+			Message(4,"Soon I won't be","needed as sponsor...","It's a little sad...","");
+			ch[400] = -1;
+			return 0;
+		}
+		if (ch[1571] && !ch[1538])
+		{
+			//ペケ
+			Message(4,"That was a big quake eh?","","","");
+			Message(4,"I need to check if","my collections are safe.","","");
+		}
+		if (ch[1513] && !ch[1571])
+		{
+			if (ch[204] < 2)
+			{
+				//ペケ
+				Message(4,"A human hero once asked me","to pay for drill modifications.","","");
+				//パリン
+				Message(0,"What was this hero like?","","","");
+				//ペケ
+				Message(4,"But when he got my bill for","the work, he pretended","he knew nothing about it...","");
+				//パリン
+				Message(0,"That's not nice!","","","");
+			}
+			else
+			{
+				//ペケ
+				Message(4,"A human hero once asked me","to pay for drill modifications.","","");
+				Message(4,"But when he got my bill for","the work, he pretended","he knew nothing about it...","");
+			}
+		}
+		if (ch[1505] && !ch[1513])
+		{
+			if (!ch[2524])
+			{
+				//ペケ
+				Message(4,"I'm extremely bored...","","","");
+				Message(4,"If you hear about anything","fun, let me know kid.","","");
+			}
+			else
+			{
+				//ペケ
+				Message(4,"Since I'm sponsoring you,","I have to cancel my ","mountain summer home.","");
+				Message(4,"I'm very rich, true.","But I watch what I spend.","","");
+			}
+		}
+		if (!ch[1505])
+		{
+			//ペケ
+			Message(4,"Something you want?","","","");
+			Message(4,"I'm Pecky. I own this mansion.","And I'm filthy rich.","","");
+			Message(4,"Lately, it has been extremely","boring. Nothing to do, eh?","","");
+		}
+	}
+	
+	if (ch[2527] && map == 23 && !ch[1538])
+	{
+		// もぐら叩きしたことがある
+		if (ch[2313] < 61)
+		{
+			// なわとび不合格
+			if (ch[2313] == 1)
+			{
+				str = "You didn't whack any moles last time.";
+			}
+			else
+			{
+				str = "Your top score is " + (ch[2313] - 1) + " moles whacked.";
+			}
+				
+			Message(4,"How about some Whack-A-Mole?",str,"","");
+
+			SelStart(50);
+			SelText("Let's play!",1);
+			SelText("I'm kind of busy now...",2);
+			SelEnd();
+				
+			if (ch[50] == 1)
+			{
+				// 飛ぶ
+				Message(4,"Ready to go?","","","");
+				mg = 1;
+			}
+			else
+			{
+				Message(4,str,"","","");
+				Message(4,"Come by again and","entertain me, ok kid?","","");
+			}
+		}
+		else
+		{
+			// もぐら叩き合格済み
+			ch[400] = 4;
+			Message(4,"How about some Whack-A-Mole?",str,"","");
+
+			SelStart(50);
+			SelText("Let's play!",1);
+			SelText("I'm kind of busy now...",2);
+			SelEnd();
+			
+			if (ch[50] == 1)
+			{
+				// ミニゲーム
+				str = "Your top score is " + (ch[2313] - 1) + " moles whacked.";
+				if (!ch[2314])
+				{
+					// 過去ベストが１００叩き以上
+					if (ch[2313] > 100)
+					{
+						Message(4,str,"Let's see you whack 100 again.","","");
+					}
+					else
+					{
+						Message(4,str,"Try to whack 100 this time.","","");
+					}
+				}
+				else
+				{
+					Message(4,str,"Try to beat your record, kid.","","");
+				}
+					// 飛ぶ
+				mg = 1;
+			}
+			else 
+			{
+				if (ch[50] != 2 && ch[50] != 1)
+				{
+					str = "Your top score is " + (ch[2313] - 1) + " moles whacked.";
+					Message(4,"You've whacked ",str,"","");
+					Message(4,"Come by again, eh?","","","");
+				}
+			}
+
+		}
+	}
+	
+	ch[400] = -1;
+	
+	if (ch[1538])
+	{
+		return 0;
+	}
+	
+	if (mg)
+	{
+		// ミニゲームする
+		ch[2145] = 0;
+
+		Camera(4,-37,850,370);
+		CrossFade();
+		Wait(10);
+
+		ch[424] = 100;
+		ch[425] = -300;
+		ch[426] = 12;
+		KaguTest(30060,0);
+		ch[400] = 104;
+		Walk(ch[421],ch[422],ch[423]);
+		Wait(ch[423]);
+		KaguTest(30061,0);
+		KaguTest(30062,0);
+		Look(0,4);
+		ch[420] = 4;
+		KaguTest(30063,0);
+		ch[424] = 0;
+		ch[425] = -1075;
+		ch[426] = 12;
+		KaguTest(30060,4);
+		if (ch[423] < 2)
+		{
+			ch[423] = 2;
+		}
+		Walk2(4,ch[421]*2,ch[422]*2,ch[423]/2);
+		Wait(ch[423]/2);
+		KaguTest(30061,4);
+		ch[424] = 450;
+		ch[425] = -900;
+		ch[426] = 12;
+		KaguTest(30060,4);
+		if (ch[423] < 2)
+		{
+			ch[423] = 2;
+		}
+		Walk2(4,ch[421]*2,ch[422]*2,ch[423]/2);
+		Wait(ch[423]/2);
+		KaguTest(30061,4);
+		ch[424] = 675;
+		ch[425] = -825;
+		ch[426] = 12;
+		KaguTest(30060,4);
+		Camera(0,-1575,-250,1300);
+		if (ch[423] < 2)
+		{
+			ch[423] = 2;
+		}
+		Walk2(4,ch[421]*2,ch[422]*2,ch[423]/2);
+		Wait(ch[423]/2);
+		Look(4,0);
+		Wait(10);
+		Event(231);
+		SE(474);
+		SE(475);
+		Wait(45);
+		
+//		Black(0,100,15);
+//		Wait(15);
+		ch[2144] = 1800;
+		ch[2497] = 1;
+//		Camera(-1,0,0,0);
+//		LoadMap(23);
+		Event(232);
+		CharPos(4,675,-825,75);
+//		CharPos(58,-150,450,0);
+//		CharPos(59,150,450,0);
+		
+		CharPos(0,0,-300,0);
+		Camera(4,-825,-50,370);
+		CrossFade();
+		KaguTest(30063,-1);
+		Look(0,4);
+		Look(58,0);
+		Look(59,0);
+		Look(4,0);
+		KaguTest(12000,58);
+		KaguTest(12000,59);
+		KaguTest(12001,58);
+		KaguTest(12001,59);
+		CrossFade();
+		Wait(15);
+		Black(0,0,15);
+		Wait(15);
+
+		ch[400] = 4;
+		int gonum;
+		string gotxt;
+		if (ch[455] == 1)
+		{
+			// ビギナー
+			gonum = 40;
+		}
+		if (ch[455] == 0)
+		{
+			// ノーマル
+			gonum = 50;
+		}
+		if (ch[455] == 2)
+		{
+			// ハード以上
+			gonum = 60;
+		}
+		gotxt = "You need to whack "+gonum+" or more moles";
+		
+		KaguTest(30141,543);
+		KaguTest(30141,545);
+		KaguTest(30141,546);
+		KaguTest(30141,547);
+
+		if (ch[2313] < gonum + 1)
+		{
+			// 合格してない時
+			Message(4,"Here are the rules, kid.","","","");
+			Message(4,"Whack as many moles","as you can in one minute.","","");
+			Message(4,gotxt,"to pass, ok kid?","","");
+		}
+		else
+		{
+			// 合格している時
+			Message(4,"Whack as many moles","as you can in one minute.","","");
+		}
+		Message(4,"Ready? Get to whacking!","","","");
+		Wait(10);
+//		Camera(0,0,-900,370);
+		Camera(-1,0,0,0);
+		CrossFade();
+//		KaguTest(12000,58);
+//		KaguTest(12000,59);
+//		KaguTest(12001,58);
+//		KaguTest(12001,59);
+		Wait(15);
+		ch[3982] = 4;
+		ch[400] = -1;
+		
+		// テクスチャ読み込んでおく
+		KaguTest2(10009,0,"minigm.iti");
+		
+		Wait(90);
+		Camera(-1,0,0,0);
+		CrossFade();
+		BGM(10);
+		ch[2061] = 1;
+	}
+	
+	return 0;
+}
+ 

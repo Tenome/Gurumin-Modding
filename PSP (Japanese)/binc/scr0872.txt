@@ -1,0 +1,88 @@
+
+int main()
+{
+	MapEvent(0);
+	WaitD(0);
+	if (ch[2057] && ch[2300])
+	{
+		// 入れる
+		Message(0,"あれ？何か書いてある","","","");
+		KaguTest(20001,2);
+		if (ch[430] < 9)
+		{
+			Message(0,"「中に入りたければ","合言葉を答えよ。」？","","");
+		}
+		else
+		{
+			Message(0,"「壁紙を全て集めたようだな。","合言葉を答えよ。」？","","");
+		}
+		string txt;
+		txt = Type(600);
+		if (strcmp(txt,"やるしかないわね") == 0)
+		{
+			// 正解
+			TekiStop(1);
+			Black(0,100,15);
+			Wait(15);
+			Event(113);
+			int x;
+			int y;
+			int z;
+			int i;
+			
+			for (i = 58;i < 66;i++)
+			{
+				GetCharPos(i,x,y,z);
+				if (x > -20000)
+				{
+					ch[420] = 2;
+					KaguTest(12005,i);
+					// 全員待機させる
+					ch[420] = 2;
+					ch[421] = 1;
+					ch[422] = 5;
+					KaguTest(12003,i);
+					ch[420] = -1;
+					Look(i,18);
+					KaguTest(12002,i);
+				}
+			}
+			Wait(5);
+			Black(0,0,15);
+			TekiStop(0);
+		}
+		else
+		{
+			// 駄目
+			Message(0,"……………………","","","");
+			Message(0,"合言葉が違うみたいね","","","");
+			KaguTest(30058,0);
+			while(ch[420])
+			{
+				Walk(ch[421],ch[422],ch[423]);
+				Wait(ch[423]);
+				KaguTest(30058,0);
+			}
+
+			Walk(8,-8,11);					
+			Wait(11);					
+		}
+	}
+	else
+	{
+		Message(0,"鍵がかかっていて入れないわ","","","");
+
+		KaguTest(30058,0);
+		while(ch[420])
+		{
+			Walk(ch[421],ch[422],ch[423]);
+			Wait(ch[423]);
+			KaguTest(30058,0);
+		}
+
+		Walk(8,-8,11);					
+		Wait(11);					
+	}
+	MapEvent(1);					
+}
+ 

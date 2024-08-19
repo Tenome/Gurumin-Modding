@@ -1,0 +1,1121 @@
+
+int main()
+{
+	ch[400] = 58;
+	ch[258]++;
+
+	KaguTest(12004,58);
+	if (ch[420] != 98)
+	{
+		// ルーチン変更
+		KaguTest(12000,58);
+		ch[420] = 98;
+		KaguTest(12002,58);
+		ch[420] = 58;
+		ch[421] = 15;
+		KaguTest(20044,42);
+	}
+
+	{
+		ch[302] = 1;
+		// マップによって変える
+		int map;
+		KaguTest(20010,0);
+		map = ch[420];
+		
+		if (map == 109)
+		{
+			// 遺跡裏１
+			if (ch[2041])
+			{
+				// クリア済み
+				//番人
+				Message(58,"You may pass.","","","");
+			}
+			else
+			{
+				// 初番人
+				if (ch[258] < 2)
+				{
+					//番人
+					Message(58,"If you want to pass, you","must show me your power!","","");
+				}
+				else
+				{
+					if (ch[258] < 3)
+					{
+						//番人
+						Message(58,"Something wrong?","Again...","","");
+						Message(58,"If you want to pass, you","must show me your power!","","");
+					}
+					else
+					{
+						//番人
+						Message(58,"If you want to pass, you","must show me your power!","","");
+						Message(58,"...You do not understand?","","","");
+						Message(58,"All right then.","You may buy a hint for \1,000.","","");
+						
+						SelStart(50);
+						SelText("Pay \1,000",1);
+						SelText("Don't pay",2);
+						SelEnd();
+						
+						if (ch[50] == 1)
+						{
+							if (GetGP() < 1000)
+							{
+								// 足りない
+								Mes("You don't have enough.");
+							}
+							else
+							{
+								SetGP(GetGP() - 1000);
+								SE(893);
+								//番人
+								Message(58,"Sure you're up to this?","","","");
+								Message(58,"Special moves! That's it!","Just show me one of them.","","");
+							}
+						}
+						else
+						{
+							//番人
+							Message(58,"If you want to pass, you","must show me your power!","","");
+						}
+					}
+				}
+				ch[420] = 58;
+				ch[421] = 2;
+				KaguTest(20044,1);
+			}
+		}
+		if (map == 114)
+		{
+			// 遺跡裏２
+			string kotae;
+			kotae = "CHILL";
+			switch(ch[2078])
+			{
+			case 0:
+				kotae = "CHILL";
+				break;
+			case 1:
+				kotae = "DRILL";
+				break;
+			case 2:
+				kotae = "STILL";
+				break;
+			case 3:
+				kotae = "SPILL";
+				break;
+			case 4:
+				kotae = "SKILL";
+				break;
+			}
+			
+			if (ch[2040])
+			{
+				//番人
+				Message(58,"You may pass.","","","");
+			}
+			else
+			{
+				// 初番人
+				if (ch[258] < 2 || ch[300])
+				{
+					Message(58,"If you want the door to open,","speak the password.","","");
+				}
+				else
+				{
+					if (ch[258] < 3)
+					{
+						//番人
+						Message(58,"Something wrong?","Again...","","");
+						Message(58,"If you want the door to open,","speak the password.","","");
+					}
+					else
+					{
+						//番人
+						Message(58,"If you want the door to open,","speak the password.","","");
+						Message(58,"...You do not understand?","","","");
+						Message(58,"All right then.","You may buy a hint for \1,000.","","");
+
+						SelStart(50);
+						SelText("Pay \1,000",1);
+						SelText("Don't pay",2);
+						SelEnd();
+						
+						if (ch[50] == 1)
+						{
+							if (GetGP() < 1000)
+							{
+								// 足りない
+								Mes("You don't have enough.");
+								ch[400] = -1;
+								return 0;
+							}
+							else
+							{
+								SetGP(GetGP() - 1000);
+								SE(893);
+								//番人
+								Message(58,"Thank you.","","","");
+								Message(58,"Listen to my brother","and you will understand.","","");
+								Message(58,"Just remember that the","password will change.","","");
+								Message(58,"The current password is:",""+kotae+".","","");
+								ch[400] = -1;
+								ch[300] = 1;
+								return 0;
+							}
+						}
+						else
+						{
+							//番人
+							Message(58,"If you want the door to open,","speak the password.","","");
+						}
+					}
+				}
+				string type;
+				type = Type(600);
+				if (strcmp(type,kotae) == 0)
+				{
+					SE(950);
+					//番人
+					Message(58,""+type+"....","Correct!","","");
+					Message(58,"You may pass.","","","");
+
+					SaveCamera();
+										
+					Event(302);
+					Wait(30);
+					Camera(-1,0,0,0);
+					RestoreCamera();
+					CrossFade();
+					ch[2040] = 1;
+					CharPos(59,-200000,0,0);
+					CharPos(60,-200000,0,0);
+					CharPos(61,-200000,0,0);
+					CharPos(62,-200000,0,0);
+					CharPos(63,-200000,0,0);
+					CharPos(64,-200000,0,0);
+				}
+				else
+				{
+					if (strcmp(type,"Blank") == 0)
+					{
+						//番人
+						Message(58,"Try again.","","","");
+					}
+					else
+					{
+						//番人
+						Message(58,""+type+"....","Incorrect.","","");
+						Message(58,"Try again.","","","");
+					}
+				}
+			}
+
+		}
+		if (map == 506)
+		{
+			if (ch[2044])
+			{
+				// クリア済み
+				//番人
+				Message(58,"You may pass.","","","");
+			}
+			else
+			{
+				if (ch[308])
+				{
+					// クリアチェック
+					if (ch[309])
+					{
+						// 壊してる
+						//番人
+						Message(58,"You fool. Do not destroy the","torches. Return later.","","");
+						ch[400] = -1;
+						return 0;
+					}
+					if (ch[300] && ch[301] && ch[302] && ch[303] && ch[304] && ch[305] && ch[306] && ch[307])
+					{
+						// クリア
+						SE(950);
+						//番人
+						Message(58,"You have lit all the torches.","Very well. You may pass.","","");
+						ch[2044] = 1;
+						Event(302);
+						Wait(30);
+						ch[400] = -1;
+						return 0;
+					}
+				}
+				if (ch[258] < 2)
+				{
+					//番人
+					Message(58,"If you wish to pass,","light all of the torches.","","");
+				}
+				else
+				{
+					if (ch[258] < 3)
+					{
+						//番人
+						Message(58,"Something wrong?","Again...","","");
+						Message(58,"If you wish to pass,","light all of the torches.","","");
+					}
+					else
+					{
+						//番人
+						Message(58,"If you wish to pass,","light all of the torches.","","");
+						Message(58,"...You do not understand?","","","");
+						Message(58,"All right then.","You may buy a hint for \1,000.","","");
+						Message(58,"If you pay me \5,000,","you may pass","straight through.","");
+
+						SelStart(50);
+						SelText("Pay \1,000",1);
+						SelText("Pay \5,000",3);
+						SelText("Don't pay",2);
+						SelEnd();
+						
+						if (ch[50] == 1)
+						{
+							if (GetGP() < 1000)
+							{
+								// 足りない
+								Mes("You don't have enough.");
+							}
+							else
+							{
+								SetGP(GetGP() - 1000);
+								SE(893);
+								//番人
+								Message(58,"Thank you.","","","");
+								Message(58,"Touching torches will break them.","Use a special move.","","");
+							}
+						}
+						if (ch[50] == 3)
+						{
+							if (GetGP() < 5000)
+							{
+								// 足りない
+								Mes("You don't have enough.");
+							}
+							else
+							{
+								SetGP(GetGP() - 5000);
+								SE(893);
+								//番人
+								Message(58,"Thank you.","","","");
+								ch[2044] = 1;
+								Event(302);
+								Wait(30);
+								//番人
+								Message(58,"You may pass.","","","");
+							}
+						}
+						if (ch[50] != 1 && ch[50] != 3)
+						{
+							//番人
+							Message(58,"If you wish to pass,","light all of the torches.","","");
+						}
+					}
+				}
+				// 飾台の火を消す
+				KaguTest(20060,-1);
+				ch[300] = 0;
+				ch[301] = 0;
+				ch[302] = 0;
+				ch[303] = 0;
+				ch[304] = 0;
+				ch[305] = 0;
+				ch[306] = 0;
+				ch[307] = 0;
+				ch[308] = 1;
+			}
+		}
+		if (map == 507)
+		{
+			// 遺跡裏１
+			if (ch[2042])
+			{
+				// クリア済み
+				//番人
+				Message(58,"You may pass.","","","");
+			}
+			else
+			{
+				KaguTest(20059,0);
+				int okane;
+				okane = ch[420] % 1000;
+//				if (ch[2043] && (ch[420] == 1 || ch[420] == 11))
+				if (ch[2043] && okane == 666)
+				{
+					// クリア
+					SE(950);
+					//番人
+//					if (ch[420] == 11)
+//					{
+//						Message(58,"１１……うーむ。","深読みしすぎだが","まぁいいだろう","");
+//						Message(58,"よし、この先に進むがいいべ","","","");
+//					}
+//					else
+//					{
+						Message(58,"You did it.","All right. You may pass.","","");
+//					}
+					Event(302);
+					ch[2042] = 1;
+					ch[400] = -1;
+					return 0;
+				}
+				if (ch[258] < 2)
+				{
+					//番人
+//					Message(58,"汝の持つ九十九の価値を","水に遊ぶ白き翼と同じくせん","","");
+					Message(58,"Gather up all the money","that exists in this world.","","");
+				}
+				else
+				{
+					if (ch[258] < 3)
+					{
+						//番人
+						Message(58,"Something wrong?","Again...","","");
+//						Message(58,"汝の持つ九十九の価値を","水に遊ぶ白き翼と同じくせん","","");
+						Message(58,"Gather up all the money","that exists in this world.","","");
+					}
+					else
+					{
+						//番人
+//						Message(58,"汝の持つ九十九の価値を","水に遊ぶ白き翼と同じくせん","","");
+						Message(58,"Gather up all the money","that exists in this world.","","");
+						Message(58,"...You do not understand?","","","");
+						Message(58,"All right then.","You may buy a hint for \1,000.","","");
+						Message(58,"If you pay me \5,000,","you may pass","straight through.","");
+
+						SelStart(50);
+						SelText("Pay \1,000",1);
+						SelText("Pay \5,000",3);
+						SelText("Don't pay",2);
+						SelEnd();
+						
+						if (ch[50] == 1)
+						{
+							if (GetGP() < 1000)
+							{
+								// 足りない
+								Mes("You don't have enough.");
+							}
+							else
+							{
+								SetGP(GetGP() - 1000);
+								SE(893);
+
+								//番人
+								Message(58,"It's really not that","difficult.","","");
+								Message(58,"Gather up all the money...","Gathering 1 of each coin","would equal \666.","");
+								Message(58,"I'll ignore anything above \1000.","So just worry about the last 3 digits.","","");
+//								Message(58,"所持金の下一桁を","湖のほとりにある白鳥ボートの","番号に合わせればオッケーだべ","");
+//								Message(58,"敵を攻撃したり、物を壊したりして","クリティカル値を調整するべ","","");
+							}
+						}
+						if (ch[50] == 3)
+						{
+							if (GetGP() < 5000)
+							{
+								// 足りない
+								Mes("You don't have enough.");
+							}
+							else
+							{
+								SetGP(GetGP() - 5000);
+								SE(893);
+								//番人
+								Message(58,"Thank you.","","","");
+								Event(302);
+								ch[2042] = 1;
+								Wait(30);
+								//番人
+								Message(58,"You may pass.","","","");
+
+								ch[400] = -1;
+								return 0;
+							}
+						}
+						if (ch[50] != 1 && ch[50] != 3)
+						{
+//							Message(58,"汝の持つ九十九の価値を","水に遊ぶ白き翼と同じくせん…","","");
+							Message(58,"Gather up all the money","that exists in this world.","","");
+						}
+					}
+				}
+				ch[2043] = 1;
+				// クリアチェック
+				if (ch[420] == 1 || ch[420] == 11)
+				{
+					Message(58,".............","","","");
+					Message(58,"It looks like","you've done it.","","");
+					Message(58,"You may pass.","","","");
+					Event(302);
+					ch[2042] = 1;
+				}
+			}
+		}
+		if (map == 210)
+		{
+			if (ch[2045])
+			{
+				// クリア済み
+				//番人
+				Message(58,"You may pass.","","","");
+			}
+			else
+			{
+				if (!ch[2046])
+				{
+					// 初回
+					//番人
+					Message(58,"Hmm... What shall","our next puzzle be?","","");
+					Message(58,"They're tough to come up with.","","","");
+					//パリン
+					Message(0,"Stop talking to yourself","and open the door.","","");
+					//番人
+					Message(58,"W-when did you get here?!","","","");
+					Message(58,"Ahem!","I can't open it that easily!","","");
+					Message(58,"If you wish to pass, bring","someone to entertain me.","","");
+					ch[2046] = 1;
+					ch[420] = 58;
+					ch[421] = 2;
+					KaguTest(20044,2);
+					ch[400] = -1;
+					return 0;
+				}
+				if (ch[258] < 2)
+				{
+					Message(58,"If you wish to pass, bring","someone to entertain me.","","");
+				}
+				else
+				{
+					if (ch[258] < 3)
+					{
+						//番人
+						Message(58,"Something wrong?","Again...","","");
+						Message(58,"If you wish to pass, bring","someone to entertain me.","","");
+					}
+					else
+					{
+						//番人
+						Message(58,"If you wish to pass, bring","someone to entertain me.","","");
+						Message(58,"...You do not understand?","","","");
+						Message(58,"All right then.","You may buy a hint for \1,000.","","");
+
+						SelStart(50);
+						SelText("Pay \1,000",1);
+						SelText("Don't pay",2);
+						SelEnd();
+						
+						if (ch[50] == 1)
+						{
+							if (GetGP() < 1000)
+							{
+								// 足りない
+								Mes("You don't have enough.");
+							}
+							else
+							{
+								SetGP(GetGP() - 1000);
+								SE(893);
+								//番人
+								Message(58,"Thank you.","","","");
+								Message(58,"Doc can give you an Urn","that captures monster energy.","","");
+								Message(58,"Capture an interesting","monster and bring him here.","","");
+							}
+						}
+						else
+						{
+							//番人
+							Message(58,"If you wish to pass, bring","someone to entertain me.","","");
+						}
+					}
+				}
+				ch[2046] = 1;
+				ch[420] = 58;
+				ch[421] = 2;
+				KaguTest(20044,2);
+			}
+			
+		}
+		if (map == 211)
+		{
+			if (ch[2047])
+			{
+				//番人
+				Message(58,"Very well.","You may pass.","","");
+				Message(58,"That's our driller!!!","Groovy, baby!","","");
+			}
+			else
+			{
+				// クリアチェック
+				KaguTest(20008,0);
+				if ((ch[2501] == 0 && ch[430] == 41) ||
+					(ch[2501] == 1 && ch[430] == 56) ||
+					(ch[2501] == 2 && ch[430] == 57) ||
+					(ch[2501] == 3 && ch[430] == 61) ||
+					(ch[2501] == 4 && ch[430] == 37) ||
+					(ch[2501] == 5 && ch[430] == 40) ||
+					ch[2501] == 6 )
+				{
+					ch[2047] = 1;
+				}
+				if ((ch[2501] == 7 && ch[430] == 47) ||
+					(ch[2501] == 9 && ch[430] == 43) ||
+					(ch[2501] == 10 && ch[430] == 44) ||
+					(ch[2501] == 11 && ch[430] == 48) ||
+					(ch[2501] == 13 && ch[430] == 21) ||
+					(ch[2501] == 14 && ch[430] == 46))
+				{
+					ch[2047] = 1;
+				}
+				if ((ch[2501] == 15 && ch[430] == 62) ||
+					(ch[2501] == 16 && ch[430] == 42) ||
+					(ch[2501] == 17 && ch[430] == 45) ||
+					ch[2501] == 8 ||
+					ch[2501] == 18 ||
+					ch[2501] == 12)
+				{
+					ch[2047] = 1;
+				}
+				
+				
+				if (ch[2048] && ch[2047])
+				{
+					SE(950);
+					//番人
+					Message(58,"That outfit is","DY-NO-MITE, baby!","","");
+					Message(58,"You did it baby!","Pass right on though!","","");
+					Event(302);
+					ch[400] = -1;
+					return 0;
+				}
+				ch[2048] = 1;
+				
+				if (ch[258] < 2)
+				{
+					//番人
+					Message(58,"If you want to pass,","show us some fashion sense!","","");
+				}
+				else
+				{
+					if (ch[258] < 3)
+					{
+						//番人
+//						Message(58,"どうした？","もう一度言うぞ","","");
+						Message(58,"No no. That's squaresville, baby!","","","");
+						Message(58,"If you want to pass,","show us some fashion sense!","","");
+					}
+					else
+					{
+						//番人
+						Message(58,"No no. That's squaresville, baby!","","","");
+						Message(58,"If you want to pass,","show us some fashion sense!","","");
+						Message(58,"...You do not understand?","","","");
+						Message(58,"All right babe, but only for you.","Slip me \1000 and you get a hint.","","");
+
+						SelStart(50);
+						SelText("Pay \1,000",1);
+						SelText("Don't pay",2);
+						SelEnd();
+						
+						if (ch[50] == 1)
+						{
+							if (GetGP() < 1000)
+							{
+								// 足りない
+								Mes("You don't have enough.");
+							}
+							else
+							{
+								SetGP(GetGP() - 1000);
+								SE(893);
+
+								//番人
+								Message(58,"Good fashion sense means","knowing what clothes look","good together, right?","");
+								Message(58,"So make sure you","coordinate your headgear","with the rest of your outfit!","");
+								Message(58,"Catch my drift, baby?","","","");
+							}
+						}
+						else
+						{
+							//番人
+							Message(58,"If you want to pass,","show us some fashion sense!","","");
+						}
+					}
+				}
+
+				// クリアチェック
+				if (ch[2047])
+				{
+					//番人
+					Message(58,"Judging by the outfit,","you know how to look good!","","");
+					Message(58,"Haha!","Go on through, baby!","","");
+					Event(302);
+				}
+			}
+		}
+		if (map == 608)
+		{
+			if (ch[2049])
+			{
+				//クリア済み
+				//番人
+				Message(58,"You may pass.","","","");
+			}
+			else
+			{
+				if (ch[258] < 2)
+				{
+					//番人
+					Message(58,"If you wish to pass,","place your feet on my head.","","");
+					// 箱を降らせる
+					SaveCamera();
+					ch[420] = 1103;
+					ch[421] = -1360;
+					ch[422] = 422;
+					ch[423] = 322;
+					ch[424] = -682;
+					ch[425] = 70;
+					KaguTest(30019,1);
+					CrossFade();
+					Wait(15);
+//					ch[420] = 100000;
+//					ch[427] = 0;
+//					KaguTest(30015,1);
+					ch[421] = 0;
+					KaguTest(30034,0);
+					CharPos(ch[420],225,-450,450);
+					ch[421] = -1;
+					KaguTest(30131,ch[420]);
+					ch[421] = 0;
+					Wait(45);
+					KaguTest(30019,0);
+					RestoreCamera();
+					CrossFade();
+				}
+				else
+				{
+					if (ch[258] < 3)
+					{
+						//番人
+						Message(58,"Something wrong?","Again...","","");
+						Message(58,"If you wish to pass,","place your feet on my head.","","");
+					}
+					else
+					{
+						//番人
+						Message(58,"If you wish to pass,","place your feet on my head.","","");
+						Message(58,"...You do not understand?","","","");
+						Message(58,"All right then.","You may buy a hint for \1,000.","","");
+
+						SelStart(50);
+						SelText("Pay \1,000",1);
+						SelText("Don't pay",2);
+						SelEnd();
+						
+						if (ch[50] == 1)
+						{
+							if (GetGP() < 1000)
+							{
+								// 足りない
+								Mes("You don't have enough.");
+							}
+							else
+							{
+								SetGP(GetGP() - 1000);
+								SE(893);
+								//番人
+								Message(58,"Thank you.","This one isn't difficult.","","");
+								Message(58,"Simply jump up","and stand on my head.","","");
+							}
+						}
+						else
+						{
+							//番人
+							Message(58,"If you wish to pass,","place your feet on my head.","","");
+						}
+					}
+				}
+				ch[420] = 58;
+				ch[421] = 2;
+				KaguTest(20044,3);
+			}
+		}
+		if (map == 607)
+		{
+			if (ch[2050])
+			{
+				// クリア済み
+				if (ch[2050] == 1)
+				{
+					// 必殺技で倒した
+					// 罵倒
+					switch(rand() % 3)
+					{
+						//番人
+					case 0:
+						Message(58,"No no.","Do not rely on brute force.","","");
+						break;
+					case 1:
+						//番人
+						Message(58,"The drill's last owner","had style, unlike you.","","");
+						break;
+					case 2:
+						//番人
+						Message(58,"You need practice.","","","");
+						Message(58,"If you fight with style, your","battles will be more fun.","","");
+						break;
+					}
+					// 敵を出す
+					// いなかったら出現
+					// 死んでたら復活
+					KaguTest(30025,1);
+					KaguTest(30122,ch[420]);
+					if (ch[420])
+					{
+						// 復活
+						KaguTest(30021,1);
+						
+						ch[420] = 0;
+						ch[421] = 450;
+						ch[422] = 150;
+						KaguTest(30123,1);
+						KaguTest(30025,1);
+						ch[421] = ch[420];
+						ch[420] = 30;
+						KaguTest(30120,ch[421]);
+						ch[400] = -1;
+						ch[301] = 0;
+						return 0;
+					}
+					// 出現
+					int x;
+					int y;
+					int z;
+					KaguTest(30025,1);
+					GetCharPos(ch[420],x,y,z);
+					if (x > -20000)
+					{
+						ch[400] = -1;
+						return 0;
+					}
+					ch[420] = 100000;
+					ch[427] = 0;
+					KaguTest(30015,1);
+					ch[420] = 58;
+					ch[421] = 2;
+					KaguTest(20044,4);
+					ch[420] = 0;
+					ch[421] = 450;
+					ch[422] = 150;
+					KaguTest(30123,1);
+					KaguTest(30025,1);
+					ch[421] = ch[420];
+					ch[420] = 30;
+					KaguTest(30120,ch[421]);
+					ch[301] = 0;
+				}
+				else
+				{
+					//番人
+					Message(58,"You may pass.","","","");
+				}
+				ch[400] = -1;
+				return 0;
+			}
+			if (ch[258] < 2)
+			{
+				//番人
+				Message(58,"Dazzle me with your","martial skill.","","");
+				// 敵を出す
+				SaveCamera();
+				ch[420] = -714;
+				ch[421] = -337;
+				ch[422] = 370;
+				ch[423] = 4;
+				ch[424] = 426;
+				ch[425] = 70;
+				KaguTest(30019,1);
+				CrossFade();
+				Wait(15);
+				ch[420] = 100000;
+				ch[427] = 0;
+				KaguTest(30015,1);
+				Wait(45);
+				KaguTest(30019,0);
+				RestoreCamera();
+				CrossFade();
+				KaguTest(30025,1);
+				ch[421] = ch[420];
+				ch[420] = 30;
+				KaguTest(30120,ch[421]);
+				ch[301] = 0;
+			}
+			else
+			{
+				if (ch[258] < 3)
+				{
+					//番人
+					Message(58,"Dazzle me with your","martial skill.","","");
+					Message(58,"If you wish to pass,","solve my riddle.","","");
+				}
+				else
+				{
+					//番人
+					Message(58,"Dazzle me with your","martial skill.","","");
+					Message(58,"...You do not understand?","","","");
+					Message(58,"All right then.","You may buy a hint for \1,000.","","");
+
+					SelStart(50);
+					SelText("Pay \1,000",1);
+					SelText("Don't pay",2);
+					SelEnd();
+					
+					if (ch[50] == 1)
+					{
+						if (GetGP() < 1000)
+						{
+							// 足りない
+							Mes("You don't have enough.");
+						}
+						else
+						{
+							SetGP(GetGP() - 1000);
+							SE(893);
+							//番人
+							Message(58,"Thank you.","","","");
+							Message(58,"To impress me,","do something more unusual.","Try using a little style.","");
+							Message(58,"Something ~special.~","","","");
+						}
+					}
+					else
+					{
+						//番人
+						Message(58,"Dazzle me with your","martial skill.","","");
+					}
+				}
+				// ボール死んでたら復活させる
+				KaguTest(30025,1);
+				KaguTest(30122,ch[420]);
+				if (ch[420])
+				{
+					// 復活
+					KaguTest(30021,1);
+					ch[420] = 0;
+					ch[421] = 450;
+					ch[422] = 150;
+					KaguTest(30123,1);
+					KaguTest(30025,1);
+					ch[421] = ch[420];
+					ch[420] = 30;
+					KaguTest(30120,ch[421]);
+					ch[400] = -1;
+					ch[301] = 0;
+					return 0;
+				}
+			}
+			ch[420] = 58;
+			ch[421] = 2;
+			KaguTest(20044,4);
+		}
+		if (map == 310)
+		{
+			if (ch[2051])
+			{
+				// クリア済み
+				//番人
+				Message(58,"You may pass.","","","");
+				ch[400] = -1;
+				return 0;
+			}
+			
+			if (ch[258] < 2 || ch[200])
+			{
+				//番人
+				Message(58,"One of my brothers differs","from the rest of us.","","");
+				Message(58,"Where does he reside?","","","");
+			}
+			else
+			{
+				if (ch[258] < 3)
+				{
+					//番人
+					Message(58,"One of my brothers differs","from the rest of us.","","");
+					Message(58,"If you wish to pass,","tell me where he is.","","");
+				}
+				else
+				{
+					//番人
+					Message(58,"One of my brothers differs","from the rest of us.","","");
+					Message(58,"Where does he reside?","","","");
+					Message(58,"...You do not understand?","","","");
+					Message(58,"All right then.","You may buy a hint for \1,000.","","");
+					Message(58,"Or, if you desire, pay","\5,000, and I shall","open the door.","");
+
+					SelStart(50);
+					SelText("Pay \1,000",1);
+					SelText("Pay \5,000",3);
+					SelText("Don't pay",2);
+					SelEnd();
+					
+					if (ch[50] == 1)
+					{
+						if (GetGP() < 1000)
+						{
+							// 足りない
+							Mes("You don't have enough.");
+						}
+						else
+						{
+							SetGP(GetGP() - 1000);
+							SE(893);
+
+							//番人
+							Message(58,"Thank you.","","","");
+							Message(58,"One of my brothers speaks","in a... unique style.","","");
+							Message(58,"Simply tell me","where he is.","","");
+							Message(58,"Here's a hint: ~Spinach Cavern.~","","","");
+
+//							ch[200] = 1;
+							ch[400] = -1;
+							return 0;
+						}
+					}
+					if (ch[50] == 3)
+					{
+						if (GetGP() < 5000)
+						{
+							// 足りない
+							Mes("You don't have enough.");
+						}
+						else
+						{
+							SetGP(GetGP() - 5000);
+							SE(893);
+							//番人
+							Message(58,"Thank you.","","","");
+							Event(302);
+							ch[2051] = 1;
+							Wait(30);
+							//番人
+							Message(58,"You may pass.","","","");
+
+							ch[400] = -1;
+							return 0;
+						}
+					}
+					if (ch[50] != 1 && ch[50] != 3)
+					{
+						//番人
+						Message(58,"One of my brothers differs","from the rest of us.","","");
+						Message(58,"Where does he reside?","","","");
+					}
+				}
+			}
+			string type;
+			type = Type(600);
+			if (strcmp(type,"ShadowGrotto") == 0)
+			{
+				SE(950);
+				//番人
+				Message(58,"....That is correct.","You may pass.","","");
+				Event(302);
+				ch[2051] = 1;
+				ch[400] = -1;
+				return 0;
+			}
+			if (strcmp(type,"Blank") == 0)
+			{
+				//番人
+				Message(58,"You do not understand?","I can provide nothing else.","","");
+				Message(58,"Come back another time.","","","");
+				ch[400] = -1;
+				return 0;
+			}
+			Message(58,"....I'm afraid that's incorrect.","","","");
+			if (ch[2048])
+			{
+				Message(58,"Meet with my brothers","once more.","","");
+				Message(58,"The answer should be obvious.","","","");
+			}
+			else
+			{
+				//番人
+				Message(58,"....Hmm. It appears","you haven't met","him yet.","");
+				Message(58,"If you meet him, you'll understand.","","","");
+			}
+		}
+		if (map == 311)
+		{
+			if (ch[2052])
+			{
+				//番人
+				Message(58,"You may pass.","","","");
+				ch[400] = -1;
+				return 0;
+			}
+			if (ch[258] < 2)
+			{
+				//番人
+				Message(58,"If you want to pass, show","me your favorite repast.","","");
+			}
+			else
+			{
+				if (ch[258] < 3)
+				{
+					//番人
+					Message(58,"Something wrong?","Again...","","");
+					Message(58,"If you want to pass, show","me your favorite repast.","","");
+				}
+				else
+				{
+					//番人
+					Message(58,"If you want to pass, show","me your favorite repast.","","");
+					Message(58,"...You do not understand?","","","");
+					Message(58,"All right then.","You may buy a hint for \1,000.","","");
+
+					SelStart(50);
+					SelText("Pay \1,000",1);
+					SelText("Don't pay",2);
+					SelEnd();
+					
+					if (ch[50] == 1)
+					{
+						if (GetGP() < 1000)
+						{
+							// 足りない
+							Mes("You don't have enough.");
+						}
+						else
+						{
+							SetGP(GetGP() - 1000);
+							SE(893);
+
+							//番人
+							Message(58,"Thank you.","","","");
+							Message(58,"Please eat your favorite","food in front of me.","","");
+							Message(58,"I shouldn't have to tell you","it contains ~strawberries.~","","");
+						}
+					}
+					else
+					{
+						//番人
+						Message(58,"If you want to pass, show","me your favorite repast.","","");
+					}
+				}
+			}
+			ch[420] = 58;
+			ch[421] = 2;
+			KaguTest(20044,5);
+		}
+
+	}
+
+	ch[400] = -1;
+}
+ 

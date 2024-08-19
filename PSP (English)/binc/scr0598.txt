@@ -1,0 +1,39 @@
+
+int main()
+{
+	TekiStop(1);
+	
+	
+	Message(0,"What's written here?","","","");
+	ch[420] = 2009;
+	ch[421] = 30;
+	KaguTest(30053,0);
+	Wait(30);
+	KaguTest(20010,0);
+	if (ch[420] == 205)
+	{
+		Message(0,"That symbol again...","","","");
+		Message(0,"A skull?","What could that mean?","","");
+		Message(0,"This place looks kind of","dangerous.","","");
+	}
+	else
+	{
+		Message(0,"A skull mark...","What does it...?","","");
+		Message(0,"This place seems","a bit dangerous.","","");
+	}
+	TekiStop(0);
+
+//	KaguTest(10006,0);
+//	KaguTest(10007,1);
+//	KaguTest2(10008,2,"謎のマークが描かれている……");
+//	KaguTest2(10009,0,"info_03.bmp");
+//	KaguTest(10010,10);
+	
+//	Wait(10);
+	
+//	Message(0,"","","","");
+	
+//	KaguTest(10011,10);
+	
+//	Message(0,"よくわからないわ","","","");
+}

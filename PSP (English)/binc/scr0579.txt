@@ -1,0 +1,31 @@
+
+int main()
+{
+	SE(950);
+	
+	TekiStop(1);
+//	Wait(20);
+	SaveCamera();
+//	Camera(Door2C(2),-150,1800,550);
+//	CrossFade();
+//	Wait(20);
+//	
+//	Event(106);
+//	
+	Wait(30);
+	Camera(Door2C(7),-150,650,550);
+	CrossFade();
+	Wait(20);
+	
+	Event(106);
+	Event(112);
+	
+	Wait(30);
+	RestoreCamera();
+	Camera(-1,0,0,0);
+	CrossFade();
+	Wait(20);
+	TekiStop(0);
+	ch[260] = 1;
+}
+ 

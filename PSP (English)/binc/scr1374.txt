@@ -1,0 +1,5 @@
+
+int main()
+{
+	Message(0,"Maybe I can be a princess","if I make it to the very top.","","");
+}

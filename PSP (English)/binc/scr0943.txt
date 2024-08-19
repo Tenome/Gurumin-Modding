@@ -1,0 +1,7 @@
+
+int main()
+{
+	Message(0,"There's monsters living up here.","","","");
+	Message(0,"They might be fun to play with.","","","");
+	ch[397] = 1;
+}

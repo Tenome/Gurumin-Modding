@@ -1,0 +1,43 @@
+
+int main()
+{
+	if (!ch[1516])
+	{
+		// 壊されたイベントまだ
+		Mes("A giant stone is blocking you.");
+		return 0;
+	}
+
+	if (!ch[1507])
+	{
+	// 石版初回
+		//Mes("「イベント」初めて石版②に触れる");
+
+//		Wait(10);
+//		ch[1500] = 1;	
+//		Wait(15)
+//		REffect(6000,0,-1900,0);	
+//		White(0,0,0);
+//		YukaKesi(0,-1900);
+	//	YukaKesi(1400,0);
+	//	YukaKesi(-1300,-150);
+//		White(0,100,30);
+//		Wait(30);
+//		ch[1507] = 1;
+//		LoadMap(401);
+//		PlayMovie("pflush2.txt",0);
+//		Black(0,100,0);
+//		Black(0,0,30);
+//		ResetFade();
+//		CharPos( 2 , -1800, -75 ,20 );
+//		Wait(30);
+//		//LoadMap(401);
+//		
+//		ch[442]=1;
+	}
+	else
+	{
+		// 石版２回目以降　＆　モグレヌ失敗後
+		Message(0,"I have to find Digby.","","","");
+	}
+}

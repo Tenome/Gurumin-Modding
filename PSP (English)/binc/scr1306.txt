@@ -1,0 +1,28 @@
+
+int main()
+{
+	// DAO撤去
+	ch[420] = 1769;
+	ch[421] = 933;
+	KaguTest(30011,0);
+
+	//パリン
+	Message(0,"Wait a second...","I've seen you before...","","");
+
+	//フランソワ
+	Message(61,"Coo!","","","");
+
+	//パリン
+	Message(0,"Here pretty bird!","","","");
+
+	//フランソワ
+	Message(61,"Coo!","","","");
+
+	//システム
+	CharPos(61,-200000,0,0);
+	Mes("You got ~Francois.~");
+	KaguTest(20022,33);
+	GetItem(33);
+	Wait(60);
+	ch[2034] = 1;
+}

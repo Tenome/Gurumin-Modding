@@ -1,0 +1,10 @@
+
+int main()
+{
+	KaguTest(10006,0);//”­Œ¾‰Šú‰»
+	
+	KaguTest2(10008,0,"It adds life to the room.");
+	KaguTest2(10008,1,"Is this also an Eastern import?");
+	
+	KaguTest(10012,0);
+}

@@ -1,0 +1,30 @@
+
+int main()
+{
+	ch[2120] = 1;
+	int x;
+	int y;
+	int z;
+	GetCharPos(58,x,y,z);
+	KaguTest(30122,58);
+	if (x < -20000 || ch[420])
+	{
+		// ƒtƒ@ƒ“ƒgƒ€€‚ñ‚Å‚é
+		return 0;
+	}
+	
+	TekiStop(1);
+	Look(0,58);
+//	Camera(0,-150,50,370);
+	Camera(58,-150,1450,370);
+	Wait(45);
+	Camera(0,-150,50,370);
+	Wait(10);
+	Message(0,"That's a phantom, huh?","","","");
+//	ch[420] = 15;
+//	ch[421] = 60;
+//	KaguTest(30053,58);
+//	Wait(30);
+	Camera(-1,0,0,0);
+	TekiStop(0);
+}

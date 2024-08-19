@@ -1,0 +1,262 @@
+
+int main()
+{
+
+	int go;
+	int best;
+	int syokai;
+	string str;
+	go = 0;
+	best = 0;
+	syokai = 0;
+
+	// ホイッスル
+	SE(548);
+	ch[3982] = 0;
+	Wait(60);
+	Black(0,100,30);
+	Wait(30);
+	ch[2144] = 0;
+	ch[2497] = 0;
+	LoadMap(24);
+	KaguTest2(10010,0,"minigm");
+	CharPos(0,0,0,0);
+	Camera(19,0,-510,370);
+	Look(0,19);
+	Look(19,0);
+	CrossFade();
+	Wait(30);
+	Camera(-1,0,0,0);
+	Black(0,0,30);
+	Wait(30);
+
+	ch[2061] = 0;
+	
+	if (ch[2318] - ch[2321] <= 0)
+	{
+		// 過去に合格していない
+		go = 1;
+	}
+	if (ch[2145] - ch[2325] > ch[2318] - ch[2321])
+	{
+		// 自己ベスト
+		best = 1;
+	}
+	if (ch[2324] == 0)
+	{
+		syokai = 1;
+		ch[2324] = 1;
+	}
+	int chchch;
+	chchch = 0;
+	if (ch[2145] - ch[2325] > ch[2318] - ch[2321])
+	{
+		chchch = 1;
+	}
+	if (ch[2318] == 0 && ch[2321] == 0)
+	{
+		chchch = 1;
+	}
+	if (chchch)
+	{
+		ch[2318] = ch[2145];
+		ch[2321] = ch[2325];
+	}
+	
+	if (ch[2145] - ch[2325] > 0 && go)
+	{
+		// 初合格
+//		str = "" + ch[2145] + "：" + ch[2325] + "で君たちの勝利だ";
+		str = "The score was " + ch[2145] + " to " + ch[2325] + ".";
+		ch[400] = 19;
+		ch[2291] = 1;
+		Look(0,19);
+		Message(19,"Not bad at all.",str,"Your team wins.","");
+		Message(19,"Take this Gold Medal in honor of","defeating the Motoro Astrals.","","");
+		Mes("You got a ~Gold Medal.~");
+		ch[2291] = 2;
+		KaguTest(20022,79);
+		GetItem(79);
+		Wait(90);
+		Message(0,"Thanks.","","","");
+		ch[400] = -1;
+		return 0;
+	}
+	if (go && best)
+	{
+		// 合格ならず。しかし、自己ベスト
+		Look(0,19);
+		ch[400] = 19;
+		if (ch[2145] == ch[2325])
+		{
+//			str = "" + ch[2145] + "：" + ch[2325] + "で同点だ";
+			str = "The score was " + ch[2145] + " to " + ch[2325] + ", a tie.";
+			Message(19,"I held back, but you did","well for a novice.","","");
+			Message(19,str,"","","");
+			Message(0,"I'll beat you next time.","","","");
+		}
+		else
+		{
+//			str = "" + ch[2145] + "：" + ch[2325] + "で私たちの勝利だ";
+			str = "The score was " + ch[2145] + " to " + ch[2325] + ".";
+			Message(19,"Not bad, but still","not good enough.","","");
+			Message(19,str,"Our team wins.","","");
+			Message(0,"I guess I need practice...","","","");
+		}
+		ch[400] = -1;
+		return 0;
+	}
+	if (go)
+	{
+		// 合格ならず。しかも、自己ベストでもない
+		Look(0,19);
+		ch[400] = 19;
+		if (ch[2145] == ch[2325])
+		{
+//			str = "" + ch[2145] + "：" + ch[2325] + "で同点だ";
+			str = "The score was " + ch[2145] + " to " + ch[2325] + ".";
+			Message(19,"Not bad at all child.",str,"It appears we have a tie.","");
+			Message(0,"I'll beat you next time.","","","");
+		}
+		else
+		{
+//			str = "" + ch[2145] + "：" + ch[2325] + "で私たちの勝利だ";
+			str = "The score was " + ch[2145] + " to " + ch[2325] + ".";
+			Message(19,"Unfortunate...",str,"Our team wins.","");
+			Message(0,"The next world champions","make tough competition, huh?","","");
+		}
+		ch[400] = -1;
+		return 0;
+	}
+	if (best)
+	{
+		// 既に合格済み。自己ベスト
+		if(ch[2145] - ch[2325] > ch[2325])
+		{
+			// 鬼だべ
+			ch[400] = 19;
+//			str = "" + ch[2145] + "：" + ch[2325] + "で圧勝するとは……";
+			str = "The score was " + ch[2145] + " to " + ch[2325] + ",you crushed us...";
+			Message(19,"Quite impressive.","The Motoro Astrals,",str,"");
+			Message(0,"You want to be best in","the world at this rate?","","");
+			Message(19,"Ugh...","Y-you are incredibly skilled.","","");
+			if (!ch[2326])
+			{
+				Message(19,"Your team is the first to","have beaten us so soundly.","","");
+//				if (ch[3975] > 50)
+//				{
+//					Message(19,"よし、全ての店舗で","商品が割引になるように","してあげよう","");
+//					ch[3975] -= 10;
+//				}
+				Message(19,"You have earned a Silver Medal.","","","");
+				KaguTest(20022,76);
+				GetItem(76);
+				Wait(90);
+				Message(0,"Thanks.","","","");
+				ch[400] = -1;
+				ch[2326] = 1;
+			}
+			else
+			{
+				Message(19,"Your team is the first to","have beaten us so soundly.","","");
+//				if (ch[3975] > 50)
+//				{
+//					Message(19,"よし、全ての店舗で","商品がさらに割引になるように","してあげよう","");
+//					ch[3975] -= 10;
+//				}
+				Message(19,"You have earned a Silver Medal.","","","");
+				KaguTest(20022,76);
+				GetItem(76);
+				Wait(90);
+				Message(0,"Thanks.","","","");
+				ch[400] = -1;
+			}
+			return 0;
+		}
+		Message(0,"Yay!","We won!","","");
+		ch[400] = 19;
+//		str = "" + ch[2145] + "：" + ch[2325] + "で君たちの勝利だ";
+		str = "The score was " + ch[2145] + " to " + ch[2325] + ".";
+		Message(19,"Quite impressive.",str,"Your team wins.","");
+		Message(19,"You have earned a Silver Medal.","","","");
+		KaguTest(20022,77);
+		GetItem(77);
+		Wait(90);
+		Message(0,"Thanks.","","","");
+		ch[400] = -1;
+
+		return 0;
+	}
+
+	// 合格済み。自己ベストではない
+	if(ch[2145] - ch[2325] > ch[2325])
+	{
+		// 鬼だべ
+		ch[400] = 19;
+//		str = "" + ch[2145] + "：" + ch[2325] + "で圧勝するとは……";
+		str = "The score was " + ch[2145] + " to " + ch[2325] + ",you crushed us...";
+		Message(19,"Quite impressive.","The Motoro Astrals,",str,"");
+		Message(0,"You want to be best in","the world at this rate?","","");
+		Message(19,"Ugh...","Y-you are incredibly skilled.","","");
+		if (!ch[2326])
+		{
+			Message(19,"Your team is the first to","have beaten us so soundly.","","");
+//			if (ch[3975] > 50)
+//			{
+//				Message(19,"よし、全ての店舗で","商品が割引になるように","してあげよう","");
+//				ch[3975] -= 10;
+//			}
+			Message(19,"You have earned a Silver Medal.","","","");
+			KaguTest(20022,76);
+			GetItem(76);
+			Wait(90);
+			Message(0,"Thanks.","","","");
+			ch[400] = -1;
+			ch[2326] = 1;
+		}
+		else
+		{
+			Message(19,"Your team is the first to","have beaten us so soundly.","","");
+			
+//			if (ch[3975] > 50)
+//			{
+//				Message(19,"よし、全ての店舗で","商品がさらに割引になるように","してあげよう","");
+//				ch[3975] -= 10;
+//			}
+			Message(19,"You have earned a Silver Medal.","","","");
+			KaguTest(20022,76);
+			GetItem(76);
+			Wait(90);
+			Message(0,"Thanks.","","","");
+			ch[400] = -1;
+		}
+		return 0;
+	}
+
+	// 鬼じゃない
+//	str = "今回は" + ch[2145] + "：" + ch[2325] + "で";
+	str = "This time it was " + ch[2145] + " to " + ch[2325] + ".";
+	ch[400] = 19;
+	if (ch[2145] - ch[2325] > 0)
+	{
+		Message(19,str,"Your team wins.","","");
+		Message(0,"We'll do even better next time.","","","");
+	}
+	else
+	{
+		if (ch[2145] - ch[2325] == 0)
+		{
+			Message(19,str,"It appears to be a tie.","","");
+			Message(0,"We'll win next time.","","","");
+		}
+		else
+		{
+			Message(19,str,"It's our win.","","");
+			Message(19,"Not your best effort, I assume.","","","");
+			Message(0,"We'll do better next time.","","","");
+		}
+	}
+	ch[400] = -1;
+	return 0;
+}
+ 

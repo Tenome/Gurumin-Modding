@@ -1,0 +1,19 @@
+
+int main()
+{
+	KaguTest(10006,0);//発言初期化
+
+	KaguTest2(10008,0,"I should gather these for a real collector.");
+//	if (!ch[2115])
+//	{
+//		KaguTest2(10008,1,"おじいさんにあげるのは");
+//		KaguTest2(10008,2,"勿体無い気がするわ");
+//	}
+//	else
+//	{
+//		KaguTest2(10008,1,"じーちゃんよりもさらにすごい");
+//		KaguTest2(10008,2,"変態的なメダルマニアにあげよう");
+//	}
+
+	KaguTest(10012,0);
+}

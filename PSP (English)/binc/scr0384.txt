@@ -1,0 +1,958 @@
+
+int main()
+{
+	int a;
+	int b;
+	int c;
+	c = 0;
+	int kagu;
+	int kaguage;
+	int kagudame;
+	int check;
+	kagu = 0;
+	kaguage = ch[294];
+	ch[294] = 0;
+
+	ch[400] = 7;
+
+	if (ch[2007])
+	{
+		kagudame = 1;
+	}
+
+
+	// チャッキー・鼻眼鏡クエスト中
+	KaguTest(20010,0);
+	if (ch[2030] && ch[420] == 401)
+	{
+		//イワオ
+		Message(7,"There's a chill coming","from Chucky's house.","","");
+		Message(7,"I wonder what's wrong.","","","");
+		ch[400] = -1;
+		
+		ch[420] = ch[2035];
+		KaguTest(20052,2);
+		ch[2035] = ch[420];
+		
+		return 0;
+	}
+
+	// ファラオチェック
+	KaguTest(20010,0);
+	KaguTest(20001,52);
+	if (ch[3963] || ch[3962] || ch[3965])
+	{
+		// かぶりものだめ
+		ch[430] = 0;
+		kagudame = 1;
+	}
+	if (ch[430] && ch[420] == 401 && !ch[3964] && !kaguage && !kagudame)
+	{
+		// ファラオ持ってる
+		//パリン
+		Message(0,"Ah, this would","perfectly match you Rocko!","","");
+
+		//イワオ
+		Message(7,"What would?","","","");
+
+		//パリン
+		Message(0,"I have a surprise for you.","Close your eyes.","","");
+
+		//イワオ
+		Message(7,"OK...","","","");
+
+		Black(0,100,15);
+		Wait(15);
+		KaguTest(20002,52);
+		ch[3964] = 1;
+		ch[2032] = 1;
+		LoadMap(401);
+		ch[400] = 107;
+		KaguTest(20039,7);
+		Black(0,0,15);
+		Wait(15);
+		//イワオ
+		Message(7,"..............","","","");
+		ch[400] = 7;
+		Message(7,"M-my head feels so","heavy all of a sudden.","","");
+
+		//パリン
+		Message(0,"Perfect!","It looks great on you, Rocko!","","");
+
+		//イワオ
+		Message(7,"B-but, don't these kinds of","artifacts carry... a-ancient curses?","","");
+
+		//パリン
+		Message(0,"Don't worry!","It'll grow on you!","","");
+
+		//イワオ
+		Message(7,"Ugh...","G-grow...on...me...?","","");
+		ch[400] = -1;
+
+		return 0;
+	}
+	if (ch[2032])
+	{
+		// ファラオ中
+		if (ch[2032] == 1)
+		{
+			//パリン
+			Message(0,"Rocko? You OK?","","","");
+
+			//イワオ
+			Message(7,"...Mwahaa...Pooowwweerr...","","","");
+			Message(7,"..............","","","");
+
+			//パリン
+			Message(0,"Rocko?","","","");
+
+			//イワオ
+			Message(7,"SILENCE, human! Your","immortal pharaoh speaks!","","");
+			Message(7,"The gods themselves have","delivered me to the throne!","","");
+
+			//パリン
+			Message(0,"Wow, you really are cursed!","I have to find a way to","return you to normal...","");
+			ch[2032] = 2;
+		}
+		else
+		{
+			//イワオ
+			Message(7,"Here...is our promised land...","","","");
+		}
+		ch[400] = -1;
+		return 0;
+	}
+
+
+	KaguTest(20010,0);
+
+
+	// 家具あげた数チェック
+	KaguTest(10204,3);
+	kagu = ch[420];
+	KaguTest(10204,4);
+
+	// 家具持ってたら
+	KaguTest(20001,58);
+	if (ch[430] && !kaguage && !kagudame)
+	{
+		//パリン
+		Message(0,"I found this Low Table.","It's yours, right Rocko?","","");
+		//イワオ
+		Message(7,"How did you know?","","","");
+		//パリン
+		Message(0,"Just seems like your","style, that's all.","","");
+		
+		ch[50] = 1;
+		
+		if (ch[50] == 1)
+		{
+			Mes("You gave Rocko the ~Low Table.~");
+			ch[2636] = 1;
+			KaguTest(20002,58);
+			KaguTest(10203,58);
+			ch[3959] = 58;
+			
+			Wait(75);
+
+//			if (kagu == 0)
+//			{
+//				// 初回ムービー
+//				PlayMovie("iwao_k.txt",0);
+//			}
+
+			Black(0,100,15);
+			Wait(15);
+			SetWaku(1);
+			Mouse(0);
+			
+			LoadMap(401);
+			Black(0,100,0);
+			Wait(10);
+			CharPos(0,-892,-498,25);
+			ch[420] = -1141;
+			ch[421] = -378;
+			ch[422] = 35;
+			ch[400] = 107;
+			KaguTest(30070,0);
+			KaguTest(30070,7);
+			ch[420] = -1100;
+			ch[421] = -580;
+			ch[422] = 150;
+
+			ch[423] = ch[420];
+			ch[424] = ch[421];
+			ch[425] = ch[422];
+			ch[420] = ch[420] + 994;
+			ch[421] = ch[421] + 335;
+			ch[422] = ch[422] + 370;
+			KaguTest(30019,8);
+			KaguTest2(30015,0,"QQ3");
+			KaguTest2(30015,0,"QQ3Alpha");
+			KaguTest(30118,0);
+			ch[420] = -1;
+			KaguTest(12002,7);
+//			ch[420] = 9;
+//			ch[421] = 1;
+//			ch[422] = 5;
+//			KaguTest(12003,7);
+			Black(0,0,15);
+			Wait(15);
+			
+//			Message(6,"やる気が沸いてきたでがんす！","","","");
+
+//			WaitC(75);
+			ch[420] = ch[423];
+			ch[421] = ch[424];
+			ch[422] = ch[425];
+			KaguTest(30072,1);
+			WaitC(15);
+			KaguTest(30069,1920);
+			
+			WaitC(200);
+
+			kagu++;
+			if (ch[1753] < 1)
+			{
+				ch[1753] = 1;
+			}
+
+			WaitC(30);
+			Black(0,100,15);
+			WaitC(15);
+			Black(0,100,0);
+	
+			ch[3979] = 6;
+			ch[420] = 22;
+			KaguTest(12002,7);
+			KaguTest(30019,0);
+			KaguTest(30072,0);
+			KaguTest(99999,1);
+			ch[298] = 1;
+			ch[400] = -1;
+
+			return 0;
+		}
+		else
+		{
+			Message(0,"I'll bring it to you later.","","","");
+			ch[400] = -1;
+			return 0;
+		}
+
+	}
+	KaguTest(20001,64);
+	if (ch[430] && !kaguage && !kagudame)
+	{
+		//イワオ
+		Message(7,"Sigh...","","","");
+		//パリン
+		Message(0,"What's wrong?","","","");
+		//イワオ
+		Message(7,"I used to keep my rock and","pebble snacks in a beautiful","Cedar Chest... but it was stolen...","");
+		//パリン
+		Message(0,"A Cedar Chest like this one?","","","");
+		//イワオ
+		Message(7,"What?!","You've found it? Great!","","");
+		Message(7,"T-thank you!","","","");
+
+		ch[50] = 1;
+
+		if (ch[50] == 1)
+		{
+			Mes("You gave Rocko the ~Cedar Chest.~");
+			ch[2636] = 1;
+			KaguTest(20002,64);
+			KaguTest(10203,64);
+			ch[3959] = 64;
+			
+			Wait(75);
+
+//			if (kagu == 0)
+//			{
+//				// 初回ムービー
+//				PlayMovie("iwao_k.txt",0);
+//			}
+
+			Black(0,100,15);
+			Wait(15);
+			SetWaku(1);
+			Mouse(0);
+			
+			LoadMap(401);
+			Black(0,100,0);
+			Wait(10);
+			CharPos(0,-892,-498,25);
+			ch[420] = -1337;
+			ch[421] = -437;
+			ch[422] = 35;
+			ch[400] = 107;
+			KaguTest(30070,0);
+			KaguTest(30070,7);
+			ch[420] = -1100;
+			ch[421] = -580;
+			ch[422] = 150;
+
+			ch[423] = ch[420];
+			ch[424] = ch[421];
+			ch[425] = ch[422];
+			ch[420] = ch[420] + 994;
+			ch[421] = ch[421] + 335;
+			ch[422] = ch[422] + 370;
+			KaguTest(30019,8);
+			KaguTest2(30015,0,"QQ3");
+			KaguTest2(30015,0,"QQ3Alpha");
+			KaguTest(30118,0);
+			ch[420] = -1;
+			KaguTest(12002,07);
+//			ch[420] = 9;
+//			ch[421] = 1;
+//			ch[422] = 5;
+//			KaguTest(12003,07);
+			Black(0,0,15);
+			Wait(15);
+			
+//			Message(6,"やる気が沸いてきたでがんす！","","","");
+
+//			WaitC(75);
+			ch[420] = ch[423];
+			ch[421] = ch[424];
+			ch[422] = ch[425];
+			KaguTest(30072,1);
+			WaitC(15);
+			KaguTest(30069,1920);
+			
+			WaitC(200);
+
+			kagu++;
+			if (ch[1753] < 1)
+			{
+				ch[1753] = 1;
+			}
+
+			WaitC(30);
+			Black(0,100,15);
+			WaitC(15);
+			Black(0,100,0);
+	
+			ch[3979] = 14;
+			ch[420] = 22;
+			KaguTest(12002,7);
+			KaguTest(30019,0);
+			KaguTest(30072,0);
+			KaguTest(99999,1);
+			ch[298] = 1;
+			ch[400] = -1;
+
+			return 0;
+		}
+		else
+		{
+			Message(0,"I'll bring it to you later.","","","");
+			ch[400] = -1;
+			return 0;
+		}
+
+	}
+	KaguTest(20001,50);
+	if (ch[430] && !kaguage && !kagudame)
+	{
+		//イワオ
+		Message(7,"M-my Josephine?!","You've come back to me!","","");
+		//パリン
+		Message(0,"Huh?","Who are you talking to?","","");
+		//イワオ
+		Message(7,"Oh...","Sorry for my o-outburst...","","");
+		Message(7,"I didn't even see you.","I only saw my Josephine.","","");
+		//パリン
+		Message(0,"Josephine? Who's that?","","","");
+		//イワオ
+		Message(7,"She's that Statue you're holding!","","","");
+		//パリン
+		Message(0,"You talk to statues...?","","","");
+		Message(0,"You're a little... strange.","You know that, Rocko?","","");
+		//イワオ
+		Message(7,"Strange? Why?","","","");
+		Message(7,"Us monsters were originally","created from stone or wood.","","");
+		Message(7,"Who's to say that Josephine","won't turn into a monster","someday?","");
+		//パリン
+		Message(0,"I never knew...","I'm sorry.","","");
+		Message(0,"So this statue... Josephine,","is yours then?","","");
+		//イワオ
+		Message(7,"Yes she is. Thank you","for rescuing her.","","");
+
+		ch[50] = 1;
+		
+		if (ch[50] == 1)
+		{
+			Mes("You gave the ~Statue~ to Rocko.");
+			ch[2636] = 1;
+			KaguTest(20002,50);
+			KaguTest(10203,50);
+			ch[3959] = 50;
+			
+			Wait(75);
+
+//			if (kagu == 0)
+//			{
+//				// 初回ムービー
+//				PlayMovie("iwao_k.txt",0);
+//			}
+
+			Black(0,100,15);
+			Wait(15);
+			SetWaku(1);
+			Mouse(0);
+			
+			LoadMap(401);
+			Black(0,100,0);
+			Wait(10);
+			CharPos(0,-892,-498,25);
+			ch[420] = -1150;
+			ch[421] = -823;
+			ch[422] = 35;
+			ch[400] = 107;
+			KaguTest(30070,0);
+			KaguTest(30070,7);
+			ch[420] = -1100;
+			ch[421] = -580;
+			ch[422] = 150;
+
+			ch[423] = ch[420];
+			ch[424] = ch[421];
+			ch[425] = ch[422];
+			ch[420] = ch[420] + 994;
+			ch[421] = ch[421] + 335;
+			ch[422] = ch[422] + 370;
+			KaguTest(30019,8);
+			KaguTest2(30015,0,"QQ3");
+			KaguTest2(30015,0,"QQ3Alpha");
+			KaguTest(30118,0);
+			ch[420] = -1;
+			KaguTest(12002,7);
+//			ch[420] = 9;
+//			ch[421] = 1;
+//			ch[422] = 5;
+//			KaguTest(12003,7);
+			Black(0,0,15);
+			Wait(15);
+			
+//			Message(6,"やる気が沸いてきたでがんす！","","","");
+
+//			WaitC(75);
+			ch[420] = ch[423];
+			ch[421] = ch[424];
+			ch[422] = ch[425];
+			KaguTest(30072,1);
+			WaitC(15);
+			KaguTest(30069,1920);
+			
+			WaitC(200);
+
+			kagu++;
+			if (ch[1753] < 1)
+			{
+				ch[1753] = 1;
+			}
+
+			WaitC(30);
+			Black(0,100,15);
+			WaitC(15);
+			Black(0,100,0);
+	
+			ch[3979] = 7;
+			ch[420] = 22;
+			KaguTest(12002,7);
+			KaguTest(30019,0);
+			KaguTest(30072,0);
+			KaguTest(99999,1);
+			ch[298] = 1;
+			ch[400] = -1;
+
+			return 0;
+		}
+		else
+		{
+			Message(7,"I see.","That's too bad.","","");
+			ch[400] = -1;
+			return 0;
+		}
+	}
+	KaguTest(20001,78);
+	if (ch[430] && !kaguage && !kagudame)
+	{
+		//イワオ
+		Message(7,"That Goldfish...","That's my beloved pet Goldon!","","");
+		//パリン
+		Message(0,"Looks like this fish means","a lot to you, huh?","","");
+		//イワオ
+		Message(7,"Yes! Goldon and I met...","oh...d-decades ago.","It's a pretty funny story...","");
+		//パリン
+		Message(0,"Maybe you could tell me later?","I'm kind of in a hurry...","","");
+		//イワオ
+		Message(7,"O-oh, I see...","It's a great story though.","","");
+		//パリン
+		Message(0,"Well, you two are","finally back together.","","");
+		//イワオ
+		Message(7,"I'm very grateful. Thank you.","","","");
+		
+//		SelStart(50);
+//		SelText("金魚鉢をあげる",1);
+//		SelText("金魚鉢をあげない",2);
+//		SelEnd();
+		ch[50] = 1;
+		
+		if (ch[50] == 1)
+		{
+			Mes("You gave the ~Goldfish~ to Rocko.");
+			ch[2636] = 1;
+			KaguTest(20002,78);
+			KaguTest(10203,78);
+			ch[3959] = 78;
+			
+			Wait(75);
+
+//			if (kagu == 0)
+//			{
+//				// 初回ムービー
+//				PlayMovie("iwao_k.txt",0);
+//			}
+
+			Black(0,100,15);
+			Wait(15);
+			SetWaku(1);
+			Mouse(0);
+			
+			LoadMap(401);
+			Black(0,100,0);
+			Wait(10);
+			CharPos(0,-892,-498,25);
+			ch[420] = -982;
+			ch[421] = -767;
+			ch[422] = 35;
+			ch[400] = 107;
+			KaguTest(30070,0);
+			KaguTest(30070,7);
+			ch[420] = -1100;
+			ch[421] = -580;
+			ch[422] = 150;
+
+			ch[423] = ch[420];
+			ch[424] = ch[421];
+			ch[425] = ch[422];
+			ch[420] = ch[420] + 994;
+			ch[421] = ch[421] + 335;
+			ch[422] = ch[422] + 370;
+			KaguTest(30019,8);
+			KaguTest2(30015,0,"QQ3");
+			KaguTest2(30015,0,"QQ3Alpha");
+			KaguTest(30118,0);
+			ch[420] = -1;
+			KaguTest(12002,07);
+//			ch[420] = 9;
+//			ch[421] = 1;
+//			ch[422] = 5;
+//			KaguTest(12003,07);
+			Black(0,0,15);
+			Wait(15);
+			
+//			Message(6,"やる気が沸いてきたでがんす！","","","");
+
+//			WaitC(75);
+			ch[420] = ch[423];
+			ch[421] = ch[424];
+			ch[422] = ch[425];
+			KaguTest(30072,1);
+			WaitC(15);
+			KaguTest(30069,1920);
+			
+			WaitC(200);
+
+			kagu++;
+			if (ch[1753] < 1)
+			{
+				ch[1753] = 1;
+			}
+
+			KaguTest(10202,0);
+			WaitC(30);
+			Black(0,100,15);
+			WaitC(15);
+			Black(0,100,0);
+	
+			ch[3979] = 41;
+			ch[420] = 22;
+			KaguTest(12002,7);
+			KaguTest(30019,0);
+			KaguTest(30072,0);
+			KaguTest(99999,1);
+			ch[298] = 1;
+			ch[400] = -1;
+
+			return 0;
+		}
+		else
+		{
+			Message(7,"I see.","That's too bad.","","");
+			ch[400] = -1;
+			return 0;
+		}
+	}
+	KaguTest(20001,51);
+	if (ch[430] && !kaguage && !kagudame)
+	{
+		//パリン
+		Message(0,"Do you know this Old Scroll?","","","");
+		//イワオ
+		Message(7,"T-that scroll? It's an","ancient family heirloom!","","");
+		//パリン
+		Message(0,"What's written on it?","","","");
+		//イワオ
+		Message(7,"It's a complete guide to","procuring the tastiest rocks","and the proper way to eat them.","");
+		//パリン
+		Message(0,"Sounds kind of boring.","","","");
+		//イワオ
+		Message(7,"M-maybe to you, but to rock","connoisseurs, it's invaluable.","","");
+		Message(7,"But thanks for returning","it to me.","","");
+		
+		ch[50] = 1;
+		
+		if (ch[50] == 1)
+		{
+			Mes("You gave Rocko the ~Old Scroll.~");
+			KaguTest(20002,51);
+			KaguTest(10203,51);
+			ch[3959] = 51;
+			
+			Wait(75);
+
+//			if (kagu == 0)
+//			{
+//				// 初回ムービー
+//				PlayMovie("iwao_k.txt",0);
+//			}
+
+			Black(0,100,15);
+			Wait(15);
+			SetWaku(1);
+			Mouse(0);
+			
+			LoadMap(401);
+			Black(0,100,0);
+			Wait(10);
+			CharPos(0,-892,-498,25);
+			ch[420] = -1068;
+			ch[421] = -790;
+			ch[422] = 35;
+			ch[400] = 107;
+			KaguTest(30070,0);
+			KaguTest(30070,7);
+			ch[420] = -1100;
+			ch[421] = -580;
+			ch[422] = 150;
+
+			ch[423] = ch[420];
+			ch[424] = ch[421];
+			ch[425] = ch[422];
+			ch[420] = ch[420] + 994;
+			ch[421] = ch[421] + 335;
+			ch[422] = ch[422] + 370;
+			KaguTest(30019,8);
+			KaguTest2(30015,0,"QQ3");
+			KaguTest2(30015,0,"QQ3Alpha");
+			KaguTest(30118,0);
+			ch[420] = -1;
+			KaguTest(12002,7);
+//			ch[420] = 9;
+//			ch[421] = 1;
+//			ch[422] = 5;
+//			KaguTest(12003,7);
+			Black(0,0,15);
+			Wait(15);
+			
+//			Message(6,"やる気が沸いてきたでがんす！","","","");
+
+//			WaitC(75);
+			ch[420] = ch[423];
+			ch[421] = ch[424];
+			ch[422] = ch[425];
+			KaguTest(30072,1);
+			WaitC(15);
+			KaguTest(30069,1920);
+			
+			WaitC(200);
+
+			kagu++;
+			if (ch[1753] < 1)
+			{
+				ch[1753] = 1;
+			}
+
+			KaguTest(10202,0);
+			WaitC(30);
+			Black(0,100,15);
+			WaitC(15);
+			Black(0,100,0);
+	
+			ch[3979] = 17;
+			ch[420] = 22;
+			KaguTest(12002,7);
+			KaguTest(30019,0);
+			KaguTest(30072,0);
+			KaguTest(99999,1);
+			ch[298] = 1;
+			ch[400] = -1;
+
+			return 0;
+		}
+		else
+		{
+			Message(7,"I see.","That's too bad.","","");
+			ch[400] = -1;
+			return 0;
+		}
+	}
+
+	if (kaguage && !kagudame)
+	{
+		SetWaku(0);
+		Mouse(1);
+		KaguTest(30059,0);
+
+		Black(0,0,15);
+		Wait(15);
+			
+		ch[400] = 7;
+		if (ch[3959] == 50)
+		{
+			//イワオ
+			Message(7,"Oh my Josephine.","I'm sorry you had to go","through all that...","");
+			ch[400] = -1;
+			return 0;
+		}
+		if (ch[3959] == 78)
+		{
+			//イワオ
+			Message(7,"Oh Goldon... your swimming","cheers me right up!","","");
+			ch[400] = -1;
+			return 0;
+		}
+		if (kagu == 1)
+		{
+			//イワオ
+			Message(7,"Now that I've gotten some","furniture back, I'm feeling","a bit more comfortable.","");
+			ch[400] = -1;
+			return 0;
+		}
+		if (kagu < 5)
+		{
+			//イワオ
+			Message(7,"It's really starting to feel like","home, thanks to you.","","");
+			ch[400] = -1;
+			return 0;
+		}
+		if (kagu > 4)
+		{
+			//イワオ
+			Message(7,"You've returned","all my furniture!","","");
+			Message(7,"I can't thank you enough.","","","");
+			ch[400] = -1;
+			return 0;
+		}
+
+	}
+
+
+	int story;
+	int map;
+	string str;
+
+	ch[400] = 7;
+
+	KaguTest(11000,0);
+	story = ch[420];
+	KaguTest(20010,0);
+	map = ch[420];
+
+	ch[207]++;
+	
+	if (ch[1538])
+	{
+		ch[420] = ch[1792];
+		KaguTest(20043,520093696);
+		if (ch[420] == 520093696)
+		{
+			// イワオの家具は全部そろっている
+			if (ch[207] < 2)
+			{
+				//イワオ
+				Message(7,"Monster Village is repaired,","and the Dark Mist is gone.","","");
+				Message(7,"Now we can live here in","peace and comfort.","","");
+				//パリン
+				Message(0,"But aren't you still","having some erosion problems?","","");
+				//イワオ
+				Message(7,"D-don't remind me! I've been","trying to forget about that. ","","");
+				Message(7,"This is such a happy ending,","and we owe it all","to you and Motoro.","");
+			}
+			else
+			{
+				//イワオ
+				Message(7,"Monster Village is repaired,","and the Dark Mist is gone.","","");
+				Message(7,"Now we can live here in","peace and comfort.","","");
+			}
+		}
+		else
+		{
+			//イワオ
+			Message(7,"Monster Village is repaired,","but there is still some","Dark Mist lingering outside.","");
+			Message(7,"I wonder why...","","","");
+		}
+	}
+	if (ch[1571] && !ch[1538])
+	{
+		if (ch[207] < 2)
+		{
+			//イワオ
+			Message(7,"Motoro just stopped by.","I-I hadn't seen him in ages.","","");
+			Message(7,"You know, Motoro was the one","who built this town in the beginning.","","");
+			Message(7,"But he left quickly. I wonder if it","had anything to do with the quake.","","");
+		}
+		else
+		{
+			//イワオ
+			Message(7,"Motoro just stopped by.","I-I hadn't seen him in ages.","","");
+			Message(7,"You know, Motoro was the one","who built this town in the beginning.","","");
+		}
+	}
+	if (ch[1513] && !ch[1571])
+	{
+		//イワオ
+		Message(7,"I remember, many years ago,","I saw a strange object fall","into the northern mountains.","");
+		Message(7,"I wonder what it was.","","","");
+	}
+	if (ch[1505] && !ch[1513])
+	{
+		if (ch[1505] && !ch[2524])
+		{
+			//イワオ
+			Message(7,"Oh, it's Parin!","Nice to see ya!","","");
+			Message(7,"Cheer has returned to our","Village, thanks to you!","","");
+		}
+		if (ch[2524] && !ch[2526])
+		{
+			//イワオ
+			// 別のメッセージの方がいいかも？
+			Message(7,"Oh, it's Parin!","Nice to see ya!","","");
+			Message(7,"Cheer has returned to our","Village, thanks to you!","","");
+		}
+		if (ch[2526] && !ch[2527])
+		{
+			if (ch[207] < 2)
+			{
+				//イワオ
+				Message(7,"Urk! D-don't hit me anymore!","","","");
+				Message(7,"W-why, I'll be nothing but a","pile of gravel if you keep this up!","","");
+				//パリン
+				Message(0,"What are you talking about?","","","");
+				//イワオ
+				Message(7,"You can't fool me!","","","");
+				Message(7,"You were digging into me","with that horrible shovel!","","");
+				//パリン
+				Message(0,"Shovel?","All I have is a drill.","","");
+				//イワオ
+				Message(7,"T-that's funny...","Looked a lot like you...","","");
+				//パリン
+				Message(0,"Where did they go?","","","");
+				//イワオ
+				Message(7,"I think they headed for","the human town...?","","");
+				//パリン
+				Message(0,"Are you sure this isn't some","wild dream of yours, Rocko?","","");
+				//イワオ
+				Message(7,"B-but it seemed so real...","","","");
+				Message(7,"I was breaking up","into little pebbles...","","");
+			}
+			else
+			{
+				Message(7,"It h-had to have been","you, Parin!","","");
+				Message(7,"Then you laughed and ran off","toward the human town!","","");
+			}
+		}
+		if (ch[2527])
+		{
+			if (ch[207] < 2)
+			{
+				//イワオ
+				Message(7,"My erosion has been acting up","lately. W-what a pain...","","");
+				//パリン
+				Message(0,"...Erosion?","","","");
+				//イワオ
+				Message(7,"It's when my body starts","to chip and wear away.","","");
+				//パリン
+				Message(0,"Your corners are rounding","off. How cute!","","");
+			}
+			else
+			{
+				//イワオ
+				Message(7,"My erosion has been acting up","lately. W-what a pain...","","");
+			}
+		}
+	}
+	if (ch[1542] && !ch[1505])
+	{
+		if (ch[3205])
+		{
+			if (ch[207] < 2)
+			{
+				//イワオ
+				Message(7,"I'm making such a mess...","But at least I can relax at home.","","");
+				//パリン
+				Message(0,"And here, your giant body won't","get in anyone's way.","","");
+				Message(0,"Why leave your house?","","","");
+				//イワオ
+				Message(7,"T-that's not very nice...","","","");
+			}
+			else
+			{
+				//イワオ
+				Message(7,"I'm making such a mess...","But at least I can relax at home.","","");
+			}
+		}
+		else
+		{
+			if (ch[207] < 2)
+			{
+				//イワオ
+				Message(7,"Thank you for saving me in","the forest, Parin.","","");
+				//パリン
+				Message(0,"What are you doing here?","","","");
+				//イワオ
+				Message(7,"Poco said it was neat,","so I came to have a look.","","");
+				Message(7,"This place is so strange!","It's a-amazing!","","");
+				//パリン
+				Message(0,"I'm glad your having fun, but","you're kind of in the way.","","");
+			}
+			else
+			{
+				//イワオ
+				Message(7,"Poco said it was neat,","so I came to have a look.","","");
+				Message(7,"This place is so strange!","It's a-amazing!","","");
+			}
+		}
+	}
+	if (ch[2300] && !ch[1542])
+	{
+		//イワオ
+		Message(7,"The Phantoms first appeared","in this world 3 years ago.","","");
+		Message(7,"We aren't sure where they","came from or what they want.","","");
+		Message(7,"I hear their base is in the ","northern mountains. Be careful.","","");
+	}
+	if (!ch[2300])
+	{
+		//イワオ
+		Message(7,"Puku and Pino came here","after losing their family.","","");
+		Message(7,"They're always","i-inseparable...","","");
+	}
+
+	ch[400] = -1;
+	return 0;
+}

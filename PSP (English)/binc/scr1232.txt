@@ -1,0 +1,52 @@
+
+int main()
+{
+	ch[442] = 1;
+	KaguTest(30141,679);
+	Message(0,"..............","","","");
+	Message(0,"It's so boring here...","I wish there were kids around...","","");
+	
+	ch[420] = 679;
+	KaguTest(30128,-1);
+	Wait(30);
+//	ch[420] = 679;
+//	KaguTest(30128,-1);
+	
+	ch[420] = 2300;
+	ch[421] = 1086;
+	KaguTest(30070,0);
+	Message(0,"What's that?","","","");
+//	ch[420] = 679;
+//	KaguTest(30128,-1);
+
+	Black(0,100,30);
+	Wait(30);
+//	Wait(15);
+////	ch[420] = 679;
+////	KaguTest(30100,-1);
+//	Wait(15);
+
+	ch[2552] = 1;
+	ch[508] = 0;
+	Mouse(0);
+//	KaguTest(20065,0);
+	KaguTest(20065,-5);
+	PlayMovie("open1_2.txt",0);
+	Black(0,100,0);
+	Black(0,0,15);
+//	Wait(15);
+
+//	LoadMapB(998);
+	CharPos(0,-200000,0,0);
+	SetWaku(1);
+	BGM(0);
+//	KaguTest(20065,0);
+	PlayAVI("op.avi",0);
+
+//	Mouse(1);
+	Black(0,100,0);
+	ch[508] = 0;
+	PostScr(28);
+	return 0;
+}
+ 

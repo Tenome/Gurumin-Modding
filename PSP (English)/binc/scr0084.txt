@@ -1,0 +1,9 @@
+
+int main()
+{
+	//MPƒAƒbƒv
+//	StatusUp(1);
+	KaguTest(20032,1);
+	Mes("Your MAX MP has increased!");
+	return 0;
+}

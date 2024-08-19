@@ -1,0 +1,113 @@
+
+int main()
+{
+	if (ch[2497])
+	{
+		// 裏マップ
+//		if (ch[2278] < 1)
+//		{
+//			// 初回クリアなので家具持ってるかチェック
+//			KaguTest(20001,66);
+//			if (!ch[430])
+//			{
+//				TekiStop(1);
+//				MapEvent(0);
+//				Message(0,"まだピエールに頼まれた家具を","見つけてないわ","","");
+//				KaguTest(30058,0);
+//				while(ch[420])
+//				{
+//					Walk(ch[421],ch[422],ch[423]);
+//					Wait(ch[423]);
+//					KaguTest(30058,0);
+//				}
+//				Walk(0,8,20);
+//				Wait(20);
+//				MapEvent(1);
+//				TekiStop(0);
+//				return 0;
+//			}
+//			
+//		}
+
+		KaguTest(40002,0);
+		// クリア
+		TekiStop(1);
+		MapEvent(0);
+			// 評価表示
+		KaguTest(10500,120);
+
+		if (ch[2278] < 1)
+		{
+			ch[2278]=1;
+		}
+		
+		Wait(90);
+		
+		Message(0,"","","","");
+		
+		// ミニフィールドへ戻る
+//		Black(0,100,30);
+//		Wait(30);
+		
+		if (!ch[2628])
+		{
+			//PlayMovie("pie1.txt",0);
+			ch[2628] = 1;
+		}
+		
+		KaguTest(10011,10);
+		Wait(10);
+//		KaguTest(10100,0);
+//		KaguTest(99999,0);
+		TekiStop(0);
+		MapEvent(1);
+		
+//		KaguTest(20025,0);
+		PostScr(1192);
+	}
+	else
+	{
+		TekiStop(1);
+		
+		WaitD(0);
+		ch[50] = 0;
+		string st1,st2;
+		SelStart(50);
+		st1 = "Leave " + StageName(ch[1107]-2260);
+		st2 = "Don't leave " + StageName(ch[1107]-2260);
+		SelText(st1,1);
+		SelText(st2,2);
+		SelEnd();
+		
+		if (ch[50] == 1)
+		{
+			MapEvent(0);
+			Walk(0,-8,30);
+			Black(0,100,30);
+			Wait(30);
+			
+			KaguTest(10100,0);
+			KaguTest(99999,0);
+			TekiStop(0);
+			MapEvent(1);
+		}
+		else
+		{
+			MapEvent(0);
+
+			KaguTest(30058,0);
+			while(ch[420])
+			{
+				Walk(ch[421],ch[422],ch[423]);
+				Wait(ch[423]);
+				KaguTest(30058,0);
+			}
+
+			Walk(0,8,20);
+			Wait(20);
+			MapEvent(1);
+			TekiStop(0);
+		}
+	}
+
+}

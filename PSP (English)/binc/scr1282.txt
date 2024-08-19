@@ -1,0 +1,114 @@
+
+int main()
+{
+	ch[400] = 60;
+	ch[260]++;
+	if (ch[1538])
+	{
+		// エピローグ
+		//クリーム
+		Look(60,0);
+		if (ch[260] < 2)
+		{
+			Message(60,"Puku used my lost picture","of the Prince to disguise himself.","","");
+			Message(60,"But the real Prince has","gotta be around somewhere!","","");
+			Message(60,"And like now, we've beaten","Tokaron and everything...","","");
+			Message(60,"So we totally have time","to go and find him!","","");
+		}
+		else
+		{
+			Message(60,"Puku used my lost picture","of the Prince to disguise himself.","","");
+			Message(60,"But the real Prince has","gotta be around somewhere!","","");
+		}
+		ch[400] = -1;
+		return 0;
+	}
+	
+	//クリーム
+	Look(60,0);
+//	if (ch[2112])
+//	{
+//		//クリーム
+//		if (ch[260] < 2)
+//		{
+//			Message(60,"………………","","","");
+//			Message(60,"王子…一体どうして……","","","");
+//			Message(60,"まるで王子じゃないみたいだった……","","","");
+//		}
+//		else
+//		{
+//			Message(60,"王子…一体どうして……","","","");
+//		}
+//	}
+	if (ch[1571])
+	{
+		Message(60,"Like, ok.","","","");
+		Message(60,"I've decided...","","","");
+	}
+	else
+	{
+		if (ch[260] < 2)
+		{
+			// 10/20 15:00テキスト
+			//パリン
+			Message(0,"I see you're OK.","","","");
+			//クリーム
+			Message(60,"..............","","","");
+			Message(60,"My Princey Poo... why?","","","");
+			Message(60,"It's like he's someone else...","","","");
+			//パリン
+			Message(0,"I don't know what's going on,","but I'm going after him...","","");
+			Message(0,"If you want to know the truth,","maybe you should come.","","");
+			//クリーム
+			Message(60,"I totally... don't feel","like it right now...","","");
+			//パリン
+			Message(0,"I see...","","","");
+			
+			if (!ch[2112])
+			{
+				//クリーム
+				Message(60,"..............","","","");
+				Message(60,"That wall....","","","");
+				//パリン
+				Message(0,"Hm?","","","");
+
+//				// 10/20 17:30テキスト
+//				//クリーム
+//				Message(60,"………………","","","");
+//				Message(60,"王子…一体どうして……","","","");
+//				Message(60,"まるで王子じゃないみたいだったわ","","","");
+//
+//				Message(60,"それはそうと、そこの壁……","","","");
+
+				SaveCamera();
+				ch[420] = -366;
+				ch[421] = 1293;
+				ch[422] = 790;
+				ch[423] = 1185;
+				ch[424] = 1286;
+				ch[425] = 671;
+				KaguTest(30093,30);
+				KaguTest(30019,14);
+				Wait(80);
+				KaguTest(30019,0);
+				RestoreCamera();
+				CrossFade();
+				Wait(15);
+
+//				// 10/20 17:30テキスト
+//				// クリーム
+//				Message(60,"ちょー強い力を感じるわ。","何かあるのかな……","","");
+
+//				10/20 15:00テキスト
+				//クリーム
+				Message(60,"I like, can feel some strange","power on the other side.","","");
+			}
+		}
+		else
+		{
+			//クリーム
+			Message(60,"My Princey Poo... why?","","","");
+		}
+	}
+	ch[400] = -1;
+}

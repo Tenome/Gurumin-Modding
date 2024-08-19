@@ -1,0 +1,19 @@
+
+int main()
+{
+	ch[2062] = 1;
+	ch[2786] = 0;
+	TekiStop(0);
+	MapEvent(1);
+	// ミニフィールドへ戻る
+	KaguTest(10100,0);
+//	Black(0,100,10);
+//	Wait(10);
+
+	TekiStop(0);
+//	ch[3982] = 0;
+//	LoadMapB(999);
+	KaguTest(99985,0);
+	PostScr(930);
+}
+ 

@@ -1,0 +1,22 @@
+
+int main()
+{
+	Look(60,0);
+	Message(60,"I'm so excited!","","","");
+	Message(60,"Oooh, have you heard?","","","");
+	Message(0,"?","","","");
+	Message(60,"The real evil mastermind was actually Pino!","","","");
+	Message(0,"Why do you say that?","","","");
+	Message(60,"I think the fact that Pino is here tells","you everything you need to know!","","");
+	Message(0,"What?","","","");
+	Message(60,"But nobody believes me!","","","");
+	Message(0,"Sorry!!","","","");
+	
+//	Message(60,"ぐるみんのメイン開発機のビデオカードが、","Ｍ社のＰ？？？？？？？らしいわぁん","","");
+//	Message(0,"なにそれ？","","","");
+//	Message(60,"だからプログラムを相当チューンして、","イー○６や英○６より動作が軽いらしいわぁん","","");
+//	Message(0,"？","","","");
+//	Message(60,"でも誰も信じてくれないらしいわぁぁん…","","","");
+//	Message(0,"残念！！","","","");
+	Look(60,18);
+}

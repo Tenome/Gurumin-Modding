@@ -1,0 +1,21 @@
+
+int main()
+{
+	// ‚ ‚è‚¦‚È‚¢
+	return 0;
+	
+	TekiStop(1);
+	ch[420] = 400;
+	Event(1201);
+	ch[420] = 150;
+	ch[421] = 1200;
+	KaguTest(30011,0);
+	KaguTest(20068,27);
+	GetItem(27);
+	Mes("You got the ~Earth Parts.~");
+	SE(956);
+	Wait(40);
+	ch[2114]=1;
+	
+	TekiStop(0);
+}

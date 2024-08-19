@@ -1,0 +1,1124 @@
+
+int main()
+{
+	if (ch[49]) return 0;
+	ch[49] = 1;
+
+	SelStart(50);
+	SelText("Skill",12);
+//	SelText("タイトルに戻る",13);
+	SelText("Map",16);
+	SelText("Invulnerability On/Off",17);
+//	SelText("シナリオフラグオン",1);
+//	SelText("フラグオフ",2);
+	SelText("Movies",5);
+//	SelText("全ステージクリア",14);
+//	SelText("ワープ",3);
+//	SelText("レベル",6);
+	SelText("Reset Mystery Bags",15);
+	SelText("Difficulty",7);
+	SelText("House test",8);
+	SelText("Other",4);
+	SelText("Kill All Enemies",18);
+//	SelText("ボステスト",14);
+//	SelText("ドリルパワーマックス",9);
+	SelText("Drill On/Off",10);
+//	SelText("どこでもセーブ",11);
+	SelText("Exit",0);
+	SelEnd();
+
+	if (ch[50] == 18)
+	{
+		ch[420] = 0;
+		int i;
+		for(i = 58;i < 92;i++)
+		{
+			KaguTest(30120,i);
+		}
+	}
+	if (ch[50] == 16)
+	{
+		PostScr(4080);
+		return 0;
+	}
+	if (ch[50] == 15)
+	{
+		ch[2367] = 0;
+		KaguTest(20010,0);
+		LoadMap(ch[420]);
+		return 0;
+	}
+	if (ch[50] == 14)
+	{
+		int i;
+		for(i = 2260;i < 2286;i++)
+		{
+			ch[i] = 1;
+		}
+		ch[2111] = 1;
+		ch[2113] = 1;
+		ch[2128] = 1;
+//		ch[2149] = 1;
+		ch[2189] = 1;
+		ch[49] = 0;
+		return 0;
+	}
+
+	if (ch[50] == 13)
+	{
+		KaguTest(60000,0);
+		return 0;
+	}
+
+	if (ch[50] == 14)
+	{
+		// ボステスト
+		KaguTest(20010,0);
+		if (ch[420] == 999)
+		{
+			Mes("You can't go to the boss test from the mini-map.");
+			retunr 0;
+		}
+		
+		SelStart(50);
+//		SelText("ボスラッシュ",6);
+//		SelText("ボスラッシュ終わり",7);
+		SelText("Boss Sap",1);
+		SelText("Mosby",2);
+		SelText("Roger",3);
+		SelText("Fake Parin",4);
+		SelText("Tokaron",5);
+		SelEnd();
+		
+		if (ch[50] == 1)
+		{
+			LoadMap(105);
+
+			SetSavePos2(109,0,0,0);
+			ch[1095] = 109;
+
+			KaguTest(20020,0);
+			CharPos(28,-200000,0,0);
+			CharPos(ch[425],0,0,0);
+			CharPos(ch[425] + 1,0,0,0);
+			CharPos(0,0,-500,0);
+			
+			Black(0,0,30);
+			Wait(30);
+		}
+		if (ch[50] == 2)
+		{
+			ch[1542] = 1;
+			LoadMap(506);
+
+//			SetSavePos2(109,0,0,0);
+//			ch[1095] = 109;
+
+//			KaguTest(20020,0);
+//			CharPos(40,-200000,0,0);
+//			CharPos(ch[425],0,0,300);
+//			CharPos(0,0,-1600,0);
+			CharPos(0,4525,6025,0);
+			
+			Black(0,0,30);
+			Wait(30);
+		}
+		if (ch[50] == 3)
+		{
+//			ch[1505] = 1;
+			LoadMap(210);
+		
+			KaguTest(20020,0);
+			CharPos(0,0,0,0);
+//			CharPos(ch[425],-1000,277,-782);
+//			CharPos(ch[425]+1,-1000,277,-782);
+			KaguTest(30028,ch[425]);
+//			KaguTest(30028,ch[425]+1);
+
+			Black(0,0,30);
+			Wait(30);
+		}
+		if (ch[50] == 4)
+		{
+			ch[1505] = 1;
+			LoadMap(606);
+		
+			KaguTest(20020,0);
+			CharPos(0,0,2000,1050);
+			CharPos(ch[425],0,2300,1050);
+			KaguTest(30028,ch[425]);
+
+			Black(0,0,30);
+			Wait(30);
+		}
+		if (ch[50] == 5)
+		{
+			LoadMap(306);
+		
+			CharPos(0,2000,450,1500);
+
+			Black(0,0,30);
+			Wait(30);
+		}
+		if (ch[50] == 6)
+		{
+			// ボスラッシュモード
+			ch[2300] = 1;
+//			ch[1791] = 100;
+			KaguTest(20051,0);
+
+			ch[1780] = 1;
+			ch[1781] = 1;
+			ch[1784] = 1;
+			
+//			GetItem(1);
+//			GetItem(2);
+//			GetItem(9);
+			
+			GetItem(3);
+//			Soubi(3);
+			Kaifuku();
+
+			KaguTest(70000,0);
+			LoadMap(109);
+			CharPos(0,0,900,0);
+			ch[3982] = 1;
+			KaguTest(70000,0);
+			MapEvent(1);
+		}
+		ch[49]=0;
+		return 0;
+	}
+
+	if (ch[50] == 12)
+	{
+		SelStart(50);
+		SelText("All On",10);
+		SelText("Standing Combo F",1);
+		SelText("Walking Combo F",2);
+		SelText("Sieze Combo F",3);
+		SelText("JL Combo F",4);
+		SelText("Revolving Moon",5);
+		SelText("Earth Revolver",6);
+		SelText("Earth Revolver Combo",7);
+		SelText("Earth Revolver Combo F",8);
+		SelText("Dash Rotate",9);
+		SelText("Limit Bust",11);
+		SelEnd();
+
+		if (ch[50] == 1)ch[1780]=!ch[1780];
+		if (ch[50] == 2)ch[1781]=!ch[1781];
+		if (ch[50] == 3)ch[1782]=!ch[1782];
+		if (ch[50] == 4)ch[1783]=!ch[1783];
+		if (ch[50] == 5)ch[1784]=!ch[1784];
+		if (ch[50] == 6)ch[1785]=!ch[1785];
+		if (ch[50] == 7)ch[1786]=!ch[1786];
+		if (ch[50] == 8)ch[1787]=!ch[1787];
+		if (ch[50] == 9)ch[1788]=!ch[1788];
+		if (ch[50] == 11)ch[1789]=!ch[1789];
+		
+		if (ch[50] == 10)
+		{
+			ch[1780]=1;
+			ch[1781]=1;
+			ch[1782]=1;
+			ch[1783]=1;
+			ch[1784]=1;
+			ch[1785]=1;
+			ch[1786]=1;
+			ch[1787]=1;
+			ch[1788]=1;
+			ch[1789]=1;
+		}
+
+		// 本チェック
+		int i;
+		for (i = 0;i < 10;i++)
+		{
+			ch[2130 + i] = 0;
+		
+			if (ch[1780 + i])
+			{
+				ch[2130 + i] = 0;
+			}
+		}
+	
+		ch[49]=0;
+		return 0;
+	}
+	if (ch[50] == 1)
+	{
+		SelStart(50);
+		SelText("OP",4);
+		SelText("Guide Map",1);
+		SelText("Motoro's Lead",8);
+		SelText("Warp 1 ON",2);
+		SelText("Boss Fight DONE 1",6);
+		SelText("Boss Attack 1",3);
+		SelText("Broken Event",5);
+		SelText("Palette 1 Felt",14);
+		SelText("Doug Discovered",17);
+		SelText("Doug Destruction",12);
+		SelText("Everyone's Cheer 1",18);
+		SelText("Warp 2 ON",11);
+		SelText("Boss Fight DONE 2",19);
+		SelText("Boss Attack 2",20);
+		SelText("Fake Parin's Birth",21);
+		SelText("Village Revival",7);
+		SelText("The Monster's Talk",28);
+		SelText("Palette 2 Felt",15);
+		SelText("Doug Failure",16);
+		SelText("Digby Discovery",22);
+		SelText("Mole Brothers Destruction",13);
+		SelText("Everyone's Cheer 2",23);
+		SelText("Fake Parin Fight Done",24);
+		SelText("Fake Parin Attack",25);
+		SelText("Tokaron Fight Done",26);
+		SelEnd();
+
+		if(ch[50]==1)ch[510]=1;
+		if(ch[50]==2)ch[511]=1;
+		if(ch[50]==3)ch[507]=1;
+		if(ch[50]==4)ch[508]=1;
+		if(ch[50]==5)ch[512]=1;
+		if(ch[50]==6)ch[509]=1;
+		if(ch[50]==7)ch[528]=1;
+		if(ch[50]==8)ch[600]=1;
+		if(ch[50]==12)ch[1502]=1;
+		if(ch[50]==13)ch[1510]=1;
+		if(ch[50]==14)ch[1500]=1;
+		if(ch[50]==15)ch[1507]=1;
+		if(ch[50]==16)ch[1508]=1;
+		if(ch[50]==17)ch[1501]=1;
+		if(ch[50]==18)ch[1503]=1;
+		if(ch[50]==19)ch[1504]=1;
+		if(ch[50]==20)
+		{
+			ch[1505]=1;
+			if(!ch[1506])ch[1515]=1;
+			ch[528]=1;
+		}
+		if(ch[50]==21)
+		{
+			ch[1506]=1;
+			ch[1515]=0;
+		}
+		if(ch[50]==22)ch[1509]=1;
+		if(ch[50]==23)ch[1511]=1;
+		if(ch[50]==24)ch[1512]=1;
+		if(ch[50]==25)ch[1513]=1;
+		if(ch[50]==26)ch[1514]=1;
+		if(ch[50]==28)ch[1516]=1;
+
+		ch[49]=0;
+		PostScr(52);
+		return 0;
+	}
+	if (ch[50]==2)
+	{
+		SelStart(50);
+		SelText("OP",4);
+		SelText("Guide Map",1);
+		SelText("Motoro's Lead",8);
+		SelText("Warp 1 ON",2);
+		SelText("Boss Fight DONE 1",6);
+		SelText("Boss Attack 1",3);
+		SelText("Broken Event",31);
+		SelText("Palette 1 Felt",14);
+		SelText("Doug Discovered",17);
+		SelText("Doug Destruction",12);
+		SelText("Everyone's Cheer 1",18);
+		SelText("Warp 2 ON",11);
+		SelText("Boss Fight DONE 2",19);
+		SelText("Boss Attack 2",20);
+		SelText("Fake Parin's Birth",21);
+		SelText("Village Revival",29);
+		SelText("The Monster's Talk",28);
+		SelText("Palette 2 Felt",15);
+		SelText("Doug Failure",16);
+		SelText("Digby Discovery",22);
+		SelText("Mole Brothers Destruction",13);
+		SelText("Everyone's Cheer 2",23);
+		SelText("Fake Parin Fight Done",24);
+		SelText("Fake Parin Attack",25);
+		SelText("Tokaron Fight Done",26);
+		SelText("Brother taught ~Promine~",30);
+		SelText("Brother awarded ~Headdress~",29);
+		SelText("Brother taught ~Meteo~",37);
+		SelText("Poco taught ~Heal~",31);
+		SelText("Poco taught ~Reviver~",32);
+		SelText("Poco taught ~Thunder~",33);
+		SelText("Poco taught ~Barrier~",34);
+		SelText("Chucky taught ~Ice~",35);
+		SelText("All Motoro Skills Reset",36);
+		SelText("All Flag Reset",27);
+		SelEnd();
+	
+		if(ch[50]==1)ch[510]=0;
+		if(ch[50]==2)ch[511]=0;
+		if(ch[50]==3)ch[507]=0;
+		if(ch[50]==4)ch[508]=0;
+		if(ch[50]==31)ch[512]=0;
+		if(ch[50]==6)ch[509]=0;
+		if(ch[50]==29)ch[528]=0;
+		if(ch[50]==8)ch[600]=0;
+		if(ch[50]==12)ch[1502]=0;
+		if(ch[50]==13)ch[1510]=0;
+		if(ch[50]==14)ch[1500]=0;
+		if(ch[50]==15)ch[1507]=0;
+		if(ch[50]==16)ch[1508]=0;
+		if(ch[50]==17)ch[1501]=0;
+		if(ch[50]==18)ch[1503]=0;
+		if(ch[50]==19)ch[1504]=0;
+		if(ch[50]==20)
+		{
+			ch[1505]=0;
+			if(!ch[1506])ch[1515]=0;
+			ch[528]=0;
+		}
+		if(ch[50]==21)
+		{
+			ch[1506]=0;
+			ch[1515]=1;
+		}
+		if(ch[50]==22)ch[1509]=0;
+		if(ch[50]==23)ch[1511]=0;
+		if(ch[50]==24)ch[1512]=0;
+		if(ch[50]==25)ch[1513]=0;
+		if(ch[50]==26)ch[1514]=0;
+		if(ch[50]==28)ch[1516]=0;
+		if(ch[50]==27)
+		{
+			ch[1509]=0;
+			ch[1511]=0;
+			ch[1512]=0;
+			ch[1513]=0;
+			ch[1514]=0;
+			ch[1516]=0;
+			ch[528]=0;
+			ch[1515]=0;
+			ch[1505]=0;
+			ch[1502]=0;
+			ch[1510]=0;
+			ch[1500]=0;
+			ch[1507]=0;
+			ch[1508]=0;
+			ch[1501]=0;
+			ch[1503]=0;
+			ch[1504]=0;
+			ch[600]=0;
+			ch[528]=0;
+			ch[510]=0;
+			ch[511]=0;
+			ch[507]=0;
+			ch[508]=0;
+			ch[512]=0;
+			ch[509]=0;
+			ch[1519]=0;
+			ch[1520]=0;
+			ch[1521]=0;
+			ch[3999]=0;
+			ch[1522]=0;
+			ch[1523]=0;
+			ch[1524]=0;
+			ch[1525]=0;
+			ch[1526]=0;
+			ch[1527]=0;
+			ch[1528]=0;
+			ch[1529]=0;
+			ch[1530]=0;
+			ch[1531]=0;
+			ch[1532]=0;
+			ch[1533]=0;
+			ch[1534]=0;
+		}
+		if(ch[50]==30)ch[1522]=0;
+		if(ch[50]==29)ch[1523]=0;
+		if(ch[50]==31)ch[1524]=0;
+		if(ch[50]==32)ch[1525]=0;
+		if(ch[50]==33)ch[1526]=0;
+		if(ch[50]==34)ch[1527]=0;
+		if(ch[50]==35)ch[1528]=0;
+		if(ch[50]==36)
+		{
+			ch[1529]=0;
+			ch[1530]=0;
+			ch[1531]=0;
+			ch[1532]=0;
+			ch[1533]=0;
+			ch[1534]=0;
+		}
+		if(ch[50]==37)ch[1535]=0;
+
+		ch[49]=0;
+		PostScr(52);
+		return 0;
+	}
+	if (ch[50]==3)
+	{
+		// ワープメニュー
+		SelStart(50);
+		SelText("1-1",1);
+		SelText("1-2",2);
+		SelText("1-3",3);
+		SelText("1-4",4);
+		SelText("1-5",5);
+		SelText("2-1",6);
+		SelText("2-2",7);
+		SelText("2-3",8);
+		SelText("2-4",9);
+		SelText("2-5",10);
+		SelText("2-6",11);
+		SelText("3-1",12);
+		SelText("3-2",13);
+		SelText("3-3",14);
+		SelText("3-4",15);
+		SelText("3-5",16);
+		SelText("3-6",17);
+		SelText("3-7",19);
+		SelText("3-8",20);
+		SelText("4-1",18);
+		SelText("012",21);
+		
+		SelEnd();
+		
+		if(ch[50]==1) LoadMap(101);
+		if(ch[50]==2) LoadMap(102);
+		if(ch[50]==3) LoadMap(103);
+		if(ch[50]==4) LoadMap(104);
+		if(ch[50]==5) LoadMap(105);
+		if(ch[50]==6) LoadMap(201);
+		if(ch[50]==7) LoadMap(202);
+		if(ch[50]==8) LoadMap(203);
+		if(ch[50]==9) LoadMap(204);
+		if(ch[50]==10) LoadMap(205);
+		if(ch[50]==11) LoadMap(206);
+		if(ch[50]==12) LoadMap(301);
+		if(ch[50]==13) LoadMap(302);
+		if(ch[50]==14) LoadMap(303);
+		if(ch[50]==15) LoadMap(304);
+		if(ch[50]==16) LoadMap(305);
+		if(ch[50]==17) LoadMap(306);
+		if(ch[50]==18) LoadMap(401);
+		if(ch[50]==19) LoadMap(307);
+		if(ch[50]==20) LoadMap(308);
+		if(ch[50]==21) LoadMap(012);
+
+		if(ch[50]==30)
+		{
+			ch[3999] = 1;
+			LoadMap(111);
+		}
+		if(ch[50]==31)
+		{
+			ch[3999] = 0;
+			LoadMap(111);
+		}
+
+		ch[49]=0;
+		return 0;
+	}
+	if (ch[50]==4)
+	{
+		// その他メニュー
+		SelStart(50);
+		SelText("Flag Settings",99);
+		SelText("Pictures Flag Settings",100);
+//		SelText("ワープ",7);
+//		SelText("フラグオフ",6);
+		SelText("Gathering of Friends F Set",37);
+		SelText("Debug Flag On",8);
+		SelText("Debug Flag Off",4);
+//		SelText("土全消去",5);
+//		SelText("台座全発見",33);
+//		SelText("ピエール発見",11);
+//		SelText("イワオ発見",12);
+//		SelText("チャッキー発見",13);
+//		SelText("兄たま「プロミネ」教授",24);
+//		SelText("兄たま「覇者の面」教授",25);
+//		SelText("ポコ「ヒール」教授",26);
+//		SelText("ポコ「リバイバ」教授",27);
+//		SelText("ピエール「サンダー」教授",28);
+//		SelText("イワオ「バリアー」教授",29);
+//		SelText("チャッキー「アイス」教授",30);
+		SelText("2990 Rocks",9);
+		SelText("9999 Gold",10);
+		SelText("Medicine MAX",52);
+		SelText("Hard Hat",14);
+		SelText("Headband",15);
+		SelText("Ribbon",16);
+		SelText("Samurai Helm",17);
+		SelText("Magic Hood",18);
+		SelText("Headdress",19);
+		SelText("Cat Ears",36);
+		SelText("Heart",20);
+//		SelText("ＭＰ",21);
+//		SelText("攻撃アップ",22);
+//		SelText("防御アップ",23);
+//		SelText("全魔法忘却",50);
+//		SelText("全技忘却",51);
+//		SelText("メガフレア返しテスト",31);
+		SelText("All Furniture Acquired",32);
+//		SelText("鍵取得",35);
+		SelText("Reverse Shift ",34);
+		SelEnd();
+		if(ch[50]==5)PostScr(698);
+		if(ch[50]==8)ch[3999]=1;
+		if(ch[50]==4)ch[3999]=0;
+		if(ch[50]==9)ch[2498]=2990;
+		if(ch[50]==10)SetGP(9999);
+		if(ch[50]==11)ch[1519]=1;
+		if(ch[50]==12)ch[1520]=1;
+		if(ch[50]==13)ch[1521]=1;
+		if(ch[50]==14)GetItem(43);
+		if(ch[50]==15)GetItem(44);
+		if(ch[50]==16)GetItem(45);
+		if(ch[50]==17)GetItem(46);
+		if(ch[50]==18)GetItem(47);
+		if(ch[50]==19)GetItem(48);
+		if(ch[50]==20)GetItem(16);
+		if(ch[50]==21)GetItem(17);
+		if(ch[50]==22)GetItem(18);
+		if(ch[50]==23)GetItem(19);
+		if(ch[50]==24)ch[1522]=1;
+		if(ch[50]==25)ch[1523]=1;
+		if(ch[50]==26)ch[1524]=1;
+		if(ch[50]==27)ch[1525]=1;
+		if(ch[50]==28)ch[1526]=1;
+		if(ch[50]==29)ch[1527]=1;
+		if(ch[50]==30)ch[1528]=1;
+		if(ch[50]==50)
+		{
+			KaguTest(20002,3);
+			KaguTest(20002,5);
+			KaguTest(20002,12);
+			KaguTest(20002,13);
+			KaguTest(20002,14);
+			KaguTest(20002,15);
+			KaguTest(20002,25);
+			KaguTest(20002,26);
+		}
+		if(ch[50]==51)
+		{
+			KaguTest(20002,1);
+			KaguTest(20002,2);
+			KaguTest(20002,6);
+			KaguTest(20002,7);
+			KaguTest(20002,8);
+			KaguTest(20002,9);
+			KaguTest(20002,10);
+			KaguTest(20002,90);
+		}
+		if (ch[50]==31)
+		{
+			GetItem(90);
+		}
+		if (ch[50]==32)
+		{
+			GetItem(39);
+			GetItem(49);
+			GetItem(50);
+			GetItem(51);
+			GetItem(58);
+			GetItem(59);
+			GetItem(60);
+			GetItem(63);
+			GetItem(64);
+			GetItem(65);
+			GetItem(66);
+			GetItem(67);
+			GetItem(68);
+			GetItem(69);
+			GetItem(70);
+			GetItem(71);
+			GetItem(72);
+			GetItem(73);
+			GetItem(74);
+			GetItem(75);
+			GetItem(78);
+		}
+		if (ch[50] == 33)
+		{
+			KaguTest(20009,0);
+		}
+		if (ch[50] == 52)
+		{
+			int a;
+			for (a = 0;a < 9;a++)
+			{
+				GetItem(4);
+				GetItem(5);
+				GetItem(20);
+			}
+		}
+		if (ch[50] == 34)
+		{
+			if (ch[2497])
+			{
+				PostScr(805);
+			}
+			else
+			{
+				PostScr(804);
+			}
+		}
+		if (ch[50] == 35)
+		{
+//			ch[3998]++;
+			GetItem(38);
+		}
+		if(ch[50]==36) GetItem(40);
+		if(ch[50]==37)
+		{
+			ch[2322] = 1;
+			ch[2323] = 1;
+		}
+		if(ch[50]==99)
+		{
+			int flag;
+			int keta;
+			int okk;
+			int num;
+			int mi;
+			mi = 0;
+			flag = 0;
+			keta = 0;
+			okk = 1;
+			Message(0,"Flag Number?","","","");
+			while(okk)
+			{
+				ch[50] = 0;
+				SelStart(50);
+				SelText("0",1);
+				SelText("1",2);
+				SelText("2",3);
+				SelText("3",4);
+				if (keta > 0)
+				{
+					SelText("4",5);
+					SelText("5",6);
+					SelText("6",7);
+					SelText("7",8);
+					SelText("8",9);
+					SelText("9",10);
+					SelText("Confirm",11);
+				}
+				SelEnd();
+
+				if (ch[50] > 0 && ch[50] < 11)
+				{
+					keta = keta + 1;
+					flag = flag * 10 + (ch[50] - 1);
+				}
+				else
+				{
+					okk = 0;
+				}
+				if (keta == 4)
+				{
+					okk = 0;
+				}
+			}
+
+			if (flag < 0 || flag > 3999)
+			{
+				Message(0,"No such flag!","","","");
+				return 0;
+			}
+
+			okk = 1;
+			num = 0;
+			keta = 0;
+			Message(0,"Flag content?","","","");
+			while(okk)
+			{
+				ch[50] = 0;
+				SelStart(50);
+				if (keta == 0)
+				SelText("-",12);
+				SelText("0",1);
+				SelText("1",2);
+				SelText("2",3);
+				SelText("3",4);
+				SelText("4",5);
+				SelText("5",6);
+				SelText("6",7);
+				SelText("7",8);
+				SelText("8",9);
+				SelText("9",10);
+				SelText("Confirm",11);
+				SelEnd();
+
+				if (ch[50] > 0 && ch[50] < 11)
+				{
+					keta = keta + 1;
+					num = num * 10 + (ch[50] - 1);
+				}
+				if (ch[50] == 12 && keta)
+				{
+					mi = 1;
+				}
+				if (ch[50] < 1 || ch[50] > 12 || ch[50] == 11)
+				{
+					okk = 0;
+				}
+			}
+			if (mi)
+			{
+				num = -1 * num;
+			}
+			ch[flag] = num;
+			ch[49] = 0;
+			return 0;
+		}
+		if (ch[50] == 100)
+		{
+			ch[2031] = 1;
+			ch[2021] = 1;
+			ch[2019] = 1;
+			ch[2004] = 1;
+			ch[2027] = 1;
+			ch[2033] = 1;
+			ch[2011] = 1;
+			ch[2016] = 1;
+			ch[2029] = 1;
+			ch[49] = 0;
+		}
+		
+		ch[49]=0;
+		PostScr(52);
+		return 0;
+
+	}	
+	if (ch[50]==5)
+	{
+		// 長いからスクリプト呼び出し
+		PostScr(699);
+	}
+	if (ch[50]==6)
+	{
+		SelStart(50);
+		SelText("Magic",22);
+		SelText("Fencing Game LV1",1);
+		SelText("Fencing Game LV2",2);
+		SelText("Fencing Game LV3",3);
+		SelText("Demon Dance LV1",4);
+		SelText("Demon Dance LV2",5);
+		SelText("Demon Dance LV3",6);
+		SelText("Crushing Blow LV1",7);
+		SelText("Crushing Blow LV2",8);
+		SelText("Crushing Blow LV3",9);
+		SelText("Out of This World LV1",10);
+		SelText("Out of This World LV2",11);
+		SelText("Out of This World LV3",12);
+		SelText("Calming Eye LV1",13);
+		SelText("Calming Eye LV2",14);
+		SelText("Calming Eye LV3",15);
+		SelText("Lightning Speed LV1",16);
+		SelText("Lightning Speed LV2",17);
+		SelText("Lightning Speed LV3",18);
+		SelText("Infinite Light LV1",19);
+		SelText("Infinite Light LV2",20);
+		SelText("Infinite Light LV3",21);
+		SelEnd();
+		
+		if (ch[50]==22)
+		{
+			SelStart(50);
+			SelText("Fire LV1",22);
+			SelText("Fire LV2",23);
+			SelText("Fire LV3",24);
+			SelText("Thunder LV1",25);
+			SelText("Thunder LV2",26);
+			SelText("Thunder LV3",27);
+			SelText("Ice LV1",28);
+			SelText("Ice LV2",29);
+			SelText("Ice LV3",30);
+			SelText("Barrier LV1",31);
+			SelText("Barrier LV2",32);
+			SelText("Barrier LV3",33);
+			SelText("Reviver LV1",34);
+			SelText("Reviver LV2",35);
+			SelText("Reviver LV3",36);
+			SelText("Promine LV1",37);
+			SelText("Promine LV2",38);
+			SelText("Promine LV3",39);
+			SelText("Meteo LV1",40);
+			SelText("Meteo LV2",41);
+			SelText("Meteo LV3",42);
+			SelText("Heal LV1",43);
+			SelText("Heal LV2",44);
+			SelText("Heal LV3",45);
+			SelEnd();
+		}
+		
+		if (ch[50] % 3 == 1)
+		{
+			ch[430] = 0;
+		}
+		if (ch[50] % 3 == 2)
+		{
+			ch[430] = 1;
+		}
+		if (ch[50] % 3 == 0)
+		{
+			ch[430] = 2;
+		}
+		
+		if (ch[50] == 1 || ch[50] == 2 || ch[50] == 3)
+		{
+			GetItem(1);
+			KaguTest(20007,1);
+		}
+		if (ch[50] == 4 || ch[50] == 5 || ch[50] == 6)
+		{
+			GetItem(2);
+			KaguTest(20007,2);
+		}
+		if (ch[50] == 7 || ch[50] == 8 || ch[50] == 9)
+		{
+			GetItem(6);
+			KaguTest(20007,6);
+		}
+		if (ch[50] == 10 || ch[50] == 11 || ch[50] == 12)
+		{
+			GetItem(7);
+			KaguTest(20007,7);
+		}
+		if (ch[50] == 13 || ch[50] == 14 || ch[50] == 15)
+		{
+			GetItem(8);
+			KaguTest(20007,8);
+		}
+		if (ch[50] == 16 || ch[50] == 17 || ch[50] == 18)
+		{
+			GetItem(9);
+			KaguTest(20007,9);
+		}
+		if (ch[50] == 19 || ch[50] == 20 || ch[50] == 21)
+		{
+			GetItem(10);
+			KaguTest(20007,10);
+		}
+		if (ch[50] == 22 || ch[50] == 23 || ch[50] == 24)
+		{
+			GetItem(3);
+			KaguTest(20007,3);
+		}
+		if (ch[50] == 25 || ch[50] == 26 || ch[50] == 27)
+		{
+			GetItem(14);
+			KaguTest(20007,14);
+		}
+		if (ch[50] == 28 || ch[50] == 29 || ch[50] == 30)
+		{
+			GetItem(15);
+			KaguTest(20007,15);
+		}
+		if (ch[50] == 31 || ch[50] == 32 || ch[50] == 33)
+		{
+			GetItem(13);
+			KaguTest(20007,13);
+		}
+		if (ch[50] == 34 || ch[50] == 35 || ch[50] == 36)
+		{
+			GetItem(26);
+			KaguTest(20007,26);
+		}
+		if (ch[50] == 37 || ch[50] == 38 || ch[50] == 39)
+		{
+			GetItem(25);
+			KaguTest(20007,25);
+		}
+		if (ch[50] == 40 || ch[50] == 41 || ch[50] == 42)
+		{
+			GetItem(27);
+			KaguTest(20007,27);
+		}
+		if (ch[50] == 43 || ch[50] == 44 || ch[50] == 45)
+		{
+			GetItem(12);
+			KaguTest(20007,12);
+		}
+		
+		ch[49] = 0;
+		return 0;
+	}
+	if (ch[50] == 7)
+	{
+		SelStart(50);
+		SelText("Beginner",1);
+		SelText("Normal",2);
+		SelText("Hard",3);
+		SelText("Happy",4);
+		SelText("Crazy",5);
+		SelEnd();
+		
+		ch[3961] = 0;
+		if (ch[50] == 1)
+		{
+			KaguTest(20071,1);
+//			ch[455] = 1;
+		}
+		if (ch[50] == 2)
+		{
+			KaguTest(20071,0);
+//			ch[455] = 0;
+		}
+		if (ch[50] == 3)
+		{
+			KaguTest(20071,2);
+//			ch[455] = 2;
+		}
+		if (ch[50] == 4)
+		{
+			ch[3961] = 1;
+			KaguTest(20071,2);
+//			ch[455] = 2;
+		}
+		if (ch[50] == 5)
+		{
+			ch[3961] = 2;
+			KaguTest(20071,2);
+//			ch[455] = 2;
+		}
+		
+		ch[49] = 0;
+		return 0;
+	}
+	if (ch[50] == 8)
+	{
+		SelStart(50);
+		SelText("Poco's House LV1",1);
+		SelText("Poco's House LV2",2);
+		SelText("Poco's House LV3",3);
+		SelText("Pierre's House LV1",4);
+		SelText("Pierre's House LV2",5);
+		SelText("Pierre's House LV3",6);
+		SelText("Rocko's House LV1",7);
+		SelText("Rocko's House LV2",8);
+		SelText("Rocko's House LV3",9);
+		SelText("Chucky's House LV1",10);
+		SelText("Chucky's House LV2",11);
+		SelText("Chucky's House LV3",12);
+		SelText("Town LV1",13);
+		SelText("Town LV2",14);
+		SelText("Town LV3",15);
+		SelText("Town LV4",16);
+		SelEnd();
+		
+		if (ch[50] == 1)
+		{
+			ch[1750] = 0;
+		}
+		if (ch[50] == 2)
+		{
+			ch[1750] = 1;
+		}
+		if (ch[50] == 3)
+		{
+			ch[1750] = 2;
+		}
+		if (ch[50] == 4)
+		{
+			ch[1751] = 0;
+		}
+		if (ch[50] == 5)
+		{
+			ch[1751] = 1;
+		}
+		if (ch[50] == 6)
+		{
+			ch[1751] = 2;
+		}
+		if (ch[50] == 7)
+		{
+			ch[1752] = 0;
+		}
+		if (ch[50] == 8)
+		{
+			ch[1752] = 1;
+		}
+		if (ch[50] == 9)
+		{
+			ch[1752] = 2;
+		}
+		if (ch[50] == 10)
+		{
+			ch[1753] = 0;
+		}
+		if (ch[50] == 11)
+		{
+			ch[1753] = 1;
+		}
+		if (ch[50] == 12)
+		{
+			ch[1753] = 2;
+		}
+		if (ch[50] == 13)
+		{
+			ch[1754] = 0;
+			ch[1755] = 0;
+		}
+		if (ch[50] == 14)
+		{
+			ch[1754] = 0;
+			ch[1755] = 1;
+		}
+		if (ch[50] == 15)
+		{
+			ch[1754] = 1;
+			ch[1755] = 2;
+		}
+		if (ch[50] == 16)
+		{
+			ch[1754] = 1;
+			ch[1755] = 3;
+		}
+
+		ch[49]=0;
+		PostScr(52);
+		return 0;
+	}
+	if (ch[50] == 9)
+	{
+		KaguTest(20011,120);
+	}
+	if (ch[50] == 10)
+	{
+		if (ch[2300])
+		{
+			Scop(0);
+			ch[2300] = 0;
+			ch[2301] = 0;
+		}
+		else
+		{
+			Scop(1);
+			ch[2300] = 1;
+			ch[2301] = 1;
+		}
+	}
+	if (ch[50] == 11)
+	{
+		KaguTest(20015,0);
+	}
+	if (ch[50] == 17)
+	{
+		SelStart(50);
+		SelText("Invulnerability On",1);
+		SelText("Invulnerability Off",2);
+		SelEnd();
+		if (ch[50] == 1)
+		{
+			KaguTest(30136,1);
+		}
+		if (ch[50] == 2)
+		{
+			KaguTest(30136,0);
+		}
+	}
+	ch[49]=0;
+	return 0;
+}
+ 

@@ -1,0 +1,8 @@
+
+int main()
+{
+	Message(0,"That way looks boring...","","","");
+	
+	Walk(8,0,11);
+	Wait(11);
+}

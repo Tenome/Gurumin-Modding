@@ -1,0 +1,88 @@
+
+int main()
+{
+	MapEvent(0);
+	WaitD(0);
+	if (ch[2057] && ch[2300])
+	{
+		// “ü‚ê‚é
+		Message(0,"Something is written here.","","","");
+		KaguTest(20001,2);
+		if (ch[430] < 9)
+		{
+			Message(0,"If you want to go inside,","Secret password please.~","","");
+		}
+		else
+		{
+			Message(0,"~You've got all the pictures, eh?","speak the password.","","");
+		}
+		string txt;
+		txt = Type(600);
+		if (strcmp(txt,"Legendary") == 0)
+		{
+			// ³‰ð
+			TekiStop(1);
+			Black(0,100,15);
+			Wait(15);
+			Event(113);
+			int x;
+			int y;
+			int z;
+			int i;
+			
+			for (i = 58;i < 66;i++)
+			{
+				GetCharPos(i,x,y,z);
+				if (x > -20000)
+				{
+					ch[420] = 2;
+					KaguTest(12005,i);
+					// ‘Sˆõ‘Ò‹@‚³‚¹‚é
+					ch[420] = 2;
+					ch[421] = 1;
+					ch[422] = 5;
+					KaguTest(12003,i);
+					ch[420] = -1;
+					Look(i,18);
+					KaguTest(12002,i);
+				}
+			}
+			Wait(5);
+			Black(0,0,15);
+			TekiStop(0);
+		}
+		else
+		{
+			// ‘Ê–Ú
+			Message(0,"..............","","","");
+			Message(0,"That can't be it...","","","");
+			KaguTest(30058,0);
+			while(ch[420])
+			{
+				Walk(ch[421],ch[422],ch[423]);
+				Wait(ch[423]);
+				KaguTest(30058,0);
+			}
+
+			Walk(8,-8,11);					
+			Wait(11);					
+		}
+	}
+	else
+	{
+		Message(0,"Locked. I can't get in.","","","");
+
+		KaguTest(30058,0);
+		while(ch[420])
+		{
+			Walk(ch[421],ch[422],ch[423]);
+			Wait(ch[423]);
+			KaguTest(30058,0);
+		}
+
+		Walk(8,-8,11);					
+		Wait(11);					
+	}
+	MapEvent(1);					
+}
+ 

@@ -1,0 +1,274 @@
+
+int main()
+{
+	int go;
+	int best;
+	int syokai;
+	string str;
+	go = 0;
+	best = 0;
+	syokai = 0;
+
+	// ホイッスル
+	SE(548);
+	ch[3982] = 0;
+	Wait(60);
+	Black(0,100,30);
+	Wait(30);
+	ch[2144] = 0;
+	ch[2497] = 0;
+	LoadMap(22);
+	KaguTest2(10010,0,"minigm");
+	CharPos(0,340,-360,0);
+	Camera(14,-550,900,370);
+	Look(0,14);
+	Look(14,0);
+	CrossFade();
+	Wait(15);
+	Camera(-1,0,0,0);
+	Black(0,0,30);
+	Wait(30);
+	
+	ch[2061] = 0;
+
+	if (ch[2311] < 21)
+	{
+		// 過去に合格していない
+		go = 1;
+	}
+	if (ch[2145] > ch[2311] - 1 && ch[2311] > 0)
+	{
+		// 自己ベスト
+		best = 1;
+	}
+	if (ch[2311] == 0)
+	{
+		syokai = 1;
+	}
+	if (ch[2145] > ch[2311] - 1)
+	{
+		ch[2311] = ch[2145] + 1;
+	}
+	
+	if (!ch[2534] && ch[2145] > 19)
+	{
+		// 合格
+		ch[400] = 14;
+		ch[2289] = 1;
+		//パリン
+		Message(0,"Whew, what a workout!","","","");
+		//ドク
+		Message(14,"Yes yes!","An excellent sample!","","");
+		Message(14,"For now, we can end","this experiment.","","");
+		//パリン
+		Message(0,"Then please fix the Pimento","Mountain elevator!","","");
+		//ドク
+		Message(14,"Elevator?","","","");
+		Message(14,"Yes of course! I can't","just leave it broken now!","","");
+		Message(14,"See you there.","","","");
+
+		KaguTest(30005,0);
+		Camera(14,ch[421],ch[422],ch[423]);
+		KaguTest(30062,0);
+		ch[420] = 14;
+		KaguTest(30063,0);
+		ch[400] = 114;
+		ch[424] = 0;
+		ch[425] = -740;
+		ch[420] = 1;
+		ch[426] = 12;
+		KaguTest(30060,14);
+		Walk2(14,ch[421]*2,ch[422]*2,ch[423]/2);
+		Wait(ch[423]/2);
+		KaguTest(30061,0);
+		ch[424] = 0;
+		ch[425] = -1300;
+		ch[426] = 12;
+		KaguTest(30060,14);
+		Walk2(14,ch[421]*2,ch[422]*2,ch[423]/2);
+		Wait((ch[423] / 2) - 15);
+		Camera(-1,0,0,0);
+		ch[420] = 3;
+		KaguTest(30064,14);
+		Wait(15);
+		CharPos(14,-200000,0,0);
+		KaguTest(30063,-1);
+
+		ch[2534] = 1;
+		ch[400] = -1;
+		return 0;
+	}
+	if (!ch[2534] && ch[2145] < 20)
+	{
+		ch[400] = 14;
+		//ドク
+		Message(14,"You can't fail so soon!","I need more data!","","");
+		Message(14,"We have to start over...","","","");
+		//パリン
+		Message(0,"But I'm in a hurry!","","","");
+		ch[400] = -1;
+		return 0;
+	}
+	
+	if (ch[2145] > 19 && go)
+	{
+		// 初合格
+		//str = "" + ch[2145] + "本避けているかも";
+		str = "You dodged " + ch[2145] + " lasers.";
+		ch[400] = 14;
+		Message(14,"We've achieved our goal!",str,"","");
+		ch[400] = -1;
+		return 0;
+	}
+	if (go && best)
+	{
+		// 合格ならず。しかし、自己ベスト
+		//str = "" + ch[2145] + "本しか避けれていないかも";
+		str = "You only dodged " + ch[2145] + " lasers.";
+		ch[400] = 14;
+		Message(14,"You've broken your record.","Unfortunately...",str,"");
+		Message(14,"Let's achieve our target","sample next time.","","");
+		ch[400] = -1;
+		return 0;
+	}
+	if (go)
+	{
+		// 合格ならず。しかも、自己ベストでもない
+		if (ch[2145] > 0)
+		{
+			//str = "" + ch[2145] + "本しか避けれていないかも";
+			str = "You only dodged " + ch[2145] + " lasers.";
+		}
+		else
+		{
+			//str = "１本も避けれていないかも";
+			str = "You didn't even dodge one laser.";
+		}
+		ch[400] = 14;
+		Message(14,"Too bad.",str,"","");
+		Message(14,"You didn't reach","the target sample.","","");
+		Message(0,"It's pretty tough.","","","");
+		ch[400] = -1;
+		return 0;
+	}
+	if (best)
+	{
+		// 既に合格済み。自己ベスト
+		if(ch[2145] > 79)
+		{
+			// 鬼だべ
+			Message(0,"Yay!","I broke my record!","","");
+			ch[400] = 14;
+			Message(14,"Extraordinary!","You're a natural!","","");
+//			str = "" + ch[2145] + "本も避けているかも";
+			str = "You dodged " + ch[2145] + "lasers.";
+			Message(14,str,"","","");
+			if (!ch[2312])
+			{
+				Message(14,"You're the first to give me","such amazing results!","","");
+				Message(14,"Such a valuable specimen","deserves this Gold Medal.","","");
+				Mes("You got a ~Gold Medal.~");
+				ch[2289] = 2;
+				KaguTest(20022,79);
+				GetItem(79);
+				Wait(90);
+				
+				if (ch[2145] > 199 && !ch[2641])
+				{
+//					Message(14,"さらに実験数値が２００を超えたので","今度から商品を割引してあげよう","","");
+					ch[2641] = 1;
+				}
+				Message(0,"Thanks.","","","");
+				ch[400] = -1;
+				ch[2312] = 1;
+			}
+			else
+			{
+				Message(14,"You're the only one able","to avoid this many lasers.","","");
+				Message(14,"Take this Silver Medal.","","","");
+				KaguTest(20022,76);
+				GetItem(76);
+				Wait(90);
+				if (ch[2145] > 199 && !ch[2641])
+				{
+//					Message(14,"さらに実験数値が２００を超えたので","今度から商品を割引してあげよう","","");
+					ch[2641] = 1;
+				}
+				Message(0,"Thanks.","","","");
+				ch[400] = -1;
+			}
+			return 0;
+		}
+		Message(0,"Yay!","I broke my record!","","");
+		ch[400] = 14;
+//		str = "" + ch[2145] + "本も避けているかも";
+		str = "You dodged " + ch[2145] + " lasers.";
+		Message(14,"Extraordinary!",str,"","");
+		Message(14,"Try to avoid 80 lasers next time.","","","");
+		Message(0,"No problem!","","","");
+		ch[400] = -1;
+
+		return 0;
+	}
+
+	// 合格済み。自己ベストではない
+	if(ch[2145] > 79)
+	{
+		// 鬼だべ
+		ch[400] = 14;
+		Message(14,"Extraordinary!","You're a natural!","","");
+//		str = "" + ch[2145] + "本も避けているかも";
+		str = "You dodged " + ch[2145] + " lasers.";
+		Message(14,str,"","","");
+		if (!ch[2312])
+		{
+			Message(14,"You're the first to give me","such amazing results!","","");
+			Message(14,"Your help is invaluable.","Please take this Bronze Medal.","","");
+			Mes("You got a ~Bronze Medal.~");
+			ch[2289] = 2;
+			KaguTest(20022,79);
+			GetItem(79);
+			Wait(90);
+			
+			if (ch[2145] > 199 && !ch[2641])
+			{
+//				Message(14,"さらに実験数値が２００を超えたので","今度から商品を割引してあげよう","","");
+				ch[2641] = 1;
+			}
+			Message(0,"Thanks.","","","");
+			ch[400] = -1;
+			ch[2312] = 1;
+		}
+		else
+		{
+			Message(14,"You're the only one able","to avoid this many lasers.","","");
+			Message(0,"Your past record is","better, however.","","");
+			Message(14,"Take this Bronze Medal.","","","");
+			KaguTest(20022,77);
+			GetItem(77);
+			Wait(90);
+			Message(0,"Thanks.","","","");
+			ch[400] = -1;
+		}
+		return 0;
+	}
+
+	// 鬼じゃない
+	if (ch[2145] > 0)
+	{
+//		str = "" + ch[2145] + "本避けたかも";
+		str = "You dodged " + ch[2145] + " lasers.";
+	}
+	else
+	{
+//		str = "１本も避けれていないかも";
+		str = "You didn't even dodge one laser.";
+	}
+	ch[400] = 14;
+	Message(14,"This time, you dodged ",str,"","");
+	Message(0,"Not so hot this time...","","","");
+	Message(14,"I hope you'll help with","future experiments.","","");
+	ch[400] = -1;
+	return 0;
+}
+ 

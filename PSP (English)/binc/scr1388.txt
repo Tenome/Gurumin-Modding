@@ -1,0 +1,5 @@
+
+int main()
+{
+	Message(0,"This gauge is spinning and","spinning... is that safe?","","");
+}

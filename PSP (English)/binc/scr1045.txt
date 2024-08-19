@@ -1,0 +1,18 @@
+
+int main()
+{
+	TekiStop(1);
+	ch[420] = 400;
+	Event(1201);
+	ch[420] = -1650;
+	ch[421] = 225;
+	KaguTest(30011,0);
+	KaguTest(20068,25);
+	GetItem(25);
+	Mes("You got the ~Heat Parts.~");
+	SE(956);
+	Wait(40);
+	ch[2188]=1;
+	
+	TekiStop(0);
+}

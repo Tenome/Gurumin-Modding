@@ -1,0 +1,26 @@
+
+int main()
+{
+	Message(0,"Ducky was always ","my favorite...","","");
+
+//	ch[50] = 0;
+//	if (!ch[1757])
+//	{
+//		SelStart(50);
+//		SelText("‰½‚©ˆê‚Â‚Á‚Ä‚¢‚­",1);
+//		SelText("‰½‚à‚Á‚Ä‚¢‚©‚È‚¢",2);
+//		SelEnd();
+//	}
+//	
+//	if (ch[50] == 1)
+//	{
+//		Mes("w‚ ‚Ğ‚éx‚ğè‚É“ü‚ê‚½B");
+//		GetItem(70);
+//		ch[1757] = 1;
+//		SE(899);
+//		Wait(30);
+//	}
+	
+	
+}
+ 

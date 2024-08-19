@@ -1,0 +1,6 @@
+
+int main()
+{
+	Message(0,"So many books! I guess","Grandpa's a bookworm.","","");
+	Message(0,"...Actually, they're","mostly comic books.","","");
+}

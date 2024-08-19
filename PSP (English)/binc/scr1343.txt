@@ -1,0 +1,5 @@
+
+int main()
+{
+	Message(0,"Pee-yew!","Get it away!","","");
+}

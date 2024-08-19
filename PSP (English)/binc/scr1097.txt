@@ -1,0 +1,20 @@
+
+int main()
+{
+	KaguTest(99986,0)
+	Black(0,0,20);
+	Wait(20);
+	KaguTest(10006,2);
+	ch[423] = 0;
+	KaguTest(10007,4);
+	KaguTest2(10008,0,"Try saving.");
+	KaguTest2(10008,1,"Save and Load have been added");
+	KaguTest2(10008,2,"to the normal System Menu.");
+	KaguTest2(10008,3,"You can open the System Menu with the System Menu button");
+	KaguTest2(10008,4,"or the button at the top right of the screen.");
+	KaguTest(10010,10);
+	Wait(10);
+	Message(0,"","","","");
+	KaguTest(10011,10);
+	Wait(10);
+}

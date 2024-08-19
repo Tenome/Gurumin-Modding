@@ -1,0 +1,78 @@
+
+int main()
+{
+	KaguTest(40002,0);
+
+	{
+		// クリア
+		int a;
+		a = ch[2260];
+		
+		TekiStop(1);
+		MapEvent(0);
+//		Walk(0,8,15);
+//		Black(0,50,15);
+//		Wait(15);
+			// 評価表示
+		KaguTest(10500,120);
+
+		if (ch[2260] < 1)
+		{
+			ch[2260]=1;
+		}
+		
+		Wait(90);
+		
+		Message(0,"","","","");
+		
+		// ミニフィールドへ戻る
+//		Black(0,100,30);
+//		Wait(30);
+		KaguTest(10011,1);
+		Wait(1);
+//		KaguTest(20025,0);
+		PostScr(1192);
+//		KaguTest(10100,0);
+//		KaguTest(99999,0);
+//		TekiStop(0);
+//		MapEvent(1);
+//		
+//		if (!a)
+//		{
+//			ch[429] = 1;
+//			PostScr(1052);
+//		}
+		
+	}
+
+
+//	if(!ch[507] && !ch[2497])
+//	{
+//	//CrossFade();
+//	//Wait(20);
+//	//ch[507]=1;
+//	MapEvent(0);
+//	Walk(0,8,11);
+//	Wait(11);
+//	Event(120);
+//	Walk(0,5,40);
+//	Wait(60);
+//	MapEvent(1);
+//	PlayMovie("isk_3_2.txt",ch[509]);
+//	
+////	SetSavePos2( 104 , -1807 , 3049 , -220 );
+//	
+//	ch[509]=1;
+//	}
+//	else
+//	{
+//	MapEvent(0);
+//	Walk(0,8,11);
+//	Wait(11);
+//	Event(120);
+//	Walk(0,5,20);
+//	Wait(20);
+//	MapEvent(1);
+//	}
+}
+

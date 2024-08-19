@@ -1,0 +1,34 @@
+
+int main()
+{
+	TekiStop(1);
+	
+	Message(0,"It's locked.","","","");
+
+	KaguTest(20001,38);
+	if (ch[430])
+	{
+		SelStart(50);
+		SelText("Use the key",1);
+		SelText("Don't use the key",2);
+		SelEnd();
+		
+		if (ch[50]==1)
+		{
+		
+			// DAO“P‹
+			KaguTest(30001,Door2C(10402));
+			// Œ®‚PŒÂÁ”ï
+			ch[420] = 1;
+			KaguTest(20006,38);
+//			ch[3998]--;
+			// ƒhƒA‚ğŠJ‚¯‚é
+			Event(499);
+			
+			Mes("You used the key.");
+		}
+		
+	}
+	
+	TekiStop(0);
+}

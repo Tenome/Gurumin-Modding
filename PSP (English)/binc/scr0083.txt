@@ -1,0 +1,10 @@
+
+int main()
+{
+	//HPƒAƒbƒv
+//	StatusUp(0);
+	KaguTest(20032,0);
+	Recover(0,15,1.0,0.0,10.0);
+	Mes("Your MAX HP has increased!");
+	return 0;
+}

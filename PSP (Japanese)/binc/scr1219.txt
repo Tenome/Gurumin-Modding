@@ -1,0 +1,100 @@
+
+int main()
+{
+	Wait(60);
+
+	// ボスラッシュ中？
+	if (ch[2092])
+	{
+		// クリーム戦へ
+		ch[2096] = 1;
+		KaguTest(40002,0);
+		
+		Blur(0,0,0);
+		TekiStop(1);
+		KaguTest(100000,0);
+		CharPos(0,0,2000,1050);
+		LoadMapB(606);
+		Wait(5);
+		Event(160);
+		ch[300] = 1;
+		
+		SetSavePos2(6,0,150,0);
+		ch[1095] = 6;
+		// ムービー救援
+		CharPos(0,0,2000,1050);
+
+		KaguTest(20020,0);
+//		CharPos(ch[425],0,-300,20);
+		CharPos(ch[425],0,2300,1065);
+		KaguTest(30028,ch[425]);
+		
+		Scop2(ch[425],1,"scop.it3");
+		ch[300] = 1;
+
+		KaguTest2(30013,50001,"fall_atari_ue");
+
+		Look(ch[425],0);
+		Look(0,ch[425]);
+
+		Wait(5);
+		Walk(0,1,1);
+		KaguTest(30057,0);
+
+		KaguTest2(10012,0,"boss04.mmv");
+		White(0,0,30);
+		Wait(30);
+		MMV("boss04.mmv");
+		KaguTest2(10012,1,"boss04.mmv");
+		TekiStop(0);
+		MapEvent(1);
+		LiftEnable(0);
+
+		return 0;
+	}
+
+
+	BGM(39);
+
+	if (ch[1505])
+	{
+		KaguTest(30083,0);
+		if (ch[455] != 1)
+		{
+			CharPos(ch[420],0,ch[422],ch[423]);
+		}
+		ch[421] = 0;
+		KaguTest(30034,100);
+		ch[423] = 0;
+		ch[424] = 0;
+		ch[425] = -120;
+		KaguTest(30084,0);
+		CrossFade();
+		White(0,0,30);
+		Wait(30);
+	}
+	else
+	{
+		KaguTest(30083,0);
+		if (ch[455] != 1)
+		{
+			CharPos(ch[420],0,ch[422],ch[423]);
+		}
+		ch[421] = 0;
+		KaguTest(30034,100);
+		KaguTest(20041,0);
+		ch[423] = 0;
+		ch[424] = 0;
+		ch[425] = 356;
+		KaguTest(30081,0);
+		KaguTest(30019,9);
+		White(0,0,30);
+		Wait(30);
+		Wait(183);
+		KaguTest(30019,0);
+		KaguTest(30082,1887);
+		CrossFade();
+	}
+	KaguTest(30139,0);
+}
+ 

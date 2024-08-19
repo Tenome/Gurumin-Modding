@@ -1,0 +1,57 @@
+
+int main()
+{
+	int x;
+	int y;
+	int z;
+
+	if (!ch[313])
+	{
+		White(0,100,20);
+		SE(954);
+		Wait(20);
+	}
+	White(0,0,20);
+	Walk(-5,0,20);
+	
+	if (ch[313])
+	{
+		Mes("Nothing happened.");
+		Wait(20);
+		return 0;
+	}
+
+	// ” ˆÚ“®
+	KaguTest(20020,1);
+	KaguTest(30047,ch[425] + 2);
+	CharPos(ch[425] + 2,450,-2175,0);
+	CharPos(ch[425] + 3,450,-2175,160);
+	CharPos(ch[425] + 4,675,-2250,450);
+
+	ch[421] = 7;
+	KaguTest(30131,ch[425] + 2);
+	KaguTest(30131,ch[425] + 3);
+	KaguTest(30131,ch[425] + 4);
+
+	// ƒJƒƒ‰
+	TekiStop(1);
+	SaveCamera();
+	GetCharPos(ch[425]+3,x,y,z);
+	Camera(ch[425]+3,x - 1300,y,z + 450);
+	Wait(45);
+	if (!ch[13])
+	{
+		ch[13] = 1;
+		Mes("Boxes appeared.");
+	}
+	else
+	{
+		Mes("The boxes' positions were reset.");
+	}
+	Camera(-1,0,0,0);
+	RestoreCamera();
+	CrossFade();
+	TekiStop(0);
+	MapEvent(1);
+}
+ 

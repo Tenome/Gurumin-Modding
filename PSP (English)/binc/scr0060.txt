@@ -1,0 +1,1192 @@
+
+int main()
+{
+	int a;
+	int b;
+	int c;
+	c = 0;
+	int kagu;
+	int kaguage;
+	int kagudame;
+	kagu = 0;
+	kaguage = ch[294];
+	ch[294] = 0;
+
+	ch[400] = 16;
+	
+	if (ch[512] && !ch[2328])
+	{
+		// ポコ発見イベント
+		ch[2328] = 1;
+		PostScr(1195);
+		return 0;
+	}
+	
+	kagudame = 0;
+//	if (ch[2263] && !ch[2621])
+//	{
+//		kagudame = 1;
+//	}
+	if (ch[2007])
+	{
+		kagudame = 1;
+	}
+
+	// チャッキー・鼻眼鏡クエスト中
+	KaguTest(20010,0);
+	if (ch[2030] && ch[420] == 401)
+	{
+		//ポコ
+		Message(16,"Brrrrr...","","","");
+		Message(16,"It's too cold.","I can't work like this.","","");
+		Message(16,"I'll dance to warm up!","","","");
+		ch[400] = -1;
+		
+		ch[420] = ch[2035];
+		KaguTest(20052,1);
+		ch[2035] = ch[420];
+		
+		return 0;
+	}
+
+	// ヘアチェック（アフロチェック）
+	KaguTest(20010,0);
+	KaguTest(20001,38);
+	if (ch[3963] || ch[3964] || ch[3965])
+	{
+		// かぶりものだめ
+		ch[430] = 0;
+		kagudame = 1;
+	}
+	if (ch[430] && ch[420] == 401 && !ch[3962] && !kaguage && !kagudame)
+	{
+		// アフロ持ってる
+		//ポコ
+		Message(16,"Hey, what's up?","","","");
+
+		//パリン
+		Message(0,"Heheheh...","","","");
+
+		//ポコ
+		Message(16,"W-why are you","laughing like that?","","");
+
+		//パリン
+		Message(0,"I brought you a present!","","","");
+
+		//ポコ
+		Message(16,"A present? Wow!","","","");
+
+		//パリン
+		Message(0,"Just turn around...","","","");
+
+		//ポコ
+		Message(16,"OK!","","","");
+
+		Black(0,100,15);
+		Wait(15);
+		KaguTest(20002,38);
+		ch[3962] = 1;
+		ch[2026] = 1;
+		LoadMap(401);
+		ch[400] = 116;
+		KaguTest(20039,16);
+		Black(0,0,15);
+		Wait(15);
+		//ポコ
+		Message(16,".........","","","");
+
+		//パリン
+		Message(0,"It looks great!","","","");
+
+		ch[400] = 16;
+		//ポコ
+		Message(16,"S-So uncool.","","","");
+		Message(16,"Great, it won't come","off. My monsterous ","reputation is done for.","");
+		ch[400] = -1;
+		return 0;
+	}
+	if (ch[2026])
+	{
+		// アフロつけてる
+		//ポコ
+		Message(16,"I can't take it off!","It's making my head ","really really itchy!","");
+		Message(16,"Aah! I can't stand it!","Take it off! Take it off!","","");
+		Message(16,"Set it on fire if you have to!","","","");
+		ch[400] = -1;
+		return 0;
+	}
+
+
+	KaguTest(20010,0);
+	if (ch[420] == 999)
+	{
+		KaguTest(30020,16);
+		if (ch[420] < -791)
+		{
+			Message(16,"No ancient ruins here!","","","");
+		}
+		if (ch[420] > -791 && ch[420] < 0)
+		{
+			Message(16,"Come to see my dance?","","","");
+		}
+		if (ch[420] > 0 && ch[420] < 820)
+		{
+			Message(16,"The ruins are here!","","","");
+		}
+		if (ch[420] > 820)
+		{
+			Message(16,"The ruins are on your right!","","","");
+		}
+		ch[400] = -1;
+		return 0;
+	}
+
+	// 家具あげた数チェック
+	KaguTest(10204,0);
+	kagu = ch[420];
+	
+	// 家具持ってたら
+	KaguTest(20001,74);
+	if (ch[430] && !kaguage && !kagudame)
+	{
+		if (!ch[2058])
+		{
+			ch[216]++;
+
+			if (ch[216] < 2)
+			{
+				//ポコ
+				Message(16,"Parin!","","","");
+
+				//パリン
+				Message(0,"What is it?","","","");
+
+				//ポコ
+				Message(16,"Do something about","that girl!","","");
+
+				//パリン
+				Message(0,"Fan?","Why?","","");
+
+				//ポコ
+				Message(16,"She's mean to me!","","","");
+
+				//パリン
+				Message(0,"Um... Why would she","be mean to you?","","");
+				Message(0,"She can't even see you...","","","");
+			}
+			else
+			{
+				//ポコ
+				Message(16,"Do something about","that girl!","","");
+				Message(16,"She's mean to me!","","","");
+			}
+			ch[400] = -1;
+			return 0;
+		}
+
+		//ポコ
+		Message(16,"Burp!","I can't find my Boombox.","","");
+		Message(16,"Dance is life.","I need my music!","","");
+		//パリン
+		Message(0,"I have your Boombox here.","","","");
+		//ポコ
+		Message(16,"Really? Awesome!","","","");
+		//パリン
+		Message(0,"The Phantoms must have","stolen it.","","");
+		//パリン
+		Message(0,"Hey, you're getting a","little chubby, Poco.","","");
+		Message(0,"What's going on?","","","");
+		//ポコ
+		Message(16,"Uhh, I gotta dance to stay in shape!","","","");
+		//パリン
+		Message(0,"You've got a pimple, too.","","","");
+		//ポコ
+		Message(16,"T-that's just my","monster pox acting up!","","");
+		//パリン
+		Message(0,"..................","","","");
+		Message(0,"I could just toss this","old Boombox in the trash...","","");
+		//ポコ
+		Message(16,"W-woah! All right!","I'll stop stealing cakes!","","");
+		//パリン
+		Message(0,"You'd better!","Here you go.","","");
+		//ポコ
+		Message(16,"You rock Parin!","Now I can help the village!","","");
+		
+//		SelStart(50);
+//		SelText("ラジカセをあげる",1);
+//		SelText("ラジカセをあげない",2);
+//		SelEnd();
+		ch[50] = 1;
+		
+		if (ch[50] == 1)
+		{
+			Mes("You gave Poco the ~Boombox.~");
+			KaguTest(20002,74);
+			KaguTest(10203,74);
+			
+			Wait(75);
+
+//			if (kagu == 0)
+//			{
+//				// 初回ムービー
+//				PlayMovie("poko_k.txt",0);
+//			}
+
+			Black(0,100,15);
+			Wait(15);
+			SetWaku(1);
+			Mouse(0);
+			
+			LoadMap(401);
+			CharPos(0,1109,498,25);
+			CharPos(16,900,600,25);
+			
+			ch[420] = 1130;
+			ch[421] = 594;
+			ch[422] = 95;
+			ch[400] = 116;
+			KaguTest(30070,0);
+//			ch[420] = 675;
+//			ch[421] = 522;
+//			ch[422] = 26;
+			KaguTest(30070,16);
+			
+			ch[420] = 760;
+			ch[421] = 556;
+			ch[422] = 26;
+			ch[423] = ch[420];
+			ch[424] = ch[421];
+			ch[425] = ch[422];
+			ch[420] = ch[420] - 1008;
+			ch[421] = ch[421] - 289;
+			ch[422] = ch[422] + 370;
+			KaguTest(30019,8);
+			KaguTest2(30015,0,"QQ0");
+			KaguTest2(30015,0,"QQ0Alpha");
+			KaguTest(30118,0);
+			ch[420] = -1;
+			KaguTest(12002,16);
+			ch[420] = 7;
+			ch[421] = 1;
+			ch[422] = 5;
+			KaguTest(12003,16);
+			Black(0,0,15);
+			Wait(15);
+
+//			Message(16,"よし、やるぽ！","","","");
+
+			WaitC(75);
+			ch[420] = ch[423];
+			ch[421] = ch[424];
+			ch[422] = ch[425];
+			KaguTest(30072,1);
+			WaitC(15);
+			KaguTest(30069,1920);
+
+//			Message(16,"マナが出てきたぽ。","","","");
+//			Message(0,"マナってなに？","","","");
+//			Message(16,"僕たちオバケの世界を","明るく照らす","太陽みたいなもんだぽ。","");
+//			Message(16,"邪悪な霧は","このマナの光で消えていくはずぽ。","","");
+
+			WaitC(200);
+
+			kagu++;
+			if (ch[1750] < 1)
+			{
+				ch[1750] = 1;
+			}
+			
+			WaitC(30);
+			Black(0,100,15);
+			WaitC(15);
+			Black(0,100,0);
+
+			ch[3959] = 74;
+			ch[3979] = 1;
+			ch[420] = 22;
+			KaguTest(12002,16);
+			KaguTest(30019,8);
+			KaguTest(30072,0);
+			KaguTest(99999,1);
+			ch[298] = 1;
+			ch[400] = -1;
+
+			return 0;
+		}
+		else
+		{
+			Message(16,"Too bad...","","","");
+			ch[400] = -1;
+			return 0;
+		}
+	
+	}
+	KaguTest(20001,68);
+	if (ch[430] && !kaguage && !kagudame)
+	{
+		//ポコ
+		Message(16,"Hey, that's my Shoebox!","","","");
+		//パリン
+		Message(0,"Yep.","I got it back from","the Phantoms.","");
+		//ポコ
+		Message(16,"Put it over there, ok?","","","");
+		//パリン
+		Message(0,"All right.","","","");
+
+		ch[50] = 1;
+		
+		if (ch[50] == 1)
+		{
+			Mes("You gave Poco the ~Shoebox.~");
+			KaguTest(20002,68);
+			KaguTest(10203,68);
+			
+			Wait(75);
+
+//			if (kagu == 0)
+//			{
+//				// 初回ムービー
+//				PlayMovie("poko_k.txt",0);
+//			}
+
+			Black(0,100,15);
+			Wait(15);
+			SetWaku(1);
+			Mouse(0);
+			
+			LoadMap(401);
+			CharPos(0,919,427,25);
+			ch[420] = 811;
+			ch[421] = 232;
+			ch[422] = 35;
+			ch[400] = 116;
+			KaguTest(30070,0);
+			KaguTest(30070,16);
+			ch[420] = 900;
+			ch[421] = 600;
+			ch[422] = 25;
+
+			ch[423] = ch[420];
+			ch[424] = ch[421];
+			ch[425] = ch[422];
+			ch[420] = ch[420] - 1008;
+			ch[421] = ch[421] - 289;
+			ch[422] = ch[422] + 370;
+			KaguTest(30019,8);
+			KaguTest2(30015,0,"QQ0");
+			KaguTest2(30015,0,"QQ0Alpha");
+			KaguTest(30118,0);
+			ch[420] = -1;
+			KaguTest(12002,16);
+			ch[420] = 7;
+			ch[421] = 1;
+			ch[422] = 5;
+			KaguTest(12003,16);
+			Black(0,0,15);
+			Wait(15);
+			
+//			Message(16,"やる気が沸いてきたぽ！","","","");
+			
+			WaitC(75);
+			ch[420] = ch[423];
+			ch[421] = ch[424];
+			ch[422] = ch[425];
+			KaguTest(30072,1);
+			WaitC(15);
+			KaguTest(30069,1920);
+			
+			WaitC(200);
+
+			kagu++;
+			if (ch[1750] < 1)
+			{
+				ch[1750] = 1;
+			}
+
+			WaitC(30);
+			Black(0,100,15);
+			WaitC(15);
+			Black(0,100,0);
+
+			ch[3959] = 68;
+			ch[3979] = 3;
+			ch[420] = 22;
+			KaguTest(12002,16);
+			KaguTest(30019,0);
+			KaguTest(30072,0);
+			KaguTest(99999,1);
+			ch[298] = 1;
+			ch[400] = -1;
+
+			return 0;
+		}
+		else
+		{
+			Message(16,"Too bad...","","","");
+			ch[400] = -1;
+			return 0;
+		}
+	
+	}
+	KaguTest(20001,59);
+	if (ch[430] && !kaguage && !kagudame)
+	{
+		//パリン
+		Message(0,"I found your Bookshelf.","","","");
+
+		//ポコ
+		Message(16,"Awesome! ","Now I can study my","new dance moves!","");
+
+		//パリン
+		Message(0,"This thing sure is heavy.","","","");
+
+		//ポコ
+		Message(16,"It's got my entire","collection of secret","techniques.","");
+		Message(16,"About 100 books worth!","Heavy stuff.","","");
+
+		//パリン
+		Message(0,"I carried it here...","I must be macho or something!","","");
+
+		//ポコ
+		Message(16,"That's true.","","","");
+
+		//パリン
+		Message(0,"But I'm supposed to","be a cute little girl!","","");
+
+		//ポコ
+		Message(16,"Macho, cute? Who cares!","Gimme my Bookshelf.","","");
+
+		//パリン
+		Message(0,"Hey, I care!","Sigh...just take it.","","");
+
+		
+//		SelStart(50);
+//		SelText("本棚をあげる",1);
+//		SelText("本棚をあげない",2);
+//		SelEnd();
+		ch[50] = 1;
+		
+		if (ch[50] == 1)
+		{
+			Mes("You gave Poco the ~Bookshelf.~");
+			KaguTest(20002,59);
+			KaguTest(10203,59);
+			
+			Wait(75);
+
+//			if (kagu == 0)
+//			{
+//				// 初回ムービー
+//				PlayMovie("poko_k.txt",0);
+//			}
+
+			Black(0,100,15);
+			Wait(15);
+			SetWaku(1);
+			Mouse(0);
+			
+			LoadMap(401);
+			CharPos(0,919,427,25);
+			ch[420] = 1232;
+			ch[421] = 289;
+			ch[422] = 35;
+			ch[400] = 116;
+			KaguTest(30070,0);
+			KaguTest(30070,16);
+			ch[420] = 900;
+			ch[421] = 600;
+			ch[422] = 25;
+			
+			ch[423] = ch[420];
+			ch[424] = ch[421];
+			ch[425] = ch[422];
+			ch[420] = ch[420] - 1008;
+			ch[421] = ch[421] - 289;
+			ch[422] = ch[422] + 370;
+			KaguTest(30019,8);
+			KaguTest2(30015,0,"QQ0");
+			KaguTest2(30015,0,"QQ0Alpha");
+			KaguTest(30118,0);
+			ch[420] = -1;
+			KaguTest(12002,16);
+			ch[420] = 7;
+			ch[421] = 1;
+			ch[422] = 5;
+			KaguTest(12003,16);
+			Black(0,0,15);
+			Wait(15);
+			
+//			Message(16,"やる気が沸いてきたぽ！","","","");
+			
+			WaitC(75);
+			ch[420] = ch[423];
+			ch[421] = ch[424];
+			ch[422] = ch[425];
+			KaguTest(30072,1);
+			WaitC(15);
+			KaguTest(30069,1920);
+			
+			WaitC(200);
+
+			kagu++;
+			if (ch[1750] < 1)
+			{
+				ch[1750] = 1;
+			}
+
+			WaitC(30);
+			Black(0,100,15);
+			WaitC(15);
+			Black(0,100,0);
+	
+			ch[3959] = 59;
+			ch[3979] = 8;
+			ch[420] = 22;
+			KaguTest(12002,16);
+			KaguTest(30019,0);
+			KaguTest(30072,0);
+			KaguTest(99999,1);
+			ch[298] = 1;
+			ch[400] = -1;
+
+			return 0;
+		}
+		else
+		{
+			Message(16,"Too bad...","","","");
+			ch[400] = -1;
+			return 0;
+		}
+	
+	}
+	KaguTest(20001,73);
+	if (ch[430] && !kaguage && !kagudame)
+	{
+		//ポコ
+		Message(16,"Woah, I've heard","that sound before.","","");
+		Message(16,"That's my","Phonograph!","","");
+		//パリン
+		Message(0,"That's right!","Got it from the Phantoms.","","");
+		//ポコ
+		Message(16,"I listened to that thing","every day!","","");
+
+//		SelStart(50);
+//		SelText("蓄音機をあげる",1);
+//		SelText("蓄音機をあげない",2);
+//		SelEnd();
+		ch[50] = 1;
+		
+		if (ch[50] == 1)
+		{
+			Mes("You gave Poco the ~Phonograph.~");
+			KaguTest(20002,73);
+			KaguTest(10203,73);
+			kagu++;
+			
+			Wait(75);
+
+//			if (kagu == 0)
+//			{
+//				// 初回ムービー
+//				PlayMovie("poko_k.txt",0);
+//			}
+
+			Black(0,100,15);
+			Wait(15);
+			SetWaku(1);
+			Mouse(0);
+			
+			LoadMap(401);
+			CharPos(0,919,427,25);
+			ch[420] = 736;
+			ch[421] = 541;
+			ch[422] = 35;
+			ch[400] = 116;
+			KaguTest(30070,0);
+			KaguTest(30070,16);
+			ch[420] = 900;
+			ch[421] = 600;
+			ch[422] = 25;
+			
+			ch[423] = ch[420];
+			ch[424] = ch[421];
+			ch[425] = ch[422];
+			ch[420] = ch[420] - 1008;
+			ch[421] = ch[421] - 289;
+			ch[422] = ch[422] + 370;
+			KaguTest(30019,8);
+			KaguTest2(30015,0,"QQ0");
+			KaguTest2(30015,0,"QQ0Alpha");
+			KaguTest(30118,0);
+			ch[420] = -1;
+			KaguTest(12002,16);
+			ch[420] = 7;
+			ch[421] = 1;
+			ch[422] = 5;
+			KaguTest(12003,16);
+			Black(0,0,15);
+			Wait(15);
+			
+//			Message(16,"やる気が沸いてきたぽ！","","","");
+			
+			WaitC(75);
+			ch[420] = ch[423];
+			ch[421] = ch[424];
+			ch[422] = ch[425];
+			KaguTest(30072,1);
+			WaitC(15);
+			KaguTest(30069,1920);
+			
+			WaitC(200);
+
+			kagu++;
+			if (ch[1750] < 1)
+			{
+				ch[1750] = 1;
+			}
+
+			WaitC(30);
+			Black(0,100,15);
+			WaitC(15);
+			Black(0,100,0);
+	
+			ch[3959] = 73;
+			ch[3979] = 40;
+			ch[420] = 22;
+			KaguTest(12002,16);
+			KaguTest(30019,0);
+			KaguTest(30072,0);
+			KaguTest(99999,1);
+			ch[298] = 1;
+			ch[400] = -1;
+
+			return 0;
+
+		}
+		else
+		{
+			Message(16,"Too bad...","","","");
+			ch[400] = -1;
+			return 0;
+		}
+	
+	}
+	KaguTest(20001,75);
+	if (ch[430] && !kaguage && !kagudame)
+	{
+		//パリン
+		Message(0,"More stuff! Is this","your Stereo?","","");
+		//ポコ
+		Message(16,"You bet!","","","");
+		Message(16,"I thought I'd never","see it again!","Thanks Parin!","");
+		//パリン
+		Message(0,"You bet!","","","");
+		
+		
+//		SelStart(50);
+//		SelText("コンポをあげる",1);
+//		SelText("コンポをあげない",2);
+//		SelEnd();
+		ch[50] = 1;
+		
+		if (ch[50] == 1)
+		{
+			Mes("You gave Poco the ~Stereo.~");
+			KaguTest(20002,75);
+			KaguTest(10203,75);
+			
+			Wait(75);
+
+//			if (kagu == 0)
+//			{
+//				// 初回ムービー
+//				PlayMovie("poko_k.txt",0);
+//			}
+
+			Black(0,100,15);
+			Wait(15);
+			SetWaku(1);
+			Mouse(0);
+			
+			LoadMap(401);
+			CharPos(0,919,427,25);
+			ch[420] = 1093;
+			ch[421] = 688;
+			ch[422] = 35;
+			ch[400] = 116;
+			KaguTest(30070,0);
+			KaguTest(30070,16);
+			ch[420] = 900;
+			ch[421] = 600;
+			ch[422] = 25;
+			
+			ch[423] = ch[420];
+			ch[424] = ch[421];
+			ch[425] = ch[422];
+			ch[420] = ch[420] - 1008;
+			ch[421] = ch[421] - 289;
+			ch[422] = ch[422] + 370;
+			KaguTest(30019,8);
+			KaguTest2(30015,0,"QQ0");
+			KaguTest2(30015,0,"QQ0Alpha");
+			KaguTest(30118,0);
+			ch[420] = -1;
+			KaguTest(12002,16);
+			ch[420] = 7;
+			ch[421] = 1;
+			ch[422] = 5;
+			KaguTest(12003,16);
+			Black(0,0,15);
+			Wait(15);
+			
+//			Message(16,"やる気が沸いてきたぽ！","","","");
+			
+			WaitC(75);
+			ch[420] = ch[423];
+			ch[421] = ch[424];
+			ch[422] = ch[425];
+			KaguTest(30072,1);
+			WaitC(15);
+			KaguTest(30069,1920);
+			
+			WaitC(200);
+
+			kagu++;
+			if (ch[1750] < 1)
+			{
+				ch[1750] = 1;
+			}
+
+			WaitC(30);
+			Black(0,100,15);
+			WaitC(15);
+			Black(0,100,0);
+	
+			ch[3959] = 75;
+			ch[3979] = 13;
+			ch[420] = 22;
+			KaguTest(12002,16);
+			KaguTest(30019,0);
+			KaguTest(30072,0);
+			KaguTest(99999,1);
+			ch[298] = 1;
+			ch[400] = -1;
+
+			return 0;
+
+		}
+		else
+		{
+			Message(16,"Too bad...","","","");
+			ch[400] = -1;
+			return 0;
+		}
+	
+	}
+	
+	if (kaguage && !kagudame)
+	{
+		SetWaku(0);
+		Mouse(1);
+			
+		KaguTest(30059,0);
+	
+		Black(0,0,15);
+		Wait(15);
+		ch[400] = 16;
+		if (ch[3959] == 74)
+		{
+			//ポコ
+			Message(16,"My place is looking more like home.","","","");
+			Message(16,"But I have to keep working on it!","","","");
+			ch[400] = -1;
+			return 0;
+		}
+		if (ch[3959] == 68)
+		{
+			//ポコ
+			Message(16,"Gotta organize my shoes!","","","");
+			//パリン
+			Message(0,"Um... You","don't wear shoes.","","");
+			ch[400] = -1;
+			return 0;
+		}
+
+		if (kagu > 1 && kagu < 5)
+		{
+			//ポコ
+			Message(16,"Thank you!","My place is looking","better and better!","");
+			ch[400] = -1;
+			return 0;
+		}
+		if (kagu == 5)
+		{
+			//ポコ
+			Message(16,"Awesome! ","I got all my stuff back!","","");
+			ch[400] = -1;
+			return 0;
+		}
+		
+	}
+
+	int story;
+	int map;
+	string str;
+
+	ch[400] = 16;
+
+	KaguTest(11000,0);
+	story = ch[420];
+	KaguTest(20010,0);
+	map = ch[420];
+	
+	if (map == 401 && ch[2510] && !ch[2511])
+	{
+		// モグロウ初出現時ホーム
+		Message(16,"Digby and I","used to hang out a lot.","","");
+		Message(16,"But that guy","is always late!","","");
+		ch[400] = -1;
+		ch[216] = 0;
+		return 0;
+	}
+	
+	if (map == 401 && ch[2327] && !ch[2322])
+	{
+		// サッカー誘う
+		Message(0,"You're not too busy now?","","","");
+		Message(16,"I guess you could","say that...","","");
+		Message(0,"I'm recruiting a team. You in?","","","");
+		Message(16,"Sure, why not?","What game?","","");
+		Message(0,"Oh, right.","I... don't know yet.","","");
+		Message(16,"It doesn't matter.","I'll be there.","","");
+
+		Message(16,"Who else is on our team?","","","");
+		
+		if (!ch[2323])
+		{
+			Message(0,"I haven't decided.","","","");
+			Message(16,"Well, you could","always ask Chucky.","He's usually free.","");
+			Message(0,"Ok.","I'll go ask him.","","");
+		}
+		else
+		{
+			Message(0,"Chucky.","","","");
+			Message(16,"Cool.","","","");
+		}
+		
+		ch[2322] = 1;
+		ch[400] = -1;
+		return 0;
+	}
+
+	ch[216]++;
+
+	if (ch[2526] && !ch[2527])
+	{
+		//ポコ
+		Message(16,"Chucky is hanging out","in the human town.","","");
+		Message(16,"He's not helping!","","","");
+		ch[400] = -1;
+		return 0;
+	}
+
+	if (ch[1538])
+	{
+		ch[420] = ch[1792];
+		KaguTest(20043,31);
+		if (ch[420] == 31)
+		{
+			// ポコの家具は全部そろっている
+			if (ch[216] < 2)
+			{
+				//ポコ
+				Message(16,"It's so much nicer now. Thanks!","","","");
+				Message(16,"Now I can dance","like I always wanted!","","");
+				//パリン
+				Message(0,"That's good.","","","");
+				Message(0,"But haven't you been","dancing this ","entire time?","");
+				//ポコ
+				Message(16,"You're missing","the big picture!","","");
+				Message(16,"Dance is life!","I have to keep on","dancing whenever I can!","");
+				//パリン
+				Message(0,"Uh... Ok...","","","");
+				//ポコ
+				Message(16,"My dance is for ","the Phantoms too!","","");
+				Message(16,"I'll deliver love to all ","with my awesome moves!","","");
+			}
+			else
+			{
+				//ポコ
+				Message(16,"The endless days of","dancing are just ahead!","","");
+				Message(16,"Dance is life! Dance is love!","","","");
+			}
+		}
+		else
+		{
+			//ポコ
+			Message(16,"It's so much nicer now. Thanks!","","","");
+			Message(16,"But... I still can't","find all my stuff.","","");
+		}
+	}
+	if (ch[1571] && !ch[1538])
+	{
+		if (ch[216] < 2)
+		{
+			//ポコ
+			Message(16,"Woah, crazy earthquake!","You could feel it in town too!","","");
+			//パリン
+			Message(0,"Poco... in town?","","","");
+			//ポコ
+			Message(16,"I was helping people!","","","");
+			//パリン
+			Message(0,"Yeah right!","","","");
+			//ポコ
+			Message(16,"By the way, have you seen","Puku? He's disappeared.","","");
+			Message(16,"Without him leading","us, how can we rebuild?","","");
+			//パリン
+			Message(0,"Changing the subject?","","","");
+		}
+		else
+		{
+			//ポコ
+			Message(16,"By the way, have you seen","Puku? He's disappeared.","","");
+			Message(16,"Without him leading","us, how can we rebuild?","","");
+		}
+	}
+	if (ch[1513] && !ch[1571])
+	{
+		if (ch[216] < 2)
+		{
+			//ポコ
+			Message(16,"It was crazy!","","","");
+			Message(16,"I was walking along,","and that rock by the","north cave exploded!","");
+			Message(16,"That rock appeared","there a few years ago.","","");
+			Message(16,"Right about when the","Phantoms arrived.","","");
+		}
+		else
+		{
+			//ポコ
+			Message(16,"Since Pino's abduction","Puku's been out a lot.","","");
+			Message(16,"That guy really cares.","He is probably searching for her.","","");
+		}
+	}
+	if (ch[1505] && !ch[1513])
+	{
+		int kusai;
+		if (ch[2532])
+		{
+			kusai = 1;
+			if (ch[216] < 2)
+			{
+				//ポコ
+				Message(16,"..................","","","");
+				//パリン
+				Message(0,"What?","","","");
+				//ポコ
+				Message(16,"That smell...","","","");
+				//パリン
+				Message(0,"Gulp!","","","");
+				//ポコ
+				Message(16,"I may have no nose, ","but I can still smell!","","");
+				Message(16,"That drill is cursed.","","","");
+			}
+			else
+			{
+				//ポコ
+				Message(16,"That smell...","","","");
+				Message(16,"I may have no nose, ","but I can still smell!","","");
+			}
+		}
+		if (ch[2521] && !ch[2530] && !kusai)
+		{
+			//ポコ
+			Message(16,"Elevator repair? ","I'm not a repairman!","","");
+			Message(16,"There's always","Doc's lab.","","");
+			Message(16,"But don't ask me","how to get there.","Go search outside.","");
+		}
+		else
+		{
+			if (ch[1505] && !ch[2524] && !kusai)
+			{
+				//ポコ
+				Message(16,"Hooray!","","","");
+				Message(16,"This special occasion","calls for my new dance!","","");
+			}
+			if (ch[2524] && !ch[2527] && !kusai)
+			{
+				if (ch[216] < 2)
+				{
+					//ポコ
+					Message(16,"Pecky's rich, but he's","kinda weird.","","");
+					//パリン
+					Message(0,"You're one to talk.","","","");
+					//ポコ
+					Message(16,"I'm not weird!","I'm cool!","","");
+					//パリン
+					Message(0,"So you say. But everyone else","thinks you're a little off.","","");
+					//ポコ
+					Message(16,"That hurts!","","","");
+				}
+				else
+				{
+					//ポコ
+					Message(16,"Pecky's rich, but he's","kinda weird.","","");
+				}
+			}
+			if (ch[2527] && !kusai)
+			{
+				//ポコ
+				Message(16,"I'm surprised that","Pecky sponsored us.","","");
+				Message(16,"He's not so uncool now.","","","");
+			}
+		}
+	}
+	if (ch[1542] && !ch[1505])
+	{
+		if (ch[2557] && !ch[2558])
+		{
+			//パリン
+			Message(0,"Poco, you have to stop","with the cake stealing!","","");
+			//ポコ
+			Message(16,"W-wha ? Huh ?","","","");
+			//パリン
+			Message(0,"Cakes are disappearing again!","","","");
+			//ポコ
+			Message(16,"N-Not me!","I'm innocent! Really!","","");
+			//パリン
+			Message(0,"Hmm... I wonder...","You do have a history...","","");
+			ch[2558] = 1;
+			ch[216] = 0;
+		}
+		else
+		{
+			if (ch[216] < 2)
+			{
+				//ポコ
+				Message(16,"Anyway, there's a monster","living near here that was","once a legendary warrior.","");
+				//パリン
+				Message(0,"Where?","","","");
+				//ポコ
+				Message(16,"...I forget.","","","");
+				//パリン
+				Message(0,"Helpful info.","","","");
+				//ポコ
+				Message(16,"I've been around forever. ","My memory banks","are all filled up!","");
+				Message(16,"I know I'll forget. So I didn't","bother to remember!","","");
+				//パリン
+				Message(0,"It's hard being immortal...","","","");
+			}
+			else
+			{
+				//ポコ
+				Message(16,"I've been around forever. ","My memory banks","are all filled up!","");
+				Message(16,"I know I'll forget. So I didn't","bother to remember!","","");
+			}
+		}
+	}	
+	if (ch[507] && !ch[1542])
+	{
+		if (ch[216] < 2)
+		{
+			//ポコ
+			Message(16,"Oh, Chucky and Rocko","are still missing.","","");
+			Message(16,"Rocko is the man","for heavy lifting.","","");
+			Message(16,"And Chucky is the ","only monster who","dances with me.","");
+		}
+		else
+		{
+			//ポコ
+			Message(16,"Rocko is the man","for heavy lifting.","","");
+			Message(16,"And Chucky is the ","only monster who","dances with me.","");
+		}
+	}
+	if (ch[3200] && !ch[507])
+	{
+		ch[400] = 16;
+		//ポコ
+		Message(16,"Monster Village isn't the","only place monsters live.","","");
+		Message(16,"Look around, you'll see.","","","");
+		ch[400] = -16;
+		return 0;
+	}
+	if (map == 4 && ch[2330] && !ch[3200])
+	{
+		if (ch[216] < 2)
+		{
+			//パリン
+			Message(0,"What are you doing here?","","","");
+			//※ポコにアセアセエモーション
+			ch[420] = 2011;
+			ch[429] = 0;
+			KaguTest(30036,16);
+			Wait(30);
+			//パリン
+			Message(0,"You're not stealing cakes","are you Poco?","","");
+			//ポコ
+			Message(16,"N-No!","","","");
+			Message(16,"Actually, I've become","extremely interested in","human society.","");
+			Message(16,"I'm observing them in ","their natural habitat.","","");
+			//パリン
+			Message(0,"Did you hit your head?","","","");
+		}
+		else
+		{
+			//ポコ
+			Message(16,"I'm not stealing cakes!","","","");
+			Message(16,"I-I came here to find","my Boombox!","","");
+			//パリン
+			Message(0,"Changing your story now?","","","");
+		}
+	}
+	if (map == 401 && ch[2330] && !ch[3200])
+	{
+		//ポコ
+		Message(16,"With no music,","how can I dance?","","");
+		Message(16,"So, have you seen","my Boombox?","","");
+	}
+	if (ch[1545] && !ch[2330])
+	{
+		if (ch[216] < 2)
+		{
+			//ポコ
+			Message(16,"Four Phantoms attacked","Monster Village.","","");
+			Message(16,"Those Phantoms","are way too strong.","","");
+			//パリン
+			Message(0,"I guess you could say that...","","","");
+		}
+		else
+		{
+			//ポコ
+			Message(16,"Four Phantoms attacked","Monster Village.","","");
+			Message(16,"Those Phantoms","are way too strong.","","");
+		}
+	}
+	if (ch[2300] && !ch[1545])
+	{
+		if (ch[216] < 2)
+		{
+			//ポコ
+			Message(16,"That drill is so cool!","","","");
+			//パリン
+			Message(0,"Cool?","","","");
+			//ポコ
+			Message(16,"..................","","","");
+			Message(16,"It's a legendary weapon!","It must be cool!","","");
+			//パリン
+			Message(0,"..................","","","");		}
+		else
+		{
+			//ポコ
+			Message(16,"Those Phantoms are","tough. Be careful.","","");
+		}
+	}
+	if (ch[2552] && !ch[2300])
+	{
+		//ポコ
+		Message(16,"With that, you can","fight the Phantoms.","","");
+		Message(16,"But they're still tough...","","","");
+	}
+
+	ch[400] = -1;
+	return 0;
+}

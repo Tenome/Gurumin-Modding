@@ -1,0 +1,22 @@
+
+int main()
+{
+	ch[2012] = 1;
+	
+	//ƒpƒŠƒ“
+	Message(0,"An ad could go here.","There we go...","","");
+	
+	ch[420] = 1;
+	KaguTest(20006,8);
+
+	Black(0,100,15);
+	Wait(15);
+	LoadMapB(12);
+	Black(0,0,15);
+	Wait(15);
+	
+	if (ch[2012] && ch[2013] && ch[2014])
+	{
+		Message(0,"There. ","That's all of the ads.","Let's go tell Disk.","");
+	}
+}

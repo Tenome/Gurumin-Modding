@@ -1,0 +1,161 @@
+
+int main()
+{
+	if (!ch[301] || !ch[302] || !ch[303])
+	{
+		ch[321] = 1;
+		// éüÇÃâŒÇÃèÍèäã≥Ç¶ÇÈ
+		TekiStop(1);
+		SaveCamera();
+		Wait(25);
+		int basyo;
+		if (!ch[304])
+		{
+			basyo = 4;
+		}
+		if (!ch[303])
+		{
+			basyo = 3;
+		}
+		if (!ch[302])
+		{
+			basyo = 2;
+		}
+		if (!ch[301])
+		{
+			basyo = 1;
+		}
+	
+		if (basyo == 1)
+		{
+			// ç≈èâÇÃè¸ë‰
+//			ch[420] = -1140;
+//			ch[421] = 4995;
+//			ch[422] = 549;
+//			ch[423] = -2233;
+//			ch[424] = 7077;
+//			ch[425] = 245;
+			ch[420] = -1809;
+			ch[421] = 5969;
+			ch[422] = 610;
+			ch[423] = -2234;
+			ch[424] = 7074;
+			ch[425] = 270;
+			KaguTest(30093,45);
+			KaguTest(30019,14);
+			Blur(1,100,15);
+			Wait(45);
+			Blur(1,0,15);
+			Wait(30);
+			KaguTest(30019,0);
+			RestoreCamera();
+			CrossFade();
+			Wait(15);
+			Message(0,"There's a torch over there.","","","");
+		}
+		if (basyo == 2)
+		{
+			// éüÇÃè¸ë‰
+//			ch[420] = -422;
+//			ch[421] = 4628;
+//			ch[422] = 689;
+//			ch[423] = 1078;
+//			ch[424] = 6192;
+//			ch[425] = 70;
+			ch[420] = 250;
+			ch[421] = 5095;
+			ch[422] = 461;
+			ch[423] = 1033;
+			ch[424] = 6109;
+			ch[425] = 95;
+			KaguTest(30093,45);
+			KaguTest(30019,14);
+			Blur(1,100,15);
+			Wait(45);
+			Blur(1,0,15);
+			Wait(30);
+			KaguTest(30019,0);
+			RestoreCamera();
+			CrossFade();
+			Wait(15);
+			Message(0,"The next torch is over there.","","","");
+		}
+		if (basyo == 3)
+		{
+			// ç≈å„Ç¡Ç€Ç¢è¸ë‰
+//			ch[420] = 801;
+//			ch[421] = 2805;
+//			ch[422] = 668;
+//			ch[423] = 3226;
+//			ch[424] = 2071;
+//			ch[425] = -54;
+			ch[420] = 2343;
+			ch[421] = 3120;
+			ch[422] = 411;
+			ch[423] = 3144;
+			ch[424] = 2121;
+			ch[425] = 46;
+			KaguTest(30093,45);
+			KaguTest(30019,14);
+			Blur(1,100,15);
+			Wait(45);
+			Blur(1,0,15);
+			Wait(30);
+			KaguTest(30019,0);
+			RestoreCamera();
+			CrossFade();
+			Wait(15);
+			Message(0,"The next torch is over there.","","","");
+		}
+		if (basyo == 4)
+		{
+			// î‡ÇÕÇ‹ÇæäJÇ©Ç»Ç¢
+			ch[420] = -162;
+			ch[421] = 1426;
+			ch[422] = 351;
+			ch[423] = -121;
+			ch[424] = -106;
+			ch[425] = -4;
+			KaguTest(30019,1);
+			CrossFade();
+			Wait(65);
+			KaguTest(30019,0);
+			RestoreCamera();
+			CrossFade();
+			Wait(15);
+			Message(0,"There's got to be","another torch somewhere.","","");
+		}
+		TekiStop(0);
+	
+		return 0;
+	}
+
+	int x,y,z;
+	int ln;
+	
+	TekiStop(1);
+	Wait(10);
+	SE(950);
+	SaveCamera();
+	ln = Door2C(1);
+	
+	GetCharPos(ln,x,y,z);
+	Camera(ln,x,y+1400,z+400);
+	ch[421] = x;
+	ch[422] = y + 1400;
+	ch[423] = z + 400;
+	KaguTest(30010,0);
+	CrossFade();
+	Wait(15);
+	
+	Event(233);
+	
+	Wait(45);
+	Camera(-1,0,0,0);
+	RestoreCamera();
+	CrossFade();
+	Wait(15);
+	TekiStop(0);
+	
+	ch[262] = 1;
+}

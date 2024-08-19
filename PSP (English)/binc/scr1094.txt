@@ -1,0 +1,9 @@
+
+int main()
+{
+	TekiStop(1);
+	Message(0,"Something is written here.","","","");
+	Message(0,"~Before it vanishes, move your feet.","Yours, M.~","","");
+	TekiStop(0);
+}
+ 

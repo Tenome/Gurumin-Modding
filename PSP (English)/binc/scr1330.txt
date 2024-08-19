@@ -1,0 +1,5 @@
+
+int main()
+{
+	Message(0,"Mom promised to write,","but she forgot, as usual.","","");
+}

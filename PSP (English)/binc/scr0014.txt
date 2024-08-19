@@ -1,0 +1,24 @@
+
+int main()
+{
+	Message(0,"This is a nice fluffy bed.","","","");
+	return 0;
+
+	int a;
+
+	SelStart(50);
+	SelText("Sleep",1);
+	SelText("Don't sleep",2);
+	SelEnd();
+	if(ch[50]==1)
+	{
+		Black(0,100,30);
+		Wait(30);
+		SE(953);
+		Kaifuku();
+		Black(0,0,30);
+		Wait(30);
+	}
+	return 0;
+}
+ 

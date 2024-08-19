@@ -1,0 +1,96 @@
+
+int main()
+{
+	int c;
+	int pt1;
+	int pt2;
+	int pt3;
+	
+	SaveCamera();
+	// 出現させておく
+	ch[420] = 100000;
+	ch[427] = 6;
+	KaguTest(30015,1);
+	KaguTest(30025,1);
+	c = ch[420];
+	
+	KaguTest(12004,c);
+	pt1 = ch[420];
+	KaguTest(12004,c+1);
+	pt2 = ch[420];
+	KaguTest(12004,c+2);
+	pt3 = ch[420];
+	KaguTest(12000,c);
+	KaguTest(12000,c+1);
+	KaguTest(12000,c+2);
+	
+	TekiStop(1);
+	// カメラ向ける
+	ch[420] = -1998;
+	ch[421] = 200;
+	ch[422] = -755;
+	ch[423] = -1039;
+	ch[424] = -9;
+	ch[425] = -254;
+	KaguTest(30093,15);
+	KaguTest(30019,14);
+	CrossFade();
+	Wait(25);
+	// 二匹飛ぶ
+	Look(0,c);
+	Walk2(c,-12,0,20);
+	ch[429] = 1;
+	KaguTest(30039,0);
+	Wait(3);
+	ch[421] = 25;
+	ch[422] = 1;
+	KaguTest(30037,c);
+	Walk2(c+1,-12,0,20);
+	ch[429] = 1;
+	KaguTest(30039,0);
+	Wait(3);
+	ch[421] = 25;
+	ch[422] = 1;
+	KaguTest(30037,c+1);
+	Wait(30);
+	Look(c,0);
+	Look(c+1,0);
+	// 残り一匹飛ぶ
+	Look(0,c+2);
+	ch[420] = -1861;
+	ch[421] = 217;
+	ch[422] = -830;
+	ch[423] = -1200;
+	ch[424] = -616;
+	ch[425] = -329;
+	KaguTest(30093,20);
+	Wait(25);
+	Walk2(c+2,-2,11,20);
+	ch[429] = 1;
+	KaguTest(30039,0);
+	Wait(3);
+	ch[421] = 25;
+	ch[422] = 1;
+	KaguTest(30037,c+2);
+	Wait(30);
+	Look(c+2,0);
+	
+	// 後始末
+	ch[420] = 3;
+	KaguTest(12005,c);
+	KaguTest(12005,c+1);
+	KaguTest(12005,c+2);
+	ch[420] = pt1;
+	KaguTest(12002,c);
+	ch[420] = pt2;
+	KaguTest(12002,c+1);
+	ch[420] = pt3;
+	KaguTest(12002,c+2);
+	
+	KaguTest(30019,0);
+	RestoreCamera();
+	CrossFade();
+	Wait(15);
+	TekiStop(0);
+}
+ 

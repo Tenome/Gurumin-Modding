@@ -1,0 +1,33 @@
+
+int main()
+{
+	if (!ch[2300])
+	{
+		//ƒhƒŠƒ‹‚Ü‚¾
+		MapEvent(0);
+		Black(0,100,10);
+		Wait(10);
+		
+		ch[2302] = 1;
+		Mouse(0);
+		PlayMovie("nuketa.txt",0);
+		Wait(5);
+		Black(0,100,0);
+//		Black(0,0,15);
+		Walk(0,5,1);
+		KaguTest(30057,0);
+		Mouse(1);
+		ch[2300] = 1;
+		ch[1791] = -100;
+		KaguTest(20051,0);
+		LoadMap(401);
+		Black(0,100,0);
+		Black(0,0,30);
+//		CharPos(0,0,47,38);
+//		CharPos(19,-24,236,38);
+//		Scop2(19,1,"O_043.it3");
+		ch[2302] = 0;
+		ch[435] = 0;
+		MapEvent(1);
+	}
+}

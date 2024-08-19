@@ -1,0 +1,191 @@
+
+int main()
+{
+	if (ch[2526] && !ch[2085])
+	{
+		// ファンまだ
+		WaitD(0);
+		Message(0,"ショートケーキの値上がりって","どういうことかしら。","","");
+		Message(0,"ファン姉に直接聞いてみなくちゃ","","","");
+		MapEvent(0);
+
+		KaguTest(30058,0);
+		while(ch[420])
+		{
+			Walk(ch[421],ch[422],ch[423]);
+			Wait(ch[423]);
+			KaguTest(30058,0);
+		}
+
+		Walk(0,-8,20);
+		Wait(20);
+		MapEvent(1);
+		TekiStop(0);
+		ch[400] = -1;
+		return 0;
+	}
+	if (ch[2526] && !ch[2523])
+	{
+		// チャッキーまだ
+		WaitD(0);
+		Message(0,"そういえば、チャッキーが","変なポーズしてたような……","","");
+		Message(0,"なんだか気になってきたわ","","","");
+		MapEvent(0);
+
+		KaguTest(30058,0);
+		while(ch[420])
+		{
+			Walk(ch[421],ch[422],ch[423]);
+			Wait(ch[423]);
+			KaguTest(30058,0);
+		}
+
+		Walk(0,-8,20);
+		Wait(20);
+		MapEvent(1);
+		TekiStop(0);
+		ch[400] = -1;
+		return 0;
+	}
+
+	if (ch[508])
+	{
+		// マップ移動
+		ch[3997] = 0;
+		White(0,100,11);
+		MapEvent(0);
+		Walk(0,8,11);
+	}
+
+	if (!ch[508])
+	{
+		Black(0,100,0);
+//		Wait(11);
+		Event(112);
+		//OPムービー見てない
+		Lock();
+		Mouse(0);
+		KaguTest(20065,-5);
+		CharPos(0,0,0,0);
+		PlayMovie("open2.txt",0);
+		Black(0,100,0);
+		SetWaku(0);
+		Wait(5);
+//		Black(0,0,15);
+		Walk(0,-5,1);
+		KaguTest(30057,0);
+		Mouse(1);
+//		BGM(5);
+		ch[508] = 1;
+		LoadMap(401);
+		CharPos(18,0,80,50);
+//		ch[400] = 118;
+		Unlock();
+
+		Black(0,0,20);
+		Wait(20);
+		MapEvent(1);
+
+	}
+	else
+	{
+		if (!ch[2330] && ch[2317] && ch[2328] && ch[2329])
+		{
+			// オバケホームもどったムービー見る
+			White(0,100,11);
+			Wait(11);
+			Event(112);
+			Mouse(0);
+			PlayMovie("home_2.txt",0);
+			KaguTest2(10013,0,"mp_401.nod");
+			KaguTest(60005,0);
+			KaguTest(60005,16);
+			KaguTest(60005,17);
+			KaguTest(60005,18);
+			ch[1760] = 0;
+			Black(0,100,0);
+			Wait(5);
+//			Black(0,0,15);
+			Walk(0,5,1);
+			KaguTest(30057,0);
+			Mouse(1);
+//			BGM(5);
+//			ch[3982] = 0;
+			ch[2330] = 1;
+
+			Black(0,0,20);
+			Wait(20);
+			MapEvent(1);
+			return 0;
+		}
+
+		if (!ch[2527] && ch[2523] && ch[2085])
+		{
+			// スポンサーイベント終了
+			Mouse(0);
+			ch[2745] = 0;
+			White(0,100,11);
+			Wait(11);
+			PlayMovie("home_3.txt",0);
+			KaguTest2(10013,0,"mp_401.nod");
+			KaguTest(60005,0);
+			KaguTest(60005,1);
+			KaguTest(60005,2);
+			KaguTest(60005,17);
+			Black(0,100,0);
+			CharPos(2,-75,-750,0);
+			CharPos(1,-62,-940,0);
+			Wait(5);
+//			Black(0,0,15);
+			Walk(0,5,1);
+			KaguTest(30057,0);
+			Mouse(1);
+//			BGM(5);
+			ch[2527] = 1;
+//			ch[3982] = 0;
+			Walk(0,5,1);
+			KaguTest(30057,0);
+//			Black(0,100,0);
+//			Black(0,0,30);
+//			ResetFade();
+
+//			Wait(30);
+//			Black(0,100,15);
+			Black(0,0,15);
+			Wait(15);
+	
+//			ch[2527] = 1;
+//			ch[3979] = 127;
+			KaguTest(30019,0);
+//			KaguTest(30072,0);
+//			KaguTest(99999,0);
+//			ch[298] = 1;
+
+//			PostScr(1235);
+			MapEvent(1);
+			return 0;
+		}
+		
+		Wait(11);			
+		Event(112);
+
+		MMV("home.mmv");
+
+		Walk(0,5,20);
+		Wait(5);
+		White(0,0,15);
+		Wait(15);
+		MapEvent(1);
+	}
+	
+	//駅前へ移動		
+	//MapEvent(0);		
+	//Walk(0,8,011);
+	//Wait(011);		
+	//Event(110);		
+	//Walk(0,8,20);		
+	//Wait(20);			
+	//MapEvent(1);		
+}
+
+ 

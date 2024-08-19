@@ -1,0 +1,6 @@
+
+int main()
+{
+	Message(0,"~Shrink Laser Emission Device.~","","","");
+	Message(0,"Sounds dangerous...","","","");
+}

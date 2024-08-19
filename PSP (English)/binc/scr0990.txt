@@ -1,0 +1,11 @@
+
+int main()
+{
+	TekiStop(1);
+	Wait(45);
+	KaguTest(20032,0);
+	Mes("Your MAX HP has increased.");
+	Wait(45);
+	KaguTest(20002,16);
+	TekiStop(0);
+}

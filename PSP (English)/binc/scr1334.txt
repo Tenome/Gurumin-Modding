@@ -1,0 +1,5 @@
+
+int main()
+{
+	Message(0,"Station is to the left,","Main street is to the right...","","");
+}

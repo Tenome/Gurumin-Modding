@@ -1,0 +1,74 @@
+
+int main()
+{
+	MapEvent(0);
+
+	if (ch[2497])
+	{
+	}
+	else
+	{
+		// クリア
+		int a;
+		a = ch[2268];
+		
+		KaguTest(40002,0);
+
+		TekiStop(1);
+//		Walk(8,0,15);
+
+			// 評価表示
+		KaguTest(10500,120);
+
+		if (ch[2268] < 1)
+		{
+			ch[2268] = 1;
+		}
+		
+		Wait(90);
+		
+		Message(0,"","","","");
+		
+		// ミニフィールドへ戻る
+		Black(0,100,30);
+		Wait(30);
+		KaguTest(10011,10);
+		Wait(10);
+		KaguTest(10100,0);
+		KaguTest(99999,0);
+		TekiStop(0);
+		MapEvent(1);
+		
+		if (!a)
+		{
+			ch[429] = 5;
+			PostScr(1052);
+		}
+		
+	}
+
+//	if (ch[2497])
+//	{
+//		Walk(-8,0,11);
+//	}
+//	else
+//	{
+//		Walk(8,0,11);
+//		KaguTest(40002,0);
+//	}
+//	
+//	Wait(11);
+//	Event(110);
+//
+//	if (ch[2497])
+//	{
+//		Walk(-5,0,20);
+//	}
+//	else
+//	{
+//		Walk(5,0,20);
+//	}
+//	
+//	Wait(20);
+//	MapEvent(1);
+}

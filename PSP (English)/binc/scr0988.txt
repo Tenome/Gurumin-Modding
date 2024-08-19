@@ -1,0 +1,23 @@
+
+int main()
+{
+	TekiStop(1);
+	ch[100] = 1;
+
+	Wait(45);
+	KaguTest(20032,0);
+	Mes("Your MAX HP has increased.");
+	Wait(30);
+	KaguTest(20002,16);
+
+	KaguTest(20010,0);
+	if (ch[420] == 501 && ch[2497])
+	{
+		ch[420] = 100000;
+		ch[427] = 0;
+		KaguTest(30015,97);
+		KaguTest(30016,87);
+	}
+	
+	TekiStop(0);
+}

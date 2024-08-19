@@ -1,0 +1,259 @@
+
+int main()
+{
+	KaguTest(10006,0);
+	KaguTest(10007,0);
+	KaguTest2(10008,0,"There is a secret item inside your bag.");
+	KaguTest(10010,10);
+	Wait(10);
+	
+	Message(0,"","","","");
+	
+	KaguTest(10011,10);
+	Wait(10);
+	
+	SelStart(50);
+	SelText("Take something out",1);
+	SelText("Don't take anything out",2);
+	SelEnd()
+	
+	if (ch[50] == 1)
+	{
+//		switch(rand() % (rand() % 7 + 1))
+		switch(rand() % 3)
+		{
+		case 0:
+			KaguTest(10006,0);
+			KaguTest(10007,0);
+			KaguTest2(10008,0,"There was a Piggy Bank inside.");
+			KaguTest(10010,10);
+			Wait(10);
+			
+			Message(0,"","","","");
+			
+			KaguTest(10011,10);
+			Wait(10);
+			
+			Message(0,"I haven't saved much yet.","","","");
+			
+			KaguTest(10006,0);
+			KaguTest(10007,0);
+			KaguTest2(10008,0,"You put the Piggy Bank back in your bag.");
+			KaguTest(10010,10);
+			Wait(10);
+			
+			Message(0,"","","","");
+			
+			KaguTest(10011,10);
+			Wait(10);
+			
+			return 0;
+		case 1:
+			KaguTest(10006,0);
+			KaguTest(10007,0);
+			KaguTest2(10008,0,"There was some Makeup inside.");
+			KaguTest(10010,10);
+			Wait(10);
+			
+			Message(0,"","","","");
+			
+			KaguTest(10011,10);
+			Wait(10);
+			
+			Message(0,"I'll wait till I'm grown up...","","","");
+			
+			KaguTest(10006,0);
+			KaguTest(10007,0);
+			KaguTest2(10008,0,"You put the Makeup back in your bag.");
+			KaguTest(10010,10);
+			Wait(10);
+			
+			Message(0,"","","","");
+			
+			KaguTest(10011,10);
+			Wait(10);
+			return 0;
+		case 2:
+			KaguTest(10006,0);
+			KaguTest(10007,0);
+			KaguTest2(10008,0,"There were some Geta Sandals inside.");
+			KaguTest(10010,10);
+			Wait(10);
+			
+			Message(0,"","","","");
+			
+			KaguTest(10011,10);
+			Wait(10);
+			
+			Message(0,"..............","","","");
+			
+			KaguTest(10006,0);
+			KaguTest(10007,0);
+			KaguTest2(10008,0,"You put the Geta Sandals back in your bag.");
+			KaguTest(10010,10);
+			Wait(10);
+			
+			Message(0,"","","","");
+			
+			KaguTest(10011,10);
+			Wait(10);
+			return 0;
+//		case 3:
+//			KaguTest(10006,0);
+//			KaguTest(10007,0);
+//			KaguTest2(10008,0,"クッキーが入っていた。");
+//			KaguTest(10010,10);
+////			GetItem(4);
+////			SE(899);
+//			Wait(10);
+//			
+//			Message(0,"","","","");
+//			
+//			KaguTest(10011,10);
+//			Wait(10);
+//			return 0;
+//		case 4:
+//			KaguTest(10006,0);
+//			KaguTest(10007,0);
+//			KaguTest2(10008,0,"チョコレートが入っていた。");
+//			KaguTest(10010,10);
+////			GetItem(5);
+////			SE(899);
+//			Wait(10);
+//			
+//			Message(0,"","","","");
+//			
+//			KaguTest(10011,10);
+//			Wait(10);
+//			return 0;
+////		case 6:
+////			KaguTest(10006,0);
+////			KaguTest(10007,0);
+////			KaguTest2(10008,0,"ネコミミが入っていた。");
+////			KaguTest(10010,10);
+////			Wait(10);
+////			
+////			Message(0,"","","","");
+////			
+////			KaguTest(10011,10);
+////			Wait(10);
+////			KaguTest(20001,40);
+////			if (!ch[430])
+////			{
+////				GetItem(40);
+////				SE(256);
+////			}
+////			else
+////			{
+////				Message(0,"もう持ってるわ","","","");
+////
+////				KaguTest(10006,0);
+////				KaguTest(10007,0);
+////				KaguTest2(10008,0,"ネコミミを鞄に戻した。");
+////				KaguTest(10010,10);
+////				Wait(10);
+////				
+////				Message(0,"","","","");
+////				
+////				KaguTest(10011,10);
+////				Wait(10);
+////			}
+////			return 0;
+//		case 5:
+//			KaguTest(10006,0);
+//			KaguTest(10007,0);
+//			KaguTest2(10008,0,"ケーキが入っていた。");
+//			KaguTest(10010,10);
+////			GetItem(20);
+////			SE(899);
+//			Wait(10);
+//			
+//			Message(0,"","","","");
+//			
+//			KaguTest(10011,10);
+//			Wait(10);
+//			return 0;
+		}
+		
+		// それ以外の場合
+		switch(rand() % 3)
+		{
+		case 0:
+			KaguTest(10006,0);
+			KaguTest(10007,0);
+			KaguTest2(10008,0,"There was a Piggy Bank inside.");
+			KaguTest(10010,10);
+			Wait(10);
+			
+			Message(0,"","","","");
+			
+			KaguTest(10011,10);
+			Wait(10);
+			
+			Message(0,"I haven't saved much yet.","","","");
+			
+			KaguTest(10006,0);
+			KaguTest(10007,0);
+			KaguTest2(10008,0,"You put the Piggy Bank back in your bag.");
+			KaguTest(10010,10);
+			Wait(10);
+			
+			Message(0,"","","","");
+			
+			KaguTest(10011,10);
+			Wait(10);
+			
+			return 0;
+		case 1:
+			KaguTest(10006,0);
+			KaguTest(10007,0);
+			KaguTest2(10008,0,"There was some Makeup inside.");
+			KaguTest(10010,10);
+			Wait(10);
+			
+			Message(0,"","","","");
+			
+			KaguTest(10011,10);
+			Wait(10);
+			
+			Message(0,"I'll wait till I'm grown up...","","","");
+			
+			KaguTest(10006,0);
+			KaguTest(10007,0);
+			KaguTest2(10008,0,"You put the Makeup back in your bag.");
+			KaguTest(10010,10);
+			Wait(10);
+			
+			Message(0,"","","","");
+			
+			KaguTest(10011,10);
+			Wait(10);
+			return 0;
+		case 2:
+			KaguTest(10006,0);
+			KaguTest(10007,0);
+			KaguTest2(10008,0,"There were some Geta Sandals inside.");
+			KaguTest(10010,10);
+			Wait(10);
+			
+			Message(0,"","","","");
+			
+			KaguTest(10011,10);
+			Wait(10);
+			
+			Message(0,"..............","","","");
+			
+			KaguTest(10006,0);
+			KaguTest(10007,0);
+			KaguTest2(10008,0,"You put the Geta Sandals back in your bag.");
+			KaguTest(10010,10);
+			Wait(10);
+			
+			Message(0,"","","","");
+			
+			KaguTest(10011,10);
+			Wait(10);
+			return 0;
+		}
+	}
+}

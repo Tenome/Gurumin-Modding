@@ -1,0 +1,86 @@
+
+int main()
+{
+	ch[400] = 59;
+	KaguTest(99993,0);
+	if (!ch[1545])
+	{
+		//▼兄たま誘拐後&&ドリル入手後 !ch[1545]
+		//パリン
+		Message(59,"It's nice to take","a break and just stand","sometimes.","");
+	}
+	if (!ch[2330] && ch[1545])
+	{
+		//▼王子と四天王登場後 !ch[2330]
+		//パリン
+		Message(59,"Ugh... My legs hurt","from standing so much.","","");
+		Message(59,"I don't know how Fan","and Disk do it.","","");
+	}
+	if (!ch[507] && ch[2330])
+	{
+		//▼襲撃後・３オバケ発見後 !ch[507]
+		//パリン
+		Message(59,"I told Motoro that if he","covers himself in paint,","he could meet Grandpa...","");
+		Message(59,"But even if Grandpa can see him,","they may be unable to talk...","","");
+	}
+	if (!ch[1542] && ch[507])
+	{
+		//▼ボブー戦終了後 !ch[1542]
+		//パリン
+		Message(59,"Ruins, huh?","Reminds me of my parents.","","");
+		Message(59,"What could they be up to?","","","");
+	}
+	if (!ch[1505] && ch[1542])
+	{
+		//▼モスビー戦終了後 !ch[1505]
+		//パリン
+		Message(59,"You're Pamela's niece,","Popon?","","");
+		Message(59,"Do you like gossip too?","","","");
+	}
+	if (!ch[1513] && ch[1505])
+	{
+		//▼ラッシー戦終了後(ホーム復興イベント) !ch[1513]
+		//パリン
+		Message(59,"You want to switch?","","","");
+		Message(59,"Pimento mountain is","too cold for that outfit.","","");
+	}
+	if (!ch[1571] && ch[1513])
+	{
+		//▼クリーム戦終了後 !ch[1571]
+		//パリン
+		Message(59,"You want me to pay for","cakes I didn't even eat?","","");
+		Message(59,"Everybody's so mean!","","","");
+	}
+	if (!ch[1538] && ch[1571])
+	{
+		//▼王子戦終了後 !ch[1538]
+		//パリン
+		Message(59,"So it was Cylinder ","who destroyed Puku ","and Pino's home.","");
+		Message(59,"Did you figure it out?","","","");
+		Message(59,"But Cylinder didn't do","it on purpose. It was","an accident.","");
+	}
+	
+	SelStart(50);
+	SelText("Switch",1);
+	SelText("Don't switch",2);
+	SelEnd();
+	
+	if (ch[50] == 1)
+	{
+		// チェンジ
+		Black(0,100,15);
+		Wait(20);
+		KaguTest(20070,0);
+//		ch[2501] = 0;
+		ch[3957] = 0;
+		ReloadChar();
+		LoadMapB(12);
+		Black(0,0,15);
+		Wait(15);
+	}
+	else
+	{
+		// 非チェンジ
+	}
+	ch[400] = -1;
+}

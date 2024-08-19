@@ -1,0 +1,21 @@
+
+int main()
+{
+	TekiStop(1);
+	// クリアフラグチェック
+	KaguTest(99993,0);
+	if (!ch[424])
+	{
+		Wait(60);
+		// クリアフラグ立てる
+		KaguTest(99992,3);
+		// アイテム消去
+		KaguTest(20002,36);
+		// メッセージ
+		SE(564);
+		Mes("A new outfit has been unlocked.");
+		Wait(60);
+		Mes("Use your Dresser to change outfits.");
+	}
+	TekiStop(0);
+}

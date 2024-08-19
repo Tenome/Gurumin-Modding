@@ -1,0 +1,90 @@
+
+int main()
+{
+	int x;
+	int y;
+	int z;
+	int ax;
+	int ay;
+	int az;
+	
+	KaguTest(30005,0);
+	x = ch[421];
+	y = ch[422];
+	z = ch[423];
+	KaguTest(30068,0);
+	ax = ch[423];
+	ay = ch[424];
+	az = ch[425];
+
+	Message(0,"How do you open this?","","","");
+	ch[420] = 40;
+	ch[421] = 496;
+	ch[422] = 236;
+	ch[423] = -200;
+	ch[424] = 1050;
+	ch[425] = 0;
+	KaguTest(30093,15);
+	ch[420] = -200;
+	ch[421] = 1050;
+	ch[422] = 0;
+	KaguTest(30094,15);
+	KaguTest(30019,15);
+	CrossFade();
+	ch[420] = -200;
+	ch[421] = 1050;
+	KaguTest(30070,0);
+	ch[420] = 0;
+	ch[421] = 1;
+	ch[422] = 5;
+	KaguTest(12003,0);
+	Wait(5);
+	ch[420] = 2;
+	ch[421] = 1;
+	ch[422] = 5;
+	KaguTest(12003,0);
+	Wait(45);
+
+	ch[420] = -40;
+	ch[421] = 496;
+	ch[422] = 236;
+	ch[423] = 200;
+	ch[424] = 1050;
+	ch[425] = 0;
+	KaguTest(30093,30);
+	ch[420] = 200;
+	ch[421] = 1050;
+	ch[422] = 0;
+	KaguTest(30094,30);
+	KaguTest(30019,15);
+	ch[420] = 200;
+	ch[421] = 1050;
+	KaguTest(30070,0);
+	ch[420] = 0;
+	ch[421] = 1;
+	ch[422] = 5;
+	KaguTest(12003,0);
+	Wait(7);
+	ch[420] = 2;
+	ch[421] = 1;
+	ch[422] = 5;
+	KaguTest(12003,0);
+	Wait(45);
+	
+	ch[420] = x;
+	ch[421] = y;
+	ch[422] = z;
+	ch[423] = ax;
+	ch[424] = ay;
+	ch[425] = az;
+	KaguTest(30093,15);
+	ch[420] = ax;
+	ch[421] = ay;
+	ch[422] = az;
+	KaguTest(30094,15);
+	KaguTest(30019,15);
+	CrossFade();
+	Wait(15);
+	KaguTest(30019,0);
+	Message(0,"Strange torches...","","","");
+}

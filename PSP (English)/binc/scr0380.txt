@@ -1,0 +1,444 @@
+
+int main()
+{
+	string str;
+	int mg;
+	int map;
+	int nukeru;
+	mg = 0;
+	nukeru = 0;
+
+	ch[400] = 2;
+	ch[202]++;
+	
+	KaguTest(20010,0);
+	map = ch[420];
+	
+	if (ch[2514] && !ch[2648])
+	{
+		// Šâ‰ó‚µ‚ğˆË—Š‚·‚é
+		if (ch[2515])
+		{
+			Message(2,"Howdy miss! What can I...","","","");
+		}
+		else
+		{
+			Message(2,"Hmm...?","","","");
+			Message(2,"You're human! We don't","get many humans here.","","");
+			Message(2,"What can I do for you?","","","");
+		}
+		Message(0,"Actually...","","","");
+		Black(0,100,15);
+		Wait(45);
+		Black(0,0,15);
+		Wait(15);
+		//ƒ‚ƒOƒŒƒk
+		Message(2,"A giant rock?","","","");
+		Message(2,"I have a ton of work,","but I can't say no","to a pretty lady.","");
+		//ƒpƒŠƒ“
+		Message(0,"So you'll do it?","","","");
+		//ƒ‚ƒOƒŒƒk
+		Message(2,"There's one catch!","","","");
+		//ƒpƒŠƒ“
+		Message(0,"What?","","","");
+		//ƒ‚ƒOƒŒƒk
+		Message(2,"You wield that drill,","so you're a miner like me.","","");
+		Message(2,"When two miners meet, they","ought to have a showdown!","","");
+		//ƒpƒŠƒ“
+		Message(0,"If you win, I'll help you.","Sound fair?","","");
+		ch[2648] = 1;
+		nukeru = 1;
+	}
+	if (ch[2514] && !ch[2509])
+	{
+		//ƒ‚ƒOƒŒƒk
+		Message(2,"So, ready for my challenge?","","","");
+		SelStart(50);
+		SelText("Let's do it!",1);
+		SelText("Maybe later.",2);
+		SelEnd();
+		if (ch[50] == 1)
+		{
+			mg = 1;
+		}
+		else
+		{
+			Message(2,"Come back anytime!","I'll be waiting!","","");
+		}
+		nukeru = 1;
+	}
+	
+	ch[2515] = 1;
+
+	if (ch[2509] && !ch[2510])
+	{
+		// Šâ‰ó‚µ¸”sƒ€[ƒr[
+		PostScr(1197);
+		ch[400] = -1;
+		return 0;
+	}
+	if (ch[2510] && !ch[2511])
+	{
+		//ƒ‚ƒOƒŒƒk
+		Message(2,"This would be easy if my","brother Digby was here.","","");
+		Message(2,"He should be in Monster Village.","","","");
+		ch[400] = -1;
+		return 0;
+	}
+	if (ch[2511] && !ch[2512])
+	{
+		//ƒ‚ƒOƒŒƒk
+		Message(2,"Did you find my brother?","","","");
+		//ƒpƒŠƒ“
+		Message(0,"Isn't he here?","","","");
+		//ƒ‚ƒOƒŒƒk
+		Message(2,"He's directionally","challenged.","","");
+		Message(2,"He probably got lost","on the way here.","","");
+		//ƒpƒŠƒ“
+		Message(0,"Challenged?","","","");
+		//ƒ‚ƒOƒŒƒk
+		Message(2,"You'd better go","look for him again.","","");
+		//ƒpƒŠƒ“
+		Message(0,"Uh, ok...","","","");
+
+		ch[400] = -1;
+		ch[2512] = 1;
+		return 0;
+	}
+	if (ch[2512] && !ch[2516])
+	{
+		//ƒ‚ƒOƒŒƒk
+		Message(2,"I'm sorry, but you have to","find my brother.","","");
+		ch[400] = -1;
+		return 0;
+	}
+	if (ch[2516] && !ch[2517])
+	{
+		Message(2,"Did you find my brother?","","","");
+		Message(0,"He's not here? Again?","","","");
+		ch[400] = -1;
+//		ch[2517] = 1;
+		return 0;
+	}
+	if (ch[2517] && !ch[2513])
+	{
+		PostScr(1198);
+		ch[400] = -1;
+		return 0;
+	}
+
+	if (!nukeru)
+	{
+		if (ch[1538])
+		{
+			//ƒ‚ƒOƒŒƒk
+			if (ch[2090])
+			{
+				// ƒoƒbƒh
+				//ƒ‚ƒOƒŒƒk
+				Message(2,"The rebuilding","is going well.","","");
+				Message(2,"I hope the Dark Mist","clears up soon.","","");
+			}
+			else
+			{
+				if (ch[202] < 2)
+				{
+					//ƒ‚ƒOƒŒƒk
+					Message(2,"My brother and I once","fought with the two ","legendary heroes.","");
+
+					//ƒpƒŠƒ“
+					Message(0,"Oh really?","","","");
+
+					//ƒ‚ƒOƒŒƒk
+					Message(2,"Sure. And now we're","helping you.","","");
+
+					//ƒpƒŠƒ“
+					Message(0,"Helping me...?","","","");
+
+					//ƒ‚ƒOƒŒƒk
+					Message(2,"Hehe. Our camouflage","was perfect. You didn't","even notice us.","");
+				}
+				else
+				{
+					//ƒ‚ƒOƒŒƒk
+					Message(2,"Those were the days...","","","");
+					Message(2,"My brother hit the road ","after fighting, hoping","to be a rock star.","");
+				}
+			}
+		}
+		if (ch[1571] && !ch[1538])
+		{
+			//ƒ‚ƒOƒŒƒk
+			Message(2,"That earthquake","really shook me up!","","");
+			Message(2,"I hope Monster","Village is OK...","","");
+		}
+		if (ch[1513] && !ch[1571])
+		{
+			//ƒ‚ƒOƒŒƒk
+			Message(2,"We are making good progress,","but we still need help.","","");
+			Message(2,"There must be a way...","","","");
+		}
+		if (ch[1505] && !ch[1513])
+		{
+			if (ch[1505] && !ch[2524])
+			{
+				//ƒ‚ƒOƒŒƒk
+				Message(2,"I'm off to work on that mansion","at Pimento Mountain.","","");
+				Message(2,"I'm done packing.","I should be leaving soon.","","");
+			}
+			if (ch[2527])
+			{
+				if (ch[202] < 2)
+				{
+					//ƒ‚ƒOƒŒƒk
+					Message(2,"It's strange, but I saw","a tattoo when you","were with Pino.","");
+					//ƒpƒŠƒ“
+					Message(0,"A tattoo? ","What an obvious fake!","","");
+					Message(0,"And no one noticed?!","","","");
+				}
+				else
+				{
+					//ƒ‚ƒOƒŒƒk
+					Message(2,"It's strange, but I saw","a tattoo when you","were with Pino.","");
+				}
+			}
+		}
+		if (ch[1542] && !ch[1505])
+		{
+			if (!ch[2514])
+			{
+				if (!ch[3203])
+				{
+					//ƒ‚ƒOƒŒƒk
+					Message(2,"The Dark Mist is keeping me","from my work on that","mountain mansion.","");
+					Message(2,"What'll I do?","","","");
+				}
+				else
+				{
+					//ƒ‚ƒOƒŒƒk
+					Message(2,"That Dark Mist is gone!","Now I can work on that mansion.","","");
+					Message(2,"I'll be off for the","mountains soon.","","");
+				}
+			}
+			else
+			{
+				//ƒ‚ƒOƒŒƒk
+				Message(2,"My brother Digby is","helping me with my work.","","");
+				Message(2,"We'll help with any","job, just ask us!","","");
+			}
+		}
+		if (ch[507] && !ch[1542])
+		{
+			if (!ch[2514])
+			{
+				//ƒ‚ƒOƒŒƒk
+				Message(2,"My brother Digby!","He's finally coming home!","","");
+				Message(2,"...If he makes","it without getting lost...","","");
+			}
+			else
+			{
+				//ƒ‚ƒOƒŒƒk
+				Message(2,"Remember, if you need","any holes dug...","","");
+				Message(2,"Call the Super Mole Bros!","","","");
+			}
+		}
+		if (!ch[507])
+		{
+			if (ch[202] < 2)
+			{
+				//ƒ‚ƒOƒŒƒk
+				Message(2,"Hmm...?","","","");
+				Message(2,"A human! Well, aren't you","a rare sight around here!","","");
+				//ƒpƒŠƒ“
+				Message(0,"Who are you?","","","");
+				//ƒ‚ƒOƒŒƒk
+				Message(2,"I'm Doug the mole.","","","");
+				Message(2,"What can this Master Digger","do for you?","","");
+				//ƒpƒŠƒ“
+				Message(0,"I'm a bit of a digger myself!","","","");
+				//ƒ‚ƒOƒŒƒk
+				Message(2,"Ho ho! I've got a rival?","","","");
+				Message(2,"We'll have a showdown","sometime!","","");
+			}
+			else
+			{
+				//ƒ‚ƒOƒŒƒk
+				Message(2,"Ho ho! I've got a rival?","","","");
+				Message(2,"We'll have a showdown","sometime!","","");
+			}
+		}
+	}
+	
+	if (ch[2513] && map == 21 && !ch[1538])
+	{
+		// Šâ‰ó‚µ‚µ‚½‚±‚Æ‚ª‚ ‚é
+		if (ch[2143] < 27)
+		{
+			// Šâ‰ó‚µ•s‡Ši
+			if (ch[2143] == 26)
+			{
+				str = "The highest scoring match was " + (ch[2143] - 1) + " to " + (51 - ch[2143]) + ". It was a tie.";
+			}
+			else
+			{
+				str = "The highest scoring match was " + (ch[2143] - 1) + " to  " + (51 - ch[2143]) + ". I won!";
+			}
+			
+			Message(2,"How about a showdown?",str,"","");
+			
+			SelStart(50);
+			SelText("Let's do it!",1);
+			SelText("Not right now.",2);
+			SelEnd();
+			
+			if (ch[50] == 1)
+			{
+				Message(2,"All right,","get ready!","","");
+				
+				// ƒ~ƒjƒQ[ƒ€€”õ
+				mg = 1;
+			}
+			else
+			{
+				Message(2,"See you later.","","","");
+			}
+
+		}
+		else
+		{
+			// Šâ‰ó‚µ‡Ši
+			{
+				if (ch[2143] - 1 < 50)
+				{
+					str = "The highest scoring match was " + (ch[2143] - 1) + " to " + (51 - ch[2143]) + ". You won!";
+				}
+				else
+				{
+					str = "The highest scoring match was " + (ch[2143] - 1) + " to " + (51 - ch[2143]) + ". You got us good!";
+				}
+			}
+			Message(2,"What can I do for ya?","","","");
+
+			SelStart(50);
+			SelText("Let's have a showdown!",1);
+			SelText("Nothing today.",3);
+			SelEnd();
+
+			if (ch[50] == 1)
+			{
+				Message(2,"All right,","get ready!","","");
+				
+				// ƒ~ƒjƒQ[ƒ€€”õ
+				mg = 1;
+			}
+			if (!mg && ch[50] != 2)
+			{
+				Message(2,"Showdown Results:",str,"","");
+				Message(2,"Come back anytime!","","","");
+			}
+			
+		}
+	}
+	
+	ch[400] = -1;
+	
+	if (ch[1538])
+	{
+		return 0;
+	}
+
+	if (mg)
+	{
+		// ƒ~ƒjƒQ[ƒ€‚·‚é
+		ch[420] = -1110;
+		ch[421] = 600;
+		ch[422] = 480;
+		ch[423] = 850;
+		ch[424] = 600;
+		ch[425] = -75;
+		KaguTest(30019,1);
+		CrossFade();
+		Wait(15);
+		ch[420] = 812;
+		ch[421] = 685;
+		ch[422] = -150;
+		ch[423] = 724;
+		ch[424] = 0;
+		ch[425] = 0;
+		ch[426] = 0;
+		ch[427] = 100;
+		ch[428] = 0;
+		KaguTest(30045,3);
+		KaguTest(30045,5);
+		KaguTest(30045,7);
+		KaguTest(30045,9);
+		ch[421] = 560;
+		KaguTest(30045,3);
+		KaguTest(30045,5);
+		KaguTest(30045,7);
+		KaguTest(30045,9);
+		Event(231);
+		SE(479);
+		Wait(30);
+		
+		ch[2145] = 0;
+		Black(0,100,15);
+		Wait(15);
+		ch[2144] = 1;
+		ch[2497] = 1;
+		LoadMap(21);
+		KaguTest(30019,0);
+		Event(232);
+		CharPos(0,0,450,-93);
+		CharPos(58,0,900,-93);
+//		CharPos(59,150,900,-93);
+		CharPos(1,-200000,0,0);
+		CharPos(2,-200000,0,0);
+		Camera(58,0,-600,370);
+		Look(0,58);
+		Look(58,0);
+		Look(59,0);
+		KaguTest(12000,58);
+		KaguTest(12001,58);
+		KaguTest(12000,59);
+		KaguTest(12001,59);
+		CrossFade();
+		Wait(15);
+		Black(0,0,15);
+		
+		KaguTest(30141,477);
+		KaguTest(30141,478);
+		KaguTest(30141,543);
+		KaguTest(30141,545);
+		KaguTest(30141,546);
+		KaguTest(30141,547);
+
+		ch[400] = 4;
+		if (ch[2143] < 27)
+		{
+			// ‡Ši‚µ‚Ä–³‚¢‚Æ‚«
+			Message(58,"The rules are simple, Miss.","","","");
+			Message(58,"Who ever destroys the","most rocks is the winner!","","");
+			Message(58,"Beat me, and I'll help","you with that big rock.","","");
+		}
+		else
+		{
+			Message(58,"Who ever destroys the","most rocks is the winner!","","");
+		}
+		Message(58,"Ready? Let's go!","","","");
+		Wait(15);
+//		Camera(0,0,-800,420);
+		Camera(-1,0,0,0);
+		CrossFade();
+		Wait(30);
+		ch[3982] = 4;
+		ch[400] = -1;
+		// ƒeƒNƒXƒ`ƒƒ“Ç‚İ‚ñ‚Å‚¨‚­
+		KaguTest2(10009,0,"minigm.iti");
+		Wait(90);
+		BGM(10);
+		ch[2061] = 1;
+	}
+	
+	return 0;
+}

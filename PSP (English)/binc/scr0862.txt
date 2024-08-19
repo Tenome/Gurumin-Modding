@@ -1,0 +1,51 @@
+
+int main()
+{
+	MapEvent(0);
+//	Black(0,100,15);
+//	Wait(15);
+	ch[3997] = 0;
+	Event(3);
+	Event(1000);
+//	Scop(0);
+	Black(0,100,0);
+	Wait(5);
+	Black(0,0,15);
+	Walk(-5,0,11);
+	Wait(11);
+	
+	// のぞきイベント中？
+	if (ch[2002] && ch[2003] == 1)
+	{
+		// シリンダーの帽子を発見する
+		// シリンダーの帽子を凝視
+		ch[420] = -323;
+		ch[421] = 193;
+		ch[422] = 384;
+		KaguTest(30019,13);
+		ch[420] = 15;
+		ch[421] = 30;
+		ch[429] = 1;
+		KaguTest(30053,0);
+		Walk(0,-5,30);
+		Wait(30);
+		//パリン
+		Message(0,"This looks familiar...","","","");
+		Message(0,"W-what?","Cylinder's hat?","","");
+		Message(0,"Cylinder was the one","spying on me?","","");
+		KaguTest(30019,0);
+		KaguTest2(30011,0,"@O_073");
+
+		Mes("You got a ~Man's Hat.~");
+		KaguTest(20022,12);
+		GetItem(12);
+		Wait(60);
+
+		Message(0,"What nerve.","I'll catch him!","","");
+		ch[2003] = 2;
+		ch[2009] = 1;
+	}
+	
+	MapEvent(1);
+}
+ 

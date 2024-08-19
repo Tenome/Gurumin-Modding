@@ -1,0 +1,41 @@
+
+int main()
+{
+	MapEvent(0);
+	Walk(8,0,11);
+	Wait(5);
+	Black(0,100,30);
+//	Wait(11);
+
+//	Mes("「イベント」偽パリン誕生");
+	Wait(30);
+
+//	Black(0,0,0);
+//	Black(0,100,30);
+//	Wait(30);
+
+	Lock();	
+
+	SaveMap();
+
+	LoadMap(209);
+//	PlayMovie("houkoku.txt",0);
+	ResetFade();
+
+	RestoreMap();
+	ResetFade();
+
+	Black(0,100,0);
+	Black(0,0,30);
+	Unlock();
+
+
+	ch[1506] = 1;
+	ch[1515] = 0;
+
+	Event(100);
+
+	Walk(5,0,20);
+	Wait(20);
+	MapEvent(1);
+}

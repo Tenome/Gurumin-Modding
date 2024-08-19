@@ -1,0 +1,30 @@
+
+int main()
+{
+	//体験版用					
+	MapEvent(0);
+	WaitD(0);
+	Message(0,"This way is the mine.","No kids allowed...","","");
+
+	KaguTest(30058,0);
+	while(ch[420])
+	{
+		Walk(ch[421],ch[422],ch[423]);
+		Wait(ch[423]);
+		KaguTest(30058,0);
+	}
+
+	Walk(0,-8,11);
+	Wait(11);					
+	MapEvent(1);					
+	
+	//オバケアパートへのワープ		
+	//MapEvent(0);					
+	//Walk(0,8,11);					
+	//Wait(11);					
+	//Event(111);					
+	//Walk(0,8,10);					
+	//Wait(10);						
+	//MapEvent(1);					
+}
+

@@ -1,0 +1,6 @@
+
+int main()
+{
+	Message(0,"~Fusion Generator.~","","","");
+	Message(0,"What could this mean?","","","");
+}

@@ -1,0 +1,8 @@
+
+int main()
+{
+	Message(0,"Something is written here.","","","");
+	Message(0,"~Try not to fall.","Yours, M.~","","");
+	Message(0,"Well duh...","","","");
+}
+ 

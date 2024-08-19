@@ -1,0 +1,236 @@
+
+int main()
+{
+	int c;
+	int pt1;
+	int pt2;
+	int pt3;
+	int pt4;
+	int pt5;
+	int pt6;
+	int pt7;
+	int pt8;
+	int pt9;
+	int pt10;
+	int i;
+	int x;
+	int y;
+	int z;
+	int ax;
+	int ay;
+	int az;
+	
+	// 敵アタリ消しておく
+	ch[420] = 9998;
+	KaguTest2(30003,2,"tekiatari2");
+	
+	// 準備
+	ch[420] = 100000;
+	ch[427] = 14;
+	KaguTest(30015,2);
+	KaguTest(30015,3);
+	KaguTest(30015,4);
+	KaguTest(30025,4);
+	c = ch[420];
+	for (i = 0;i < 10;i++)
+	{
+		GetCharPos(c+i,x,y,z);
+		KaguTest(12006,c+i);
+		CharPos(c+i,x,y,z);
+	}
+	
+	KaguTest(12004,c);
+	pt1 = ch[420];
+	KaguTest(12004,c+1);
+	pt2 = ch[420];
+	KaguTest(12004,c+2);
+	pt3 = ch[420];
+	KaguTest(12004,c+3);
+	pt4 = ch[420];
+	KaguTest(12004,c+4);
+	pt5 = ch[420];
+	KaguTest(12004,c+5);
+	pt6 = ch[420];
+	KaguTest(12004,c+6);
+	pt7 = ch[420];
+	KaguTest(12004,c+7);
+	pt8 = ch[420];
+	KaguTest(12004,c+8);
+	pt9 = ch[420];
+	KaguTest(12004,c+9);
+	pt10 = ch[420];
+	for (i = 0;i < 10;i++)
+	{
+		KaguTest(12000,c+i);
+	}
+		// 表示グループ統一
+	ch[420] = -1;
+	for (i = 0;i < 10;i++)
+	{
+		KaguTest(30051,c+i);
+	}
+		// カメラ座標取得
+	KaguTest(30005,0);
+	x = ch[421];
+	y = ch[422];
+	z = ch[423];
+	KaguTest(30068,0);
+	ax = ch[423];
+	ay = ch[424];
+	az = ch[425];
+	
+		// カメラをまず隊長に向ける
+	ch[420] = 224;
+	ch[421] = -635;
+	ch[422] = -591;
+	ch[423] = -703;
+	ch[424] = -694;
+	ch[425] = -429;
+	KaguTest(30093,20);
+	ch[420] = -703;
+	ch[421] = -694;
+	ch[422] = -429;
+	KaguTest(30094,20);
+	KaguTest(30019,15);
+	Wait(30);
+	
+		// 隊長剣ふる
+	ch[420] = 7;
+	ch[429] = 1;
+	KaguTest(30036,c);
+	Wait(10);
+	ch[420] = 7;
+	ch[421] = 1;
+	ch[422] = 5;
+	KaguTest(12003,c);
+	ch[420] = 80;
+	ch[421] = -425;
+	KaguTest(30070,c);
+	Wait(30);
+		
+		// 扉が現れて閉まる
+	KaguTest(30070,0);
+	ch[420] = -685;
+	ch[421] = -1203;
+	ch[422] = -659;
+	ch[423] = 79;
+	ch[424] = -425;
+	ch[425] = -970;
+	KaguTest(30093,20);
+	KaguTest(30019,14);
+	Wait(30);
+	CharPos(Door2C(1),150,-350,-975);
+	ch[420] = 150;
+	ch[421] = -350;
+	ch[422] = -975;
+	ch[423] = 1012;
+	ch[424] = 0;
+	ch[425] = 0;
+	ch[426] = 0;
+	ch[427] = 100;
+	ch[428] = 0;
+	KaguTest(30045,0);
+	Wait(15);
+	Event(401);
+	Wait(30);
+
+	// 子分ふってくる
+		// 子分のルーチンを跳ねルーチンに
+	for (i = 1;i < 10;i++)
+	{
+		ch[420] = 98;
+		KaguTest(12004,c+i);
+		ch[420] = c+i;
+		ch[421] = 15;
+		KaguTest(20044,29);
+	}
+		// カメラ向ける
+	ch[420] = -374;
+	ch[421] = -1280;
+	ch[422] = 370;
+	ch[423] = 21;
+	ch[424] = -282;
+	ch[425] = 4;
+	KaguTest(30093,30);
+	Wait(15);
+	KaguTest(12000,c+1);
+	KaguTest(12000,c+2);
+	Wait(25);
+		// 飛び降りる
+	Walk2(c+1,0,-24,15);
+	ch[429] = 1;
+	KaguTest(30039,0);
+	Wait(3);
+	ch[421] = 20;
+	ch[422] = 1;
+	KaguTest(30037,c+1);
+	Wait(6);
+	Walk2(c+2,0,-24,15);
+	ch[429] = 1;
+	KaguTest(30039,0);
+	Wait(3);
+	ch[421] = 20;
+	ch[422] = 1;
+	KaguTest(30037,c+2);
+	Wait(20);
+		// カメラ戻す
+	ch[420] = x;
+	ch[421] = y;
+	ch[422] = z;
+	ch[423] = ax;
+	ch[424] = ay;
+	ch[425] = az;
+	KaguTest(30093,20);
+	KaguTest(30019,14);
+	Wait(20);
+	KaguTest(30019,0);
+	CrossFade();
+	
+	// 後始末
+		// 出現座標セット
+	CharPos(c,-99450,-741,-445);
+	CharPos(c+3,-99736,-558,-450);
+	CharPos(c+4,-100037,-620,-450);
+	CharPos(c+5,-100018,-570,-450);
+	CharPos(c+6,-99564,-581,-450);
+	CharPos(c+7,-100190,-556,-450);
+	CharPos(c+8,-100076,-820,-450);
+	CharPos(c+9,-99700,-568,-450);
+		// モード戻す
+	for(i = 0;i < 10;i++)
+	{
+		ch[420] = 3;
+		KaguTest(12005,c+i);
+		ch[420] = c+i;
+		ch[421] = 15;
+		KaguTest(20044,26);
+	}
+		// パターン戻す
+	ch[420] = pt1;
+	KaguTest(12002,c);
+	ch[420] = pt4;
+	KaguTest(12002,c+3);
+	ch[420] = pt5;
+	KaguTest(12002,c+4);
+	ch[420] = pt6;
+	KaguTest(12002,c+5);
+	ch[420] = pt7;
+	KaguTest(12002,c+6);
+	ch[420] = pt8;
+	KaguTest(12002,c+7);
+	ch[420] = pt9;
+	KaguTest(12002,c+8);
+	ch[420] = pt10;
+	KaguTest(12002,c+9);
+	ch[420] = 1;
+	ch[421] = 1;
+	ch[422] = 1;
+	KaguTest(30090,c+1);
+	KaguTest(30090,c+2);
+
+	KaguTest(30132,c + 3);
+	KaguTest(30132,c + 4);
+	KaguTest(30132,c + 6);
+	KaguTest(30132,c + 8);
+}
+ 

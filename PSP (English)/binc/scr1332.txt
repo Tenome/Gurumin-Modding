@@ -1,0 +1,5 @@
+
+int main()
+{
+	Message(0,"~How about life as a Miner?","Now recruiting at \800 an hour!~","","");
+}

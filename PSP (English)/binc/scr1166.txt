@@ -1,0 +1,29 @@
+
+int main()
+{
+	TekiStop(1);
+	Message(0,"Something is written here.","","","");
+
+	KaguTest(10006,0);
+	KaguTest(10007,7);
+	KaguTest2(10009,0,"tute_07.bmp");
+	ch[423] = 180;
+	ch[424] = 42;
+	ch[425] = 460;
+	ch[426] = 438;
+	ch[427] = 0;
+	ch[428] = 0;
+	ch[429] = 320;
+	ch[430] = 452;
+	ch[431] = 512;
+	KaguTest(10010,10);
+	Wait(10);
+	Message(0,"","","","");
+	ch[420] = 0;
+	KaguTest(10011,10);
+	Wait(10);
+	
+//	ch[2123] = 1;
+
+	TekiStop(0);
+}

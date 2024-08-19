@@ -1,0 +1,71 @@
+
+int main()
+{
+	//イワオ
+	Message(7,"...Mwahahaha...","","","");
+	Message(7,"Haaaa!!","","","");
+
+	ch[3964] = 0;
+	White(0,100,15);
+	Wait(15);
+	LoadMap(401);
+	Look(0,7);
+	Look(7,0);
+	ch[400] = 7;
+	KaguTest(20039,7);
+	White(0,0,15);
+	Wait(15);
+
+	//イワオ
+	Message(7,"W-where is... here?","","","");
+
+	//パリン
+	Message(0,"Whew, finally awake.","","","");
+
+	//イワオ
+	Message(7,"I had a dream.","I was an assassinated king","in a faraway land.","");
+
+	//パリン
+	Message(0,"Sounds like a nightmare.","","","");
+
+	//イワオ
+	Message(7,"And you woke me from it.","T-thank you Parin!","","");
+	Message(7,"Please, take this.","","","");
+
+	if (ch[2033])
+	{
+		// 既に壁紙を手に入れてある
+		// ケーキをあげる
+		KaguTest(20001,20);
+		Mes("You got a ~Shortcake.~");
+		KaguTest(20022,20);
+		GetItem(20);
+		Wait(60);
+		if (ch[430] == 3)
+		{
+			// オーバーしている
+			Mes("You can't hold any more.");
+			Wait(60);
+		}
+	}
+	else
+	{
+		//システム
+		SE(853);
+		KaguTest(10006,0);
+		KaguTest(10007,1);
+		KaguTest2(10008,0,"Got Picture #6: ~Devices and Gear.~");
+		KaguTest2(10008,2,"It has been added to your Album.");
+		KaguTest2(10008,3,"View it by selecting ~Album~ from the menu.");
+		KaguTest2(10009,0,"kb006s.bmp");
+		KaguTest(10010,10);
+		Wait(10);
+		Message(0,"","","","");
+		KaguTest(10011,10);
+
+		GetItem(2);
+		ch[2033] = 1;
+	}
+	ch[2032] = 0;
+	ch[400] = -1;
+}

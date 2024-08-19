@@ -1,0 +1,648 @@
+
+int main()
+{
+	//会話メッセージを出す
+	ch[400] = 3;
+	ch[203]++;
+	ch[3976] = 100;
+	
+	int qnuke;
+	qnuke = 0;
+	
+	if (ch[2007] && !ch[2018])
+	{
+		// クエスト中
+		ch[400] = 3;
+		if (ch[2002])
+		{
+			// のぞきクエスト
+			if (ch[2003] < 3)
+			{
+				//ファン
+				Message(3,"Oh, hello Parin.","","","");
+				Message(3,"Sorry, some cakes are","just coming out of the","oven! Busy, busy!","");
+				Message(3,"Could you come back later?","","","");
+			}
+			else
+			{
+				if (ch[2003] == 4)
+				{
+					Message(3,"Cylinder? For once ","he went to the mines","early this morning.","");
+					Message(3,"It's nice and peaceful ","here when he's out.","","");
+					Message(3,"It's a shame","it won't last.","","");
+				}
+				else
+				{
+					//パリン
+					Message(0,"Fan!","Have you seen Cylinder?","","");
+
+					//ファン
+					Message(3,"Cylinder? He was","here this morning.","","");
+					Message(3,"He wouldn't leave me","alone, as usual.","","");
+
+					//パリン
+					Message(0,"Do you know","where he is now?","","");
+
+					//ファン
+					Message(3,"I don't think he's","in town right now.","","");
+					Message(3,"He went off for work","early this morning.","","");
+
+					//パリン
+					Message(0,"So he's in the mines?","","","");
+
+					//ファン
+					Message(3,"I think so. He is","serious about his work.","","");
+					Message(3,"Too bad all this peace","and quiet won't last.","","");
+					ch[2003] = 4;
+					ch[2008] = 1;
+				}
+			}
+		}
+		if (ch[2010])
+		{
+			// ビラ貼りクエスト中
+			qnuke = 1;
+		}
+//		if (ch[2018])
+//		{
+//			else
+//			{
+//				qnuke = 1;
+//			}
+//		}
+		if (ch[2020])
+		{
+			// プラチナメダルクエスト中
+			qnuke = 1;
+		}
+		
+		if (!qnuke)
+		{
+			ch[400] = -1;
+			return 0;
+		}
+	}
+	
+	// わらしべクエストチェック
+	KaguTest(20001,27);
+	if (ch[430])
+	{
+		//パリン
+		Message(0,"Fan!","","","");
+
+		//ファン
+		Message(3,"Parin, hi!","Nice looking book!","","");
+
+		//パリン
+		Message(0,"You mean this Manga?","","","");
+
+		//ファン
+		Message(3,"It's by that really","popular new artist!","","");
+		Message(3,"It's rare to see comics here.","","","");
+
+		//パリン
+		Message(0,"Oh really?","","","");
+
+		//ファン
+		Message(3,"Living in a big city","must have been great...","","");
+		Message(3,"How about this?","You give me that book...","","");
+		Message(3,"...and this special cake is yours!","","","");
+
+		//パリン
+		Message(0,"Cake?! It's a deal!","","","");
+
+		//ファン
+		Message(3,"Great! Thank you!","I know you'll love it.","","");
+
+		//システム
+		Mes("You got a ~Choco Cake.~");
+		KaguTest(20022,30);
+		KaguTest(20002,27);
+		GetItem(30);
+		Wait(60);
+		
+		ch[400] = -1;
+		return 0;
+	}
+
+	int game;
+	game = 0;
+	// バイトクエスト発生チェック
+	if (!ch[2007] && ch[1513] && !ch[2016] && ch[2501] == 4)
+	{
+		string text;
+		if (!ch[2017])
+		{
+			// 初回
+			//ファン
+			Message(3,"Hi Parin!","Interesting outfit.","","");
+			Message(3,"Ah, you've come to work","off your debt? ","","");
+
+			//パリン
+			Message(0,"I told you! I didn't","eat your cake!","","");
+
+			//ファン
+			Message(3,"Really? Why are","you in disguise then?","","");
+
+			//パリン
+			Message(0,".........................","","","");
+			Message(0,"Good point.","","","");
+
+			//ファン
+			Message(3,"Honesty is the best policy!","","","");
+			Message(3,"You're a good child.","Come with me.","","");
+
+			//パリン
+			Message(0,"But I didn't do it!","","","");
+			
+			Black(0,100,15);
+			Wait(15);
+			
+			ch[2015] = 1;
+			LoadMapB(4);
+			CharPos(0,0,395,0);
+			CharPos(3,98,455,0);
+			CharPos(13,-200000,0,0);
+			CharPos(15,-200000,0,0);
+			CharPos(58,-200000,0,0);
+			CharPos(14,-200000,0,0);
+			Look(0,3);
+			Look(3,0);
+			Camera(0,285,-262,361);
+			
+			Black(0,0,15);
+			Wait(15);
+
+			//パリン
+			Message(0,"Serving hard time","for a crime I","didn't commit. Sigh...","");
+
+			//ファン
+			Message(3,"Ok Parin,","stand at the counter.","","");
+
+			//パリン
+			Message(0,"Why? Why me? ","Someone tell me...","","");
+
+			//ファン
+			Message(3,"You have to give me","the customers' orders.","","");
+			Message(3,"Let's get started!","","","");
+			
+			PostScr(1295);
+			ch[400] = -1;
+			return 0;
+		}
+		else
+		{
+			// 失敗済
+			game = 1;
+		}
+	}
+
+	KaguTest(20001,74);
+	if (ch[430])
+	{
+		if(!ch[2058])
+		{
+			ch[2058] = 1;
+			//ファン
+			Message(3,"Oh dear! Parin!","","","");
+
+			//パリン
+			Message(0,"What is it?","","","");
+
+			//ファン
+			Message(3,"I had some cakes","disappear again!","","");
+			Message(3,"I felt something in the room,","but didn't see anyone!","","");
+
+			//パリン
+			Message(0,"(You don't suppose...)","","","");
+
+			//ファン
+			Message(3,"Since then, its been","quiet, but...","","");
+			Message(3,"The culprit must be...","","","");
+
+			//パリン
+			Message(0,"Gulp!","","","");
+
+			//ファン
+			Message(3,"Spies! They want my ","amazing Strawberry ","Shortcake recipe! ","");
+
+			//パリン
+			Message(0,"Give me a break!","","","");
+		}
+		else
+		{
+			//ファン
+			Message(3,"I had some cakes","disappear again!","","");
+			Message(3,"I felt something in the room,","but didn't see anyone!","","");
+			Message(3,"Since then, its been","quiet, but...","","");
+		}
+		Message(3,"So, can I get you","anything today?","","");
+
+		// モトロマジック適応
+		if (ch[3975] == 0)
+		{
+			ch[3975] = 100;
+		}
+		ch[3976] = (ch[3976] * ch[3975]) / 100;
+		
+		ShopStart();
+		ShopItem(4);
+		ShopItem(5);
+		ShopItem(20);
+	//	ShopItem(18);
+	//	if (story == 6 && ch[2621] && ch[2639])
+	//	{
+	//		ShopItem(22);
+	//	}
+		ShopEnd();
+		
+		Message(3,"Come again!","","","");
+		ch[400] = -1;
+		return 0;
+	}
+
+	if (ch[1571])// && !ch[1538])
+	{
+		if (ch[203] < 2)
+		{
+			//ファン
+			//ファン
+			Message(3,"Cylinder made me","some special","birthday cake candles.","");
+			Message(3,"He can be a little odd,","but he has a good side.","","");
+
+			//パリン
+			Message(0,"Really...?","","","");
+
+			//ファン
+			Message(3,"That explosion","3 years ago","was Cylinder's fault.","");
+			Message(3,"He was trying to save","a puppy, but his cigarette","fell on some powder. ","");
+
+			//パリン
+			Message(0,"Really?","Was that dog","Puchi?","");
+
+			//ファン
+			Message(3,"I think so. There's","a scar on his face.","","");
+
+			//パリン
+			Message(0,"Wow...","","","");
+			Message(0,"That guy is still","a bit weird though...","","");
+
+			//ファン
+			Message(3,"I know what you mean!","","","");
+		}
+		else
+		{
+			//ファン
+			Message(3,"Cylinder is a little odd,","but he's a nice guy.","","");
+			Message(3,"Can I help you?","","","");
+		}
+		ch[3976] = 100;
+	}
+	if (ch[1513] && !ch[1571])
+	{
+		if (ch[203] < 2)
+		{
+			if (ch[2016])
+			{
+				Message(3,"Oh dear. I've run out","of birthday cake candles.","","");
+				Message(3,"Disk's store is all out","of them too. I wonder","what I should do...","");
+			}
+			else
+			{
+				//ファン
+				Message(3,"Parin, no shame in working","off your debt at my shop.","","");
+				Message(3,"Dress appropriately and","I'll put you to work!","","");
+				//パリン
+				Message(0,"But I'm not the one","who took your cakes!","","");
+				//ファン
+				Message(3,"Cake prices are up...","thanks to you!","","");
+			}
+		}
+		else
+		{
+			//ファン
+			Message(3,"I'm fresh out of birthday","cake candles.","","");
+			Message(3,"What'll I do...?","","","");
+		}
+		ch[3976] = 200;
+	}
+	if (ch[1505] && !ch[1513])
+	{
+		int kusai;
+		kusai = 0;
+		if (ch[2532])
+		{
+			if (ch[203] < 2)
+			{
+				//ファン
+				Message(3,"Sniff sniff...","","","");
+				Message(3,"Parin, you smell","kind of sweaty.","","");
+
+				//パリン
+				Message(0,"N-no way!","","","");
+
+				//ファン
+				Message(3,"Really? Hmm...","","","");
+				Message(3,"Would you like something?","Prices are a bit high, though.","","");
+			}
+			else
+			{
+				//ファン
+				Message(3,"Can I help you?","","","");
+			}
+			kusai = 1;
+			ch[3976] = 150;
+		}
+		if (!ch[2529] && !kusai)
+		{
+			if (ch[203] < 2)
+			{
+				//ファン
+				Message(3,"Hi Parin!","Did you drop by the","store while I was out?","");
+				//パリン
+				Message(0,"No I didn't.","","","");
+				//ファン
+				Message(3,"I see...","","","");
+				Message(3,"So many missing cakes... ","Prices are high today...","","");
+			}
+			else
+			{
+				//ファン
+				Message(3,"So many missing cakes... ","Prices are high today...","","");
+			}
+			ch[3976] = 150;
+		}
+		if (ch[2527] && !kusai)
+		{
+			Message(3,"Hi Parin! When are","you paying me back?","","");
+			Message(3,"Prices have gone up...","","","");
+			ch[3976] = 200;
+		}
+		if (ch[2529] && !ch[2527] && !kusai)
+		{
+			if (ch[203] < 2)
+			{
+				//ファン
+				Message(3,"Parin, be a good girl and","pay me back for those cakes!","","");
+				Message(3,"I'm keeping a tab for","everything you ate.","","");
+				//パリン
+				Message(0,"What do you mean?","I always pay, don't I? ","","");
+				//ファン
+				Message(3,"You can't fool me.","","","");
+				Message(3,"I know you snuck in","here while I was out!","","");
+				Message(3,"My prices are going up","until you pay me back!","","");
+				//パリン
+				Message(0,"No fair!","","","");
+				Message(0,"It wasn't me!","","","");
+				//ファン
+				Message(3,"Cakes are at a premium...","thanks to you! ","","");
+
+				ch[2085] = 1;
+			}
+			else
+			{
+				//ファン
+				Message(3,"Cakes are at a premium...","thanks to you! ","","");
+			}
+			ch[3976] = 200;
+		}
+	}
+	if (ch[1542] && !ch[1505])
+	{
+		if (ch[203] < 2)
+		{
+			//ファン
+			Message(3,"Oh dear! Parin!","","","");
+			//パリン
+			Message(0,"What is it?","","","");
+			//ファン
+			Message(3,"My cakes are","disappearing again!","","");
+			Message(3,"That means higher prices!","","","");
+			//パリン
+			Message(0,"What?!","It has to be Poco...","","");
+			//ファン
+			Message(3,"Who? ","","","");
+			//パリン
+			Message(0,"O-oh, nothing...","","","");
+			//ファン
+			Message(3,"So many missing cakes... ","Can I help you?","","");
+			ch[2557] = 1;
+		}
+		else
+		{
+			//ファン
+			Message(3,"So many missing cakes... ","Prices are high today...","","");
+		}
+		ch[3976] = 150;
+	}
+	if (ch[507] && !ch[1542])
+	{
+		if (ch[203] < 2)
+		{
+			//ファン
+			Message(3,"Cylinder loves to come here","and talk my ear off!","","");
+			Message(3,"But he's a regular.","I can't complain.","","");
+			Message(3,"Anyway, can I ","help you, Parin?","","");
+		}
+		else
+		{
+			//ファン
+			Message(3,"Prices are back to normal!","Can I help you?","","");
+		}
+	}
+	if (ch[3200] && !ch[507])
+	{
+//		if (ch[203] < 2)
+//		{
+//			//ファン
+//			Message(3,"パリンちゃん、聞いてー！","","","");
+//			//パリン
+//			Message(0,"どうしたの？","","","");
+//			//ファン
+//			Message(3,"さっき、またケーキが","消える現象があったのよー","","");
+//			Message(3,"すかさず消えた場所でほうきを","振り回したら何かにぶつかったの","","");
+//			Message(3,"それ以来、不思議なことに","怪現象がすっかりおさまったわー","","");
+//			Message(3,"これって、まさか…","","","");
+//			//パリン
+//			Message(0,"ギクッ","","","");
+//			//ファン
+//			Message(3,"この店の味を盗むために","某国が派遣したスパイさんの","しわざだったりしてー","");
+//			//パリン
+//			Message(0,"んなワケないって","","","");
+//			//ファン
+//			Message(3,"さ、値段も元通りにしたし、","何か買ってくー？","","");
+//		}
+//		else
+//		{
+			//ファン
+			Message(3,"Prices are back to normal!","Can I help you?","","");
+//		}
+	}
+	if (ch[2330] && !ch[3200])
+	{
+		//ファン
+		Message(3,"My cakes keep on","disappearing.","","");
+		Message(3,"I can't lower my prices","quite yet. Can I help you?","","");
+		if (ch[203] < 2)
+		{
+			//パリン
+			Message(0,"I need a bigger allowance.","","","");
+		}
+		ch[3976] = 150;
+	}
+	if (ch[1545] && !ch[2330])
+	{
+		if (ch[203] < 2)
+		{
+			//ファン
+			Message(3,"Oh dear! Parin!","","","");
+			//パリン
+			Message(0,"What's wrong?","","","");
+			//ファン
+			Message(3,"My cake! It vanished!","Right before my eyes!","","");
+			Message(3,"I planned a sale, but now ","I have to cancel it.","","");
+			Message(3,"And I have to raise prices.","","","");
+			//パリン
+			Message(0,"Hey! That's not fair!","","","");
+			Message(0,"Who's behind all this?!","","","");
+			//ファン
+			Message(3,"I have no idea.","Can I help you?","","");
+		}
+		else
+		{
+			//ファン
+			Message(3,"So many missing cakes... ","Can I help you?","","");
+		}
+		ch[3976] = 150;
+	}
+	if (ch[2552] && !ch[1545])
+	{
+		if (ch[203] < 2)
+		{
+			//ファン
+			Message(3,"That Cylinder certainly","was a pain this morning.","","");
+			Message(3,"Say, you like Strawberry","Shortcake, don't you?","","");
+			//パリン
+			Message(0,"More than life itself.","","","");
+			//ファン
+			Message(3,"Today's cake is extra tasty.","You can have one on me!","","");
+			//パリン
+			Message(0,"Really?!","","","");
+			//ファン
+			Message(3,"You'll love it!","","","");
+		}
+		else
+		{
+			//ファン
+			Message(3,"That Cylinder certainly","was a pain this morning.","","");
+			Message(3,"He should stick to his work","instead of bothering me.","","");
+		}
+	}
+	if (!ch[2552])
+	{
+		//OP前
+		ch[400] = 3;
+		if (!ch[2550])
+		{
+			Message(0,"Shortcake!","","","");
+			Message(3,"Hello, cute little girl!","What's your name?","","");
+			Message(0,"Parin.","","","");
+			Message(3,"Parin? My name is Fan.","Nice to meet you.","","");
+			Message(0,"Are there really no","kids in this town?","","");
+			Message(3,"I'm afraid not.","Just adults.","","");
+			Message(0,"Then will you be my friend?","","","");
+			Message(3,"Me? Be your friend?","I'd be glad to!","","");
+			Message(3,"We'll be like sisters!","","","");
+			Message(0,"..............","","","");
+			Message(0,"That's a bit... much.","","","");
+		}
+		else
+		{
+			Message(3,"Sometimes, strange things","happen around here.","","");
+			Message(0,"Really? Like what?","","","");
+			Message(3,"...I'll tell you later.","","","");
+		}
+		
+		ch[2550] = 1;
+		
+		if (ch[2547] && ch[2548] && ch[2549] && ch[2551])
+		{
+			// 全員と会話済み
+			ch[2553] = 1;
+		}
+		
+		ch[400] = -1;
+		return 0;
+	}
+
+	int story;
+	int map;
+	string str;
+
+	ch[400] = 7;
+
+	// クエストやるかチェック
+	if (game && ch[2501] == 4)
+	{
+		SelStart(50);
+		SelText("Buy",1);
+		SelText("Work",2);
+		SelEnd();
+		
+		if (ch[50] == 2)
+		{
+			// バイト
+			//ファン
+			Message(3,"Oh, you want a job?","","","");
+			
+			Black(0,100,15);
+			Wait(15);
+			
+			ch[2015] = 1;
+			LoadMapB(4);
+			CharPos(0,0,395,0);
+			CharPos(3,98,455,0);
+			CharPos(13,-200000,0,0);
+			CharPos(15,-200000,0,0);
+			CharPos(58,-200000,0,0);
+			Look(0,3);
+			Look(3,0);
+			Camera(0,285,-262,361);
+			
+			Black(0,0,15);
+			Wait(15);
+
+			//ファン
+			Message(3,"OK. Just take care of the","counter, like last time!","","");
+			Message(3,"Let's get started!","","","");
+			ch[400] = -1;
+			PostScr(1295);
+			return 0;
+		}
+	}
+	
+
+	// モトロマジック適応
+	if (ch[3975] == 0)
+	{
+		ch[3975] = 100;
+	}
+	ch[3976] = (ch[3976] * ch[3975]) / 100;
+	
+	ShopStart();
+	ShopItem(4);
+	ShopItem(5);
+	ShopItem(20);
+//	ShopItem(18);
+//	if (story == 6 && ch[2621] && ch[2639])
+//	{
+//		ShopItem(22);
+//	}
+	ShopEnd();
+	
+	Message(3,"Come again!","","","");
+
+//	Wait(30);
+	ch[400] = -1;
+	return 0;
+}

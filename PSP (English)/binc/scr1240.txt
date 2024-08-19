@@ -1,0 +1,173 @@
+
+int main()
+{
+	Mouse(0);
+	SetWaku(1);
+	KaguTest(99986,0);
+	KaguTest2(30014,0,"@ClearORoot");
+	KaguTest2(30021,0,"@CDL21");
+	KaguTest2(30021,0,"@CDL25");
+	KaguTest2(30021,0,"@CDL26");
+	KaguTest2(30021,0,"@CDL24");
+	KaguTest2(30021,0,"@CDL23");
+	KaguTest2(30021,0,"@CDL22");
+	KaguTest2(30021,0,"@CDL36");
+	KaguTest2(30021,0,"@CDL27");
+	KaguTest2(30021,0,"@CDL28");
+	KaguTest2(30021,0,"@CDL29");
+	KaguTest2(30021,0,"@CDL30");
+	KaguTest2(30021,0,"@CDL31");
+	SetSavePos();
+	CharPos(0,-200000,0,0);
+	CharPos(16,171,212,0);
+	ch[420] = -1;
+	KaguTest(12002,16);
+	ch[420] = 7;
+	ch[421] = 1;
+	ch[422] = 5;
+	KaguTest(12003,16);
+	ch[420] = 585;
+	ch[421] = -3000;
+	KaguTest(30070,16);
+	KaguTest(99980,0);
+	Black(0,0,15);
+	ch[420] = 60;
+	ch[421] = 7;
+	KaguTest(20044,1);
+	ch[420] = -3127;
+	ch[421] = -2790;
+	ch[422] = 1510;
+	ch[423] = -3405;
+	ch[424] = -1415;
+	ch[425] = 475;
+	ch[429] = 995;
+	KaguTest(30019,1);
+	Wait(15);
+
+	ch[420] = -2714;
+	ch[421] = -2851;
+	ch[422] = 1536;
+	ch[423] = -2633;
+	ch[424] = -1272;
+	ch[425] = 798;
+	ch[429] = 998;
+	KaguTest(30093,60);
+	KaguTest(30019,14);
+	WaitC(60);
+	
+	ch[420] = -583;
+	ch[421] = -1623;
+	ch[422] = 1539;
+	ch[423] = -305;
+	ch[424] = -540;
+	ch[425] = 948;
+	ch[429] = 995;
+	KaguTest(30093,95);
+	WaitC(75);
+	KaguTest2(20001,16,"Wh... what?");
+	WaitC(20);
+	
+	ch[420] = 155;
+	ch[421] = -332;
+	ch[422] = 427;
+	ch[423] = 688;
+	ch[424] = 579;
+	ch[425] = 75;
+	ch[429] = 993;
+	KaguTest(30093,30);
+	WaitC(5);
+	ch[429] = 990;
+	WaitC(5);
+	ch[429] = 970;
+	WaitC(5);
+	ch[429] = 940;
+	ch[420] = 631;
+	ch[421] = 719;
+	KaguTest(30070,16);
+	WaitC(15);
+	ch[420] = -1;
+	KaguTest(30104,16);
+	ch[420] = 631;
+	ch[421] = 719;
+	ch[422] = 75;
+	KaguTest2(30022,0,"BS_005Br.it3");
+	
+	ch[422] = 0;
+	ch[423] = 1994;
+	ch[424] = 0;
+	ch[425] = 0;
+	ch[427] = 200;
+	ch[428] = 0;
+	KaguTest(30045,0);
+	KaguTest(30045,5);
+	KaguTest(30045,10);
+	ch[420] = 284;	// 爆発ＳＥ
+	KaguTest(30100,93);
+//	ch[420] = 324;
+//	KaguTest(30100,93);
+	CharPos(93,-200000,0,0);
+	ch[420] = 60;
+	ch[421] = 7;
+	KaguTest(20044,0);
+	WaitC(40);
+	
+	ch[420] = 2136;
+	ch[421] = -2357;
+	ch[422] = 2283;
+	ch[423] = 659;
+	ch[424] = 708;
+	ch[425] = 23;
+	KaguTest(30093,245);
+	ch[420] = 659;
+	ch[421] = 708;
+	ch[422] = 23;
+	KaguTest(30094,245);
+	KaguTest(30019,15);
+	WaitC(145);
+	Black(0,100,60);
+	WaitC(60);
+	Black(0,100,0);
+	
+	SetWaku(0);
+	//
+
+//	ResetFade();
+	KaguTest(20065,7);
+	Black(0,100,0);
+	KaguTest(99981,0);
+	KaguTest(99980,0);
+	
+	ch[1513] = 1;
+	ch[1509] = 1;
+
+//	Mes("モグロウ発見ムービー（仮）");
+//	Wait(30);
+	
+	KaguTest(10100,0);
+	ch[420] = 0;
+	KaguTest(30104,16);
+
+	KaguTest(99998,0);
+	LoadMapB(998);
+	Black(0,100,0);
+	KaguTest(99990,0);
+
+//	ch[298] = 1;
+	KaguTest(99999,0);
+	
+	Mouse(1);
+	Black(0,100,15);
+	Wait(15);
+	Black(0,100,0);
+	ch[298] = 0;
+	ch[420] = 100;
+	ch[421] = 100;
+	ch[422] = 100;
+	KaguTest(30046,1);
+	Wait(10);
+	Black(0,0,15);
+
+	TekiStop(0);
+	MapEvent(1);
+	Mouse(1);
+}

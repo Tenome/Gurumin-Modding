@@ -1,0 +1,5 @@
+
+int main()
+{
+	Message(0,"Parts of some kind?","They're so mixed up, I","can't tell what's what.","");
+}

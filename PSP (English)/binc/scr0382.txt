@@ -1,0 +1,818 @@
+
+int main()
+{
+	int a;
+	int b;
+	int c;
+	int d;
+	int e;
+	int f;
+	int sumi;
+	sumi = 0;
+	int kaizou;
+	kaizou = 1;
+	int qnuke;
+	qnuke = 0;
+	
+	if (ch[2007] && !ch[2018])
+	{
+		// クエスト中
+		ch[205]++;
+		ch[400] = 5;
+		if (ch[2002])
+		{
+			// のぞきクエスト
+			ch[420] = ch[2006];
+			KaguTest(20043,4);
+			if (!ch[420])
+			{
+				ch[420] = ch[2006];
+				KaguTest(20052,4);
+				ch[2006] = ch[420];
+
+				//ディスク
+				Message(5,"Well hello, Parin.","You look well.","","");
+
+				//パリン
+				Message(0,"Have you seen Cylinder around?","","","");
+
+				//ディスク
+				Message(5,"Cylinder came by","early this morning.","","");
+
+				//パリン
+				Message(0,"Do you know where he ","is right now? ","","");
+
+				//ディスク
+				Message(5,"I'm afraid I'm","not exactly sure.","","");
+			}
+			else
+			{
+				//ディスク
+				Message(5,"Cylinder came by","early this morning.","","");
+				Message(5,"I don't know where he is now.","","","");
+			}
+			
+			if (ch[2003] == 2 && ch[2006] == 15)
+			{
+				// ファン以外の全員から話を聞いた
+				ch[2003] = 3;
+			}
+		}
+		if (ch[2010])
+		{
+			// ビラ貼りクエスト
+			if (!ch[2012] || !ch[2013] || !ch[2014])
+			{
+				Message(5,"Can you put these up","all over town?","","");
+			}
+			else
+			{
+				//ディスク
+				Message(5,"Hi Parin. Thanks for putting up","those ads for me.","","");
+				Message(5,"And this is for you.","","","");
+
+				//システム
+				SE(853);
+				KaguTest(10006,0);
+				KaguTest(10007,1);
+				KaguTest2(10008,0,"Got Picture #7: ~A Young Hero.~");
+				KaguTest2(10008,2,"It has been added to your Album.");
+				KaguTest2(10008,3,"View it by selecting ~Album~ from the menu.");
+				KaguTest2(10009,0,"kb007s.bmp");
+				KaguTest(10010,10);
+				Wait(10);
+				Message(0,"","","","");
+				KaguTest(10011,10);
+
+				GetItem(2);
+
+				//パリン
+				Message(0,"How's the shop?","Is business picking up?","","");
+
+				//ディスク
+				Message(5,"A-actually...","","","");
+				Message(5,"A mistake in my ad","listed a 20,000 Pockle","item as a 20 Pockle item.","");
+				Message(5,"I honored the ad to protect","my shops reputation,","but now I'm almost bankrupt.","");
+
+				//パリン
+				Message(0,"Oh...","","","");
+				
+				ch[2010] = 0;
+				ch[2011] = 1;
+				ch[2006] = 0;
+				ch[2007] = 0;
+				ch[2008] = 0;
+				ch[2009] = 0;
+			}
+		}
+		if (ch[2020])
+		{
+			// プラチナメダルクエスト中
+			qnuke = 1;
+		}
+		
+		if (!qnuke)
+		{
+			ch[400] = -1;
+			return 0;
+		}
+	}
+	
+//	if (ch[2018])
+	if (ch[2501] != 6)
+	{
+		// わらしべクエストチェック
+		KaguTest(20001,17);
+		if (ch[430] && !ch[291])
+		{
+			// ダイヤモンド持っている
+			// 売り払う
+			//ディスク
+			Message(5,"That diamond you have...","","","");
+
+			//パリン
+			Message(0,"Nice isn't it?","Worth anything?","","");
+
+			//ディスク
+			Message(5,"I'll have a look.","","","");
+			Message(5,"Oh! This is...","","","");
+
+			//パリン
+			Message(0,"Gulp!","","","");
+
+			//ディスク
+			Message(5,"A fake diamond.","It's worth 1,000 Pockles.","","");
+
+			//パリン
+			Message(0,"Aww... Is that all?","","","");
+
+			//ディスク
+			Message(5,"I can take","it off your hands if you'd like?","","");
+			
+			SelStart(50);
+			SelText("Sell the diamond",1);
+			SelText("Don't sell the diamond",2);
+			SelEnd();
+			
+			if (ch[50] != 1)
+			{
+				ch[291] = 0;
+				ch[400] = -1;
+				return 0;
+			}
+
+			//パリン
+			Message(0,"I don't need a fake diamond.","Take it.","","");
+
+			//ディスク
+			Message(5,"Thanks!","","","");
+			SetGP(GetGP() + 1000);
+			KaguTest(20002,17);
+			SE(893);	// 勘定音
+
+//			ch[2018] = 0;
+//			ch[2007] = 0;
+			
+			ch[400] = -1;
+			return 0;
+		}
+		else
+		{
+			KaguTest(20001,18);
+			if (ch[430])
+			{
+				// ドラスレと錬金術の書交換
+				//ディスク
+				Message(5,"Is that... Could it be...?","","","");
+
+				//パリン
+				Message(0,"This big old sword?","","","");
+
+				//ディスク
+				Message(5,"It's the legendary","Dragon Slayer, wow!","","");
+				Message(5,"And it's the real deal!","","","");
+
+				//パリン
+				Message(0,"It's worth something?","","","");
+
+				//ディスク
+				Message(5,"This sword killed the","famous King Dragon!","It's priceless!","");
+				Message(5,"How about you trade it in","for something I have?","","");
+
+				//パリン
+				Message(0,"All right.","I only know how to","use drills anyway.","");
+
+				//ディスク
+				Message(5,"Thank you!","Here you go.","","");
+
+				//システム
+				Mes("You got an ~Alchemy Book.~");
+				KaguTest(20022,25);
+				KaguTest(20002,18);
+				GetItem(25);
+				Wait(60);
+				ch[400] = -1;
+				return 0;
+			}
+		}
+	}
+
+
+	// ビラ貼りクエスト発生チェック
+	KaguTest(20001,42);
+	a = ch[430];
+	KaguTest(20001,45);
+	b = ch[430];
+	KaguTest(20001,21);
+	c = ch[430];
+	d = 1;
+	KaguTest(20001,40);
+	e = ch[430];
+	f = 1;
+	if (ch[2063])
+	{
+		KaguTest(20001,37);
+		f = ch[430];
+	}
+	
+	int quest;
+	quest = 0;
+	int aaaa;
+	aaaa = 0;
+	if (!ch[2007] && ch[205] < 1 && ch[2300])
+	{
+		if (a && b && c && d && f)
+		{
+			aaaa = 1;
+		}
+	}
+	
+	if (aaaa && ch[3960])
+	{
+		if (e && f && ch[2501] != 6)
+		{
+			quest = 1;
+		}
+	}
+	
+	if (quest)
+	{
+		if (!ch[2011] && !ch[2010])
+		{
+			//ディスク
+			Message(5,"Well hello, Parin.","You're looking well.","","");
+
+			//パリン
+			Message(0,"And you're looking a lot","worse than usual, Disk.","","");
+			Message(0,"What's the matter?","Sales are down?","","");
+
+			//ディスク
+			Message(5,"You're quick, Parin.","","","");
+			Message(5,"I can't survive like this.","I don't know what to do.","","");
+
+			//パリン
+			Message(0,"Hmm...","","","");
+
+			//ディスク
+			Message(5,"I'm not cut out","for this life, I guess.","","");
+			Message(5,"I know! Parin, can you","put these ads up","around town for me?","");
+			
+			SelStart(50);
+			SelText("Sure",1);
+			SelText("Sorry",2);
+			SelEnd();
+			
+			if (ch[50] == 1)
+			{
+				//ディスク
+				Message(5,"Really?","Thank you!","","");
+
+				//システム
+				Mes("You got some ~Ads.~");
+				KaguTest(20022,8);
+				Wait(60);
+				GetItem(8);
+				GetItem(8);
+				GetItem(8);
+
+				//ディスク
+				Message(5,"Just put all","of them up for me.","Thanks again!","");
+				
+				// クエスト開始
+				ch[2010] = 1;
+				ch[2006] = 0;
+				ch[2007] = 1;
+				ch[2008] = 0;
+				ch[2009] = 0;
+			}
+			else
+			{
+				//ディスク
+				Message(5,"Talk to me if you","change your mind!","","");
+			}
+			ch[205]++;
+			ch[400] = -1;
+			return 0;
+		}
+		else
+		{
+			// おかしいぞ？
+		}
+	}
+	
+	int nuke;
+	nuke = 0;
+	if (!ch[2063] && ch[2501] == 4 && ch[2300])
+	{
+		ch[2063] = 1;
+		// ヘッドドレス販売イベント
+		Message(5,"Hello Parin. ","Isn't that a cute outfit.","","");
+		Message(5,"...Oh yea!","","","");
+		Message(5,"I just got a new item","that would perfectly","match that outfit!","");
+		Message(5,"It's a bit pricy, but","I'm sure you'll love it.","","");
+		nuke = 1;
+		ch[2054] = 1;
+	}
+
+	ch[205]++;
+	
+	if (!nuke && ch[1545] && !ch[2054])
+	{
+		//ディスク
+		Message(5,"Hello, Parin.","Welcome to Disk's Discount Shop.","","");
+		Message(5,"Today, I've decided to start","a new upgrading service!","","");
+		//パリン
+		Message(0,"Upgrading?","","","");
+		//ディスク
+		Message(5,"Upgrading items makes","them much more useful.","","");
+		//パリン
+		Message(0,"In what way?","","","");
+		//ディスク
+		Message(5,"Glad you asked me that!","","","");
+		Message(5,"Look at these Goggles.","These are the normal ones.","","");
+		Message(5,"But once you upgrade...","","","");
+		Message(5,"They become much more","powerful!","","");
+		//パリン
+		Message(0,"But they don't look","any different, do they?","","");
+		//ディスク
+		Message(5,"It's not about the looks!","Try it! You won't be sorry!","","");
+		Message(5,"If you upgrade an item","multiple times, it will","get even stronger!","");
+		//パリン
+		Message(0,"So I just pay you when","I want to upgrade?","","");
+		//ディスク
+		Message(5,"No no. You need Junk","to upgrade your items.","","");
+		//パリン
+		Message(0,"Junk?","","","");
+		//ディスク
+		Message(5,"That's right. Just Junk.","Not Pockles.","","");
+		//パリン
+		Message(0,"So that Phantom Junk","has a purpose!","","");
+		//ディスク
+		Message(5,"Say again?","","","");
+		//パリン
+		Message(0,"Oh nothing. If I have a chance","I'll upgrade something later.","","");
+		//ディスク
+		Message(5,"Great! See you!","","","");
+		ch[2054] = 1;
+
+		// チュートリアル表示
+		KaguTest(10006,0);
+		KaguTest(10007,7);
+		KaguTest2(10009,0,"tute_21.bmp");
+		ch[423] = 128;
+		ch[424] = 8;
+		ch[425] = 353;
+		ch[426] = 264;
+		ch[427] = 0;
+		ch[428] = 0;
+		ch[429] = 225;
+		ch[430] = 256;
+		ch[431] = 256;
+		SE(399);
+		KaguTest(10010,10);
+		Message(0,"","","","");
+		ch[420] = 0;
+		KaguTest(10011,10);
+		Wait(10);
+		
+		ch[400] = -1;
+		ch[205] = 0;
+		return 0;
+	}
+	else
+	{
+		if (!nuke && ch[1571])// && !ch[1538])
+		{
+			//ディスク」
+			Message(5,"What an earthquake!","Something happen at the mines?","","");
+			Message(5,"I hope Cylinder didn't","blow up the mountain again...","","");
+		}
+		if (!nuke && ch[1513] && !ch[1571])
+		{
+			if (ch[205] < 2)
+			{
+				//ディスク
+				Message(5,"Oh, hello Parin.","Still causing trouble?","","");
+				//パリン
+				Message(0,"I'm serious! It's not me!","","","");
+				//ディスク
+				Message(5,"Everyone saw you do it...","","","");
+				Message(5,"But anyway, why not","buy something?","","");
+			}
+			else
+			{
+				//ディスク
+				Message(5,"Want to buy something?","","","");
+			}
+		}
+		if (!nuke && ch[1505] && !ch[1513])
+		{
+			if (!ch[2527])
+			{
+				if (ch[205] < 2)
+				{
+					//ディスク
+					Message(5,"Oh, hello Parin.","Back so soon?","","");
+					//パリン
+					Message(0,"Do I come here that often?","","","");
+					//ディスク
+					Message(5,"Haha, that's not what I meant!","You're always welcome.","","");
+				}
+				else
+				{
+					//ディスク
+					Message(5,"Haha, that's not what I meant!","You're always welcome.","","");
+				}
+			}
+			else
+			{
+				if (ch[205] < 2)
+				{
+					//ディスク
+					Message(5,"Parin, please return my","glasses, I'm begging you.","","");
+					//パリン
+//					Message(0,"とってないわよ。","ちゃんとメガネしてるじゃない","","");
+					Message(0,"Glasses?","What glasses?","","");
+					Message(0,"Besides, you're wearing","them right now!","","");
+					//ディスク
+					Message(5,"These are fake.","I can't see a thing.","","");
+					Message(5,"A little bit ago, I accidentally","sold Fan some dynamite","instead of candles!","");
+					Message(5,"I need those glasses.","I can't tell what I'm selling!","","");
+				}
+				else
+				{
+					//ディスク
+					Message(5,"I need those glasses.","I can't tell what I'm selling!","","");
+				}
+			}
+		}
+		if (!nuke && ch[1542] && !ch[1505])
+		{
+			//ディスク
+			Message(5,"Cylinder asked me to","order explosives for him.","","");
+			Message(5,"But honestly, I'm a little","uncomfortable selling him","these explosives.","");
+			Message(5,"Who knows what he's","got planned?","","");
+		}
+		if (!nuke && ch[507] && !ch[1542])
+		{
+			if (ch[205] < 2)
+			{
+				KaguTest(20001,42);
+				//ディスク
+				Message(5,"There was a gas leak","in the mines a bit ago.","","");
+				Message(5,"You know what that means?","Time to buy a Gas Mask!","","");
+				if (ch[430])
+				{
+					//パリン
+					Message(0,"Already got one.","","","");
+				}
+				//ディスク
+				Message(5,"There are so many types","of poisonous gas out there.","","");
+				Message(5,"But with my Gas Mask,","you'll be 100% safe!","","");
+				Message(5,"What a bargain!","You have to buy now!","","");
+				if (ch[430])
+				{
+					//パリン
+					Message(0,"I told you, I have one!","","","");
+				}
+			}
+			else
+			{
+				//ディスク
+				Message(5,"There was a gas leak","in the mines a bit ago.","","");
+				Message(5,"You know what that means?","Time to buy a Gas Mask!","","");
+			}
+		}
+		if (!nuke && ch[2330] && !ch[507])
+		{
+			//ディスク
+	//		Message(5,"う～ん、もっと","売り上げを伸ばさないとなぁ","","");
+	//		Message(5,"実演販売でもしようかな？","","","");
+			//ディスク
+			Message(5,"3 years ago, there was a","huge explosion","in the mountains.","");
+			Message(5,"Working outside could be","nice, but mining is","dangerous work.","");
+			Message(5,"I hope all the miners","are safe.","","");
+		}
+		if (!nuke && ch[1545] && !ch[2330])
+		{
+			//ディスク
+			Message(5,"The cake shop was","robbed of all it's cakes!","","");
+			Message(5,"I have to take","precautions myself!","","");
+		}
+		if (!nuke && ch[2300] && !ch[1545] && ch[2054])
+		{
+			//ディスク
+			Message(5,"Today, I've decided to start","a new upgrading service!","","");
+			Message(5,"Give it a try!","","","");
+		}
+		if (!nuke && !ch[1545] && ch[2300] && !ch[2054])
+		{
+			if (ch[205] < 2)
+			{
+				kaizou = 0;
+				//ディスク
+				Message(5,"Oh, hello Parin.","I'll be starting a new","service pretty soon.","");
+
+				//パリン
+				Message(0,"What kind?","","","");
+
+				//ディスク
+				Message(5,"That's a secret.","It'll be ready soon.","Come back later.","");
+			}
+			else
+			{
+				//ディスク
+				kaizou = 0;
+				Message(5,"I'll be starting a new","service pretty soon.","","");
+				Message(5,"It'll be ready soon.","Come back later.","","");
+			}
+		}
+		if (!nuke && !ch[2300])
+		{
+			if (!ch[2054])
+			{
+				kaizou = 0;
+			}
+			//OP前
+			ch[400] = 5;
+			
+			if (!ch[2551])
+			{
+				ch[2551] = 1;
+				Message(5,"Welcome!","","","");
+				Message(5,"A little girl? How rare!","New in town?","","");
+				Message(0,"That's right. I'm Parin.","","","");
+				Message(5,"What a pretty name!","My name is Disk.","","");
+				Message(0,"What kind of store is this?","","","");
+				Message(5,"Glad you asked me that!","This is Disk's Discount Shop!","","");
+				Message(0,"Discount Shop?","But what do you sell?","","");
+				Message(5,"Well, look at this!","These are brand new Goggles!","","");
+				Message(5,"These are a store exclusive!","First rate materials and","a killer design!","");
+				Message(0,"I see...","","","");
+				//ディスク
+				Message(5,"But that's not all!","Look at this!","","");
+				Message(5,"Just put them on, and they'll","reduce water damage!","","");
+				//パリン
+				Message(0,"Cool...","","","");
+				//ディスク
+				Message(5,"I'd like you to have them as","a welcoming gift from me.","","");
+
+				KaguTest(20022,41);
+				GetItem(41);
+				Mes("You got the ~Goggles.~");
+				Wait(70);
+
+				Message(0,"Cool!","Very generous!","","");
+				Message(5,"No money down, and no payments","for 12 whole months! After that...","","");
+				Message(5,"...only 200 Pockles a month!","","","");
+				Message(0,"Hey!","Nice 'gift'.","","");
+				Message(5,"Just a joke, a joke!","","","");
+				Message(5,"Oh by the way, don't forget","to equip items!","","");
+				Message(5,"Bargains galore, here!","Please take a look around!","","");
+				sumi = 1;
+
+				// チュートリアル表示
+				KaguTest(10006,0);
+				KaguTest(10007,7);
+				KaguTest2(10009,0,"tute_05.bmp");
+				ch[423] = 15;
+				ch[424] = 8;
+				ch[425] = 240;
+				ch[426] = 264;
+				ch[427] = 0;
+				ch[428] = 0;
+				ch[429] = 225;
+				ch[430] = 256;
+				ch[431] = 256;
+				KaguTest(10010,10);
+				KaguTest(10006,1);
+				KaguTest(10007,7);
+				KaguTest2(10009,1,"tute_06.bmp");
+				ch[423] = 240;
+				ch[424] = 8;
+				ch[425] = 465;
+				ch[426] = 264;
+				ch[427] = 0;
+				ch[428] = 0;
+				ch[429] = 225;
+				ch[430] = 256;
+				ch[431] = 256;
+				SE(399);
+				KaguTest(10010,10);
+				Wait(10);
+				Message(0,"","","","");
+				ch[420] = 0;
+				KaguTest(10011,10);
+				ch[420] = 1;
+				KaguTest(10011,10);
+				Wait(10);
+			}
+			else
+			{
+				Message(5,"Oh by the way, don't forget","to equip items!","","");
+				Message(5,"Bargains galore, here!","Please take a look around!","","");
+			}
+			
+			ch[2551] = 1;
+			
+			if (ch[2547] && ch[2548] && ch[2549] && ch[2550])
+			{
+				// 全員と会話済み
+	//			Message(0,"誰も相手してくれないのね。","","","");
+	//			Message(0,"どこかに面白いことないかしら。","","","");
+	//			Message(0,"路地裏にでも入ってみようかな。","","","");
+				ch[2553] = 1;
+			}
+			
+			if (sumi)
+			{
+				ch[400] = -1;
+				return 0;
+			}
+		}
+	}
+	ch[400] = 5;
+
+	int story;
+	int map;
+	string str;
+
+	KaguTest(20001,42);
+	a = ch[430];
+	KaguTest(20001,45);
+	b = ch[430];
+	KaguTest(20001,21);
+	c = ch[430];
+//	KaguTest(20001,43);
+//	d = ch[430];
+	d = 1;
+	KaguTest(20001,40);
+	e = ch[430];
+	f = 1;
+	if (ch[2063])
+	{
+		KaguTest(20001,37);
+		f = ch[430];
+	}
+
+	SelStart(50);
+	SelText("Buy",1);
+	if (kaizou)
+	{
+		SelText("Upgrade",2);
+	}
+	SelText("Cancel",3);
+	SelEnd();
+
+	if (ch[50] == 1)
+	{
+		if (a && b && c && d && e && f)
+		{
+			Message(5,"You've cleaned me out!","Nothing left to sell!","","");
+		}
+		else
+		{
+			ch[3976] = 100;
+			// モトロマジック適応
+			if (ch[3975] == 0)
+			{
+				ch[3975] = 100;
+			}
+			ch[3976] = (ch[3976] * ch[3975]) / 100;
+			ShopStart();
+			if (!a)
+			{
+				ShopItem(42); // ガスマスク
+			}
+			if (!e)
+			{
+				ShopItem(40); // ネコミミ
+			}
+			if (!d)
+			{
+				ShopItem(43); // ヘルメット
+			}
+			if (!b)
+			{
+				ShopItem(45); // リボン
+			}
+			if (!c)
+			{
+				ShopItem(21); // 吸血キット
+			}
+			if (!f)
+			{
+				ShopItem(37); // ヘッドドレス
+			}
+			
+			ShopEnd();
+			
+			KaguTest(20001,42);
+			a = ch[430];
+			KaguTest(20001,45);
+			b = ch[430];
+			KaguTest(20001,21);
+			c = ch[430];
+//			KaguTest(20001,43);
+//			d = ch[430];
+			d = 1;
+			KaguTest(20001,40);
+			e = ch[430];
+			f = 1;
+			if (ch[2063])
+			{
+				KaguTest(20001,37);
+				f = ch[430];
+			}
+			
+			if (a && b && c && d && e && f)
+			{
+				Message(5,"Wow! You cleaned out","my entire inventory!","","");
+			}
+			else
+			{
+				Message(5,"Come again!","","","");
+			}
+		}
+	}
+	else
+	{
+		if (ch[50] == 2)
+		{
+			// 改造
+			//改造できるかチェック
+			if(Custom3(0))
+			{
+				//改造メニュー表示
+				if(Custom())
+				{
+					
+//					Message(5,Custom2(0)+"を改造するんだね。","それにはガラクタが"+Custom2(1)+"必要だ","改造するかい？","");
+					Message(5,"So, you want to upgrade your "+Custom2(0)+"?","That will take "+Custom2(1)+" pieces of Junk.","Ready to upgrade?","");
+					SelStart(50);
+					SelText("Upgrade",1);
+					SelText("Never mind",2);
+					SelEnd();
+					if(ch[50]==1)
+					{
+						//改造実行
+						Black(0,100,15);
+						Wait(15);
+						Custom3(1);
+						SE(512);
+						Wait(30);
+						Black(0,0,15);
+						Wait(15);
+						//改造結果表示
+						while(Custom3(2))
+						{
+							SE(513);
+							Wait(60);
+						}
+						Message(5,"Come again!","","","");
+					}
+					else
+					{
+						Message(5,"Change your mind?","OK. Come again!","","");
+					}
+				}
+				else
+				{
+					Message(5,"Change your mind?","OK. Come again!","","");
+				}
+			}
+			else
+			{
+				Message(5,"You don't have anything you can upgrade.","","","");
+			}
+		}
+		else
+		{
+			Message(5,"Come again!","","","");
+		}
+	}
+
+	ch[400] = -1;
+	return 0;
+}
+ 

@@ -1,0 +1,72 @@
+
+int main()
+{
+	Wait(60);
+
+	// ボスラッシュ中？
+	if (ch[2092])
+	{
+		// トカロン第一戦へ
+		ch[2099] = 1;
+		KaguTest(40002,0);
+		
+		Blur(0,0,0);
+		TekiStop(1);
+		KaguTest(100000,0);
+		LoadMapB(307);
+		Wait(5);
+		ch[300] = 1;
+		
+		SetSavePos2(6,0,150,0);
+		ch[1095] = 6;
+		// ムービー救援
+		CharPos(18,235,75,6555);
+		CharPos(0,2100,0,6535);
+
+		Wait(5);
+		Walk(-1,0,1);
+		KaguTest(30057,0);
+
+		ch[301] = 1;
+		KaguTest2(10012,0,"boss07.mmv");
+		White(0,0,30);
+		Wait(30);
+		MMV("boss07.mmv");
+		KaguTest2(10012,1,"boss07.mmv");
+		TekiStop(0);
+		MapEvent(1);
+
+		return 0;
+	}
+
+	if (ch[1571])
+	{
+		ch[423] = 0;
+		ch[424] = 750;
+		ch[425] = -80;
+		KaguTest(30084,0);
+		CrossFade();
+		White(0,0,30);
+		Wait(30);
+		BGM(39);
+	}
+	else
+	{
+		KaguTest(20041,0);
+		ch[421] = 0;
+		KaguTest(30034,100);
+		ch[423] = 0;
+		ch[424] = 750;
+		ch[425] = 400;
+		KaguTest(30081,0);
+		KaguTest(30019,9);
+		White(0,0,30);
+		Wait(30);
+		Wait(183);
+		KaguTest(30019,0);
+		KaguTest(30082,1887);
+		CrossFade();
+	}
+	KaguTest(30139,0);
+}
+ 

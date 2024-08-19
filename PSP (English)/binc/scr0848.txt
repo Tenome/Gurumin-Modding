@@ -1,0 +1,75 @@
+
+int main()
+{
+	int x;
+	int y;
+	int z;
+	int ln;
+
+	if (!ch[101])
+	{
+		TekiStop(1);
+		Wait(30);
+
+		ln = Lift2C(14);
+	
+//		GetCharPos(ln,x,y,z);
+
+		SaveCamera();
+		KaguTest(30005,0);
+//		x = ch[421];
+//		y = ch[422];
+//		z = ch[423];
+//		Camera(ln,x,y,z);
+		ch[420] = -87;
+		ch[421] = -688;
+		ch[422] = 267;
+		ch[423] = -756;
+		ch[424] = 139;
+		ch[425] = 20;
+		KaguTest(30093,30);
+		KaguTest(30019,14);
+		CrossFade();
+		SE(950);
+		Wait(35);
+
+		ch[423] = 1756;
+		ch[424] = 1;
+		ch[425] = 0;
+		ch[426] = 0;
+		ch[427] = 100;
+		ch[428] = 0;
+		GetCharPos(Lift2C(14),ch[420],ch[421],ch[422]);
+		KaguTest(30045,0);
+		KaguTest(30045,10);
+		KaguTest(30045,20);
+		ch[423] = 1657;
+		KaguTest(30045,0);
+		GetCharPos(Lift2C(15),ch[420],ch[421],ch[422]);
+		ch[423] = 1756;
+		KaguTest(30045,0);
+		KaguTest(30045,10);
+		KaguTest(30045,20);
+		ch[423] = 1657;
+		KaguTest(30045,0);
+		SE(933);
+
+		Wait(30);
+		SE(891);
+		LiftEnable2(Lift2C(14),1);
+		LiftEnable2(Lift2C(15),1);
+
+		Wait(40);
+		KaguTest(30019,0);
+		RestoreCamera();
+//		Camera(-1,0,0,0);
+		CrossFade();
+		Wait(15);
+
+		Mes("The lift is moving.");
+
+		TekiStop(0);
+		
+		ch[101] = 1;
+	}
+}

@@ -1,0 +1,133 @@
+
+int main()
+{
+	int c1;
+	int c2;
+	int c3;
+	int c4;
+	int c5;
+	
+	MapEvent(0);
+	
+	KaguTest(30025,1);
+	c1 = ch[420];
+	KaguTest(30025,2);
+	c2 = ch[420];
+	KaguTest(30025,3);
+	c3 = ch[420];
+	KaguTest(30025,4);
+	c4 = ch[420];
+	KaguTest(30025,5);
+	c5 = ch[420];
+
+	TekiStop(1);
+	ch[423] = 450;
+	ch[424] = -2500;
+	ch[420] = 100000;
+	ch[427] = 5;
+	KaguTest(30015,1);
+	Look(c1,0);
+	KaguTest(30048,0);
+	Event(201);
+	if (ch[421] < 0)
+	{
+		if (ch[422] > 20)
+		{
+			Walk(ch[420],ch[421],20);
+			Wait(20);
+		}
+		else
+		{
+			Walk(ch[420],ch[421],ch[422]);
+			Wait(ch[422]);
+		}
+	}
+	else
+	{
+		Wait(20);
+	}
+	ch[420] = 15;
+	ch[429] = 1;
+	KaguTest(30036,0);
+	Wait(30);
+	Camera(c1,450,-2650,520);
+	CrossFade();
+	Wait(15);
+//	Message(c1,"そこまでだ！","","","");
+	ch[420] = 15;
+	ch[429] = 1;
+	KaguTest(30036,c1);
+	Wait(45);
+	
+	Look(0,c1);
+	Walk(0,8,35);
+	Wait(35);
+//	Message(c1,"もう逃げられないぞ。","お前はもう完全に包囲されている","","");
+	ch[420] = 13;
+	ch[429] = 1;
+	KaguTest(30036,c1);
+	Wait(45);
+	ch[420] = 15;
+	ch[429] = 1;
+	KaguTest(30036,0);
+	Wait(30);
+	ch[420] = 100000;
+	ch[427] = 7;
+	KaguTest(30015,2);
+	ch[420] = 100000;
+	ch[427] = 7;
+	KaguTest(30015,3);
+	Camera(-1,0,0,0);
+	ch[420] = 450;
+	ch[421] = -2650;
+	ch[422] = 520;
+	ch[423] = 875;
+	ch[424] = -1450;
+	ch[425] = 70;
+	KaguTest(30019,1);
+	CrossFade();
+	Wait(15);
+	Look(0,c2);
+	Walk2(c2,-8,0,20);
+	Wait(20);
+	Look(c2,0);
+	Wait(15);
+	ch[420] = 450;
+	ch[421] = -2650;
+	ch[422] = 520;
+	ch[423] = 125;
+	ch[424] = -1450;
+	ch[425] = 70;
+	KaguTest(30019,1);
+	CrossFade();
+	Wait(15);
+	Look(0,c3);
+	Walk2(c3,8,0,20);
+	Wait(20);
+	Look(c3,0);
+	Wait(15);
+//	ch[420] = 450;
+//	ch[421] = -1050;
+//	ch[422] = 460;
+//	ch[423] = 450;
+//	ch[424] = -2430;
+//	ch[425] = 70;
+//	KaguTest(30019,1);
+//	CrossFade();
+//	Wait(15);
+//	ch[420] = 100000;
+//	ch[427] = 0;
+//	KaguTest(30015,4);
+//	KaguTest(30015,5);
+//	Look(0,c5);
+//	Wait(15);
+//	Look(0,c4);
+	Wait(15);
+	KaguTest(30019,0);
+	CrossFade();
+	Look(0,c1);
+	Message(0,"Let's go!","","","");
+	TekiStop(0);
+	
+	MapEvent(1);
+}

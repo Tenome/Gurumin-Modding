@@ -1,0 +1,544 @@
+
+int main()
+{
+	ch[400] = 13;
+	ch[213]++;
+	
+	int qnuke;
+	qnuke = 0;
+
+	if (ch[2007] && !ch[2018])
+	{
+		// クエスト中
+		ch[400] = 13;
+		if (ch[2002])
+		{
+			// のぞきクエスト
+			ch[420] = ch[2006];
+			KaguTest(20043,2);
+			if (!ch[420])
+			{
+				ch[420] = ch[2006];
+				KaguTest(20052,2);
+				ch[2006] = ch[420];
+
+				//プレーン
+				Message(13,"My goodness, Parin.","Where are you going","in such a hurry?","");
+
+				//パリン
+				Message(0,"Have you seen Cylinder?","","","");
+
+				//プレーン
+				Message(13,"No, I'm sorry.","","","");
+				Message(13,"This morning, that darn Puchi","was barking and barking.","","");
+				Message(13,"I'm so terribly sleepy...","","","");
+				Message(13,"I'll finish shopping","and relax with","some nice cake and tea.","");
+			}
+			else
+			{
+				//プレーン
+				Message(13,"This morning, that darn Puchi","was barking and barking.","","");
+				Message(13,"I'm so terribly sleepy...","","","");
+			}
+			
+			if (ch[2003] == 2 && ch[2006] == 15)
+			{
+				// ファン以外の全員から話を聞いた
+				ch[2003] = 3;
+			}
+		}
+		if (ch[2010])
+		{
+			qnuke = 1;
+		}
+		if (ch[2020])
+		{
+			// プラチナメダルクエスト中
+			qnuke = 1;
+		}
+		
+		if (!qnuke)
+		{
+			ch[400] = -1;
+			return 0;
+		}
+	}
+
+
+	// 謎の物体持っているかチェック
+	KaguTest(20001,35);
+	if (ch[430])
+	{
+		// 謎の物体持っている
+		int ccc;
+		int i;
+		int j;
+		int k;
+		j = 0;
+		k = -1;
+		ccc = rand() % ch[430];
+		for (i = 0;i < 32;i)
+		{
+			if (ch[2334 + i])
+			{
+				// カウント
+				j = j + 1;
+				k = i;
+			}
+			if (j == ccc + 1)
+			{
+				// オーバーした。こいつだ。
+				break;
+			}
+			i++;
+		}
+		if (i == 32)
+		{
+			i = k;
+		}
+		if (i != -1)
+		{
+			ch[2334 + i] = ch[2334 + i] - 1;
+		}
+		else
+		{
+			i = 0;
+		}
+		
+		Message(13,"Why Parin!","Is that a Mystery Bag you have there?","","");
+		Message(13,"I just love Mystery Bags!","","","");
+		Message(13,"Here, I'll open it for you!","","","");
+		Message(0,"..............","","","");
+		if (ch[2367 + i] != 17)
+		{
+			Message(13,"Look at that!","Such a nice thing was","hidden inside!","");
+		}
+		else
+		{
+			if (!ch[2019])
+			{
+				// わらしべクエスト開始
+				Message(13,"Wow!","It's a... Oh.","","");
+				//パリン
+				Message(0,"What is it?","","","");
+
+				//プレーン
+				Message(13,"What a shame.","This one is empty Parin.","","");
+
+				//パリン
+				Message(0,"Hey, behind your back!","","","");
+
+				//プレーン
+				Message(13,"Oh, you caught me!","","","");
+				Message(13,"A sharp little one,","aren't we! Here you are.","","");
+
+//				ch[2007] = 1;
+//				ch[2018] = 1;
+				
+//				KaguTest(20010,0);
+//				if (ch[420] == 12)
+//				{
+//					Event(656);
+//				}
+			}
+			else
+			{
+				// わらしべクエストはもう終わっている
+				// クッキー入手
+				Message(13,"Look!","Such a nice thing was","hidden inside!","");
+				for (i = 0;i < 32;i)
+				{
+					if (ch[2367 + i] == 4)
+					{
+						break;
+					}
+					i++;
+				}
+			}
+		}
+		if (ch[2367 + i] == 0)
+		{
+			ch[2367 + i] = 4;
+		}
+		
+		// アイテムオーバーチェック
+		int iov;
+		int item;
+		iov = 0;
+		KaguTest(20001,ch[2367 + i]);
+		if (ch[430] == 3)
+		{
+			iov = 1;
+		}
+		
+		GetItem(ch[2367 + i]);
+		switch(ch[2367 + i])
+		{
+		case 4:
+			Mes("You got a ~Cookie.~");
+			break;
+		case 5:
+			Mes("You got a ~Chocolate.~");
+			break;
+		case 20:
+			Mes("You got a ~Shortcake.~");
+			break;
+		case 19:
+			Mes("You got some ~Power Oil.~");
+			break;
+		case 22:
+			Mes("You got some ~Energy Oil.~");
+			break;
+		case 52:
+			Mes("You got a ~Pharaoh Hat.~");
+			break;
+		case 39:
+			Mes("You got a ~Sombrero.~");
+			break;
+		case 44:
+			Mes("You got a ~Headband.~");
+			break;
+		case 47:
+			Mes("You got a ~Magic Hood.~");
+			break;
+		case 40:
+			Mes("You got some ~Cat Ears.~");
+			break;
+		case 17:
+			Mes("You got a ~Diamond.~");
+			break;
+		case 43:
+			Mes("You got a ~Helmet.~");
+			break;
+		}
+		KaguTest(20022,ch[2367 + i]);
+		Wait(60);
+		ch[420] = 1;
+		KaguTest(20006,35);
+		ch[213] = 0;
+		
+		if (iov)
+		{
+			// オーバーしている
+			Mes("You can't hold any more.");
+			Wait(60);
+			Message(0,"Aww, I can't hold any more.","","","");
+			Message(13,"Too bad...","","","");
+			Message(13,"Well, how about I","pay you \100 for it?","","");
+			SetGP(GetGP() + 100);
+			SE(893);
+			Message(13,"Such a bargain!","Thank you Parin.","","");
+		}
+		ch[400] = -1;
+		
+		return 0;
+	}
+
+//	if (ch[2018])
+	if (ch[2501] != 6)
+	{
+		// わらしべクエストチェック
+		KaguTest(20001,17);
+		if (ch[430] && !ch[2007])
+		{
+			// ダイヤモンド持っている
+			//プレーン
+			Message(13,"Parin.","Can I speak with you?","","");
+
+			//パリン
+			Message(0,"Sure.","","","");
+
+			//プレーン
+			Message(13,"I wanted to ask you...","","","");
+			Message(13,"Would you consider","trading that Diamond","for something really special?","");
+
+			//パリン
+			Message(0,"Really special?","","","");
+
+			//プレーン
+			Message(13,"Really really special!","","","");
+
+			//パリン
+			Message(0,"Oooh, you've got me!","","","");
+			Message(0,"I want to know","what it is! I'll trade.","","");
+
+			//プレーン
+			Message(13,"Really?","Terrific! Let's trade.","","");
+			Message(13,"Your special prize!","","","");
+
+			//システム
+			Mes("You got the ~Dragon Slayer.~");
+			KaguTest(20022,18);
+			KaguTest(20002,17);
+			GetItem(18);
+			Wait(60);
+
+			//パリン
+			Message(0,"Whoa, this sword is huge.","Why did you have it, anyway?","","");
+
+			//プレーン
+			Message(13,"Actually... it's","my husband's... *giggle*","","");
+			Message(13,"Just take it, please.","He hasn't touched it in years!","","");
+
+			ch[2018] = 1;
+			ch[2007] = 1;
+			ch[213] = 0;
+			ch[400] = -1;
+			
+			KaguTest(20010,0);
+			if (ch[420] == 12)
+			{
+				PostScr(1287);
+			}
+			return 0;
+		}
+		else
+		{
+			KaguTest(20001,32);
+			if (ch[430])
+			{
+				// 金貨と壁紙を交換
+				//プレーン
+				Message(13,"Parin, that Gold Coin...","","","");
+				Message(13,"It's the same coin they","used to commemorate the","Queen's birth!","");
+
+				//パリン
+				Message(0,"Oh really? Neat!","","","");
+
+				//プレーン
+				Message(13,"So many memories.","There was a coup d'etat and","terrible fighting...","");
+				Message(13,"Parin, my dear?","","","");
+
+				//パリン
+				Message(0,"I know! You want to trade?","No problem.","","");
+
+				//プレーン
+				Message(13,"Thank you! It reminds me","of my youth. Please take this.","","");
+
+				//システム
+				SE(853);
+				KaguTest(10006,0);
+				KaguTest(10007,1);
+				KaguTest2(10008,0,"Got Picture #3: ~Gas Mask Manga.~");
+				KaguTest2(10008,2,"It has been added to your Album.");
+				KaguTest2(10008,3,"View it by selecting ~Album~ from the menu.");
+				KaguTest2(10009,0,"kb003s.bmp");
+				KaguTest(10010,10);
+				Wait(10);
+				Message(0,"","","","");
+				KaguTest(10011,10);
+
+				GetItem(2);
+				KaguTest(20002,32);
+				
+				ch[2018] = 0;
+				ch[2019] = 1;
+				ch[2007] = 0;
+				
+				ch[420] = 58;
+				KaguTest2(30003,1,"@atariyotsu");
+				ch[400] = -1;
+				return 0;
+				
+			}
+		}
+	}
+
+//	if (ch[2529])
+//	{
+//		//プレーン
+//		Message(13,"あらあら、パリンちゃん。","ウワサで聞いたわよ","","");
+//		Message(13,"いくら退屈でも","イタズラはほどほどにね","","");
+//		ch[400] = -1;
+//		return 0;
+//	}
+
+	if (ch[1571])// && !ch[1538])
+	{
+		if (ch[213] < 2)
+		{
+			//プレーン
+			Message(13,"As a young man, that","Hyperbolic once got lost","in the mines, I hear.","");
+			//パリン
+			Message(0,"Grandpa did?","","","");
+			//プレーン
+			Message(13,"Everyone was so upset.","Searched for him everywhere!","","");
+			Message(13,"But to no avail. Even his parents","had given up hope. But one","day, he appeared at home again!","");
+			//パリン
+			Message(0,"Wow. I never knew.","","","");
+		}
+		else
+		{
+			//プレーン
+			Message(13,"As a young man, your ","grandpa once got lost","in the mines, I hear.","");
+			Message(13,"Everyone was so upset.","They searched for him everywhere!","","");
+		}
+	}
+	if (ch[1513] && !ch[1571])
+	{
+		if (ch[213] < 2)
+		{
+			//プレーン
+			Message(13,"Parin, I see you've decided","to be a good girl, have you?","","");
+			//パリン
+			Message(0,"But it wasn't me!","","","");
+			//プレーン
+			Message(13,"If you had someone to play with,","you wouldn't do such things.","","");
+			//パリン
+			Message(0,"I wish I knew who it really was.","","","");
+		}
+		else
+		{
+			//プレーン
+			Message(13,"Parin, I see you've decided","to be a good girl, have you?","","");
+			Message(13,"If only you had someone to play with,","you wouldn't do such things.","","");
+		}
+	}
+	if (ch[1505] && !ch[1513])
+	{
+		int kusai;
+		kusai = 0;
+		if (ch[2532])
+		{
+			kusai = 1;
+			if (ch[213] < 2)
+			{
+				//プレーン
+				Message(13,"Oh dear, Parin!","","","");
+				//パリン
+				Message(0,"What?","","","");
+				//プレーン
+				Message(13,"You should act more like","a lady! You really need a bath.","","");
+				Message(13,"You smell just like those","men working in the mines!","","");
+				//パリン
+				Message(0,"ACK!!","","","");
+			}
+			else
+			{
+				//プレーン
+				Message(13,"You should act more like","a lady! You really need a bath.","","");
+				Message(13,"You smell just like those","men working in the mines!","","");
+			}
+		}
+		if (!ch[2529] && !kusai)
+		{
+			//プレーン
+			Message(13,"We housewives are on","duty 24 hours a day.","","");
+			Message(13,"And there's no time","to relax. My heaven!","","");
+		}
+		if (ch[2527] && !kusai)
+		{
+			if (ch[213] < 2)
+			{
+				Message(13,"Cylinder found Puchi when","he was a little puppy...","","");
+				Message(13,"...Before the explosion","incident at the mountain.","","");
+				Message(13,"Puchi was about to fall off","a cliff, but Cylinder saved him.","","");
+				Message(13,"He may not look it,","but he's an animal lover.","","");
+			}
+			else
+			{
+				Message(13,"Cylinder found Puchi when","he was a little puppy...","","");
+				Message(13,"...Before the explosion","incident at the mountain.","","");
+			}
+		}
+		if (ch[2529] && !ch[2527] && !kusai)
+		{
+			//プレーン
+			Message(13,"Parin, tsk tsk tsk.","I've heard everything!","","");
+			Message(13,"Even if you're bored, you shouldn't","cause so much trouble.","","");
+		}
+	}
+	if (ch[1542] && !ch[1505])
+	{
+		//プレーン
+		Message(13,"So many strange things","happening in town recently.","","");
+		Message(13,"Cakes are disappearing,","and sometimes, you'll bump","into objects you can't see...","");
+		Message(13,"It's so strange...","","","");
+	}
+	if (ch[507] && !ch[1542])
+	{
+		//プレーン
+		Message(13,"The moment you open a","Mystery Bag is so exciting!","","");
+		Message(13,"Even if the contents are","less than ideal, opening it","is fun, don't you think?","");
+		Message(13,"If you find any Mystery Bags,","let me have a look, ok?","","");
+	}
+	if (ch[2330] && !ch[507])
+	{
+		if (ch[213] < 2)
+		{
+			//プレーン
+			Message(13,"Did you hear?","Keep this between us, but...","","");
+			Message(13,"Cylinder was involved in a","terrible accident some","years ago.","");
+			//パリン
+			Message(0,"How am I not","surprised?","","");
+			//プレーン
+			Message(13,"I know dear, I know.","","","");
+			Message(13,"He certainly is trying hard to","catch Fan's attention.","","");
+			Message(13,"Too bad she's not... responsive.","","","");
+		}
+		else
+		{
+			//プレーン
+			Message(13,"Did you hear?","Keep this between us, but...","","");
+			Message(13,"Cylinder was involved in a","terrible accident some","years ago.","");
+		}
+	}
+	if (ch[1545] && !ch[2330])
+	{
+		//プレーン
+		Message(13,"Puchi has been barking all day,","seemingly at no one!","","");
+		Message(13,"But, it's not the first time...","He'll never make a good watchdog.","","");
+	}
+	if (ch[2552] && !ch[1545])
+	{
+		if (ch[213] < 2)
+		{
+			//プレーン
+			Message(13,"Our town used to be","so out of the way!","","");
+			Message(13,"Thankfully, now there's a","train that runs through here.","","");
+			Message(13,"As the town grows, maybe","a few children will move here.","Wouldn't that be nice?","");
+		}
+		else
+		{
+			//プレーン
+			Message(13,"Things are a bit better now that","the train runs through here.","","");
+			Message(13,"As the town grows, maybe","a few children will move here.","Wouldn't that be nice?","");
+		}
+	}
+	if (!ch[2552])
+	{
+		//OP前
+		if (ch[213] < 2)
+		{
+			Message(13,"So you're the little girl","living with our mayor now?","","");
+			Message(13,"I bet you're thinking that","not many people live here.","","");
+			Message(0,"Yeah, where is everybody?","","","");
+			Message(13,"The men all work at the mines","during the day.","","");
+			Message(13,"Today Puchi certainly has","been barking up a storm.","","");
+			Message(13,"I wonder what's the matter?","","","");
+		}
+		else
+		{
+			Message(13,"Puchi is certainly riled up.","","","");
+			Message(13,"He's been barking all day.","","","");
+		}
+		
+		ch[2549] = 1;
+		
+		if (ch[2547] && ch[2548] && ch[2550] && ch[2551])
+		{
+			// 全員と会話済み
+//			Message(0,"誰も相手してくれないのね。","","","");
+//			Message(0,"どこかに面白いことないかしら。","","","");
+//			Message(0,"路地裏にでも入ってみようかな。","","","");
+			ch[2553] = 1;
+		}
+		
+		ch[400] = -1;
+		return 0;
+	}
+	
+	
+
+	ch[400] = -1;
+}

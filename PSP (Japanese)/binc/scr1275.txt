@@ -1,0 +1,95 @@
+
+int main()
+{
+	SaveCamera();
+	ch[420] = 2891;
+	ch[421] = 4250;
+	ch[422] = 110;
+	ch[423] = 3246;
+	ch[424] = 5721;
+	ch[425] = 846;
+	KaguTest(30093,30);
+	KaguTest(30019,14);
+	
+	ch[420] = 100000;
+	ch[427] = 6;
+	KaguTest(30015,1);
+	KaguTest(30025,1);
+	int c;
+	c = ch[420];
+	ch[420] = 0;
+	KaguTest(30041,c);
+	KaguTest(30041,c+1);
+//	KaguTest(30041,c+2);
+	int pt1;
+	int pt2;
+	int pt3;
+	KaguTest(12004,c);
+	pt1 = ch[420];
+	KaguTest(12004,c+1);
+	pt2 = ch[420];
+//	KaguTest(12004,c+2);
+	pt3 = ch[420];
+	KaguTest(12000,c);
+	KaguTest(12000,c+1);
+//	KaguTest(12000,c+2);
+	ch[420] = 1;
+	KaguTest(30097,c);
+	KaguTest(30097,c+1);
+//	KaguTest(30097,c+2);
+	
+	Wait(30);
+	Walk2(c,-8,-20,30);
+	ch[429] = 0;
+	KaguTest(30039,0);
+	Wait(2);
+	ch[421] = 20;
+	ch[422] = 1;
+	KaguTest(30037,c);
+	ch[420] = 1;
+	KaguTest(30041,c);
+	Wait(13);
+	Walk2(c+1,-8,-20,30);
+	ch[429] = 0;
+	KaguTest(30039,0);
+	Wait(2);
+	ch[421] = 20;
+	ch[422] = 1;
+	KaguTest(30037,c+1);
+	ch[420] = 1;
+	KaguTest(30041,c+1);
+	Wait(13);
+//	Walk2(c+2,-8,-20,30);
+//	ch[429] = 0;
+//	KaguTest(30039,0);
+//	Wait(2);
+//	ch[421] = 20;
+//	ch[422] = 1;
+//	KaguTest(30037,c+2);
+//	ch[420] = 1;
+//	KaguTest(30041,c+2);
+//	Wait(13);
+	
+	KaguTest(30019,0);
+	Look(c,0);
+	Look(c+1,0);
+//	Look(c+2,0);
+	RestoreCamera();
+	CrossFade();
+	Wait(15);
+	ch[420] = pt1;
+	KaguTest(12002,c);
+	ch[420] = pt2;
+	KaguTest(12002,c+1);
+//	ch[420] = pt3;
+//	KaguTest(12002,c+2);
+	ch[420] = 3;
+	KaguTest(12005,c);
+	KaguTest(12005,c+1);
+//	KaguTest(12005,c+2);
+	ch[420] = 0;
+	KaguTest(30097,c);
+	KaguTest(30097,c+1);
+//	KaguTest(30097,c+2);
+}
+ 

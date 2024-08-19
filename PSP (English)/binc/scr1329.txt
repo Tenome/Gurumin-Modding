@@ -1,0 +1,49 @@
+
+int main()
+{
+	ch[2061] = 0;
+	KaguTest(20057,0);
+	Black(0,100,30);
+	ch[3982] = 0;
+	ch[2144] = 0;
+	ch[2497] = 0;
+	KaguTest(20010,0);
+	int map;
+	map = ch[420];
+	Wait(30);
+	LoadMap(map);
+	KaguTest(12013,0);
+
+	// マップに応じてデフォ位置、カメラ位置かえる	
+	switch(map)
+	{
+	case 21:
+		// 岩壊し
+		CharPos(0,750,600,-150);
+		Walk(-5,0,2);
+		break;
+	case 22:
+		// レーザー避け
+		CharPos(0,0,-900,0);
+		Walk(0,5,2);
+		break;
+	case 23:
+		// モグラタタキ
+		CharPos(0,0,-1450,150);
+		Walk(0,5,2);
+		break;
+	case 24:
+		// サッカー
+		CharPos(0,650,0,0);
+		Walk(-5,0,2);
+		break;
+	default:
+		// おかしい
+		// 座標は０、０、０
+		CharPos(0,0,0,0);
+		Walk(0,5,2);
+		break;
+	}
+	KaguTest(30057,0);
+	Black(0,0,30);
+}

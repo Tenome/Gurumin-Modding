@@ -1,0 +1,487 @@
+
+int main()
+{
+	// クエスト開始
+	ch[2006] = 0;
+	ch[2007] = 1;
+	ch[2008] = 0;
+	ch[2009] = 0;
+	
+	string text;
+	string order;
+	string answer;
+	
+	int kyaku;
+	int seikai;
+	kyaku = 0;
+	seikai = 0;
+
+	KaguTest(12000,3);
+	// 客	
+	// ・プレーン
+	// ・シリンダー
+	// ・ポコ
+	// ・ディスク
+	// ・プチ
+	// ・ハイパボリック
+	
+	// プレーンやってくる
+	kyaku++;
+	KaguTest(12000,13);
+	CharPos(13,0,-450,0);
+	Look(0,13);
+	Look(3,13);
+	Walk2(13,0,7,110);
+	ch[420] = 0;
+	ch[421] = 0;
+	KaguTest(30070,13);
+	Wait(110);
+	Message(0,"いらっしゃいませー！","","","");
+		// 注文処理
+	switch( rand() % 3)
+	{
+	case 0:
+		order = "アイス";
+		answer = "あいす";
+		break;
+	case 1:
+		order = "クレープ";
+		answer = "くれーぷ";
+		break;
+	case 2:
+		order = "コーヒー";
+		answer = "こーひー";
+		break;
+	}
+	Message(13,"「"+order+"」を","いただこうかしら……","","");
+	text = Type(300);
+	
+	if (strcmp(text,answer) == 0 || strcmp(text,order) == 0)
+	{
+		seikai++;
+		Message(0,"「"+order+"」、１つ入りま～す！","","","");
+		Wait(15);
+		SE(950);
+		Wait(15);
+		ch[420] = 13;
+		ch[429] = 1;
+		KaguTest(30036,13);
+	}
+	else
+	{
+		if (strcmp(text,"未入力") == 0)
+		{
+			Message(0,"…………………","","","");
+			ch[420] = 8;
+			ch[429] = 1;
+			KaguTest(30036,0);
+			Wait(30);
+			ch[420] = 9;
+			ch[429] = 1;
+			KaguTest(30036,13);
+			Wait(30);
+			ch[420] = 4;
+			ch[429] = 1;
+			KaguTest(30036,3);
+			Wait(30);
+		}
+		else
+		{
+			Message(0,"「"+text+"」、１つ入りま～す！","","","");
+			ch[420] = 4;
+			ch[429] = 1;
+			KaguTest(30036,3);
+			Wait(30);
+			ch[420] = 9;
+			ch[429] = 1;
+			KaguTest(30036,13);
+			Wait(30);
+			Message(13,"ちょっと！","私が頼んだのは「"+order+"」よ！！","","");
+		}
+		Message(13,"もういいわ。","パリンちゃんがバイトの時は","遠慮させてもらうわ","");
+		ch[420] = 9;
+		ch[429] = 1;
+		KaguTest(30036,13);
+	}
+	Walk2(13,0,-7,110);
+	ch[420] = 0;
+	ch[421] = -450;
+	KaguTest(30070,13);
+	Message(0,"ありがとうございましたー！","","","");
+	KaguTest(20053,0);
+	Wait(ch[420]);
+	CharPos(13,-200000,0,0);
+	ch[420] = 60;
+	KaguTest(12002,13);
+
+
+
+	// シリンダーやってくる
+	kyaku++;
+	KaguTest(12000,15);
+	CharPos(15,0,-450,0);
+	Look(0,15);
+	Look(3,15);
+	Walk2(15,0,7,110);
+	ch[420] = 0;
+	ch[421] = 0;
+	KaguTest(30070,15);
+	Wait(110);
+	Message(0,"いらっしゃいませー！","","","");
+		// 注文処理
+	switch( rand() % 3)
+	{
+	case 0:
+		order = "ケーキ";
+		answer = "けーき";
+		break;
+	case 1:
+		order = "クレープ";
+		answer = "くれーぷ";
+		break;
+	case 2:
+		order = "ココア";
+		answer = "ここあ";
+		break;
+	}
+	Message(15,"「"+order+"」を","１つもらおうかな","","");
+	text = Type(300);
+	
+	if (strcmp(text,answer) == 0)
+	{
+		seikai++;
+		Message(0,"「"+order+"」、入りまーす","","","");
+		Wait(15);
+		SE(950);
+		Wait(15);
+		ch[420] = 13;
+		ch[429] = 1;
+		KaguTest(30036,15);
+	}
+	else
+	{
+		if (strcmp(text,"未入力") == 0)
+		{
+			Message(0,"…………………","","","");
+			ch[420] = 8;
+			ch[429] = 1;
+			KaguTest(30036,0);
+			Wait(30);
+			ch[420] = 9;
+			ch[429] = 1;
+			KaguTest(30036,15);
+			Wait(30);
+			ch[420] = 4;
+			ch[429] = 1;
+			KaguTest(30036,3);
+			Wait(30);
+		}
+		else
+		{
+			Message(0,"「"+text+"」入りまーす","","","");
+			ch[420] = 4;
+			ch[429] = 1;
+			KaguTest(30036,3);
+			Wait(30);
+			ch[420] = 9;
+			ch[429] = 1;
+			KaguTest(30036,15);
+			Wait(30);
+			Message(15,"ちょっと待った！","俺が頼んだのは「"+order+"」だよ","","");
+		}
+		Message(15,"まあ、間違いは誰にでもあるからね。","でも今日はやめておくことにするよ","","");
+		ch[420] = 9;
+		ch[429] = 1;
+		KaguTest(30036,15);
+	}
+	Walk2(15,0,-7,110);
+	ch[420] = 0;
+	ch[421] = -450;
+	KaguTest(30070,15);
+	Message(0,"ありがとうございましたー！","","","");
+	KaguTest(20053,0);
+	Wait(ch[420]);
+	CharPos(15,-200000,0,0);
+	ch[420] = 60;
+	KaguTest(12002,15);
+
+
+
+	// ポコやってくる
+//	kyaku++;
+	KaguTest(12000,16);
+	CharPos(16,0,-450,0);
+	Look(0,16);
+	Look(3,16);
+	Walk2(16,0,7,110);
+	ch[420] = 0;
+	ch[421] = 0;
+	KaguTest(30070,16);
+	Wait(110);
+	Message(0,"いらっしゃいませー！","","","");
+	ch[420] = 8;
+	ch[429] = 1;
+	KaguTest(30036,3);
+	Wait(30);
+		// 注文処理
+	switch( rand() % 3)
+	{
+	case 0:
+		order = "ショートケーキ";
+		answer = "しょーとけーき";
+		break;
+	case 1:
+		order = "カップラーメン";
+		answer = "かっぷらーめん";
+		break;
+	case 2:
+		order = "ガトーショコラ";
+		answer = "がとーしょこら";
+		break;
+	}
+	Message(16,"「"+order+"」が","欲しいぽ！","","");
+	text = Type(300);
+	
+	if (strcmp(text,answer) == 0)
+	{
+		seikai++;
+		Message(0,"「"+order+"」、１つ入りまーす","","","");
+		Wait(15);
+		ch[420] = 8;
+		ch[429] = 1;
+		KaguTest(30036,3);
+		SE(950);
+		Wait(30);
+		ch[420] = 13;
+		ch[429] = 1;
+		KaguTest(30036,16);
+	}
+	else
+	{
+		if (strcmp(text,"未入力") == 0)
+		{
+			Message(0,"…………………","","","");
+			ch[420] = 8;
+			ch[429] = 1;
+			KaguTest(30036,0);
+			Wait(30);
+			ch[420] = 9;
+			ch[429] = 1;
+			KaguTest(30036,16);
+			Wait(30);
+//			ch[420] = 4;
+//			KaguTest(30036,3);
+//			Wait(30);
+		}
+		else
+		{
+			Message(0,"「"+text+"」、１つ入りまーす","","","");
+			ch[420] = 8;
+			ch[429] = 1;
+			KaguTest(30036,3);
+			Wait(30);
+//			ch[420] = 4;
+//			KaguTest(30036,3);
+//			Wait(30);
+			ch[420] = 9;
+			ch[429] = 1;
+			KaguTest(30036,16);
+			Wait(30);
+			Message(16,"ちょっと待つぽ！","僕が頼んだのは「"+order+"」だぽ！","","");
+		}
+		Message(16,"もういいぽ。","この店は店員の教育がなってないぽ","","");
+		ch[420] = 9;
+		ch[429] = 1;
+		KaguTest(30036,16);
+	}
+	Walk2(16,0,-7,110);
+	ch[420] = 0;
+	ch[421] = -450;
+	KaguTest(30070,16);
+	Message(0,"ありがとうございましたー！","","","");
+	ch[420] = 8;
+	ch[429] = 1;
+	KaguTest(30036,3);
+
+	KaguTest(20053,0);
+	Wait(ch[420]);
+	CharPos(16,-200000,0,0);
+	ch[420] = 23;
+	KaguTest(12002,16);
+
+
+
+	// ハイパボリックやってくる
+	kyaku++;
+	KaguTest(12000,20);
+	CharPos(20,0,-450,0);
+	Look(0,20);
+	Look(3,20);
+	Walk2(20,0,7,110);
+	ch[420] = 0;
+	ch[421] = 0;
+	KaguTest(30070,20);
+	Wait(110);
+	Message(0,"いらっしゃいませー！","","","");
+		// 注文処理
+	switch( rand() % 3)
+	{
+	case 0:
+		order = "ガトーショコラ";
+		answer = "がとーしょこら";
+		break;
+	case 1:
+		order = "アップルパイ";
+		answer = "あっぷるぱい";
+		break;
+	case 2:
+		order = "スイートポテト";
+		answer = "すいーとぽてと";
+		break;
+	}
+	Message(20,"「"+order+"」が","欲しいのじゃ","","");
+	text = Type(300);
+	
+	if (strcmp(text,answer) == 0)
+	{
+		seikai++;
+		Message(0,"「"+order+"」、１つ入りまーす","","","");
+		Wait(15);
+		SE(950);
+		Wait(15);
+		ch[420] = 13;
+		ch[429] = 1;
+		KaguTest(30036,20);
+	}
+	else
+	{
+		if (strcmp(text,"未入力") == 0)
+		{
+			Message(0,"…………………","","","");
+			ch[420] = 8;
+			ch[429] = 1;
+			KaguTest(30036,0);
+			Wait(30);
+			ch[420] = 9;
+			ch[429] = 1;
+			KaguTest(30036,20);
+			Wait(30);
+			ch[420] = 4;
+			ch[429] = 1;
+			KaguTest(30036,3);
+			Wait(30);
+		}
+		else
+		{
+			Message(0,"「"+text+"」、１つ入りまーす","","","");
+			ch[420] = 4;
+			ch[429] = 1;
+			KaguTest(30036,3);
+			Wait(30);
+			ch[420] = 9;
+			ch[429] = 1;
+			KaguTest(30036,20);
+			Wait(30);
+			Message(20,"待つのじゃ！！","わしが頼んだのは「"+order+"」じゃ","","");
+		}
+		Message(20,"これがわしの孫とは","なんとも情けないのじゃ","","");
+		ch[420] = 9;
+		ch[429] = 1;
+		KaguTest(30036,20);
+	}
+	Walk2(20,0,-7,110);
+	ch[420] = 0;
+	ch[421] = -450;
+	KaguTest(30070,20);
+	Message(0,"ありがとうございましたー！","","","");
+	KaguTest(20053,0);
+	Wait(ch[420]);
+	CharPos(20,-200000,0,0);
+	ch[420] = 60;
+	KaguTest(12002,20);
+
+
+	// 終了
+	Black(0,100,15);
+	Wait(15);
+	ch[2015] = 0;
+	
+	// ＮＰＣを戻す
+	ch[420] = 60;
+	KaguTest(12002,13);
+	KaguTest(12002,15);
+	ch[420] = 23;
+	KaguTest(12002,16);
+	ch[420] = 22;
+	KaguTest(12002,3);
+	
+	LoadMap(4);
+	CharPos(0,0,190,0);
+	Look(0,3);
+	Black(0,0,15);
+	Wait(15);
+
+	if (seikai > kyaku * 0.75)
+	{
+		// 合格
+		//ファン
+		Message(3,"は～い、おつかれさま～","","","");
+
+		//パリン
+		Message(0,"はぁ、こんなに疲れるなんて…","","","");
+
+		//ファン
+		Message(3,"ふふ、働くってなかなか大変でしょ","","","");
+		Message(3,"パリンちゃん、頑張ったから","借金は帳消しにしてあげちゃうわ","","");
+
+		//パリン
+		Message(0,"うう、ちがうのに…","","","");
+
+		//ファン
+		Message(3,"これはわたしからのボーナスよ","","","");
+
+		//システム
+		SE(853);
+		KaguTest(10006,0);
+		KaguTest(10007,1);
+		KaguTest2(10008,0,"壁紙⑧「ねんどざいく」を手に入れた。");
+		KaguTest2(10008,2,"パリンのコレクションに追加されました。");
+		KaguTest2(10008,3,"メニューの『コレクション』で見ることができます。");
+		KaguTest2(10009,0,"kb008s.bmp");
+		KaguTest(10010,10);
+		Wait(10);
+		Message(0,"","","","");
+		KaguTest(10011,10);
+
+		GetItem(2);
+
+		//ファン
+		Message(3,"これからはお店のものを","勝手に食べちゃダメなんだからねー","","");
+
+		//パリン
+		Message(0,"…だから、わたしじゃないってばぁ！","","","");
+
+		ch[2016] = 1;
+	}
+	else
+	{
+		// 不合格
+		//ファン
+		Message(3,"パリンちゃん…","","","");
+
+		//パリン
+		Message(0,"なに？","","","");
+
+		//ファン
+		Message(3,"全然使えないわねー","","","");
+		Message(3,"これじゃ借金を帳消しにするのは","ちょっと無理かもー","","");
+
+		//パリン
+		Message(0,"うう……","","","");
+		
+		ch[2017] = 1;
+	}
+	ch[2007] = 0;
+	ch[2015] = 0;
+}
+ 

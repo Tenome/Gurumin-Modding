@@ -1,0 +1,7 @@
+
+int main()
+{
+	Message(0,"Dad took all these photos.","","","");
+	Message(0,"Scenery from around the world...","Too bad they're all blurry.","","");
+}
+ 

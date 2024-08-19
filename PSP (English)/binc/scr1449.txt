@@ -1,0 +1,14 @@
+
+int main()
+{
+	Look(65,0);
+	ch[265]++;
+	if (ch[265] < 2)
+	{
+		Message(65,"You've beaten the boss rush!","","","");
+	}
+	Message(65,"To reward you for all your","effort, I'll show you","movies from the game.","");
+	Message(65,"Select a movie.","","","");
+	PostScr(699);
+	Look(65,18);
+}

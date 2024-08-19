@@ -1,0 +1,73 @@
+
+int main()
+{
+	Message(0,"~Romance Compatibility Test~","","","");
+	Message(0,"Sounds interesting.","","","");
+	SelStart(50);
+	SelText("Try it",1);
+	SelText("Don't try it",2);
+	SelEnd();
+	
+	if (ch[50] != 1)
+	{
+		return 0;
+	}
+
+	Mes("Please enter a name.");
+	Wait(60);
+	string txt;
+	txt = Type(600);
+	if (strcmp(txt,"Blank") == 0)
+	{
+		// エラー
+		Message(0,"~Input error.~","","","");
+		Message(0,"Guess you have to","enter a name.","","");
+		return 0;
+	}
+	Mes("Enter the name of your partner.");
+	Wait(60);
+	string txt2;
+	txt2 = Type(600);
+	if (strcmp(txt2,"Blank") == 0)
+	{
+		// エラー
+		Message(0,"~Input error.~","","","");
+		Message(0,"Guess you have to","enter a name.","","");
+		return 0;
+	}
+	KaguTest2(10007,0,txt);
+	KaguTest2(10007,1,txt2);
+	KaguTest(13000,0);
+	
+	int a;
+	if (ch[420] < 0)
+	{
+		ch[420] = -1 * ch[420];
+	}
+	a = ch[420] % 5;
+	
+	switch(a)
+	{
+	case 0://この機械駄目
+		Message(0,"~Tomorrow will be warm and sunny.~","","","");
+		Message(0,"...That makes absolutely","no sense whatsoever.","","");
+		break;
+	case 1:// 二人はラブラブ
+		Message(0,"~The two of you will","overcome all difficulties","and live happily ever after.~","");
+		Message(0,".....Who comes up with","this mushy stuff?","","");
+		break;
+	case 2:// 親友
+		Message(0,"~You have an undying friendship","that even the gods themselves","could not tear asunder.~","");
+		Message(0,"......So I guess that","we're really good friends.","","");
+		break;
+	case 3:// もうだめぽ
+		Message(0,"~A small rift between you will","grow into a gaping valley if you","don't consider the other's feelings.~","");
+		Message(0,"Hmm....","I suppose that's true.","","");
+		break;
+	case 4:// これからこれから
+		Message(0,"~Your future is yet to come!","If the two of you don't lose","heart, one day...~","");
+		Message(0,"...I think I get the idea.","","","");
+		break;
+	}
+	ch[420] = a;
+}

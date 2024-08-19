@@ -1,0 +1,143 @@
+
+int main()
+{
+	int x;
+	int y;
+	int z;
+	int ax;
+	int ay;
+	int az;
+	
+	MapEvent(0);
+	if (!ch[2497])
+	{
+		Walk(0,8,15);
+		Wait(15);
+		Event(111);
+		KaguTest(10600,ch[1107]-2260);
+		KaguTest2(10012,0,StageMMV(ch[420]));
+		Walk(0,5,20);
+		Wait(20);
+
+		KaguTest(30005,0);
+		x = ch[421];
+		y = ch[422];
+		z = ch[423];
+		KaguTest(30068,0);
+		ax = ch[423];
+		ay = ch[424];
+		az = ch[425];
+
+		ch[420] = -90;
+		ch[421] = -853;
+		ch[422] = 300;
+		ch[423] = -128;
+		ch[424] = -13;
+		ch[425] = 121;
+		KaguTest(30093,10);
+		ch[420] = -128;
+		ch[421] = -13;
+		ch[422] = 121;
+		KaguTest(30094,10);
+		KaguTest(30019,15);
+		Wait(10);
+
+		ch[420] = 1821;
+		ch[421] = -45;
+		ch[422] = 782;
+		ch[423] = 1146;
+		ch[424] = 607;
+		ch[425] = 946;
+		KaguTest(30093,30);
+		KaguTest(30019,14);
+		Wait(50);
+
+		ch[420] = -1702;
+		ch[421] = -159;
+		ch[422] = 2467;
+		ch[423] = -1545;
+		ch[424] = 623;
+		ch[425] = 1946;
+		KaguTest(30093,30);
+		Wait(60);
+
+		ch[420] = 217;
+		ch[421] = 566;
+		ch[422] = 2885;
+		ch[423] = 964;
+		ch[424] = 964;
+		ch[425] = 2446;
+		KaguTest(30093,30);
+		Wait(60);
+		
+		ch[420] = -40;
+		ch[421] = -853;
+		ch[422] = 300;
+		ch[423] = -78;
+		ch[424] = 37;
+		ch[425] = 121;
+		KaguTest(30093,30);
+		Wait(20);
+		ch[420] = x;
+		ch[421] = y;
+		ch[422] = z;
+		ch[423] = ax;
+		ch[424] = ay;
+		ch[425] = az;
+		KaguTest(30093,10);
+		KaguTest(30019,14);
+		Wait(10);
+
+		KaguTest(30019,0);
+		KaguTest(30033,100);
+		CrossFade();
+		Wait(10);
+
+		KaguTest(10600,ch[1107]-2260);
+		MMV(StageMMV(ch[420]));
+		KaguTest2(10012,1,StageMMV(ch[420]));
+	}
+	else
+	{
+		WaitD(0);
+		ch[50] = 0;
+		string st1,st2;
+		SelStart(50);
+		st1 = "Leave " + StageName(ch[1107]-2260);
+		st2 = "Don't leave " + StageName(ch[1107]-2260);
+		SelText(st1,1);
+		SelText(st2,2);
+		SelEnd();
+		
+		if (ch[50] == 1)
+		{
+			MapEvent(0);
+			Walk(0,8,30);
+			Black(0,100,30);
+			Wait(30);
+			
+			KaguTest(10100,0);
+			KaguTest(99999,0);
+			TekiStop(0);
+			MapEvent(1);
+		}
+		else
+		{
+			MapEvent(0);
+
+			KaguTest(30058,0);
+			while(ch[420])
+			{
+				Walk(ch[421],ch[422],ch[423]);
+				Wait(ch[423]);
+				KaguTest(30058,0);
+			}
+
+			Walk(0,-8,20);
+			Wait(20);
+			MapEvent(1);
+			TekiStop(0);
+		}
+	}
+	MapEvent(1);
+}

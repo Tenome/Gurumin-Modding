@@ -1,0 +1,179 @@
+
+int main()
+{
+	// この場所で使えるかチェック
+	KaguTest(20056,1);
+	if (!ch[420])
+	{
+		// 使えない
+		KaguTest2(20002,0,"You can't use that here.");
+		return 0;
+	}
+
+	// 近くにキャラがいないかチェック
+	int b;
+	int tubo;
+	int tubo2;
+
+	tubo = 34;
+	tubo2 = 6;
+	KaguTest(20001,23);
+	if (ch[430])
+	{
+		b = 16;
+		tubo = 23;
+		tubo2 = 1;
+	}
+	KaguTest(20001,24);
+	if (ch[430])
+	{
+		b = 7;
+		tubo = 24;
+		tubo2 = 2;
+	}
+	KaguTest(20001,26);
+	if (ch[430])
+	{
+		b = 11;
+		tubo = 26;
+		tubo2 = 3;
+	}
+	KaguTest(20001,28);
+	if (ch[430])
+	{
+		b = 6;
+		tubo = 28;
+		tubo2 = 4;
+	}
+	KaguTest(20001,55);
+	if (ch[430])
+	{
+		b = 25;
+		tubo = 55;
+		tubo2 = 5;
+	}
+	
+	KaguTest(20055,b);
+
+	int chara;
+	chara = ch[420];
+	ch[421] = 1;
+	KaguTest(30076,0)
+	if (chara == 25 && !ch[2285])
+	{
+		// 駄目
+		chara = 0;
+	}
+	if (chara && ch[420])
+	{
+		// 近くにキャラがいた
+		KaguTest(20057,0);
+		Wait(30);
+		ch[421] = 0;
+		KaguTest(30076,tubo2);
+
+		// ツボを全てなくす
+		KaguTest(20002,23);
+		KaguTest(20002,24);
+		KaguTest(20002,26);
+		KaguTest(20002,28);
+		KaguTest(20002,55);
+		KaguTest(20002,34);
+		
+		switch(chara)
+		{
+		case 16:
+			// ポコ吸出し
+			//ポコ
+			ch[420] = 0;
+			KaguTest(30111,16);
+			Wait(100);
+			ch[420] = 1;
+			KaguTest(30111,0);
+			GetItem(23);
+			KaguTest(20022,23);
+			Mes("You got a ~Blue Urn.~");
+			Wait(60);
+			Message(16,"Woah, I suddenly feel dizzy.","I've been working too hard.","","");
+			break;
+		case 11:
+			// チャッキー吸出し
+			//チャッキー
+			ch[420] = 0;
+			KaguTest(30111,11);
+			Wait(100);
+			ch[420] = 1;
+			KaguTest(30111,0);
+			GetItem(26);
+			KaguTest(20022,26);
+			Mes("You got a ~Green Urn.~");
+			Wait(60);
+			Message(11,"Is this an","~out of body experience~?","","");
+			break;
+		case 7:
+			// イワオ吸出し
+			//イワオ
+			ch[420] = 0;
+			KaguTest(30111,7);
+			Wait(100);
+			ch[420] = 1;
+			KaguTest(30111,0);
+			GetItem(24);
+			KaguTest(20022,24);
+			Mes("You got a ~Yellow Urn.~");
+			Wait(60);
+			Message(7,"I feel chipper! Refreshed even!","","","");
+			break;
+		case 6:
+			// ピエール吸出し
+			//ピエール
+			ch[420] = 0;
+			KaguTest(30111,6);
+			Wait(100);
+			ch[420] = 1;
+			KaguTest(30111,0);
+			GetItem(28);
+			KaguTest(20022,28);
+			Mes("You got a ~Purple Urn.~");
+			Wait(60);
+			Message(6,"Oh, I suddenly","feel quite refreshed.","","");
+			Message(6,"Tonight I'll sleep well.","Thank you, Mademoiselle.","","");
+			break;
+		case 25:
+			// ブラックビーン吸出し
+			//ブラックビーン
+			ch[420] = 0;
+			KaguTest(30111,25);
+			Wait(100);
+			ch[420] = 1;
+			KaguTest(30111,0);
+			GetItem(55);
+			KaguTest(20022,55);
+			Mes("You got a ~Black Urn.~");
+			Wait(60);
+			//ブラックビーン
+			Message(25,"Hmm...?","I feel a little lightheaded.","","");
+			Message(25,"I'll have to train more.","","","");
+			break;
+		default:
+			// それ以外
+			//パリン
+			GetItem(tubo);
+			Wait(30);
+			Message(0,"Nothing's happening.","Doc said this Urn only","works for certain monsters.","");
+			KaguTest2(20003,61,"mt_put.it3");
+			Wait(30);
+			ch[420] = 1;
+			KaguTest(30111,0);
+			Wait(30);
+			break;
+		}
+	}
+	else
+	{
+		// キャラがいない
+		// ここでは使えないメッセージを出す
+//		GetItem(tubo);
+		KaguTest2(20002,0,"You can't use that here.");
+	}
+}

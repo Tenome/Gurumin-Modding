@@ -1,0 +1,131 @@
+
+int main()
+{
+	int pt;
+	int ccc;
+	
+	KaguTest(30025,4);
+	Camera(ch[420],526,5470,425);
+	CrossFade();
+	Wait(45);
+	TekiStop(1);
+	ch[420] = 100;
+	ch[421] = 100;
+	ch[422] = 100;
+	KaguTest(30046,15);
+
+	ch[420] = 100000;
+	ch[427] = 7;
+	KaguTest(30015,1);
+	KaguTest(30015,2);
+	KaguTest(30025,1);
+	ccc = ch[420];
+	ch[421] = -1;
+	KaguTest(30131,ccc);
+	KaguTest(30131,ccc+1);
+	
+	ch[420] = 684;
+	ch[421] = 6229;
+	ch[422] = 684;
+	ch[423] = -586;
+	ch[424] = 4968;
+	ch[425] = 145;
+//	ch[420] = 1065;
+//	ch[421] = 6295;
+//	ch[422] = 865;
+	KaguTest(30093,15);
+	Camera(-1,0,0,0);
+	KaguTest(30019,14);
+	Wait(15);
+	KaguTest(30025,1);
+	ch[421] = ch[420];
+	ch[420] = 2;
+	KaguTest(12005,ch[421]);
+	KaguTest(12004,ch[421]);
+	pt = ch[420];
+	ch[420] = -1;
+	KaguTest(12002,ch[421]);
+	ch[420] = 1;
+	KaguTest(30097,ch[421]);
+	Walk2(ch[421],8,0,75);
+	ch[429] = 0;
+	KaguTest(30039,0);
+	ch[420] = 0;
+	KaguTest(30103,ch[421]);
+	Wait(15);
+	Look(0,ch[421]);
+	ch[420] = 2;
+	KaguTest(30064,ch[421]);
+	Wait(60);
+	Look(ch[421],0);
+	Wait(15);
+	ch[420] = 3;
+	KaguTest(12005,ch[421]);
+	ch[420] = pt;
+	KaguTest(12002,ch[421]);
+	ch[420] = 0;
+	KaguTest(30097,ch[421]);
+
+	ch[420] = 150;
+	ch[421] = 6250;
+	ch[422] = 150;
+	ch[423] = 150;
+	ch[424] = 6250;
+	ch[425] = 150;
+	KaguTest(30094,20);
+	ch[420] = -385;
+	ch[421] = 6229;
+	ch[422] = 684;
+//	ch[420] = -765;
+//	ch[421] = 6295;
+//	ch[422] = 865;
+	ch[423] = 886;
+	ch[424] = 4968;
+	ch[425] = 145;
+	KaguTest(30093,20);
+	KaguTest(30019,15);
+	CrossFade();
+	Wait(30);
+	KaguTest(30025,2);
+	ch[421] = ch[420];
+	ch[420] = 2;
+	KaguTest(12005,ch[421]);
+	KaguTest(12004,ch[421]);
+	pt = ch[420];
+	ch[420] = -1;
+	KaguTest(12002,ch[421]);
+	ch[420] = 1;
+	KaguTest(30097,ch[421]);
+	Walk2(ch[421],-8,0,75);
+	ch[429] = 0;
+	KaguTest(30039,0);
+	ch[420] = 0;
+	KaguTest(30103,ch[421]);
+	Wait(15);
+	Look(0,ch[421]);
+	Wait(10);
+	ch[420] = 2;
+	KaguTest(30064,ch[421]);
+	Wait(50);
+	Look(ch[421],0);
+	Wait(15);
+	ch[420] = 3;
+	KaguTest(12005,ch[421]);
+	ch[420] = pt;
+	KaguTest(12002,ch[421]);
+	ch[420] = 0;
+	KaguTest(30097,ch[421]);
+
+	KaguTest(30019,0);
+	Wait(15);
+	CrossFade();
+	TekiStop(0);
+
+	ch[420] = 1;
+	KaguTest(30096,0);
+
+	ch[421] = 1;
+	KaguTest(30131,ccc);
+	KaguTest(30131,ccc+1);
+}
+ 

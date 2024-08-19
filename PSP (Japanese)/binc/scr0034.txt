@@ -1,0 +1,22 @@
+
+int main()
+{
+	ch[2500] = 1;
+	ch[2304] = 1;
+
+	KaguTest(40002,0);
+
+	MapEvent(0);
+	Walk(0,8,11);
+	Wait(11);
+	Event(120);
+
+	ch[420] = -1;
+	KaguTest(30130,-1);
+
+	Walk(0,5,20);
+	Wait(20);
+	MapEvent(1);
+}
+
+ 

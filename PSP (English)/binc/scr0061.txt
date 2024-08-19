@@ -1,0 +1,715 @@
+
+int main()
+{
+	ch[400] = 18;
+	int i;
+	
+	// デバッグ
+	KaguTest(20010,0);
+	
+	if (ch[420] == 207)
+	{
+		// デバッグピノ
+		Message(18,"Debug Mode.","Boss Rush is Under Construction.","","");
+		
+		ch[50] = 0;
+		SelStart(50);
+//		SelText("純粋ボスラッシュ",1);
+//		SelText("シナリオボスラッシュ",2);
+		SelText("Stage Test",3);
+//		SelText("Ｄｅｍｏ",4);
+		SelText("Movie Test",5);
+		SelText("Cancel",0);
+		SelEnd();
+		
+		if (ch[50] == 5)
+		{
+			PostScr(699);
+		}
+		if (ch[50] == 4)
+		{
+			SelStart(50);
+			SelText("Demo1",1);
+			SelText("Demo2",2);
+			SelText("Demo3",3);
+			SelText("Demo4",4);
+			SelText("Demo5",5);
+			SelText("Boss Demo",6);
+			SelEnd();
+			
+			if (ch[50] == 1)
+			{
+//				BGM(6);
+				Demo("demo1");
+			}
+			if (ch[50] == 2)
+			{
+//				BGM(6);
+				Demo("demo2");
+			}
+			if (ch[50] == 3)
+			{
+//				BGM(6);
+				Demo("demo3");
+			}
+			if (ch[50] == 4)
+			{
+//				BGM(6);
+				Demo("demo4");
+			}
+			if (ch[50] == 5)
+			{
+//				BGM(7);
+				Demo("demo5");
+			}
+			if (ch[50] == 6)
+			{
+//				BGM(6);
+				Demo("demo6");
+			}
+			return 0;
+		}
+		if (ch[50] == 1)
+		{
+			// 純粋ボスラッシュ開始（完全ボス戦のみ）
+			SelStart(50);
+			SelText("Normal",0);
+			SelText("Beginner",1);
+			SelText("Hard",2);
+			SelEnd();
+			
+			if (ch[50] == -1)
+			{
+				ch[400] = -1;
+				return 0;
+			}
+			
+			KaguTest(20071,ch[50]);
+//			ch[455] = ch[50];
+			
+			KaguTest(20029,0);
+			ch[2300] = 1;
+			ch[1790] = 0;
+			ch[1791] = 0;
+			KaguTest(20051,0);
+			Scop(1);
+			
+			ch[1780] = 1;
+			ch[1781] = 1;
+			ch[1782] = 1;
+			ch[1783] = 1;
+			ch[1784] = 1;
+			ch[1785] = 1;
+			ch[1786] = 1;
+			ch[1787] = 1;
+			ch[1788] = 1;
+			ch[1789] = 1;
+			
+//			Soubi(3);
+//			Soubi(41);
+			
+			ch[3982] = 1;
+			ch[400] = -1;
+			
+				// 一匹目、ボスサップに飛べ
+			Black(0,100,30);
+			Wait(30);
+			LoadMapB(105);
+			
+			SetSavePos2(207,0,0,0);	// 死んだら手巣とマップに戻れ
+						KaguTest(20020,0);
+			CharPos(28,-200000,0,0);
+			CharPos(ch[425],0,0,0);
+			CharPos(ch[425] + 1,0,0,0);
+			CharPos(0,0,-500,0);
+			Event(600);
+			KaguTest(40001,999);
+			
+//			BGM(7);
+			
+			Black(0,0,30);
+			Wait(30);
+
+			MapEvent(1);
+			return 0;
+		}
+		if (ch[50] == 2)
+		{
+			// ボスラッシュ開始（シナリオムービーつき）
+			// シナリオボスラッシュ
+			SelStart(50);
+			SelText("Normal",0);
+			SelText("Beginner",1);
+			SelText("Hard",2);
+			SelEnd();
+			
+			if (ch[50] == -1)
+			{
+				ch[400] = -1;
+				return 0;
+			}
+
+			KaguTest(20071,ch[50]);
+//			ch[455] = ch[50];
+			KaguTest(20029,0);
+			
+			ch[1780] = 1;
+			ch[1781] = 1;
+			ch[1782] = 1;
+			ch[1783] = 1;
+			ch[1784] = 1;
+			ch[1785] = 1;
+			ch[1786] = 1;
+			ch[1787] = 1;
+			ch[1788] = 1;
+			ch[1789] = 1;
+			
+//			Soubi(3);
+//			Soubi(41);
+			
+			ch[3982] = 2;
+			ch[400] = -1;
+			
+				// 一匹目、ボスサップに飛べ
+				// の前にムービー
+//			PlayMovie("open2.txt",1);
+			ch[508] = 1;
+			Wait(10);
+//			PlayMovie("nuketa.txt",1);
+			ch[510] = 1;
+			ch[511] = 1;
+			Wait(10);
+//			PlayMovie("isk_3_2.txt",1);
+			ch[509] = 1;
+			Wait(10);
+
+			ch[2300] = 1;
+			ch[1791] = 0;
+			KaguTest(20051,0);
+			Scop(0);
+			Scop(1);
+
+			Black(0,100,30);
+			Wait(30);
+//			LoadMapB(105);
+			
+			SetSavePos2(207,0,0,0);	// 死んだら手巣とマップに戻れ
+						KaguTest(20020,0);
+			CharPos(28,-200000,0,0);
+			CharPos(ch[425],0,0,0);
+			CharPos(ch[425] + 1,0,0,0);
+			CharPos(0,0,-500,0);
+			Event(600);
+
+//			BGM(7);
+			
+			Black(0,0,30);
+			Wait(30);
+
+			MapEvent(1);
+			return 0;
+		}
+		if (ch[50] == 3)
+		{
+			// ステージテスト
+			KaguTest(20029,0);
+			ch[400] = 18;
+			for (i = 0;i < 4000;i++)
+			{
+				if (i != 455 && i != 2501 && i != 3957)
+				{
+					ch[i] = 0;
+				}
+			}
+
+			string st;
+			SelStart(50);
+			SelText(("Ruins 1:" + StageName(26)),1);
+			SelText(("Ruins 2:" + StageName(0)),2);
+			SelText(("Ruins Boss:" + StageName(1)),3);
+			SelText(("Ruins1Reversed:" + StageName(27)),4);
+			SelText(("Ruins2 Reversed:" + StageName(16)),5);
+			SelText(("Forest 1:" + StageName(2)),6);
+			SelText(("Forest 2:" + StageName(11)),7);
+			SelText(("Forest Boss:" + StageName(3)),8);
+			SelText(("Forest Reversed:" + StageName(17)),9);
+			SelText(("Forest Reversed:" + StageName(18)),10);
+			SelText(("Caves 1:" + StageName(4)),11);
+			SelText(("Caves 2:" + StageName(13)),12);
+			SelText(("Caves Boss:" + StageName(5)),13);
+			SelText(("Caves 1 Reversed:" + StageName(19)),14);
+			SelText(("Caves 2 Reversed:" + StageName(20)),15);
+			SelText(("Mountain 1:" + StageName(6)),16);
+			SelText(("Mountain 2:" + StageName(12)),17);
+			SelText(("Mountain Boss:" + StageName(7)),18);
+			SelText(("Mountain 1 Reversed:" + StageName(21)),19);
+			SelText(("Mountain 2 Reversed:" + StageName(22)),20);
+			SelText(("Egg 1:" + StageName(8)),21);
+			SelText(("Egg 2:" + StageName(9)),22);
+			SelText(("Egg Boss:" + StageName(10)),23);
+			SelText(("Great Fang:" + StageName(35)),27);
+			SelText(("Egg 1 Reversed:" + StageName(23)),24);
+			SelText(("Egg 2 Reversed:" + StageName(24)),25);
+			SelText(("Egg Boss Reversed:" + StageName(25)),26);
+//			SelText("ポテト遺跡１",1);
+//			SelText("ポテト遺跡ボス",2);
+//			SelText("ポテト遺跡裏１",3);
+//			SelText("ラディスの森１",4);
+//			SelText("ラディスの森２",5);
+//			SelText("ラディスの森ボス",6);
+//			SelText("ラディスの森裏１",7);
+//			SelText("ラディスの森裏２",8);
+//			SelText("スピナ洞窟１",9);
+//			SelText("スピナ洞窟２",10);
+//			SelText("スピナ洞窟ボス",11);
+//			SelText("スピナ洞窟裏１",12);
+//			SelText("スピナ洞窟裏２",13);
+//			SelText("ピメントマウンテン１",14);
+//			SelText("ピメントマウンテン２",99);
+//			SelText("ピメントマウンテンボス",16);
+//			SelText("ピメントマウンテン裏１",99);
+//			SelText("ピメントマウンテン裏２",99);
+//			SelText("エッグプラント１",19);
+//			SelText("エッグプラント２",20);
+//			SelText("エッグプラントボス",21);
+//			SelText("エッグプラント裏１",99);
+//			SelText("エッグプラント裏２",99);
+			SelEnd();
+			
+			if (ch[50] == -1)
+			{
+				Message(18,"Giving up? Too bad.","","","");
+				ch[400] = -1;
+				return 0;
+			}
+			if (ch[50] == 99)
+			{
+				Message(18,"This stage isn't ready yet.","","","");
+				ch[400] = -1;
+				return 0;
+			}
+
+			SelStart(51);
+			SelText("Normal",0);
+			SelText("Beginner",1);
+			SelText("Hard",2);
+			SelEnd();
+			
+			if (ch[51] == -1)
+			{
+				ch[400] = -1;
+				return 0;
+			}
+
+			KaguTest(20071,ch[51]);
+//			ch[455] = ch[51];
+
+			if (ch[50] > 0)
+			{
+				SetGP(10000);
+				if(ch[50] == 6)
+				{
+					ch[1500] = 1;
+				}
+				if (ch[50] == 16)
+				{
+					ch[1508] = 1;
+				}
+				if (ch[50] == 21)
+				{
+					ch[1510] = 1;
+					ch[1511] = 1;
+				}
+				if (ch[50] == 11)
+				{
+					ch[1502] = 1;
+					ch[1503] = 1;
+				}
+				
+				ch[1780] = 1;
+				ch[1781] = 1;
+				ch[1782] = 1;
+				ch[1783] = 1;
+				ch[1784] = 1;
+				ch[1785] = 1;
+				ch[1786] = 1;
+				ch[1787] = 1;
+				ch[1788] = 1;
+				ch[1789] = 1;
+				
+//				Soubi(3);
+//				Soubi(41);
+
+				ch[2300] = 1;
+//				ch[1790] = 2;	// ドリルレベルは２
+//				ch[1791] = 100;
+				ch[1791] = 200;
+				
+				if (ch[50] == 27)
+				{
+					ch[1791] = 300;
+				}
+				KaguTest(20051,0);
+				Scop(0);
+				Scop(1);
+
+				// マップに飛ぶ
+				ch[3982] = ch[50];
+				CharPos(0,-200000,0,0);
+				LoadMapB(999);
+				ch[445] = ch[3982];
+				ch[3982] = 3;
+				ch[400] = -1;
+				PostScr(930);
+				return 0;
+			}
+				
+			ch[400] = -1;
+			PostScr(61);
+		}
+	
+		ch[400] = -1;
+		return 0;
+	}
+	// デバッグここまで
+	
+	int story;
+	int map;
+	string str;
+	
+	ch[400] = 18;
+	ch[218]++;
+
+	KaguTest(20010,0);
+	map = ch[420];
+
+	// 開発室？
+	if (map == 6)
+	{
+		Message(18,"Great work making it this far.","","","");
+		
+		SelStart(50);
+		SelText("Where are we?",1);
+		SelText("Why are we here?",2);
+		if (ch[2091])
+		{
+			SelText("Start Boss Rush",3);
+		}
+		SelEnd();
+		
+		if (ch[50] == 1)
+		{
+			Message(18,"This is a special place.","You can get some practice here.","","");
+			Message(18,"You can do a ","Boss Rush here.","","");
+			Message(18,"Give it a try.","","","");
+			Message(18,"If you want to try a","Boss Rush, talk to me.","","");
+			ch[2091] = 1;
+		}
+		if (ch[50] == 2)
+		{
+			Message(18,"Don't worry about","little things like that.","","");
+		}
+		if (ch[50] == 3)
+		{
+			Message(18,"What difficulty level?","","","");
+			// 今の難易度保存
+			KaguTest(99021,0);
+			KaguTest(99993,0);
+
+			ch[50] = -1;
+			SelStart(50)
+			SelText("Beginner",1);
+			SelText("Normal",2);
+			SelText("Hard",3);
+			SelText("Happy",4);
+			if (ch[430])
+			{
+				SelText("Crazy",5);
+			}
+			SelEnd();
+			
+			if(ch[50] == 1)
+			{
+				ch[455] = 1;
+				ch[3961] = 0;
+			}
+			if(ch[50] == 2)
+			{
+				ch[455] = 0;
+				ch[3961] = 0;
+				ch[50] = 1;
+			}
+			if(ch[50] == 3)
+			{
+				ch[455] = 2;
+				ch[3961] = 0;
+				ch[50] = 1;
+			}
+			if(ch[50] == 4)
+			{
+				ch[455] = 2;
+				ch[3961] = 1;
+				ch[50] = 1;
+			}
+			if(ch[50] == 5)
+			{
+				ch[455] = 2;
+				ch[3961] = 2;
+				ch[50] = 1;
+			}
+			
+			if(ch[50] == 1)
+			{
+				// ボスラッシュ開始
+				ch[2092] = 1;
+				ch[3952] = 1;
+
+				// ボブー戦準備
+				Blur(2,200,45);
+				Black(0,100,45);
+				SE(954);
+				Wait(45);
+				Blur(0,0,0);
+				TekiStop(1);
+				KaguTest(100000,0);
+				LoadMapB(105);
+				KaguTest(40001,999);
+				Wait(5);
+				Event(600);
+				SetSavePos2(6,0,150,0);
+				ch[1095] = 6;
+				KaguTest(20020,0);
+				CharPos(28,-200000,0,0);
+				CharPos(ch[425],0,0,0);
+				CharPos(ch[425] + 1,0,0,0);
+				CharPos(0,0,-500,0);
+
+				Wait(5);
+				Walk(0,1,1);
+				KaguTest(30057,0);
+				KaguTest2(10012,0,"boss01.mmv");
+				Black(0,0,30);
+				Wait(30);
+				MMV("boss01.mmv");
+				KaguTest2(10012,1,"boss01.mmv");
+				TekiStop(0);
+				
+				ch[400] = -1;
+				return 0;
+			}
+			Message(18,"Come back","when you're ready.","","");
+		}
+		
+		ch[400] = -1;
+		return 0;
+	}
+
+	// チャッキー・鼻眼鏡クエスト中
+	if (ch[2030] && ch[420] == 401)
+	{
+		//ピノ
+		Message(18,"It's so c-cold.","I'm going to freeze!","","");
+		Message(18,"I-I can't do anything","in this cold.","","");
+		ch[400] = -1;
+		return 0;
+	}
+
+	if (map == 401 && ch[2510] && !ch[2511])
+	{
+		// モグロウ初出現時ホーム
+		Message(18,"I've heard","about Digby.","","");
+		Message(18,"Everybody says he's very
+","nice and cheerful.","","");
+		ch[400] = -1;
+		ch[218] = 0;
+		return 0;
+	}
+
+	if (ch[1538])
+	{
+		if (ch[218] < 2)
+		{
+			//ピノ
+			Message(18,"Everyone forgave my","brother thanks to you.","","");
+			Message(18,"You're the best!","","","");
+			//パリン
+			Message(0,"Don't worry.","Humans aren't perfect either.","","");
+			//ピノ
+			Message(18,"It wasn't your fault.","","","");
+			Message(18,"Our old home is gone,","but Monster Village is","our real home now!","");
+			Message(18,"You, everyone,","you're our family!","","");
+			//パリン
+			Message(0,"Pino...","","","");
+		}
+		else
+		{
+			//ピノ
+			Message(18,"Our old home is gone,","but Monster Village is","our real home now!","");
+			Message(18,"You, everyone,","you're our family!","","");
+		}
+		ch[400] = -1;
+		return 0;
+	}
+	if (ch[1505] && !ch[1513])
+	{
+		if (ch[1505] && !ch[2524])
+		{
+			//ピノ
+			Message(18,"I'm so happy that all","the monsters are finally home.","","");
+			Message(18,"It's all thanks to you.","","","");
+		}
+		if (ch[2524] && !ch[2525])
+		{
+			//ピノ
+			Message(18,"You have to ask Pecky if he'll","help sponsor our village.","","");
+			Message(18,"If you ask, I know he'll help!","","","");
+		}
+		if (ch[2525] && !ch[2554])
+		{
+			//ピノ
+			Message(18,"Something to make","Pecky laugh...?","","");
+			Message(18,"When I think about it,","I've never seen him laugh.","","");
+			Message(18,"Hmm....","","","");
+			Message(18,"You might try wearing","something unusual,","and then talking to him?","");
+		}
+	}
+	if (ch[1542] && !ch[1505])
+	{
+		if (!ch[2636])
+		{
+			if (ch[218] < 2)
+			{
+				//ピノ
+				Message(18,"You saved Rocko!","Thank you!","","");
+				Message(18,"Lately, the human town","is a popular hangout,","so Rocko went to take a look.","");
+				//パリン
+				Message(0,"Before, the town was","so scary, no one went.","","");
+				//ピノ
+				Message(18,"We monsters like to","keep up with trends.","","");
+			}
+			else
+			{
+				//ピノ
+				Message(18,"You saved Rocko!","Thank you!","","");
+				Message(18,"Lately, the human town","is a popular hangout,","so Rocko went to take a look.","");
+			}
+		}
+		else
+		{
+			if (ch[218] < 2)
+			{
+				//ピノ
+				Message(18,"Rocko's back now. He can","help out with the heavy lifting.","","");
+				Message(18,"Thanks for your help!","","","");
+			}
+			else
+			{
+				//ピノ
+				Message(18,"Rocko's back now. He can","help out with the heavy lifting.","","");
+			}
+		}
+	}
+	if (ch[507] && !ch[1542] && ch[2506])
+	{
+		if (!ch[2622])
+		{
+			if (ch[218] < 2)
+			{
+				//ピノ
+				Message(18,"You saved Pierre!","Thank you!","","");
+				Message(18,"He wants to relax,","but he has nothing to sit on!","","");
+				//パリン
+				Message(0,"Where did he go?","","","");
+				//ピノ
+				Message(18,"The human town, I think.","","","");
+				//パリン
+				Message(0,"Hmm... I hope Puchi","doesn't bite him.","","");
+				//ピノ
+				Message(18,"T-that dog.","It really scared me!","","");
+			}
+			else
+			{
+				//ピノ
+				Message(18,"You saved Pierre!","Thank you!","","");
+				Message(18,"He wants to relax,","but he has nothing to sit on!","","");
+			}
+		}
+		else
+		{
+			//ピノ
+			if (ch[3201])
+			{
+				Message(18,"Pierre just got back","from the human town.","","");
+				Message(18,"He looks happy.","Something good happen?","","");
+			}
+			else
+			{
+				Message(18,"Pierre just got back","from the human town.","","");
+				Message(18,"He looks happy.","Something good happen?","","");
+			}
+		}
+	}
+	if (!ch[2556] && ch[2330] && map == 401)
+	{
+		//ピノ
+		Message(18,"My brother and I came here","about 3 years ago.","","");
+		Message(18,"It's hard to believe.","Our new home... ruined.","","");
+		ch[400] = -1;
+		return 0;
+	}
+	// ch[2506]で森イベントチェック
+	if (ch[2330] && !ch[3200])
+	{
+		if (ch[420] == 401)
+		{
+			Message(18,"Poco is terribly sad about","losing his Boombox.","","");
+			Message(18,"I hope he finds it soon...","","","");
+		}
+		ch[400] = -1;
+		return 0;
+	}
+	if (ch[3200] && !ch[507])
+	{
+		//ピノ
+		Message(18,"Thank you for helping me","in the forest.","","");
+		Message(18,"Without you and Puku,","what would I do?","","");
+	}
+	
+	if (ch[2329] && !ch[2330])
+	{
+		if (!ch[2317])
+		{
+			//ピノ
+			Message(18,"My brother...","He still hasn't come back yet...","","");
+			Message(18,"I'm really worried...","","","");
+		}
+		if (ch[2317])
+		{
+			//ピノ
+			Message(18,"All of the houses are ruined.","","","");
+			Message(18,"This is terrible...","","","");
+		}
+	}
+	if (ch[512] && !ch[2329])
+	{
+		// ピノ発見イベント
+		ch[2329] = 1;
+		PostScr(1196);
+		return 0;
+	}
+	if (ch[2300] && !ch[1545])
+	{
+		//ピノ
+		Message(18,"Phantoms took my brother","to the ruins.","","");
+		Message(18,"Please, save him!","","","");
+	}
+	if (ch[508] && !ch[2300] && ch[420] != 999)
+	{
+		// ドリル引き抜きイベント
+		Event(350);
+		return 0;
+	}
+
+	ch[400] = -1;
+	return 0;
+}

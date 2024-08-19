@@ -1,0 +1,1462 @@
+
+int main()
+{
+	ch[398] = 0;
+	int a;
+	int b;
+	int c;
+	string sname;
+	KaguTest(99997,0);
+	a = ch[420];
+	c = a;
+	ch[2497]=0;	
+	ch[2102] = 0;
+	if (ch[512])
+	{
+		ch[510] = 1;
+	}
+	if (ch[3982] == 3)
+	{
+	}
+	else
+	{
+		ch[445] = a;
+	}
+
+	switch(ch[445])
+	{
+	case 0:
+		a = 0;
+		break;
+	case 1:
+	case 2:
+	case 3:
+	case 4:
+	case 5:
+		a = 1;
+		break;
+	case 6:
+	case 7:
+	case 8:
+	case 9:
+	case 10:
+		a = 2;
+		break;
+	case 11:
+	case 12:
+	case 13:
+	case 14:
+	case 15:
+		a = 3;
+		break;
+	case 16:
+	case 17:
+	case 18:
+	case 19:
+	case 20:
+		a = 4;
+		break;
+	case 21:
+	case 22:
+	case 23:
+	case 24:
+	case 25:
+	case 26:
+	case 27:
+		a = 5;
+		break;
+	case 28:
+	case 29:
+	case 30:
+	case 31:
+	case 32:
+	case 33:
+	case 34:
+		a = 6;
+		break;
+	}
+	b = a + 25;
+	if (!ch[512] && ch[1545] && a != 0 && a != 6)
+	{
+		Message(0,"Got to get to Monster","Village quickly!","","");
+		return 0;
+	}
+	if (a == 0)
+	{
+		ch[50] = 1;
+		if (ch[50] == 1) 
+		{
+			MapEvent(0);
+			KaguTest(99998,0);
+			if (ch[2546])
+			{
+//				LoadMapB(401);
+			}
+			else
+			{
+				Event(500);
+			}
+			Black(0,100,0);
+			ch[1107] = 2275;
+			if (!ch[512] && ch[2062])
+			{
+				ResetFade();
+				ch[512]=1;
+				SetWaku(0);
+				Mouse(0);
+				PlayMovie("home_1.txt",0);
+				Black(0,100,0);
+				Wait(5);
+				Walk(0,-5,1);
+				KaguTest(30057,0);
+				Mouse(1);
+				LoadMap(401);
+				CharPos(0,-150,1100,0);
+				Wait(5);
+				Walk(0,-5,1);
+				KaguTest(30057,0);
+				Black(0,100,0);
+				Black(0,0,30);
+				ResetFade();
+				ch[3983] = 0;
+				MapEvent(1);
+				return 0;
+			}
+			if (ch[2265] && !ch[2524])
+			{
+				Black(0,100,0);
+				Camera(0,-2600,-50,370);
+				ch[421] = -2600;
+				ch[422] = -50;
+				ch[423] = 370;
+				KaguTest(30010,0);
+				Camera(-1,0,0,0);
+				Wait(5);
+				CharPos(17,-50,1200,0);
+				ch[400] = 117;
+				Walk2(17,0,12,35);
+				ch[429] = 0;
+				KaguTest(30039,0);
+				Walk(0,-5,20);
+				KaguTest(30057,0);
+				Wait(5);
+				Black(0,0,15);
+				Wait(15);
+				ch[420] = 15;
+				ch[421] = 30;
+				ch[429] = 1;
+				KaguTest(30053,0);
+				PostScr(62);
+				return 0;
+			}
+			if (ch[2546])
+			{
+				int tobu;
+				KaguTest(99993,0);
+				if (ch[420] || ch[421] || ch[422])
+				{
+					tobu = 1;
+				}
+				else
+				{
+					tobu = 0;
+				}
+				Mouse(0);
+				ch[2036] = 1;
+				int movi;
+				movi = PlayMovie("EP_3a.txt",tobu);
+				KaguTest(100000,0);
+				movi = PlayMovie("EP_3b.txt",tobu);
+				KaguTest(100000,0);
+				KaguTest(20070,0);
+				ch[2300] = 0;
+				KaguTest(20008,0);
+				if (ch[430])
+				{
+					Soubi(ch[430]);
+				}
+				SetWaku(1);
+				PlayAVI("ed.avi",0);
+				PlayMovie("EP_5b.txt",tobu);
+				if (ch[3961])
+				{
+					KaguTest(100000,0);
+					PlayMovie("EP_5.txt",tobu);
+				}
+				Mouse(1);
+				SetWaku(1);
+				LoadMapB(998);
+				Black(0,100,0);
+				Black(0,0,10);
+				KaguTest(99993,0);
+				int f;
+				switch(ch[455])
+				{
+				case 0:
+					f = 1;
+					break;
+				case 1:
+					f = 0;
+					break;
+				case 2:
+					f = 2;
+					break;
+				}
+				if (ch[3961]==1)
+				{
+					f = 5;
+				}
+				if (ch[3961]==2)
+				{
+					f = 10;
+				}
+				SetWaku(1);
+				CharPos(0,-200000,0,0);
+				Black(0,0,15);
+				Wait(15);
+				if (!ch[420 + f])
+				{
+					SE(564);
+					KaguTest2(10008,0,"A new outfit has been unlocked.");
+					KaguTest2(10008,1,"Use your Dresser to change outfits.");
+					KaguTest(20000,90);
+					Wait(105);
+				}
+				if (f < 2 && !ch[421] && !ch[420])
+				{
+					SE(516);
+					KaguTest2(10008,0,"Hard Mode unlocked!");
+					KaguTest2(10008,1,"");
+					KaguTest(20000,90);
+					Wait(105);
+				}
+				if (f == 2 && !ch[422] && ch[421])
+				{
+					SE(516);
+					KaguTest2(10008,0,"Happy Mode unlocked!");
+					KaguTest2(10008,1,"");
+					KaguTest(20000,90);
+					Wait(105);
+				}
+				if (f == 5 && !ch[425])
+				{
+					SE(516);
+					KaguTest2(10008,0,"Crazy Mode unlocked!");
+					KaguTest2(10008,1,"");
+					KaguTest(20000,90);
+					Wait(105);
+				}
+				if (!ch[3960])
+				{
+					SE(514);
+					KaguTest2(10008,0,"Sub-quest unlocked!");
+					KaguTest2(10008,1,"");
+					KaguTest(20000,90);
+					Wait(105);
+				}
+				KaguTest2(10008,0,"Loading clear data allows you to use");
+				KaguTest2(10008,1,"some of the data from previous games.");
+				KaguTest(20000,90);
+				Wait(105);
+				ch[2005] = 1;
+				KaguTest(99994,0);
+				KaguTest(99982,0);
+				ch[1538] = 1;
+				KaguTest(99990,0);
+				KaguTest(99998,0);
+				LoadMapB(998);
+				CharPos(0,-200000,0,0);
+				Black(0,100,15);
+				Wait(15);
+				TekiStop(0);
+				MapEvent(1);
+				SetWaku(0);
+				SetWaku(0);
+				Reset();
+				return 0;
+			}
+			TekiStop(1);
+			Black(0,100,0);
+			Camera(0,-2600,-50,370);
+			ch[421] = -2600;
+			ch[422] = -50;
+			ch[423] = 370;
+			KaguTest(30010,0);
+			Camera(-1,0,0,0);
+			Wait(5);
+			Walk(0,-5,20);
+			KaguTest(30057,0);
+			Wait(5);
+			KaguTest2(10012,0,"home.mmv");
+			Black(0,0,15);
+			Wait(15);
+			MMV("home.mmv");
+			KaguTest2(10012,1,"home.mmv");
+			TekiStop(0);
+			MapEvent(1);
+			ch[1760] = c;
+			return 0;
+		}
+	}
+	if (a == 1)
+	{
+		ch[50] = ch[445];
+		if (ch[50] == 1)
+		{
+			MapEvent(0);
+			KaguTest(99998,0);
+			Event(501);
+			ch[1760] = c;
+			KaguTest(40001,111);
+			Black(0,100,0);
+			if (!ch[1543])
+			{
+				Mouse(0);
+				PlayMovie("isk_1_1.txt",0);
+				KaguTest2(10013,0,"mp_110.nod");
+				Black(0,100,0);
+				Wait(5);
+				Walk(0,5,1);
+				KaguTest(30057,0);
+				Mouse(1);
+				CharPos(19,-200000,0,0);
+				Black(0,0,30);
+				ch[1543] = 1;
+				Wait(15);
+				Walk(0,5,1);
+				KaguTest(30057,0);
+				TekiStop(0);
+				MapEvent(1);
+				return 0;
+			}
+			TekiStop(1);
+			Black(0,0,15);
+			Walk(0,5,20);
+			KaguTest(30057,0);
+			Wait(20);
+			TekiStop(0);
+			MapEvent(1);
+			return 0;
+		}
+		if (ch[50] == 2)
+		{
+			MapEvent(0);
+			KaguTest(99998,0);
+			Event(512);
+			TekiStop(1);
+			ch[1760] = c;
+			KaguTest(40001,102);
+			Black(0,100,0);
+			if (!ch[2504])
+			{
+				ch[2504] = 1;
+				Mouse(0);
+				PlayMovie("isk_2_1.txt",0);
+				Mouse(1);
+				Black(0,100,0);
+				Wait(5);
+				Black(0,0,15);
+				Walk(0,5,1);
+				KaguTest(30057,0);
+				Wait(1);
+				TekiStop(0);
+				MapEvent(1);
+				return 0;
+			}
+			Black(0,0,15);
+			Walk(0,5,20);
+			KaguTest(30057,0);
+			Wait(20);
+			TekiStop(0);
+			MapEvent(1);
+			return 0;
+		}
+		if (ch[50] == 3)
+		{
+			MapEvent(0);
+			KaguTest(99998,0);
+			Event(511);
+			ch[1760] = c;
+			KaguTest(40001,105);
+			Black(0,100,0);
+			if (!ch[2505])
+			{
+				ch[2505] = 1;
+				Mouse(0);
+				PlayMovie("isk_3_1.txt",0);
+				KaguTest2(10013,0,"mp_109.nod");
+				Mouse(1);
+				CharPos(17,-200000,0,0);
+				Black(0,100,0);
+				KaguTest(10600,ch[1107]-2260);
+				KaguTest2(10012,0,StageMMV(ch[420]));
+				Wait(5);
+				Black(0,0,15);
+				Walk(0,5,1);
+				KaguTest(30057,0);
+				Wait(1);
+				KaguTest(10600,ch[1107]-2260);
+				MMV(StageMMV(ch[420]));
+				KaguTest2(10012,1,StageMMV(ch[420]));
+				MapEvent(1);
+				return 0;
+			}
+			KaguTest(10600,ch[1107]-2260);
+			KaguTest2(10012,0,StageMMV(ch[420]));
+			Black(0,0,15);
+			Walk(0,5,20);
+			KaguTest(30057,0);
+			Wait(20);
+			KaguTest(10600,ch[1107]-2260);
+			MMV(StageMMV(ch[420]));
+			KaguTest2(10012,1,StageMMV(ch[420]));
+			MapEvent(1);
+			return 0;
+		}
+		if (ch[50] == 4)
+		{
+			MapEvent(0);
+			ch[2497] = 1;
+			KaguTest(99998,0);
+			Event(1511);
+			TekiStop(1);
+			Black(0,100,0);
+			if (!ch[2625])
+			{
+				ch[2625] = 1;
+				CharPos(0,0,850,0);
+			}
+			Black(0,0,15);
+			ch[1760] = c;
+			KaguTest(40001,1102);
+			Walk(0,-5,20);
+			KaguTest(30057,0);
+			Wait(20);
+			TekiStop(0);
+			MapEvent(1);
+			return 0;
+		}
+		if (ch[50] == 5)
+		{
+			MapEvent(0);
+			ch[2497] = 1;
+			KaguTest(99998,0);
+			Event(1501);
+			Black(0,100,0);
+			TekiStop(1);
+			Black(0,0,15);
+			ch[1760] = c;
+			KaguTest(40001,1112);
+			Walk(0,-5,20);
+			KaguTest(30057,0);
+			Wait(20);
+			TekiStop(0);
+			MapEvent(1);
+			return 0;
+		}
+	}
+	if (a == 2)
+	{
+		ch[50] = ch[445] - 5;
+		if (ch[50] == 1)
+		{
+			MapEvent(0);
+			KaguTest(99998,0);
+			Event(502);
+			Black(0,100,0);
+			TekiStop(1);
+			ch[1760] = c;
+			KaguTest(40001,501);
+			if (!ch[2506])
+			{
+				ch[2506] = 1;
+				Mouse(0);
+				PlayMovie("mri_1_1.txt",0);
+				KaguTest2(10013,0,"mp_501.nod");
+				Black(0,100,0);
+				Mouse(1);
+				CharPos(18,-200000,0,0);
+				Wait(5);
+				Black(0,0,15);
+				Walk(0,5,1);
+				KaguTest(30057,0);
+				Wait(1);
+				TekiStop(0);
+				MapEvent(1);
+				return 0;
+			}
+			Black(0,0,15);
+			Walk(0,5,20);
+			KaguTest(30057,0);
+			Wait(20);
+			TekiStop(0);
+			MapEvent(1);
+			return 0;
+		}
+		if (ch[50] == 2)
+		{			
+			MapEvent(0);
+			KaguTest(99998,0);
+			Event(521);
+			MapEvent(0);
+			Black(0,100,0);
+			ch[1760] = c;
+			KaguTest(40001,503);
+			if (!ch[2507])
+			{
+				ch[2507] = 1;
+				Mouse(0);
+				PlayMovie("mri_2_1.txt",0);
+				KaguTest2(10013,0,"mp_507.nod");
+				Mouse(1);
+				KaguTest(20031,1);
+				ch[420] = 0;
+				KaguTest(20045,ch[421]);
+				CharPos(19,-200000,0,0);
+				Black(0,100,0);
+				Wait(5);
+				Black(0,0,15);
+				Walk(0,8,1);
+				KaguTest(30057,0);
+				Wait(1);
+				TekiStop(0);
+				MapEvent(1);
+				return 0;
+			}
+			Black(0,0,15);
+			Walk(0,8,15);
+			KaguTest(30057,0);
+			KaguTest(20031,1);
+			ch[420] = 0;
+			KaguTest(20045,ch[421]);
+			Wait(15);
+			MapEvent(1);
+			return 0;
+		}
+		if (ch[50] == 3)
+		{			
+			MapEvent(0);
+			KaguTest(99998,0);
+			Event(522);
+			ch[1760] = c;
+			Black(0,100,0);
+			KaguTest(40001,505);
+			if (!ch[2508])
+			{
+				ch[2508] = 1;
+				Mouse(0);
+				PlayMovie("mri_3_1.txt",0);
+				KaguTest2(10013,0,"mp_506.nod");
+				Mouse(1);
+				CharPos(12,-200000,0,0);
+				Black(0,100,0);
+				KaguTest(10600,ch[1107]-2260);
+				KaguTest2(10012,0,StageMMV(ch[420]));
+				Wait(5);
+				Black(0,0,15);
+				Walk(0,8,1);
+				KaguTest(30057,0);
+				Wait(1);
+				KaguTest(10600,ch[1107]-2260);
+				MMV(StageMMV(ch[420]));
+				KaguTest2(10012,1,StageMMV(ch[420]));
+				TekiStop(0);
+				MapEvent(1);
+				return 0;
+			}
+			Walk(0,8,15);
+			KaguTest(30057,0);
+			KaguTest(10600,ch[1107]-2260);
+			KaguTest2(10012,0,StageMMV(ch[420]));
+			Black(0,0,15);
+			Wait(15);
+			KaguTest(10600,ch[1107]-2260);
+			MMV(StageMMV(ch[420]));
+			KaguTest2(10012,1,StageMMV(ch[420]));
+			MapEvent(1);
+			return 0;
+		}
+		if (ch[50] == 4)
+		{
+			MapEvent(0);
+			ch[2497] = 1;
+			KaguTest(99998,0);
+			Event(1502);
+			Black(0,100,0);
+			MapEvent(0);
+			if (!ch[2627])
+			{
+				LoadMap(506);
+				CharPos(0,0,1075,0);
+				ch[2627] = 1;
+			}
+			Black(0,0,15);
+			ch[1760] = c;
+			KaguTest(40001,1504);
+			Walk(0,-8,15);
+			KaguTest(30057,0);
+			Wait(15);
+			MapEvent(1);
+			return 0;
+		}
+		if (ch[50] == 5)
+		{
+			MapEvent(0);
+			ch[2497] = 1;
+			KaguTest(99998,0);
+			Event(1521);
+			MapEvent(0);
+			Black(0,100,0);
+			Black(0,0,15);
+			ch[1760] = c;
+			KaguTest(40001,1502);
+			Walk(0,-8,15);
+			KaguTest(30057,0);
+			Wait(15);
+			MapEvent(1);
+			return 0;
+		}
+	}
+	if (a == 3)
+	{
+		ch[50] = ch[445] - 10;
+		if (ch[50] == 1)
+		{
+			MapEvent(0);
+			KaguTest(99998,0);
+			Event(503);
+			Black(0,100,0);
+			ch[1760] = c;
+			TekiStop(1);
+			KaguTest(40001,201);
+			if (!ch[2514])
+			{
+				Mouse(0);
+				PlayMovie("dkt_1_1.txt",0);
+				Mouse(1);
+				ch[2514] = 1;
+				LoadMap(208);
+				Black(0,100,0);
+				Wait(5);
+				Black(0,0,15);
+				Walk(-5,0,1);
+				KaguTest(30057,0);
+				Wait(1);
+				TekiStop(0);
+				MapEvent(1);
+				return 0;
+			}
+			Black(0,0,15);
+			Walk(-5,0,20);
+			KaguTest(30057,0);
+			Wait(20);
+			TekiStop(0);
+			MapEvent(1);
+			return 0;
+		}
+		if (ch[50] == 2)
+		{
+			if (ch[2498] > 990)
+			{
+				ch[2498] = 990;
+			}
+			MapEvent(0);
+			KaguTest(99998,0);
+			Event(531);
+			ch[1760] = c;
+			Black(0,100,0);
+			KaguTest(40001,203);
+			if (!ch[2518])
+			{
+				Mouse(0);
+				PlayMovie("dkt_2_1.txt",0);
+				KaguTest2(10013,0,"mp_211.nod");
+				ch[420] = 216;
+				ch[421] = -111;
+				ch[422] = 10;
+				ch[423] = 90;
+				ch[424] = -30;
+				KaguTest2(30020,0,"O_028but.it3");
+				Black(0,100,0);
+				Wait(5);
+				Black(0,0,15);
+				Walk(0,5,1);
+				KaguTest(30057,0);
+				Mouse(1);
+			}
+			else
+			{
+				ch[420] = 216;
+				ch[421] = -111;
+				ch[422] = 10;
+				ch[423] = 90;
+				ch[424] = -30;
+				KaguTest2(30020,0,"O_028but.it3");
+			}
+			ch[102] = 1;
+			if (!ch[2518])
+			{
+				ch[2518] = 1;
+				Black(0,100,0);
+				Wait(5);
+				Black(0,0,15);
+				Walk(0,5,1);
+				KaguTest(30057,0);
+				Wait(15);
+				TekiStop(0);
+				MapEvent(1);
+				return 0;
+			}
+			Walk(0,5,15);
+			KaguTest(30057,0);
+			Black(0,0,15);
+			Wait(15);
+			MapEvent(1);
+			return 0;
+		}
+		if (ch[50] == 3)
+		{			
+			MapEvent(0);
+			KaguTest(99998,0);
+			Event(532);
+			Camera(-1,0,0,0);
+			Black(0,100,0);
+			ch[1760] = c;
+			KaguTest(40001,206);
+			if (!ch[2519])
+			{
+				Mouse(0);
+				PlayMovie("dkt_3_1.txt",0);
+				Mouse(1);
+				CharPos(17,-200000,0,0);
+				Black(0,100,0);
+				KaguTest(10600,ch[1107]-2260);
+				KaguTest2(10012,0,StageMMV(ch[420]));
+				Wait(5);
+				Black(0,0,15);
+				Walk(-1,0,15);
+				KaguTest(30057,0);
+				KaguTest(10600,ch[1107]-2260);
+				MMV(StageMMV(ch[420]));
+				KaguTest2(10012,1,StageMMV(ch[420]));
+				ch[2519] = 1;
+				MapEvent(1);
+				return 0;
+			}
+			KaguTest(10600,ch[1107]-2260);
+			KaguTest2(10012,0,StageMMV(ch[420]));
+			Black(0,0,15);
+			Walk(-5,0,15);
+			KaguTest(30057,0);
+			Wait(15);
+			KaguTest(10600,ch[1107]-2260);
+			MMV(StageMMV(ch[420]));
+			KaguTest2(10012,1,StageMMV(ch[420]));
+			MapEvent(1);
+			return 0;
+		}
+		if (ch[50] == 4)
+		{
+			MapEvent(0);
+			ch[2497] = 1;
+			KaguTest(99998,0);
+			Event(1503);
+			Black(0,100,0);
+			ch[1760] = c;
+			if (!ch[2629])
+			{
+				LoadMap(210);
+				CharPos(0,1200,0,0);
+				ch[2629] = 1;
+			}
+			KaguTest(40001,1205);
+			Walk(-5,0,15);
+			KaguTest(30057,0);
+			Black(0,0,15);
+			Wait(15);
+			MapEvent(1);
+			return 0;
+		}
+		if (ch[50] == 5)
+		{
+			MapEvent(0);
+			ch[2497] = 1;
+			KaguTest(99998,0);
+			Event(1531);
+			ch[1760] = c;
+			Black(0,100,0);
+			KaguTest(40001,1202);
+			Walk(0,-5,15);
+			KaguTest(30057,0);
+			Black(0,0,15);
+			Wait(15);
+			MapEvent(1);
+			return 0;
+		}
+	}
+	if (a == 4)
+	{
+		ch[50] = ch[445] - 15;
+		if (ch[50] == 1)
+		{
+			MapEvent(0);
+			KaguTest(99998,0);
+			if (ch[2520] || !ch[2527])
+			{
+				Event(506);
+				Event(301);
+			}
+			Black(0,100,0);
+			KaguTest2(30014,0,"@stopper");
+			KaguTest2(30014,3,"@CAstopperA");
+			ch[1760] = c;
+			KaguTest(40001,601);
+			if (!ch[2520] && ch[2527])
+			{
+				ch[3981] = 1;
+				Mouse(0);
+				PlayMovie("yam_1_1.txt",0);
+				Black(0,100,0);
+				Mouse(1);
+				ch[3981] = 0;
+				CharPos(19,-200000,0,0);
+				CharPos(17,-200000,0,0);
+				TekiStop(1);
+//				LoadMap(601);
+//				Event(350);
+				PostScr(1027);
+				return 0;
+			}
+			Black(0,0,15);
+			Walk(-5,0,20);
+			KaguTest(30057,0);
+			Wait(20);
+			TekiStop(1);
+			MapEvent(1);
+			TekiStop(0);
+			Wait(5);
+			TekiStop(1);
+			return 0;
+		}
+		if (ch[50] == 2)
+		{
+			MapEvent(0);
+			KaguTest(99998,0);
+			Event(561);
+			if (ch[2533])
+			{
+				Event(156);
+			}
+			else
+			{
+				Event(155);
+			}
+			ch[1760] = c;
+			Black(0,100,0);
+			KaguTest(40001,604);
+			if (!ch[2521])
+			{
+				Mouse(0);
+				PlayMovie("yam_2_1.txt",0);
+				KaguTest2(10013,0,"mp_607.nod");
+				KaguTest(60005,0);
+				KaguTest(60005,17);
+				Black(0,100,0);
+				Wait(5);
+				Black(0,0,15);
+				Walk(0,-5,1);
+				KaguTest(30057,0);
+				Mouse(1);
+				Black(0,0,15);
+				Wait(15);
+				ch[2521] = 1;
+				MapEvent(1);
+				return 0;
+			}
+			if (ch[2521] && !ch[2534])
+			{
+				KaguTest(20050,0);
+			}
+			Walk(0,-5,15);
+			KaguTest(30057,0);
+			if (!ch[2533] && ch[2534])
+			{
+				ch[2533] = 1;
+				ch[420] = 250;
+				ch[421] = -150;
+				KaguTest(30070,14);
+				ch[400] = 114;
+				ch[420] = 100;
+				KaguTest(30103,14);
+				PostScr(1152);
+			}
+			Black(0,0,15);
+			Wait(15);
+			MapEvent(1);
+			return 0;
+		}
+		if (ch[50] == 3)
+		{			
+			MapEvent(0);
+			KaguTest(99998,0);
+			Event(562);
+			ch[1760] = c;
+			Black(0,100,0);
+			KaguTest(40001,606);
+			if (!ch[2535])
+			{
+				Mouse(0);
+				PlayMovie("yam_3_1.txt",0);
+				KaguTest2(10013,0,"mp_606.nod");
+				Black(0,100,0);
+				Wait(5);
+				Black(0,0,15);
+				KaguTest(30057,0);
+				Mouse(1);
+				CharPos(12,-200000,0,0);
+				ch[2535] = 1;
+			}
+			Walk(0,5,15);
+			KaguTest(30057,0);
+			KaguTest(10600,ch[1107]-2260);
+			KaguTest2(10012,0,StageMMV(ch[420]));
+			Black(0,0,15);
+			Wait(15);
+			KaguTest(10600,ch[1107]-2260);
+			MMV(StageMMV(ch[420]));
+			KaguTest2(10012,1,StageMMV(ch[420]));
+			MapEvent(1);
+			return 0;
+		}
+		if (ch[50] == 4)
+		{
+			MapEvent(0);
+			ch[2497] = 1;
+			KaguTest(99998,0);
+			Event(1506);
+			ch[1760] = c;
+			Black(0,100,0);
+			if (!ch[2631])
+			{
+				ch[2631] = 1;
+			}
+			KaguTest(40001,1605);
+			Walk(0,-5,15);
+			KaguTest(30057,0);
+			Black(0,0,15);
+			Wait(15);
+			MapEvent(1);
+			return 0;
+		}
+		if (ch[50] == 5)
+		{
+			MapEvent(0);
+			ch[2497] = 1;
+			KaguTest(99998,0);
+			Event(1561);
+			Event(155);
+			ch[1760] = c;
+			Black(0,100,0);
+			KaguTest(40001,1603);
+			Walk(0,5,15);
+			KaguTest(30057,0);
+			Black(0,0,15);
+			Wait(15);
+			MapEvent(1);
+			return 0;
+		}
+	}
+	if (a == 5)
+	{
+		ch[50] = ch[445] - 20;
+		if (ch[50] == 1)
+		{
+			MapEvent(0);
+			KaguTest(99998,0);
+			Event(505);
+			Black(0,100,0);
+			TekiStop(1);
+			ch[1760] = c;
+			KaguTest(40001,301);
+			if (!ch[2536])
+			{
+				Mouse(0);
+				PlayMovie("kdo_1_1.txt",0);
+				Mouse(1);
+				ch[2536] = 1;
+				CharPos(17,-200000,0,0);
+				Black(0,100,0);
+				KaguTest(10600,ch[1107]-2260);
+				KaguTest2(10012,0,StageMMV(ch[420]));
+				Wait(5);
+				Black(0,0,15);
+				Walk(0,5,5);
+				KaguTest(30057,0);
+				Wait(5);
+				KaguTest(10600,ch[1107]-2260);
+				MMV(StageMMV(ch[420]));
+				KaguTest2(10012,1,StageMMV(ch[420]));
+				TekiStop(0);
+				MapEvent(1);
+				return 0;
+			}
+			Black(0,0,15);
+			Walk(0,5,20);
+			KaguTest(30057,0);
+			Wait(20);
+			TekiStop(0);
+			MapEvent(1);
+			return 0;
+		}
+		if (ch[50] == 2)
+		{
+			MapEvent(0);
+			KaguTest(99998,0);
+			Event(551);
+			ch[1760] = c;
+			Black(0,100,0);
+			KaguTest(40001,304);
+			if (!ch[2537])
+			{
+				Mouse(0);
+				PlayMovie("kdo_2_1.txt",0);
+				KaguTest2(10013,0,"mp_311.nod");
+				Mouse(1);
+				LoadMap(311);
+				ch[2537] = 1;
+				CharPos(17,-200000,0,0);
+				CharPos(19,-200000,0,0);
+				Black(0,100,0);
+				KaguTest(10600,ch[1107]-2260);
+				KaguTest2(10012,0,StageMMV(ch[420]));
+				Wait(5);
+				Black(0,0,15);
+				Walk(5,0,5);
+				KaguTest(30057,0);
+				Wait(5);
+				KaguTest(10600,ch[1107]-2260);
+				MMV(StageMMV(ch[420]));
+				KaguTest2(10012,1,StageMMV(ch[420]));
+				TekiStop(0);
+				MapEvent(1);
+				return 0;
+			}
+			Walk(5,0,15);
+			KaguTest(30057,0);
+			Black(0,0,15);
+			Wait(15);
+			MapEvent(1);
+			return 0;
+		}
+		if (ch[50] == 3)
+		{			
+			MapEvent(0);
+			KaguTest(99998,0);
+			Event(552);
+			ch[1760] = c;
+			Black(0,100,0);
+			KaguTest(40001,306);
+			if (!ch[2538])
+			{
+				Mouse(0);
+				PlayMovie("kdo_3_1.txt",0);
+				Mouse(1);
+				ch[2538] = 1;
+				LoadMap(310);
+				Black(0,100,0);
+				Wait(5);
+				Black(0,0,15);
+				Walk(5,0,5);
+				KaguTest(30057,0);
+				Wait(5);
+				TekiStop(0);
+				MapEvent(1);
+				return 0;
+			}
+			if (ch[2540])
+			{
+				KaguTest2(30014,0,"@crroot");
+			}
+			Walk(5,0,15);
+			KaguTest(30057,0);
+			Black(0,0,15);
+			Wait(15);
+			MapEvent(1);
+			return 0;
+		}
+		if (ch[50] == 4)
+		{
+			MapEvent(0);
+			ch[2497] = 1;
+			KaguTest(99998,0);
+			Event(1505);
+			ch[1760] = c;
+			Black(0,100,0);
+			ch[2633] = 1;
+			KaguTest(40001,1305);
+			Walk(5,0,15);
+			KaguTest(30057,0);
+			Black(0,0,15);
+			Wait(15);
+			MapEvent(1);
+			KaguTest2(30014,0,"@crroot");
+			return 0;
+		}
+		if (ch[50] == 5)
+		{
+			MapEvent(0);
+			ch[2497] = 1;
+			KaguTest(99998,0);
+			Event(1551);
+			Walk(5,0,15);
+			ch[1760] = c;
+			Black(0,100,0);
+			KaguTest(40001,1302);
+			KaguTest(30057,0);
+			Black(0,0,15);
+			Wait(15);
+			MapEvent(1);
+			return 0;
+		}
+		if (ch[50] == 6)
+		{			
+			MapEvent(0);
+			KaguTest(99998,0);
+			ch[2497] = 1;
+			Event(1552);
+			ch[1760] = c;
+			Black(0,100,0);
+			KaguTest(40001,1308);
+			Walk(0,5,15);
+			KaguTest(30057,0);
+			KaguTest(10600,ch[1107]-2260);
+			KaguTest2(10012,0,StageMMV(ch[420]));
+			Black(0,0,15);
+			Wait(15);
+			KaguTest(10600,ch[1107]-2260);
+			MMV(StageMMV(ch[420]));
+			KaguTest2(10012,1,StageMMV(ch[420]));
+			MapEvent(1);
+			return 0;
+		}
+		if (ch[50] == 7)
+		{			
+			MapEvent(0);
+			KaguTest(99998,0);
+			Event(553);
+			ch[1760] = c;
+			Black(0,100,0);
+			KaguTest(40001,307);
+			Walk(-5,0,15);
+			KaguTest(30057,0);
+			KaguTest(10600,ch[1107]-2260);
+			KaguTest2(10012,0,StageMMV(ch[420]));
+			Black(0,0,15);
+			Wait(15);
+			KaguTest(10600,ch[1107]-2260);
+			MMV(StageMMV(ch[420]));
+			KaguTest2(10012,1,StageMMV(ch[420]));
+			MapEvent(1);
+			return 0;
+		}
+	}
+	if (a == 6)
+	{
+		ch[50] = ch[445] - 27;
+		ch[2497] = 0;
+		if (ch[50] == 1)
+		{
+			MapEvent(0);
+			KaguTest(99998,0);
+			Event(571);
+			Black(0,100,0);
+			TekiStop(1);
+			KaguTest(10600,ch[1107]-2260);
+			KaguTest2(10012,0,StageMMV(ch[420]));
+			Black(0,0,15);
+			ch[1760] = c;
+			KaguTest(40001,21);
+			Walk(-5,0,20);
+			KaguTest(30057,0);
+			Wait(20);
+			KaguTest(10600,ch[1107]-2260);
+			MMV(StageMMV(ch[420]));
+			KaguTest2(10012,1,StageMMV(ch[420]));
+			TekiStop(0);
+			MapEvent(1);
+			return 0;
+		}
+		if (ch[50] == 2)
+		{
+			MapEvent(0);
+			KaguTest(99998,0);
+			Event(572);
+			Black(0,100,0);
+			TekiStop(1);
+			KaguTest(10600,ch[1107]-2260);
+			KaguTest2(10012,0,StageMMV(ch[420]));
+			Black(0,0,15);
+			ch[1760] = c;
+			KaguTest(40001,22);
+			if (!ch[2534])
+			{
+				ch[400] = 114;
+				ch[420] = 1000;
+				ch[421] = -635;
+				KaguTest(30070,14);
+				ch[420] = 2;
+				ch[421] = 1;
+				ch[422] = 5;
+				KaguTest(12003,14);
+			}
+			Walk(0,5,20);
+			KaguTest(30057,0);
+			Wait(20);
+			KaguTest(10600,ch[1107]-2260);
+			MMV(StageMMV(ch[420]));
+			KaguTest2(10012,1,StageMMV(ch[420]));
+			TekiStop(0);
+			MapEvent(1);
+			return 0;
+		}
+		if (ch[50] == 3)
+		{
+			MapEvent(0);
+			KaguTest(99998,0);
+			Event(573);
+			Black(0,100,0);
+			KaguTest(10600,ch[1107]-2260);
+			KaguTest2(10012,0,StageMMV(ch[420]));
+			Black(0,0,15);
+			ch[1760] = c;
+			KaguTest(40001,23);
+			Walk(0,5,20);
+			KaguTest(30057,0);
+			Wait(20);
+			KaguTest(10600,ch[1107]-2260);
+			MMV(StageMMV(ch[420]));
+			KaguTest2(10012,1,StageMMV(ch[420]));
+			MapEvent(1);
+			return 0;
+		}
+		if (ch[50] == 4)
+		{
+			MapEvent(0);
+			KaguTest(99998,0);
+			Event(574);
+			Black(0,100,0);
+			TekiStop(1);
+			ch[1760] = c;
+			KaguTest(40001,24);
+			if (ch[1538] && !ch[2546])
+			{
+				int tobu;
+				KaguTest(99993,0);
+				if (ch[420] || ch[421] || ch[422])
+				{
+					tobu = 1;
+				}
+				else
+				{
+					tobu = 0;
+				}
+				ch[2546] = 1;
+				Mouse(0);
+				ch[1759] = 0;
+				KaguTest(20065,-1);
+				PlayMovie("EP_2.txt",tobu);
+				TekiStop(0);
+				MapEvent(1);
+//				LoadMapB(999);
+				KaguTest(99985,0);
+				PostScr(930);
+				return 0;
+			}
+			Walk(-5,0,20);
+			KaguTest(30057,0);
+			KaguTest(10600,ch[1107]-2260);
+			KaguTest2(10012,0,StageMMV(ch[420]));
+			Black(0,0,15);
+			Wait(20);
+			KaguTest(10600,ch[1107]-2260);
+			MMV(StageMMV(ch[420]));
+			KaguTest2(10012,1,StageMMV(ch[420]));
+			TekiStop(0);
+			MapEvent(1);
+			return 0;
+		}
+		if (ch[50] == 5)
+		{
+			MapEvent(0);
+			KaguTest(99998,0);
+			Event(575);
+			Black(0,100,0);
+			int x;
+			int y;
+			int z;
+			GetCharPos(58,x,y,z);
+			if (x > -20000)
+			{
+				ch[420] = 2;
+				KaguTest(12005,58);
+				ch[420] = 98;
+				KaguTest(12002,58);
+				ch[420] = 0;
+				KaguTest(12009,58);
+				ch[420] = 58;
+				ch[421] = 15;
+				KaguTest(20044,40);
+				ch[421] = 2;
+				KaguTest(20044,8);
+			}
+			GetCharPos(59,x,y,z);
+			if (x > -20000)
+			{
+				ch[420] = 2;
+				KaguTest(12005,59);
+				ch[420] = 98;
+				KaguTest(12002,59);
+				ch[420] = 0;
+				KaguTest(12009,59);
+				ch[420] = 59;
+				ch[421] = 15;
+				KaguTest(20044,40);
+				ch[421] = 2;
+				KaguTest(20044,8);
+			}
+			TekiStop(1);
+			Black(0,0,15);
+			KaguTest(10600,ch[1107]-2260);
+			KaguTest2(10012,0,StageMMV(ch[420]));
+			ch[1760] = c;
+			KaguTest(40001,25);
+			Walk(0,5,20);
+			KaguTest(30057,0);
+			Wait(20);
+			KaguTest(10600,ch[1107]-2260);
+			MMV(StageMMV(ch[420]));
+			KaguTest2(10012,1,StageMMV(ch[420]));
+			TekiStop(0);
+			MapEvent(1);
+			return 0;
+		}
+		if (ch[50] == 6)
+		{
+			MapEvent(0);
+			KaguTest(99998,0);
+			Event(576);
+			KaguTest(10600,ch[1107]-2260);
+			KaguTest2(10012,0,StageMMV(ch[420]));
+			Black(0,100,0);
+			int x;
+			int y;
+			int z;
+			GetCharPos(58,x,y,z);
+			if (x > -20000)
+			{
+				ch[420] = 2;
+				KaguTest(12005,58);
+				ch[420] = 98;
+				KaguTest(12002,58);
+				ch[420] = 0;
+				KaguTest(12009,58);
+				ch[420] = 58;
+				ch[421] = 15;
+				KaguTest(20044,40);
+				ch[421] = 2;
+				KaguTest(20044,6);
+			}
+			GetCharPos(59,x,y,z);
+			if (x > -20000)
+			{
+				ch[420] = 2;
+				KaguTest(12005,59);
+				ch[420] = 98;
+				KaguTest(12002,59);
+				ch[420] = 0;
+				KaguTest(12009,59);
+				ch[420] = 59;
+				ch[421] = 15;
+				KaguTest(20044,40);
+				ch[421] = 2;
+				KaguTest(20044,0);
+			}
+			GetCharPos(60,x,y,z);
+			if (x > -20000)
+			{
+				ch[420] = 2;
+				KaguTest(12005,60);
+				ch[420] = 98;
+				KaguTest(12002,60);
+				ch[420] = 0;
+				KaguTest(12009,60);
+				ch[420] = 60;
+				ch[421] = 15;
+				KaguTest(20044,40);
+				ch[421] = 2;
+				KaguTest(20044,4);
+			}
+			TekiStop(1);
+			Black(0,0,15);
+			ch[1760] = c;
+			KaguTest(40001,26);
+			if (ch[2056])
+			{
+				Walk(0,5,20);
+				KaguTest(30057,0);
+				Wait(20);
+			}
+			else
+			{
+				Walk(0,5,1);
+				KaguTest(30057,0);
+			}
+			if (!ch[2056])
+			{
+				PostScr(1451);
+				return 0;
+			}
+			KaguTest(10600,ch[1107]-2260);
+			MMV(StageMMV(ch[420]));
+			KaguTest2(10012,1,StageMMV(ch[420]));
+			TekiStop(0);
+			MapEvent(1);
+			return 0;
+		}
+		if (ch[50] == 7)
+		{
+			MapEvent(0);
+			KaguTest(99998,0);
+			Event(577);
+			Black(0,100,0);
+			int x;
+			int y;
+			int z;
+			GetCharPos(60,x,y,z);
+			if (x > -20000)
+			{
+				ch[420] = 2;
+				KaguTest(12005,60);
+				ch[420] = 22;
+				KaguTest(12002,60);
+			}
+			TekiStop(1);
+			Black(0,0,15);
+			KaguTest(10600,ch[1107]-2260);
+			KaguTest2(10012,0,StageMMV(ch[420]));
+			ch[1760] = c;
+			KaguTest(40001,27);
+			Walk(0,5,20);
+			KaguTest(30057,0);
+			Wait(20);
+			KaguTest(10600,ch[1107]-2260);
+			MMV(StageMMV(ch[420]));
+			KaguTest2(10012,1,StageMMV(ch[420]));
+			TekiStop(0);
+			MapEvent(1);
+			return 0;
+		}
+	}
+	return 0;
+}
+ 

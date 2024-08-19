@@ -1,0 +1,189 @@
+
+int main()
+{
+	int qnuke;
+	qnuke = 0;
+
+	ch[400] = 58;
+	if (ch[2007] && !ch[2018])
+	{
+		// クエスト中
+		ch[400] = 58;
+		if (ch[2002])
+		{
+			// のぞきクエスト
+			ch[420] = ch[2006];
+			KaguTest(20043,8);
+//			if (!ch[420])
+			{
+				ch[420] = ch[2006];
+				KaguTest(20052,8);
+				ch[2006] = ch[420];
+
+				//番犬プチ
+				Message(58,"Ruff ruff!","","","");
+
+				//パリン
+				Message(0,"Ruff?","","","");
+
+				//番犬プチ
+				Message(58,"Ruff!","","","");
+			}
+			
+			if (ch[2003] == 2 && ch[2006] == 15)
+			{
+				// ファン以外の全員から話を聞いた
+				ch[2003] = 3;
+			}
+		}
+		if (ch[2010])
+		{
+			// ビラ貼りクエスト中
+			qnuke = 1;
+		}
+		if (ch[2020])
+		{
+			// プラチナメダルクエスト中
+			qnuke = 1;
+		}
+		
+		if (!qnuke)
+		{
+			ch[400] = -1;
+			return 0;
+		}
+	}
+
+//	if (ch[2018])
+	if (ch[2501] != 6)
+	{
+		// わらしべクエスト中
+		KaguTest(20001,31);
+		if (ch[430])
+		{
+			//番犬プチ
+			Message(58,"Grrrr... Ruff!!","","","");
+
+			//パリン
+			Message(0,"You want to fight?","","","");
+			Message(0,"Maybe you'd like","to taste my special","Parin Kick, huh?","");
+
+			//番犬プチ
+			Message(58,"Whine...","","","");
+
+			//パリン
+			Message(0,"No?","","","");
+			Message(0,"I bet you'd rather taste","this Rump Steak.","Huh boy?","");
+
+			//番犬プチ
+			Message(58,"Arf!","","","");
+
+			//パリン
+			Message(0,"So we're friends now?","Here you go boy.","","");
+
+			//番犬プチ
+			Message(58,"Arrrf!!","","","");
+
+			//パリン
+			Message(0,"What's this? A present?","What good manners!","Such a good boy!","");
+
+			//システム
+			Mes("You got a ~Gold Coin.~");
+			KaguTest(20022,32);
+			KaguTest(20002,31);
+			GetItem(32);
+			Wait(60);
+			ch[400] = -1;
+			return 0;
+		}
+	}
+
+	if (!ch[2552])
+	{
+		//引越し後 !ch[2552]
+		Message(58,"Ruff ruff!","","","");
+		Message(0,"Ruff.","","","");
+		ch[420] = 13;
+		ch[429] = 1;
+		KaguTest(30036,58);
+		ch[420] = 13;
+		KaguTest(30036,0);
+	}
+	if (ch[2552] && !ch[1545])
+	{
+		//兄たま誘拐後 !ch[1545]
+		Message(58,"Grrrrrrrr...","","","");
+		Message(0,"Cranky, are we?","","","");
+		ch[420] = 9;
+		ch[429] = 1;
+		KaguTest(30036,58);
+	}
+	if (ch[1545] && !ch[2330])
+	{
+		//王子と四天王登場後 !ch[2330]
+		Message(58,"Grrrrrrrr...","","","");
+		Message(0,"Cranky, are we?","","","");
+		ch[420] = 9;
+		ch[429] = 1;
+		KaguTest(30036,58);
+	}
+	if (ch[2330] && !ch[507])
+	{
+		//襲撃後・３オバケ発見後 !ch[507]
+		Message(58,"Grrrrrrrr...","","","");
+		Message(0,"Still cranky?","","","");
+	}
+	if (ch[507] && !ch[1542])
+	{
+		//ボブー戦終了後 !ch[1542]
+		Message(58,"Ruff?","","","");
+		Message(0,"Ruff?","","","");
+		ch[420] = 8;
+		ch[429] = 1;
+		KaguTest(30036,58);
+	}
+	if (ch[1542] && !ch[1505])
+	{
+		//モスビー戦終了後 !ch[1505]
+		Message(58,"Ruff ruff.","","","");
+		Message(0,"Ruff.","","","");
+	}
+	if (ch[1505] && !ch[1513])
+	{
+		//ラッシー戦終了後(ホーム復興イベント) !ch[1513]
+		Message(58,"Ruff.","","","");
+		Message(0,"In a better mood now?","","","");
+		ch[420] = 7;
+		ch[429] = 1;
+		KaguTest(30036,58);
+	}
+	if (ch[1513] && !ch[1571])
+	{
+		//クリーム戦終了後 !ch[1571]
+		Message(58,"Ruff.","","","");
+		Message(0,"Ruff.","","","");
+		ch[420] = 7;
+		ch[429] = 1;
+		KaguTest(30036,58);
+		ch[420] = 7;
+		ch[429] = 1;
+		KaguTest(30036,0);
+	}
+	if (ch[1571] && !ch[1538])
+	{
+		//王子戦終了後 !ch[1538]
+		Message(58,"Ruff ruff.","","","");
+		Message(0,"Ruff.","","","");
+		ch[420] = 13;
+		ch[429] = 1;
+		KaguTest(30036,58);
+		ch[420] = 13;
+		KaguTest(30036,0);
+	}
+	if (ch[1538])
+	{
+		//仲直り後 ch[1538]
+		// この時点では街にこれない
+	}
+	ch[400] = -1;
+}

@@ -1,0 +1,271 @@
+
+int main()
+{
+	int go;
+	int best;
+	int syokai;
+	string str;
+	go = 0;
+	best = 0;
+	syokai = 0;
+
+	// ホイッスル
+	SE(548);
+	ch[3982] = 0;
+	Wait(60);
+	Black(0,100,30);
+	Wait(30);
+	ch[2144] = 0;
+	ch[2497] = 0;
+	LoadMap(23);
+	KaguTest2(10010,0,"minigm");
+	CharPos(0,0,-150,0);
+	Camera(4,345,775,370);
+	Look(0,4);
+	Look(4,0);
+	Look(2,0);
+	Look(1,0);
+	CrossFade();
+	Wait(15);
+	Camera(-1,0,0,0);
+	Black(0,0,30);
+	Wait(30);
+	
+	ch[2061] = 0;
+	
+	int gonum;
+	if (ch[455] == 1)
+	{
+		// ビギナー
+		gonum = 40;
+	}
+	if (ch[455] == 0)
+	{
+		// ノーマル
+		gonum = 50;
+	}
+	if (ch[455] == 2)
+	{
+		// ハード以上
+		gonum = 60;
+	}
+
+	if (ch[2313] < gonum)
+	{
+		// 過去に合格していない
+		go = 1;
+	}
+	if (ch[2145] > ch[2313] - 1 && ch[2313] > 0)
+	{
+		// 自己ベスト
+		best = 1;
+	}
+	if (ch[2313] == 0)
+	{
+		syokai = 1;
+	}
+	if (ch[2145] > ch[2313] - 1)
+	{
+		ch[2313] = ch[2145] + 1;
+	}
+	
+	ch[400] = 4;
+	
+	if (!ch[2526])
+	{
+		if (ch[2145] >= gonum)
+		{
+			// イベントミニゲーム時
+			ch[400] = 4;
+			ch[2290] = 1;
+
+			//パリン
+			Message(0,"Not bad, huh?","","","");
+			//ペケ
+			Message(4,"Heh, you really surprised","me there kid.","","");
+			Message(4,"I haven't had that","much fun in a while.","","");
+			//パリン
+			Message(0,"So you'll sponsor","the rebuilding?","","");
+			//ペケ
+			Message(4,"Ah, what the heck.","","","");
+			Message(4,"I'll get over to that","Monster Village now and","let everyone know.","");
+			
+			ch[400] = 104;
+
+			ch[2526] = 1;
+
+			KaguTest(30005,0);
+			Camera(4,ch[421],ch[422],ch[423]);
+			KaguTest(30062,0);
+			ch[420] = 4;
+			KaguTest(30063,0);
+			ch[400] = 104;
+			ch[424] = 0;
+			ch[425] = -1875;
+			ch[420] = 1;
+			ch[426] = 12;
+			KaguTest(30060,4);
+			Walk2(4,ch[421] * 2,ch[422] * 2,ch[423] / 2);
+			Wait((ch[423] / 2) - 15);
+			Camera(-1,0,0,0);
+			ch[420] = 3;
+			KaguTest(30064,4);
+			Wait(15);
+			CharPos(4,-200000,0,0);
+			KaguTest(30063,-1);
+		}
+		else
+		{
+			//ペケ
+			ch[400] = 4;
+			Message(4,"Disappointing...","","","");
+			Message(4,"I am not entertained.","Not entertained at all!","","");
+		}
+
+		ch[400] = -1;
+		return 0;
+	}
+
+	if (ch[2145] >= gonum && go)
+	{
+		// 初合格
+		str = "You whacked " + ch[2145] + " moles.";
+		ch[400] = 4;
+		Message(4,"Congratulations, kid. You pass.",str,"","");
+		ch[400] = -1;
+		return 0;
+	}
+	if (go && best)
+	{
+		// 合格ならず。しかし、自己ベスト
+		str = "You only whacked " + ch[2145] + " moles.";
+		ch[400] = 4;
+		Message(4,"A bit better than last time.","But still not good enough.","","");
+		Message(4,str,"","","");
+		Message(0,"Are you even trying?","","","");
+		ch[400] = -1;
+		return 0;
+	}
+	if (go)
+	{
+		// 合格ならず。しかも、自己ベストでもない
+		str = "You only whacked " + ch[2145] + " moles.";
+		ch[400] = 4;
+		Message(4,"So sad...",str,"","");
+		Message(0,"I guess I should practice.","","","");
+		ch[400] = -1;
+		return 0;
+	}
+	if (best)
+	{
+		// 既に合格済み。自己ベスト
+		if(ch[2145] > 99)
+		{
+			// 鬼だべ
+			Message(0,"Yay!","I beat my old record!","","");
+			ch[400] = 4;
+			Message(4,"Superlative.","I was moved, kid.","","");
+			str = "You whacked " + ch[2145] + " moles.";
+			Message(4,str,"Heh, you really gave","him a run for his money.","");
+			if (!ch[2314])
+			{
+				Message(4,"You're the first to score","this high. And I'm","duly impressed, kid.","");
+				Message(4,"Take this Gold Medal.","You've earned it.","","");
+				Mes("You got a ~Gold Medal.~");
+				ch[2290] = 2;
+				KaguTest(20022,79);
+				GetItem(79);
+				Wait(90);
+				
+				if (ch[2145] > 99 && !ch[2642])
+				{
+//					Message(4,"さらに、１００回以上叩いてるから","今度から商品を割引してあげるんダナ","","");
+					ch[2642] = 1;
+				}
+				
+				Message(0,"Thanks.","","","");
+				ch[400] = -1;
+				ch[2314] = 1;
+			}
+			else
+			{
+				Message(4,"You're the only one that","ever scores this high.","You've got something, kid.","");
+				Message(4,"This time, a Silver Medal.","","","");
+				KaguTest(20022,76);
+				GetItem(76);
+				Wait(90);
+				if (ch[2145] > 99 && !ch[2642])
+				{
+//					Message(4,"さらに、１００回以上叩いてるから","今度から商品を割引してあげるんダナ","","");
+					ch[2642] = 1;
+				}
+				Message(0,"Thanks.","","","");
+				ch[400] = -1;
+			}
+			return 0;
+		}
+		Message(0,"Yay!","I beat my old record!","","");
+		ch[400] = 4;
+		str = "You whacked " + ch[2145] + " moles.";
+		Message(4,"Superlative.",str,"","");
+		Message(4,"Those lousy Phantoms won't be","a match for ya, right?","","");
+		Message(0,"Them? No problem!","","","");
+		ch[400] = -1;
+
+		return 0;
+	}
+
+	// 合格済み。自己ベストではない
+	if(ch[2145] > 99)
+	{
+		// 鬼だべ
+		ch[400] = 4;
+		Message(4,"Superlative.","I was moved, kid.","","");
+		str = "You whacked " + ch[2145] + " moles.";
+		Message(4,str,"Heh, you really gave","him a run for his money.","");
+		if (!ch[2314])
+		{
+			Message(4,"You're the first to score","this high. And I'm","duly impressed, kid.","");
+			Message(4,"Take this Gold Medal.","You've earned it.","","");
+			Mes("You got a ~Gold Medal.~");
+			ch[2290] = 2;
+			KaguTest(20022,79);
+			GetItem(79);
+			Wait(90);
+			if (ch[2145] > 99 && !ch[2642])
+			{
+//				Message(4,"さらに、１００回以上叩いてるから","今度から商品を割引してあげるんダナ","","");
+				ch[2642] = 1;
+			}
+			Message(0,"Thanks.","","","");
+			ch[400] = -1;
+			ch[2314] = 1;
+		}
+		else
+		{
+			Message(4,"You're the only one that","ever scored this high.","You've got something, kid.","");
+			Message(4,"Heck, you're usually even","better. Scary actually.","","");
+			Message(4,"This time, a Bronze Medal.","","","");
+			KaguTest(20022,77);
+			GetItem(77);
+			Wait(90);
+			if (ch[2145] > 99 && !ch[2642])
+			{
+//				Message(4,"さらに、１００回以上叩いてるから","今度から商品を割引してあげるんダナ","","");
+				ch[2642] = 1;
+			}
+			Message(0,"Thanks.","","","");
+			ch[400] = -1;
+		}
+		return 0;
+	}
+
+	// 鬼じゃない
+	str = "" + ch[2145] + " moles.";
+	ch[400] = 4;
+	Message(4,"Next time, get them even quicker!",str,"","");
+	Message(4,"Not your day today, eh?","","","");
+	Message(0,"I'll show you next time!","","","");
+	ch[400] = -1;
+	return 0;
+}

@@ -1,0 +1,5 @@
+
+int main()
+{
+	Message(0,"Why on earth would someone","want this in their house?","","");
+}

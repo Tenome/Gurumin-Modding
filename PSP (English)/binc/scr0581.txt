@@ -1,0 +1,71 @@
+
+int main()
+{
+	TekiStop(1);
+	Wait(45);
+	ch[420] = -143;
+	ch[421] = 2085;
+	ch[422] = 310;
+	ch[423] = -166;
+	ch[424] = 3119;
+	ch[425] = -42;
+	KaguTest(30019,1);
+	CrossFade();
+	ch[420] = 15;
+	ch[429] = 1;
+	KaguTest(30036,0);
+	Wait(15);
+
+	ch[420] = 100000;
+	ch[427] = 3;
+	KaguTest(30015,1);
+	int c;
+	int pt[5];
+	int i;
+	KaguTest(30025,2);
+	c = ch[420];
+	// ID3‚Í•\¦”Ô†“¯‚¶‚É‚·‚é
+//	ch[420] = 1;
+//	KaguTest(30051,c+3);
+//	KaguTest(30051,c+4);
+	for (i = 0;i < 3;i++)
+	{
+		KaguTest(12004,c+i);
+		pt[i] = ch[420];
+		KaguTest(12000,c+i);
+	}
+	Wait(15);
+	ch[420] = 100000;
+	KaguTest(30015,2);
+	Wait(15);
+//	KaguTest(30015,3);
+//	Wait(15);
+	ch[420] = 9;
+	ch[429] = 1;
+	KaguTest(30036,c);
+	KaguTest(30036,c+1);
+	KaguTest(30036,c+2);
+//	KaguTest(30036,c+3);
+//	KaguTest(30036,c+4);
+	Wait(30);
+	for (i = 0;i < 3;i++)
+	{
+		ch[420] = pt[i];
+		KaguTest(12002,c+i);
+		ch[420] = 3;
+		KaguTest(12005,c+i);
+	}
+
+	KaguTest(30019,0);
+	CrossFade();
+	Wait(15);
+	ch[100] = 1;
+	TekiStop(0);
+
+	ch[420] = 1;
+	ch[421] = 1;
+	ch[422] = 1;
+	KaguTest(30090,c);
+	KaguTest(30090,c+1);
+}
+ 

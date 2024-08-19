@@ -1,0 +1,16 @@
+
+int main()
+{
+	Look(63,0);
+	Message(63,"..............","","","");
+	Message(0,"What?","","","");
+	Message(63,"1 person at first.","","","");
+	Message(0,"Hm?","","","");
+	Message(63,"Then 2 people 6 months later.","","","");
+	Message(0,"?","","","");
+	Message(63,"And 3 people 6 months after that.","","","");
+	Message(0,"?","","","");
+	Message(63,"Then 5 people 5 months before master.","","","");
+	Message(0,"Oh I see! You're talking about","The Gurumin PC team right?","","");
+	Look(63,18);
+}

@@ -1,0 +1,8 @@
+
+int main()
+{
+	Message(0,"Something is written here.","","","");
+	Message(0,"~Fear not lightning in deep caves.","Yours, M.~","","");
+	Message(0,"What could it mean?","","","");
+}
+ 

@@ -1,0 +1,241 @@
+
+int main()
+{
+	if (ch[2316])
+	{
+		ch[2316] = 0;
+		PostScr(1156);
+		return 0;
+	}
+
+	int go;
+	int best;
+	int syokai;
+	string str;
+	go = 0;
+	best = 0;
+	syokai = 0;
+
+	// ホイッスル
+	SE(548);
+	ch[3982] = 0;
+	Wait(60);
+	Black(0,100,30);
+	Wait(30);
+	ch[2144] = 0;
+	ch[2497] = 0;
+	LoadMap(21);
+	KaguTest2(10010,0,"minigm");
+	CharPos(0,0,600,-150);
+	Camera(2,1050,600,220);
+	Look(0,2);
+	Look(2,0);
+	Look(1,0);
+	CrossFade();
+	Wait(15);
+	Camera(-1,0,0,0);
+	Black(0,0,30);
+	Wait(30);
+	
+	ch[2061] = 0;
+
+	if (ch[2143] < 27)
+	{
+		// 過去に合格していない
+		go = 1;
+	}
+	if (ch[2145] > ch[2143] - 1 && ch[2143] > 0)
+	{
+		// 自己ベスト
+		best = 1;
+	}
+	if (ch[2145] > ch[2143] - 1)
+	{
+		ch[2143] = ch[2145] + 1;
+	}
+	
+	if (ch[2145] > 25 && go)
+	{
+		// 初合格
+		str = "" + ch[2145] + " to " + (50 - ch[2145]) + ", your win.";
+		ch[400] = 2;
+		ch[2288] = 1;
+		Message(2,"Congratulations!",str,"","");
+		
+		if (!ch[2509])
+		{
+			//モグレヌ
+			Message(2,"What a showdown!","","","");
+			Message(2,"As I promised little lady,","I'll crush that stone.","","");
+			//パリン
+			Message(0,"Hey... if I can beat you,","then why go to you for help?","","");
+			//モグレヌ
+			Message(2,"You're fast, little lady.","But I'm more powerful, ya hear?","","");
+			Message(2,"I'm leavin' right now.","Meet you at the cave.","","");
+			// 岩を壊しに行く
+			KaguTest(30005,0);
+			Camera(2,ch[421],ch[422],ch[423]);
+			KaguTest(30062,0);
+			ch[420] = 2;
+			KaguTest(30063,0); // パリンはモグレヌをみつめる
+			ch[400] = 102;
+			ch[424] = 700;
+			ch[425] = 600;
+			ch[420] = 1;
+			ch[426] = 12;
+			KaguTest(30060,2);
+			Walk2(2,ch[421]*2,ch[422]*2,ch[423]/2);
+			Wait(ch[423]/2);
+			KaguTest(30061,0);
+			ch[424] = 1750;
+			ch[425] = 600;
+			ch[420] = 1;
+			ch[426] = 12;
+			KaguTest(30060,2);
+			if (ch[423] - 15 < 1)
+			{
+				ch[423] = 1;
+			}
+			Walk2(2,ch[421]*2,ch[422]*2,ch[423] / 2);
+			Wait((ch[423] / 2) - 15);
+			ch[420] = 3;
+			KaguTest(30064,2);
+			Wait(25);
+			Camera(-1,0,0,0);
+			CharPos(2,-200000,0,0);
+			KaguTest(30063,-1,);	
+			ch[400] = -1;
+			ch[2509] = 1;
+			return 0;
+		}
+		ch[400] = -1;
+		return 0;
+	}
+	if (!ch[2509] && go)
+	{
+		if (ch[2145] == 25)
+		{
+			// 同点だべ
+			str = "" + ch[2145] + " to " + (50 - ch[2145]) + ", it's a tie.";
+			//モグレヌ
+			Message(2,str,"","","");
+			Message(2,"A draw? You didn't","really beat me did ya!","","");
+			Message(2,"Better try again.","","","");
+		}
+		else
+		{
+			str = "" + ch[2145] + " to " + (50 - ch[2145]) + ", my win.";
+			//モグレヌ
+			Message(2,str,"","","");
+			Message(2,"If you want to rival me,","you've got to work harder.","","");
+			Message(2,"Better try again.","","","");
+		}
+		ch[400] = -1;
+		return 0;
+	}
+	
+	if (go && best)
+	{
+		// 合格ならず。しかし、自己ベスト
+		if(ch[2145] == 25)
+		{
+			str = "" + ch[2145] + " to " + (50 - ch[2145]) + ", it's a tie.";
+		}
+		else
+		{
+			str = "" + ch[2145] + " to " + (50 - ch[2145]) + ", my win.";
+		}
+		ch[400] = 2;
+		
+		Message(2,"Better than before,","but not good enough.","","");
+		Message(2,str,"","","");
+		Message(0,"You should practice.","","","");
+		ch[400] = -1;
+		return 0;
+	}
+	if (go)
+	{
+		// 合格ならず。しかも、自己ベストでもない
+		if(ch[2145] == 25)
+		{
+			str = "" + ch[2145] + " to " + (50 - ch[2145]) + ", it's a tie.";
+		}
+		else
+		{
+			str = "" + ch[2145] + " to " + (50 - ch[2145]) + ", my win.";
+		}
+		ch[400] = 2;
+		Message(2,"Too bad.",str,"","");
+		if (syokai)
+		{
+			Message(2,"The first time'll get ya!","","","");
+		}
+		else
+		{
+			Message(2,"What? Worse than before?","","","");
+		}
+		Message(0,"I guess I need practice...","","","");
+		ch[400] = -1;
+		return 0;
+	}
+	if (best)
+	{
+		// 既に合格済み。自己ベスト
+		if(ch[2145] > 34)
+		{
+			// 鬼だべ
+			Message(0,"Yay!","I broke my record!","","");
+			ch[400] = 2;
+			Message(2,"Wasn't that something!","Sure you aren't a mole?","","");
+			str = "" + ch[2145] + " to " + (50 - ch[2145]) + ", you beat me good!";
+			Message(2,str,"You're inhuman, little lady!","","");
+			ch[400] = -1;
+			ch[2146] = 1;
+			return 0;
+		}
+		Message(0,"Yay!","I broke my record!","","");
+		ch[400] = 2;
+		str = "" + ch[2145] + " to " + (50 - ch[2145]) + ", your win.";
+		Message(2,"Simply amazing!",str,"","");
+		Message(2,"At this rate, you'll smash","those Phantoms!","","");
+		Message(0,"Leave it to me!","","","");
+		ch[400] = -1;
+
+		return 0;
+	}
+
+	// 合格済み。自己ベストではない
+	if(ch[2145] > 34)
+	{
+		// 鬼だべ
+		ch[400] = 2;
+		Message(2,"Wasn't that something!","Sure you aren't a mole?","","");
+		str = "" + ch[2145] + " to " + (50 - ch[2145]) + ", you beat me good!";
+		Message(2,str,"You're inhuman, little lady!","","");
+		ch[2146] = 1;
+		return 0;
+	}
+
+	// 鬼じゃない
+	if (ch[2145] > 24)
+	{
+		if (ch[2145] == 25)
+		{
+			str = "This time it was " + ch[2145] + " to " + (50 - ch[2145]) + ", a tie.";
+		}
+		else
+		{
+			str = "This time it was " + ch[2145] + " to " + (50 - ch[2145]) + ", your win.";
+		}
+	}
+	else
+	{
+		str = "This time it was " + ch[2145] + " to " + (50 - ch[2145]) + ", my win.";
+	}
+	ch[400] = 2;
+	Message(2,str,"","","");
+	Message(2,"Ain't the best results...","","","");
+	Message(0,"I'll do better next time.","","","");
+	ch[400] = -1;
+	return 0;
+}

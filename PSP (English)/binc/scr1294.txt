@@ -1,0 +1,10 @@
+
+int main()
+{
+	KaguTest(10006,0);//”­Œ¾‰Šú‰»
+	
+	KaguTest2(10008,0,"Someone was spying on me!?");
+	KaguTest2(10008,1,"I'll find them and make them pay!");
+	
+	KaguTest(10012,0);
+}

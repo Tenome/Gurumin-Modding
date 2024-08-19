@@ -1,0 +1,342 @@
+
+int main()
+{
+	int kagu;	// 配置する家具
+	int scr;
+	int norcam;
+	int over;
+	int map;
+	string iname;
+	iname = "You got a ~Cookie.~";
+	kagu = 4;
+	scr = 0;
+	norcam = 0;
+	over = 0;
+
+	KaguTest(20010,0);
+
+	if (ch[420] >= 200 && ch[420] < 400)
+	{
+		kagu = 5;
+		iname = "You got a ~Chocolate.~";
+	}
+	if (ch[420] >= 600 && ch[420] < 700)
+	{
+		kagu = 5;
+		iname = "You got a ~Chocolate.~";
+	}
+	map = ch[420];
+	
+	switch(ch[420])
+	{
+	case 115:
+		scr = 1209;
+		if (!ch[1539])
+		{
+			kagu = 49;
+			iname = "You got a ~Potted Plant.~";
+			ch[1539] = 1;
+		}
+		break;
+	case 116:
+		if (ch[2497])
+		{
+			scr = 31;
+			if (!ch[2276])
+			{
+				kagu = 60;
+				iname = "You got a ~Table.~";
+			}
+		}
+		else
+		{
+			scr = 36;
+			if (!ch[2260])
+			{
+				kagu = 74;
+				iname = "You got a ~Boombox.~";
+			}
+		}
+		break;
+	case 110:
+		scr = 19;
+		if (!ch[2287])
+		{
+			kagu = 73;
+			iname = "You got a ~Phonograph.~";
+		}
+		break;
+	case 508:
+		norcam = 1;
+		if (ch[2497])
+		{
+			scr = 903;
+			if (!ch[2278])
+			{
+				kagu = 78;
+				iname = "You got a ~Goldfish.~";
+			}
+		}
+		else
+		{
+			scr = 897;
+			if (!ch[2262])
+			{
+				kagu = 63;
+				iname = "You got a ~Couch.~";
+			}
+		}
+		break;
+	case 509:
+		norcam = 1;
+		if (ch[2497])
+		{
+			scr = 898;
+			if (!ch[2277])
+			{
+				kagu = 59;
+				iname = "You got a ~Bookshelf.~";
+			}
+		}
+		else
+		{
+			scr = 901;
+			if (!ch[2271])
+			{
+				kagu = 68;
+				iname = "You got a ~Shoebox.~";
+			}
+		}
+		break;
+	case 212:
+		if (ch[2497])
+		{
+			scr = 934;
+			if (!ch[2280])
+			{
+				kagu = 71;
+				iname = "You got a ~Toy Car.~";
+			}
+		}
+		else
+		{
+			scr = 504;
+			if (!ch[2264])
+			{
+				kagu = 69;
+				iname = "You got a ~Hat Rack.~";
+			}
+		}
+		break;
+	case 213:
+		if (ch[2497])
+		{
+			scr = 505;
+			if (!ch[2279])
+			{
+				kagu = 67;
+				iname = "You got a ~Umbrella Box.~";
+			}
+		}
+		else
+		{
+			scr = 510;
+			if (!ch[2273])
+			{
+				kagu = 58;
+				iname = "You got a ~Low Table.~";
+			}
+		}
+		break;
+	case 611:
+		if (ch[2497])
+		{
+			scr = 981;
+			if (!ch[2281])
+			{
+				kagu = 75;
+				iname = "You got a ~Stereo.~";
+			}
+		}
+		else
+		{
+			scr = 950;
+			if (!ch[2266])
+			{
+				kagu = 50;
+				iname = "You got a ~Statue.~";
+			}
+		}
+		break;
+	case 612:
+		if (ch[2497])
+		{
+			scr = 953;
+			if (!ch[2282])
+			{
+				kagu = 66;
+				iname = "You got a ~Fancy Shelf.~";
+			}
+		}
+		else
+		{
+			scr = 952;
+			if (!ch[2272])
+			{
+				kagu = 65;
+				iname = "You got a ~Dresser.~";
+			}
+		}
+		break;
+	case 313:
+		if (ch[2497])
+		{
+			scr = 513;
+			if (!ch[2284])
+			{
+				kagu = 72;
+				iname = "You got a ~Teddy Bear.~";
+			}
+		}
+		else
+		{
+			scr = 518;
+			if (!ch[2268])
+			{
+				kagu = 70;
+				iname = "You got a ~Ducky.~";
+			}
+		}
+		break;
+	case 314:
+		if (ch[2497])
+		{
+			scr = 519;
+			if (!ch[2283])
+			{
+				kagu = 51;
+				iname = "You got an ~Old Scroll.~";
+			}
+		}
+		else
+		{
+			scr = 522;
+			if (!ch[2269])
+			{
+				kagu = 64;
+				iname = "You got a ~Cedar Chest.~";
+			}
+		}
+		break;
+	case 105: // ボスサップ
+		scr = 50;
+		if (!ch[507])
+		{
+			kagu = 16;
+			iname = "You got a ~Life Gem.~";
+		}
+		break;
+	case 505: // モスビー
+		scr = 947;
+		if (!ch[1542])
+		{
+			kagu = 16;
+			iname = "You got a ~Life Gem.~";
+		}
+		break;
+	case 206: // ラッシー
+		scr = 405;
+		if (!ch[1505])
+		{
+			kagu = 16;
+			iname = "You got a ~Life Gem.~";
+		}
+		break;
+	case 606:
+		scr = 412;
+		if (!ch[2267])
+		{
+//			GetItem(49);
+			kagu = 16;
+			iname = "You got a ~Life Gem.~";
+		}
+		break;
+	case 306: // ロッキー
+		scr = 1145;
+		if (!ch[1571])
+		{
+			kagu = 16;
+			iname = "You got a ~Life Gem.~";
+		}
+		break;
+	}
+	KaguTest(20040,1887);
+	ch[420] = 0;
+	ch[421] = 0;
+	ch[422] = 0;
+	ch[423] = 0;
+	ch[424] = 0;
+	ch[425] = 0;
+	if (norcam)
+	{
+		KaguTest(30102,1);
+	}
+	else
+	{
+		KaguTest(30102,0);
+	}
+	KaguTest(30019,10);
+
+	WaitD(0);
+	if (kagu)
+	{
+		KaguTest(20022,kagu);
+		if (map != 306 || ch[1571])
+		{
+			BGM(0);
+		}
+		KaguTest(20037,0);
+		Mes(iname);
+//		if (kagu == 16)
+//		{
+//			Wait(90);
+//			Mes("ＨＰの最大値が１０上がった");
+//			KaguTest(20002,16);
+//			KaguTest(20032,0);
+//		}
+//		else
+//		{
+			KaguTest(20001,kagu);
+			if (kagu != 16 && ch[430] > 2)
+			{
+				over = 1;
+			}
+
+			GetItem(kagu);
+//		}
+
+		if (over)
+		{
+			Wait(30);
+			Mes("I can't carry any more.");
+			Wait(45);
+		}
+		else
+		{
+			Wait(45);
+		}
+	}
+	int count;
+	count = 0;
+	ch[420] = 0;
+	while(!ch[420] && count < 5)
+	{
+		KaguTest(30101,0);
+		Wait(15);
+		count++;
+	}
+	KaguTest(20025,0);
+	KaguTest(30085,0);
+	
+	PostScr(scr);
+}

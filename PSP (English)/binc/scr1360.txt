@@ -1,0 +1,6 @@
+
+int main()
+{
+	Message(0,"Hey! Look at this...","A disguise kit!","","");
+	Message(0,"I've got to get one of these!","","","");
+}

@@ -1,0 +1,61 @@
+
+int main()
+{
+	ch[400] = 58;
+	ch[258]++;
+	if (ch[1538])
+	{
+		// エピローグ
+		//ラッシー
+		if (ch[258] < 2)
+		{
+			//ラッシー
+			Message(58,"A good thing we knew the","location of that dimensional door.","","");
+			Message(58,"Hmph! We could have","been wandering in that","Great Fang for decades!","");
+			Message(58,"Be grateful!","","","");
+			Message(58,"...But you defeated","Tokaron just in time to","save our skins.","");
+		}
+		else
+		{
+			//ラッシー
+			Message(58,"A good thing we knew the","location of that dimensional door.","","");
+			Message(58,"Hmph! We could have","been wandering in that","Great Fang for decades!","");
+		}
+		ch[400] = -1;
+		return 0;
+	}
+
+	if (ch[1571] && !ch[1538])
+	{
+		//ラッシー
+		Message(58,"The Prince and I?","We make a cute couple, you say?","","");
+		Message(58,"Oh Mosby!","You DO know your stuff!","","");
+	}	
+	if (ch[1513] && !ch[1571])
+	{
+		if (ch[258] < 2)
+		{
+			//ラッシー
+			Message(58,"He's telling the world I'm","beautiful, a work of art!","","");
+			Message(58,"Mosby, Mosby!","You're making me blush!","Of course, you're right!","");
+
+			//パリン
+			Message(0,"..............","","","");
+
+			//ラッシー
+			Message(58,"...What?","","","");
+		}
+		else
+		{
+			//ラッシー
+			Message(58,"He's telling the world I'm","beautiful, a work of art!","","");
+		}
+	}
+	if (!ch[1513])
+	{
+		Message(58,"I can speak Mosby's","language, you know.","","");
+		Message(58,"If you need a translation,","just come on by.","","");
+	}
+
+	ch[400] = -1;
+}

@@ -1,0 +1,59 @@
+
+int main()
+{
+	// ³‰ğ‚µ‚½
+	int a;
+	if (ch[2050] && ch[302] != 42 && ch[302] != 38)
+	{
+		// ‘Ê–Ú
+		return 0;
+	}
+	a = 0;
+	if (ch[2050])
+	{
+		// Šù‚É”à‚ ‚¢‚Ä‚é
+		a = 1;
+	}
+	
+	SaveCamera();
+
+	WaitD(0);
+	Camera(58,0,-205,370);
+	CrossFade();
+	SE(950);
+	if (ch[302] == 42 || ch[302] == 38)
+	{
+		// ”š€‚³‚¹‚½
+		if (ch[2050])
+		{
+			//”Ôl
+			Message(58,"Beautiful! ","Float like a butterfly!","Sting like a bee!","");
+		}
+		else
+		{
+			//”Ôl
+			Message(58,"Oooh!!","","","");
+			Message(58,"Excellent. What we'd expect","from the heir of the drill.","","");
+			Message(58,"I shall open the door.","Take care.","","");
+		}
+		ch[2050] = 2;
+	}
+	else
+	{
+		// •KE‹Z‚Å“|‚µ‚½
+		//”Ôl
+		Message(58,"Hmm... you would benefit","from further training.","","");
+		Message(58,"A true heir of the drill","would be more skilled.","","");
+		Message(58,"No matter. I will open the door.","","","");
+		ch[2050] = 1;
+	}
+	if (!a)
+	{
+		Event(302);
+		Wait(30);
+	}
+	
+	Camera(-1,0,0,0);
+	RestoreCamera();
+	CrossFade();
+}

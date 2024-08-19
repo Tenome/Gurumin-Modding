@@ -1,0 +1,160 @@
+
+int main()
+{
+	int c;
+	int pt;
+	
+	MapEvent(0);
+	ch[420] = 9999;
+	KaguTest2(30003,2,"tekiatari1");
+	
+	TekiStop(1);
+
+	SaveCamera();
+	
+	// パリンは直進
+	Walk(0,-3,135);
+	ch[429] = 0;
+	KaguTest(30039,0);
+	
+	//敵発生
+	KaguTest(30017,60);
+	ch[420] = 100000;
+	ch[427] = 7;
+	KaguTest(30015,50);
+	KaguTest(30025,50);
+	c = ch[420];
+	ch[420] = -1;
+	ch[421] = -1;
+	KaguTest(30131,c);
+	ch[420] = 0;
+	KaguTest(30063,c);
+	KaguTest(12004,c);
+	pt = ch[420];
+	KaguTest(12000,c);
+	KaguTest(30030,c);
+	ch[420] = 1;
+	KaguTest(30097,c);
+	ch[420] = 0;
+	KaguTest(30103,c);
+	ch[420] = -1;
+	KaguTest(30064,c);
+	Wait(1);
+
+	// カメラをキャラ視点に
+//	if (1)
+//	{
+		ch[420] = c;
+		ch[421] = 0;
+		ch[422] = -13;
+		KaguTest(30094,0);
+		KaguTest(30019,16);
+		Camera(c,0,500,600);
+		CrossFade();
+		Wait(30);
+//	}
+//	else
+//	{
+//		ch[420] = 327;
+//		ch[421] = 345;
+//		ch[422] = 718;
+//		ch[423] = -442;
+//		ch[424] = 2756;
+//		ch[425] = -4;
+//		KaguTest(30019,1);
+//		CrossFade();
+//		Wait(30);
+//	}
+	// キャラの背後に移動
+	Walk2(c,10,0,30);
+	ch[420] = 0;
+	ch[421] = 1;
+	ch[422] = 5;
+	KaguTest(12003,c);
+	Wait(30);
+	ch[420] = 2;
+	KaguTest(12003,c);
+	Wait(15);
+	Walk2(c,10,0,22);
+	ch[420] = 0;
+	KaguTest(12003,c);
+	Wait(22);
+	ch[420] = 2;
+	KaguTest(12003,c);
+	Wait(25);
+	// 飛び掛る
+	Walk2(c,1,-40,80);
+	ch[429] = 0;
+	KaguTest(30039,0);
+	ch[420] = 9;
+	ch[421] = 1;
+	ch[422] = 5;
+	KaguTest(12003,c);
+	Wait(5);
+
+	ch[421] = 12;
+	ch[422] = 1;
+	KaguTest(30037,c);
+	Wait(10);
+
+	// 注視するキャラ交代
+	ch[420] = 15;
+	ch[429] = 1;
+	KaguTest(30036,0);
+	ch[420] = c;
+	KaguTest(30063,0);
+	KaguTest(12007,c);
+
+	Look(c,0);
+	Wait(10);
+	Look(c,0);
+	ch[421] = 42;
+	ch[422] = 1;
+	KaguTest(30037,c);
+	Wait(20);
+	// カメラセット
+	ch[420] = 47;
+	ch[421] = 2491;
+	ch[422] = 488;
+	ch[423] = -4;
+	ch[424] = 327;
+	ch[425] = -129;
+	KaguTest(30019,1);
+	Camera(-1,0,0,0);
+	CrossFade();
+	Look(c,0);
+	Wait(5);
+	ch[420] = 2;
+	KaguTest(30064,c);
+	Look(c,0);
+	ch[421] = 42;
+	ch[422] = 1;
+	KaguTest(30037,c);
+	Wait(25);
+	Look(c,0);
+	ch[420] = 10;
+	ch[421] = 1;
+	ch[422] = 5;
+	KaguTest(12003,c);
+
+	KaguTest(30063,-1);
+	KaguTest(12007,-1);
+	Event(305);
+//	Wait(20);
+
+	// 後始末
+	KaguTest(30019,0);
+	ch[420] = 3;
+	KaguTest(12005,c);
+	ch[420] = pt;
+	KaguTest(12002,c);
+	ch[420] = 0;
+	KaguTest(30097,c);
+	ch[420] = 3;
+	ch[421] = 3;
+	KaguTest(30131,c);
+
+	TekiStop(0);
+	MapEvent(1);
+}
+ 

@@ -1,0 +1,5 @@
+
+int main()
+{
+	Message(0,"This seems big enough","even for Rocko to get in.","","");
+}

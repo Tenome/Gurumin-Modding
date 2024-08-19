@@ -1,0 +1,8 @@
+
+int main()
+{
+	Message(0,"What a weird wall.","Is it part of the ruins...?","","");
+	Message(0,"And what are these","small letters here...","","");
+	Message(0,"~Gama gama gama?~","","","");
+	Message(0,"I don't get it.","","","");
+}

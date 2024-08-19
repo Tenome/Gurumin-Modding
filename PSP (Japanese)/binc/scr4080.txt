@@ -1,0 +1,223 @@
+
+int main()
+{
+	ch[49] = 0;
+	// マップ選べる
+	ch[50] = 0;
+	ch[51] = 0;
+	SelStart(50);
+	SelText("その他",6);
+	SelText("ポテト遺跡",1);
+	SelText("森",2);
+	SelText("洞窟",3);
+	SelText("山",4);
+	SelText("エッグプラント",5);
+	SelText("７番地",7);
+	SelEnd();
+
+	if (ch[50] == 0)
+	{
+		return 0;
+	}
+	if (ch[50] == 1)
+	{
+		// 遺跡
+		SelStart(51);
+		SelText("102",102);
+		SelText("103",103);
+		SelText("104",104);
+		SelText("105",105);
+		SelText("106",106);
+		SelText("107",107);
+		SelText("108",108);
+		SelText("109",109);
+		SelText("110",110);
+		SelText("111",111);
+		SelText("112",112);
+		SelText("113",113);
+		SelText("114",114);
+		SelText("115",115);
+		SelText("116",116);
+		SelEnd();
+	}
+	if (ch[50] == 2)
+	{
+		// 森
+		SelStart(51);
+		SelText("501",501);
+		SelText("502",502);
+		SelText("503",503);
+		SelText("504",504);
+		SelText("505",505);
+		SelText("506",506);
+		SelText("507",507);
+		SelText("508",508);
+		SelText("509",509);
+		SelText("510",510);
+		SelText("511",511);
+		SelText("512",512);
+		SelText("513",513);
+		SelText("514",514);
+		SelText("515",515);
+		SelEnd();
+	}
+	if (ch[50] == 3)
+	{
+		// 洞窟
+		SelStart(51);
+		SelText("201",201);
+		SelText("202",202);
+		SelText("203",203);
+		SelText("204",204);
+		SelText("205",205);
+		SelText("206",206);
+		SelText("207",207);
+		SelText("208",208);
+		SelText("209",209);
+		SelText("210",210);
+		SelText("211",211);
+		SelText("212",212);
+		SelText("213",213);
+		SelText("214",214);
+		SelText("215",215);
+		SelEnd();
+	}
+	if (ch[50] == 4)
+	{
+		// 山
+		SelStart(51);
+		SelText("601",601);
+		SelText("602",602);
+		SelText("603",603);
+		SelText("604",604);
+		SelText("605",605);
+		SelText("606",606);
+		SelText("607",607);
+		SelText("608",608);
+		SelText("609",609);
+		SelText("610",610);
+		SelText("611",611);
+		SelText("612",612);
+		SelText("613",613);
+		SelText("614",614);
+		SelText("615",615);
+		SelEnd();
+	}
+	if (ch[50] == 5)
+	{
+		// エッグ
+		SelStart(51);
+		SelText("301",301);
+		SelText("302",302);
+		SelText("303",303);
+		SelText("304",304);
+		SelText("305",305);
+		SelText("306",306);
+		SelText("307",307);
+		SelText("308",308);
+		SelText("309",309);
+		SelText("310",310);
+		SelText("311",311);
+		SelText("312",312);
+		SelText("313",313);
+		SelText("314",314);
+		SelText("315",315);
+		SelEnd();
+	}
+	if (ch[50] == 6)
+	{
+		// そのほか
+		SelStart(51);
+		SelText("2",2);
+		SelText("3",3);
+		SelText("4",4);
+		SelText("5",5);
+		SelText("6",6);
+		SelText("12",12);
+		SelText("21",21);
+		SelText("22",22);
+		SelText("23",23);
+		SelText("24",24);
+		SelText("25",25);
+		SelText("26",26);
+		SelText("27",27);
+		SelText("28",28);
+		SelText("401",401);
+		SelText("999",999);
+		SelText("998",998);
+		SelText("997",997);
+		SelText("996",996);
+		SelText("995",995);
+		SelText("994",994);
+		SelText("993",993);
+		SelText("992",992);
+		SelText("991",991);
+		SelEnd();
+	}
+	if (ch[50] == 7)
+	{
+		// ７番地
+		SelStart(51);
+		SelText("701",701);
+		SelText("702",702);
+		SelText("703",703);
+		SelText("704",704);
+		SelText("705",705);
+		SelText("706",706);
+		SelText("707",707);
+		SelText("708",708);
+		SelText("709",709);
+		SelText("710",710);
+		SelText("711",711);
+		SelText("712",712);
+		SelText("713",713);
+		SelText("714",714);
+		SelText("715",715);
+		SelEnd();
+	}
+
+	if (ch[51] == 0)
+	{
+		return 0;
+	}
+
+	ch[50] = 0;
+	SelStart(50);
+	SelText("表",1);
+	SelText("裏",2);
+	SelEnd();
+
+	if (ch[50] > 0)
+	{
+		ch[2497] = 0;
+		if (ch[50] == 2)
+		{
+			ch[2497] = 1;
+		}
+		CharPos(0,0,0,0);
+		if (ch[51] == 710 && ch[2497] == 0)
+		{
+			ch[51] = 25;
+		}
+		if (ch[51] == 701)
+		{
+			ch[51] = 21;
+		}
+		if (ch[51] == 702)
+		{
+			ch[51] = 22;
+		}
+		if (ch[51] == 703)
+		{
+			ch[51] = 23;
+		}
+		if (ch[51] == 704)
+		{
+			ch[51] = 24;
+		}
+		LoadMap(ch[51]);
+	}
+
+	return 0;
+}
+ 

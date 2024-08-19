@@ -1,0 +1,208 @@
+
+int main()
+{
+//	if (ch[1538])
+//	{
+//		// エンディング時
+//		if (ch[1539])
+//		{
+//		}
+//		else
+//		{
+//			// 全員に話させる
+//			MapEvent(0);
+//			Walk(8,0,30);
+//			Wait(30);
+//			Message(0,"帰るにはまだちょっと早いわ。","","","");
+//			Walk(5,0,20);
+//			Wait(20);
+//			MapEvent(1);
+//			return 0;
+//		}
+//	}
+
+	// かぶりものチェック
+	int kabu;
+	kabu = 0;
+	if (ch[3962])
+	{
+		// アフロかぶってる
+		WaitD(0);
+		Message(0,"Poco's Afro is bothering me.","","","");
+		kabu = 1;
+	}
+	if (ch[3963])
+	{
+		// ソンブレロかぶってる
+		WaitD(0);
+		if (ch[2034])
+		{
+			//パリン
+			Message(0,"I must give Francois","back to Pierre.","","");
+		}
+		else
+		{
+			//パリン
+			Message(0,"I'd better go find","Francois for Pierre.","","");
+		}
+		kabu = 1;
+	}
+	if (ch[3964])
+	{
+		// ファラオかぶってる
+		WaitD(0);
+		Message(0,"I wonder if Rocko is ok.","","","");
+		Message(0,"I better get rid of it.","","","");
+		kabu = 1;
+	}
+	if (ch[3965])
+	{
+		// 鼻眼鏡つけてる
+		WaitD(0);
+		Message(0,"With Chucky like that,","Monster Village is in danger.","","");
+		Message(0,"Gotta do something.","","","");
+		kabu = 1;
+	}
+	if (kabu)
+	{
+		// 何かかぶってた
+		MapEvent(0);
+		KaguTest(30058,0);
+		while(ch[420])
+		{
+			Walk(ch[421],ch[422],ch[423]);
+			Wait(ch[423]);
+			KaguTest(30058,0);
+		}
+		Walk(0,-8,20);
+		Wait(20);
+		MapEvent(1);
+		TekiStop(0);
+		return 0;
+	}
+
+	if (!ch[2300])
+	{
+		// ドリルまだ
+		// ストッパー
+		WaitD(0);
+		Message(0,"Pino is trying to","show me something.","","");
+		MapEvent(0);
+		KaguTest(30058,0);
+		while(ch[420])
+		{
+			Walk(ch[421],ch[422],ch[423]);
+			Wait(ch[423]);
+			KaguTest(30058,0);
+		}
+		Walk(0,-8,20);
+		Wait(20);
+		MapEvent(1);
+		TekiStop(0);
+		return 0;
+	}
+	
+	KaguTest(20001,74);
+	if (ch[430])
+	{
+		WaitD(0);
+		Message(0,"You know...","Poco would love to get","his Boombox back.","");
+		MapEvent(0);
+		KaguTest(30058,0);
+		while(ch[420])
+		{
+			Walk(ch[421],ch[422],ch[423]);
+			Wait(ch[423]);
+			KaguTest(30058,0);
+		}
+		Walk(0,-8,20);
+		Wait(20);
+		MapEvent(1);
+		TekiStop(0);
+		return 0;
+	}
+
+	if (ch[512] && (!ch[2317] || !ch[2328] || !ch[2329]))
+	{
+		// おばけ達がまだだ
+		WaitD(0);
+		if (!ch[2317] && !ch[2328] && !ch[2329])
+		{
+			Message(0,"Someone is","still hiding out here.","","");
+		}
+		else
+		{
+			Message(0,"Let's find the other monsters.","","","");
+		}
+		
+		MapEvent(0);
+		KaguTest(30058,0);
+		while(ch[420])
+		{
+			Walk(ch[421],ch[422],ch[423]);
+			Wait(ch[423]);
+			KaguTest(30058,0);
+		}
+		Walk(0,-8,20);
+		Wait(20);
+		MapEvent(1);
+		TekiStop(0);
+		return 0;
+	}
+
+	if (ch[2028] == 1)
+	{
+		ch[2028] = 2;
+	}
+
+	if (ch[1538] && ch[1792] != 522133279)
+	{
+		// バッドエンド
+		MapEvent(0);
+		WaitD(0);
+		Message(0,"No reason to leave now.","","","");
+		KaguTest(30058,0);
+		while(ch[420])
+		{
+			Walk(ch[421],ch[422],ch[423]);
+			Wait(ch[423]);
+			KaguTest(30058,0);
+		}
+		Walk(0,-5,20);
+		Wait(20);
+		MapEvent(1);
+	}
+	else
+	{
+		// そのほか
+		MapEvent(0);
+
+		Walk(0,8,15);
+		Black(0,100,15);
+			
+		Wait(15);
+		KaguTest(10100,0);
+		
+		if (ch[2330] && !ch[2556])
+		{
+			ch[2556] = 1;
+		}
+//		if (!ch[512])
+//		{
+//			// チュートリアルまだ
+//			LoadMapB(999);
+//			KaguTest(99985,1);
+////			ch[3982] = 4;
+//			PostScr(930);
+//		}
+//		else
+		{
+			KaguTest(99999,0);
+			MapEvent(1);
+		}
+	}
+
+	ch[435] = 0;
+}
+
+ 

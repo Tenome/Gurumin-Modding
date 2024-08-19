@@ -1,0 +1,7 @@
+
+int main()
+{
+	Message(0,"..............","","","");
+	Message(0,"Creepy...","Is someone there?","","");
+	Message(0,"...Is it this doll?","","","");
+}

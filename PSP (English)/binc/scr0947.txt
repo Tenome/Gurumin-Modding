@@ -1,0 +1,198 @@
+
+int main()
+{
+//	Wait(60);
+	// クリア表示
+	MapEvent(0);
+	TekiStop(1);
+
+	KaguTest(40002,0);
+
+//	White(0,0,30);
+//	Wait(30);
+	
+	ch[1501] = 1;
+	
+	// デバッグ
+	if (ch[3982] == 1)
+	{
+		//純粋ボスラッシュ中
+//		ch[1790]++;
+//		ch[1791] = 100;
+		KaguTest(20051,0);
+		Scop(0);
+		Scop(1);
+		
+		LoadMapB(206);
+
+		Event(600);
+		KaguTest(20020,0);
+		CharPos(0,0,0,0);
+//		CharPos(ch[425],-1000,277,-782);
+		CharPos(ch[425]+1,-1000,277,-782);
+		KaguTest(30028,ch[425]);
+		KaguTest(30028,ch[425]+1);
+
+		Black(0,0,30);
+		Wait(30);
+		SetSavePos2(207,0,0,0);	// 死んだら手巣とマップに戻れ
+//		BGM(7);
+		return 0;
+	}
+	if (ch[3982] == 2)
+	{
+		//シナリオボスラッシュ中
+//		ch[1790]++;
+//		ch[1791] = 100;
+		KaguTest(20051,0);
+		Scop(0);
+		Scop(1);
+		
+//		PlayMovie("mri_3_3.txt",1);
+		Mouse(0);
+		int movi;
+		
+		movi = PlayMovie("mri_3_3a.txt",1);
+		KaguTest(100000,0);
+		if (movi)
+		{
+			PlayMovie2("mri_3_3b.txt",1);
+			KaguTest(100000,0);
+		}
+		if (movi)
+		{
+			PlayMovie2("mri_3_3c.txt",1);
+			KaguTest(100000,0);
+		}
+		if (movi)
+		{
+			PlayMovie2("mri_3_3d.txt",1);
+			KaguTest(100000,0);
+		}
+		PlayMovie2("mri_3_3e.txt",1);
+		Mouse(1);
+		ch[1542] = 1;
+		ch[1501] = 1;
+		Wait(10);
+//		PlayMovie("skowa0.txt",1);
+		ch[1502] = 1;
+		ch[1503] = 1;
+		Wait(10);
+		Mouse(0);
+		PlayMovie("dkt_3_2.txt",1);
+		Black(0,100,0);
+		Wait(5);
+//		Black(0,0,15);
+		Walk(-5,0,1);
+		KaguTest(30057,0);
+		Mouse(1);
+		ch[1504] = 1;
+		Wait(10);
+
+		LoadMapB(206);
+
+		Event(600);
+		KaguTest(20020,0);
+		CharPos(0,0,0,0);
+//		CharPos(ch[425],-1000,277,-782);
+		CharPos(ch[425]+1,-1000,277,-782);
+		KaguTest(30028,ch[425]);
+		KaguTest(30028,ch[425]+1);
+
+		Black(0,0,30);
+		Wait(30);
+		SetSavePos2(207,0,0,0);	// 死んだら手巣とマップに戻れ
+//		BGM(7);
+		return 0;
+	}
+	// デバッグここまで
+	
+	// 評価表示
+//	BGM(0);
+	KaguTest(10500,120);
+		
+	if (ch[2263] < 1)
+	{
+		ch[2263]=1;
+	}
+		
+	Wait(90);
+		
+	Message(0,"","","","");
+	
+	
+	// ボス倒したことがある場合はそのまま退出
+	if (ch[1542])
+	{
+		Black(0,100,30);
+		Wait(30);
+		KaguTest(10011,5);
+		Wait(5);
+		KaguTest(10100,0);
+		KaguTest(99999,0);
+		TekiStop(0);
+		MapEvent(1);
+		return 0;
+	}	
+	
+	TekiStop(0);
+
+	White(0,100,30);
+	Wait(30);
+	KaguTest(10011,5);
+	Wait(5);
+//	Camera(-1,0,0,0);
+//	PlayMovie("mri_3_3.txt",0);
+	Mouse(0);
+	int movi;
+//	KaguTest(20066,0);
+	KaguTest(20065,-7);
+	movi = PlayMovie("mri_3_3a.txt",0);
+	KaguTest(100000,0);
+	if (movi)
+	{
+		movi = PlayMovie2("mri_3_3b.txt",0);
+		KaguTest(100000,0);
+	}
+	if (movi)
+	{
+		movi = PlayMovie2("mri_3_3c.txt",0);
+		KaguTest(100000,0);
+	}
+	if (movi)
+	{
+		movi = PlayMovie2("mri_3_3d.txt",0);
+		KaguTest(100000,0);
+	}
+	PlayMovie2("mri_3_3e.txt",0);
+	Mouse(1);
+//	CharPos(17,-50895,-412,15);
+//	SetSavePos();
+
+	ch[1542]=1;
+	ResetFade();
+	Black(0,100,0);
+
+	KaguTest(20066,0);
+
+//	Mes("モグレヌ発見ムービー（仮）");
+//	Wait(30);
+	
+	KaguTest(99990,0);
+	KaguTest(10100,0);
+	ch[298] = 1;
+	KaguTest(99999,0);
+	
+	Black(0,100,15);
+	Wait(15);
+	ch[298] = 0;
+	ch[420] = 100;
+	ch[421] = 100;
+	ch[422] = 100;
+	KaguTest(30046,1);
+	Wait(10);
+	Black(0,0,15);
+
+	TekiStop(0);
+	MapEvent(1);
+}

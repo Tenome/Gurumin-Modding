@@ -1,0 +1,6 @@
+
+int main()
+{
+	Message(0,"A portrait of a princess?","","","");
+	Message(0,"Pretty beautiful.","","","");
+}

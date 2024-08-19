@@ -1,0 +1,20 @@
+
+int main()
+{
+	Message(0,"Something is written here.","","","");
+
+	KaguTest(10006,1);
+	KaguTest(10007,0);
+	KaguTest2(10008,0,"~Future site of my vacation mansion.");
+	KaguTest2(10008,1,"Hey Kid. No Tresspassing.");
+	KaguTest2(10008,2,"Signed, Pecky.~");
+	KaguTest(10010,10);
+	
+	Wait(10);
+	
+	Message(0,"","","","");
+	
+	KaguTest(10011,10);
+	
+	Message(0,"I can't go any further.","","","");
+}

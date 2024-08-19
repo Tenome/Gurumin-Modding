@@ -1,0 +1,220 @@
+
+int main()
+{
+	KaguTest(10600,ch[1107]-2260);
+	if (!ch[2506])
+	{
+		// X‚Ü‚¾
+		ch[2056] = 1;
+		
+		ch[400] = 18;
+		Look(18,0);
+		ch[420] = 15;
+		ch[429] = 1;
+		KaguTest(30036,18);
+		Walk(1,8,25);
+		Wait(30);
+		Look(0,18);
+		//ƒsƒm
+		Message(18,"Parin!","","","");
+		ch[400] = 118;
+		Walk2(18,0,-16,30);
+		Wait(10);
+		Look(0,18);
+		Look(18,0);
+		Wait(10);
+		Look(0,18);
+		Look(18,0);
+		Wait(10);
+		Look(0,18);
+		Look(18,0);
+		
+		ch[400] = 18;
+		//ƒpƒŠƒ“
+		Message(0,"Pino! What are","you doing here?","","");
+		//ƒsƒm
+		Message(18,"I'm looking for something.","","","");
+		//ƒpƒŠƒ“
+		Message(0,"Really?","What could be here?","","");
+		//ƒsƒm
+		Message(18,"I love this spot","very much.","","");
+		//ƒpƒŠƒ“
+		Message(0,"Although I've never been","here before, it's relaxing.","","");
+		//ƒsƒm
+		Message(18,"I feel a strange power","at that stone statue.","","");
+		//ƒpƒŠƒ“
+		Message(0,"Stone statue?","","","");
+		//ƒsƒm
+		Message(18,"Here.","","","");
+
+		ch[400] = 118;
+		Walk2(18,-5,14,15);
+		int x;
+		int y;
+		int z;
+		GetCharPos(18,x,y,z);
+		ch[420] = x - 5;
+		ch[421] = y + 14;
+		KaguTest(30070,18);
+		ch[420] = 1;
+		ch[421] = 1;
+		ch[422] = 5;
+		KaguTest(12003,18);
+		
+		Black(0,100,15);
+		Wait(15);
+		Black(0,100,0);
+		Wait(5);
+		CharPos(0,-832,2160,0);
+		CharPos(18,-1000,2009,0);
+		Wait(5);
+		ch[420] = -1085;
+		ch[421] = 2225;
+		KaguTest(30070,0);
+		KaguTest(30070,18);
+
+		Camera(0,211,2041,370);
+		CrossFade();
+
+		Black(0,0,15);
+		Wait(15);
+		
+		ch[400] = 18;
+		//ƒsƒm
+		Message(18,"Puku says that something's","sealed away in this statue.","","");
+		//ƒpƒŠƒ“
+		Message(0,"Hmm....","","","");
+		Message(0,"(Should I... drill it?)","","","");
+		//ƒsƒm
+		Message(18,"I should be","going now.","","");
+		//ƒpƒŠƒ“
+		Message(0,"OK. Take care.","","","");
+	
+		ch[400] = 118;
+		ch[420] = -50;
+		ch[421] = -1000;
+		KaguTest(30070,18);
+		Walk2(18,0,-16,30);
+		Wait(15);
+		ch[420] = 3;
+		KaguTest(30064,18);
+		Wait(15);
+		CharPos(18,-200000,0,0);
+		ch[400] = -1;
+
+		//ƒpƒŠƒ“
+		Message(0,"..............","","","");
+		Camera(-1,0,0,0);
+	}
+	if (ch[2506])
+	{
+		// XÏ
+		ch[2056] = 1;
+
+		ch[400] = 18;
+		Look(18,0);
+		ch[420] = 15;
+		ch[429] = 1;
+		KaguTest(30036,18);
+		Walk(1,8,25);
+		Wait(30);
+		Look(0,18);
+		//ƒsƒm
+		Message(18,"Parin!","","","");
+		ch[400] = 118;
+		Walk2(18,0,-16,30);
+		Wait(10);
+		Look(0,18);
+		Look(18,0);
+		Wait(10);
+		Look(0,18);
+		Look(18,0);
+		Wait(10);
+		Look(0,18);
+		Look(18,0);
+		
+		ch[400] = 18;
+		//ƒpƒŠƒ“
+		Message(0,"Haven't you returned","to the village yet?","","");
+		//ƒsƒm
+		Message(18,"I got lost and tired.","I decided to rest a bit.","","");
+		Message(18,"It's safe here.","There are no Phantoms.","","");
+		//ƒpƒŠƒ“
+		Message(0,"Nice and relaxing","here, isn't it?","","");
+		//ƒsƒm
+		Message(18,"I feel a strange power","at that stone statue.","","");
+		//ƒpƒŠƒ“
+		Message(0,"Stone statue?","","","");
+		//ƒsƒm
+		Message(18,"Here.","","","");
+		
+		ch[400] = 118;
+		Walk2(18,-5,14,15);
+		int x;
+		int y;
+		int z;
+		GetCharPos(18,x,y,z);
+		ch[420] = x - 5;
+		ch[421] = y + 14;
+		KaguTest(30070,18);
+		ch[420] = 1;
+		ch[421] = 1;
+		ch[422] = 5;
+		KaguTest(12003,18);
+		
+		Black(0,100,15);
+		Wait(15);
+		Black(0,100,0);
+		Wait(5);
+		CharPos(0,-832,2160,0);
+		CharPos(18,-1000,2009,0);
+		Wait(5);
+		ch[420] = -1085;
+		ch[421] = 2225;
+		KaguTest(30070,0);
+		KaguTest(30070,18);
+		
+		Camera(0,211,2041,370);
+		CrossFade();
+		
+		Black(0,0,15);
+		Wait(15);
+
+		ch[400] = 18;
+		//ƒsƒm
+		Message(18,"Puku says that something's","sealed away in this statue.","","");
+		//ƒpƒŠƒ“
+		Message(0,"Hmm....","","","");
+		Message(0,"(Should I... drill it?)","","","");
+		//ƒsƒm
+		Message(18,"I should get back","to the village now.","","");
+		//ƒpƒŠƒ“
+		Message(0,"OK. Take care.","","","");
+	
+		ch[400] = 118;
+		ch[420] = -50;
+		ch[421] = -1000;
+		KaguTest(30070,18);
+		Walk2(18,0,-16,30);
+		Wait(15);
+		ch[420] = 3;
+		KaguTest(30064,18);
+		Wait(15);
+		CharPos(18,-200000,0,0);
+		ch[400] = -1;
+
+		//ƒpƒŠƒ“
+		Message(0,"..............................","","","");
+		Camera(-1,0,0,0);
+	}
+
+	KaguTest(10600,ch[1107]-2260);
+	MMV(StageMMV(ch[420]));
+	KaguTest2(10012,1,StageMMV(ch[420]));
+			
+	TekiStop(0);
+	MapEvent(1);
+	
+	return 0;
+}
+ 

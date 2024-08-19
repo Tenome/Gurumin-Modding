@@ -1,0 +1,13 @@
+
+int main()
+{
+	Look(61,0);
+	Message(61,"You're like, not bad.","","","");
+	Message(61,"Like, have you heard?","","","");
+	Message(0,"Heard what?","","","");
+	Message(61,"The main character's voice is a deliberate monotone.","","","");
+	Message(0,"You mean my Japanese voice?","","","");
+	Message(61,"It's totally hard for a pro","to sound like an amateur.","","");
+	Message(0,"(Directors usually hate that kind of voice.)","","","");
+	Look(61,18);
+}

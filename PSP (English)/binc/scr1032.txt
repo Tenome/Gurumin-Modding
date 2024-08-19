@@ -1,0 +1,12 @@
+
+int main()
+{
+	if (!ch[25])
+	{
+		Mes("The lever seems stuck.");
+	}
+	else
+	{
+		Mes("It's broken. It won't move.");
+	}
+}

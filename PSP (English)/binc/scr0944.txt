@@ -1,0 +1,87 @@
+
+int main()
+{
+	int x;
+	int y;
+	int z;
+	int ln;
+	
+	MapEvent(0);
+	ln = Door2C(4);
+	SaveCamera();
+
+	Walk(0,8,15);
+	
+	Camera(ln,-150,4825,720);
+	CrossFade();
+	Wait(15);
+	Event(204);
+	Wait(7);
+	ch[420] = 15;
+	ch[429] = 1;
+	KaguTest(30036,0);
+	Wait(5);
+	ch[420] = -150;
+	ch[421] = 3450;
+	KaguTest(30070,0);
+	Wait(37);
+	ch[420] = -150;
+	ch[421] = 5450;
+	KaguTest(30070,0);
+	Wait(15);
+	Camera(58,-150,4825,920);
+	CrossFade();
+	Wait(15);
+	ch[420] = 1;
+	ch[421] = 1;
+	ch[422] = 1;
+	KaguTest(30090,58);
+	Wait(60);
+	Camera(-1,0,0,0);
+	RestoreCamera();
+	CrossFade();
+	MapEvent(1);
+
+	TekiStop(1);
+	if (!ch[2062])
+	{
+		TekiStop(1);
+		// チュートリアル表示
+		KaguTest(10006,0);
+		KaguTest(10007,7);
+		KaguTest2(10009,0,"tute_07.bmp");
+		ch[423] = 15;
+		ch[424] = 8;
+		ch[425] = 240;
+		ch[426] = 264;
+		ch[427] = 0;
+		ch[428] = 0;
+		ch[429] = 225;
+		ch[430] = 256;
+		ch[431] = 256;
+		KaguTest(10010,10);
+		KaguTest(10006,1);
+		KaguTest(10007,7);
+		KaguTest2(10009,1,"tute_08.bmp");
+		ch[423] = 240;
+		ch[424] = 8;
+		ch[425] = 465;
+		ch[426] = 264;
+		ch[427] = 0;
+		ch[428] = 0;
+		ch[429] = 225;
+		ch[430] = 256;
+		ch[431] = 256;
+		SE(399);
+		KaguTest(10010,10);
+		Wait(10);
+		Message(0,"","","","");
+		ch[420] = 0;
+		KaguTest(10011,10);
+		ch[420] = 1;
+		KaguTest(10011,10);
+		Wait(10);
+	}
+	TekiStop(0);
+
+}

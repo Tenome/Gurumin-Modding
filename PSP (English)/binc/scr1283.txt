@@ -1,0 +1,49 @@
+
+int main()
+{
+	if (ch[1538])
+	{
+		// エピローグ
+		ch[400] = 58;
+		//ボブー
+		Message(58,"Work work work!","I love it!","","");
+		Message(58,"Give me more work!","It feels great!","","");
+		ch[400] = -1;
+		return 0;
+	}
+	ch[400] = 58;
+	if (ch[1571] && !ch[1538])
+	{
+		//ボブー
+		Message(58,"That cat monster's medicine","fixed me right up, heh!","","");
+		Message(58,"I'll be ready to fight again!","","","");
+	}
+	if (ch[1513] && !ch[1571])
+	{
+		//ボブー
+		Message(58,"The Prince's armband...","","","");
+		Message(58,"...Proves that he's","the king's rightful heir!","","");
+		Message(58,"...The Prince is a master","of many weapons...","","");
+		Message(58,"Do you stand a chance?","","","");
+	}
+	if (ch[1505] && !ch[1513])
+	{
+		//ボブー
+		Message(58,"Aaah, nice breeze...","","","");
+		Message(58,"I can't believe...","","","");
+		Message(58,"It's all that...THING'S","fault that we're on the","ropes like this.","");
+	}
+	if (!ch[1505])
+	{
+		//ボブー
+		Message(58,"I gave it all I had","at our title match...","","");
+		Message(58,"I'm training for our rematch!","I'll have my revenge!","","");
+	}
+	if (!ch[2150])
+	{
+		// 雷のパーツヒント
+		Message(58,"That lake...","I've seen lightning","strike the other side.","");
+		Message(58,"I don't know, but there","may be something there.","","");
+	}
+	ch[400] = -1;
+}

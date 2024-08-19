@@ -1,0 +1,39 @@
+
+int main()
+{
+	// クリア
+	KaguTest(40002,0);
+	TekiStop(1);
+	MapEvent(0);
+		// 評価表示
+	KaguTest(10500,120);
+
+	if (ch[2276] < 1)
+	{
+		ch[2276]=1;
+	}
+	
+	Wait(90);
+	
+	Message(0,"","","","");
+	
+	// ミニフィールドへ戻る
+//	Black(0,100,30);
+//	Wait(30);
+	
+	if (!ch[2626])
+	{
+//		PlayMovie("poko1.txt",0);
+		ch[2626] = 1;
+	}
+	
+	KaguTest(10011,1);
+	Wait(1);
+//	KaguTest(20025,0);
+	PostScr(1192);
+//	KaguTest(10100,0);
+//	KaguTest(99999,0);
+//	TekiStop(0);
+//	MapEvent(1);
+}
+

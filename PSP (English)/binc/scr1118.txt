@@ -1,0 +1,46 @@
+
+int main()
+{
+	// マナエフェクト
+
+	// あたり設定
+	KaguTest(99986,0);
+	KaguTest2(30014,0,"@ClearORoot");
+	KaguTest2(30014,2,"spinura2");
+	
+	// 遷移計算呼び出し
+	ch[420] = 3065;
+	ch[421] = 575;
+	ch[422] = 75;
+	ch[423] = 90;
+	KaguTest(99988,0);
+	KaguTest(99987,1);
+	
+	ch[3209] = 1;
+
+	// カメラ位置
+	KaguTest(99996,15);
+	KaguTest(30033,125);
+	Wait(30);
+	Black(0,0,15);
+	Wait(15);
+	
+	WaitC(135);
+	
+	// チャッキーの家に戻る＆会話続き
+	Black(0,100,15);
+	WaitC(15);
+	Black(0,100,0);
+	KaguTest(99998,0);
+	KaguTest(30033,100);
+	LoadMap(401);
+	WaitC(15);
+	CharPos(0,-900,465,25);
+	Look(0,11);
+	Look(11,0);
+	WaitC(5);
+
+	ch[294] = 1;
+	
+	PostScr(385);
+}

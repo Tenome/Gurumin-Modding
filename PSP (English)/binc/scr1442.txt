@@ -1,0 +1,17 @@
+
+int main()
+{
+	Look(58,0);
+	Message(58,"Hey! You're great!","","","");
+	Message(58,"Oh, and have you heard?","","","");
+	Message(0,"Heard what?","","","");
+	Message(58,"While you're charging up your drill,","you can't fall, even if the ground shakes!","","");
+//	Message(58,"コレクションの「ねんどざいく」は","本当にねんどで作ったらしいゼ！","","");
+//	Message(58,"ぐるみんベンチマークは１日で作ったらしいゼ！","","","");
+//	Message(58,"マスター直前にいきなり言われたらしいゼ！","","","");
+	Message(0,"Really?","","","");
+	Message(58,"Hey, that means that you won't be","affected by the rocks that I drop!","","");
+	Message(0,"Probably shouldn't have told me then, huh?","","","");
+	Message(58,"Hahahaha!","","","");
+	Look(58,18);
+}

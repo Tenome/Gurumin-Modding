@@ -1,0 +1,8 @@
+
+int main()
+{
+	ch[2053] = 1;
+	Wait(60);
+	Message(0,"This is the rare medal","Grandpa mentioned.","","");
+	Message(0,"I better go tell him","that I found it.","","");
+}

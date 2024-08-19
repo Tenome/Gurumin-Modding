@@ -1,0 +1,162 @@
+
+int main()
+{
+	string kabegami;
+	KaguTest(20001,2);
+	if (ch[430] && 0)	// 壁紙機能ないからきる
+	{
+		// 壁紙チェンジ
+		while(1)
+		{
+			SelStart(50);
+			if (ch[2031])
+			{
+				// 壁紙１
+				// 鼻眼鏡クエスト御褒美
+				SelText("Lots of Roofs",1);
+			}
+			if (ch[2021])
+			{
+				// 壁紙２
+				// プラチナメダルクエスト御褒美
+				SelText("Evening Stroll",2);
+			}
+			if (ch[2019])
+			{
+				// 壁紙３
+				// わらしべクエスト御褒美
+				SelText("Gas Mask Manga",3);
+			}
+			if (ch[2004])
+			{
+				// 壁紙４
+				// のぞきクエスト御褒美
+				SelText("Everyone’s Story",4);
+			}
+			if (ch[2027])
+			{
+				// 壁紙５
+				// アフロクエスト御褒美
+				SelText("Nap Time",5);
+			}
+			if (ch[2033])
+			{
+				// 壁紙６
+				// ファラオクエスト御褒美
+				SelText("Devices and Gear",6);
+			}
+			if (ch[2011])
+			{
+				// 壁紙７
+				// ビラ貼りクエスト御褒美
+				SelText("A Young Hero",7);
+			}
+			if (ch[2016])
+			{
+				// 壁紙８
+				// バイトクエスト御褒美
+				SelText("Redone in Clay!",8);
+			}
+			if (ch[2029])
+			{
+				// 壁紙９
+				// ソンブレロクエスト御褒美
+				SelText("Yearning for Home",9);
+			}
+			SelText("Back",11);
+			SelEnd();
+			
+			if (ch[50] >= 1 && ch[50] <= 9)
+			{
+				// 壁紙変更する
+				// 画像表示してイエスノー確認
+				KaguTest(10006,0);
+				KaguTest(10007,7);
+				if (ch[50] == 1)
+				{
+					KaguTest2(10009,0,"kb001s.bmp");
+					kabegami = "kb001";
+				}
+				if (ch[50] == 2)
+				{
+					KaguTest2(10009,0,"kb002s.bmp");
+					kabegami = "kb002";
+				}
+				if (ch[50] == 3)
+				{
+					KaguTest2(10009,0,"kb003s.bmp");
+					kabegami = "kb003";
+				}
+				if (ch[50] == 4)
+				{
+					KaguTest2(10009,0,"kb004s.bmp");
+					kabegami = "kb004";
+				}
+				if (ch[50] == 5)
+				{
+					KaguTest2(10009,0,"kb005s.bmp");
+					kabegami = "kb005";
+				}
+				if (ch[50] == 6)
+				{
+					KaguTest2(10009,0,"kb006s.bmp");
+					kabegami = "kb006";
+				}
+				if (ch[50] == 7)
+				{
+					KaguTest2(10009,0,"kb007s.bmp");
+					kabegami = "kb007";
+				}
+				if (ch[50] == 8)
+				{
+					KaguTest2(10009,0,"kb008s.bmp");
+					kabegami = "kb008";
+				}
+				if (ch[50] == 9)
+				{
+					KaguTest2(10009,0,"kb009s.bmp");
+					kabegami = "kb009";
+				}
+				
+				ch[423] = 240;
+				ch[424] = 250;
+				ch[425] = 400;
+				ch[426] = 410;
+				ch[427] = 0;
+				ch[428] = 0;
+				ch[429] = 256;
+				ch[430] = 256;
+				ch[431] = 256;
+
+				KaguTest(10010,10);
+				Wait(10);
+				
+				SelStart(50);
+				SelText("Change to this picture",1);
+				SelText("Return to picture selection",2);
+				SelEnd();
+				
+				KaguTest(10011,10);
+				Wait(11);
+				
+				if (ch[50] == 1)
+				{
+					// 壁紙変更
+					Kabe(kabegami);
+					Mes("The desktop picture has been changed.");
+					break;
+				}
+			}
+			else
+			{
+				// キャンセル
+				break;
+			}
+		}
+	}
+	else
+	{
+		Message(0,"It's nice and neat.","","","");
+	}
+}
+ 

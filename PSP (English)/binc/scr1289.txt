@@ -1,0 +1,130 @@
+
+int main()
+{
+	// シリンダー自由に動けるようにする
+	ch[420] = 350;
+	KaguTest2(30003,2,"Box01");
+	
+	KaguTest(12000,15);
+	CharPos(15,3913,2140,-500);
+	
+		// シリンダーあらわれる
+	Walk2(15,1,-7,60);
+	ch[429] = 0;
+	KaguTest(30039,0);
+	Wait(60);
+		// パリンは！
+	ch[420] = 15;
+	ch[429] = 1;
+	KaguTest(30036,0);
+		// シリンダーはなおも歩く	
+	Walk2(15,-4,-6,30)
+	ch[429] = 0;
+	KaguTest(30039,0);
+	Wait(30);
+	Walk2(15,-7,-3,45);
+	ch[429] = 0;
+	KaguTest(30039,0);
+	
+	//パリン
+	Message(0,"Cylinder!","","","");
+
+	//シリンダー
+	ch[400] = 15;
+	Look(15,0);
+	Message(15,"Oh ho, it's Parin.","","","");
+	Look(15,0);
+	Message(15,"And how sweet of you,","waiting patiently for","me to come home!","");
+	Look(15,0);
+
+	//パリン
+	Message(0,"You're dreaming.","","","");
+	Message(0,"It was you spying on ","me. Wasn't it?","","");
+	Message(0,"I'm turning you in!!","","","");
+
+	//シリンダー
+	Message(15,"M-me? Looking at you?","","","");
+	Message(15,"W-what are you talking","about? I've been in the","mines all day!","");
+
+	//パリン
+	Message(0,"Then how do you explain","THIS lying by my house?","","");
+	
+	//システム
+	Mes("You hand Cylinder the hat.");
+	Wait(60);
+	KaguTest(20002,12);
+
+	//シリンダー
+	Message(15,"T-this is my favorite hat","that Puchi took from me!","","");
+
+	//パリン
+	Message(0,"Puchi? The dog?","","","");
+
+	//シリンダー
+	Message(15,"This morning, he was chasing","me and he stole my hat.","","");
+	Message(15,"I have another hat,","but this one fits me","better, I think.","");
+
+	//パリン
+	Message(0,"...Is that all?","","","");
+
+	//シリンダー
+	Message(15,"Thanks for giving it back.","Here, take this.","","");
+
+	//システム
+	SE(853);
+	KaguTest(10006,0);
+	KaguTest(10007,1);
+	KaguTest2(10008,0,"Got Picture #4: ~Everyone’s Story.~");
+	KaguTest2(10008,2,"It has been added to your Album.");
+	KaguTest2(10008,3,"View it by selecting ~Album~ from the menu.");
+	KaguTest2(10009,0,"kb004s.bmp");
+	KaguTest(10010,10);
+	Wait(10);
+	Message(0,"","","","");
+	KaguTest(10011,10);
+
+	GetItem(2);
+
+	//パリン
+	Message(0,"Then... why was Puchi","chasing you?","","");
+
+	//シリンダー
+	Message(15,"Lately, cakes have been","disappearing, so he was","standing guard at Fan's shop.","");
+	Message(15,"Heh, he must have","thought I was the culprit.","","");
+
+	//パリン
+	Message(0,"Were you... spying on","Fan instead?","","");
+
+	//シリンダー
+	Message(15,"Haha! Of course not!","...Well, goodbye!","","");
+	
+	Walk2(15,-25,-6,60);
+	ch[429] = 0;
+	KaguTest(30039,0);
+	ch[420] = 15;
+	KaguTest(30063,0);
+	Wait(45);
+	KaguTest(30063,-1);
+	//パリン
+	Message(0,"Something still doesn't","seem right here.","","");
+	ch[400] = -1;
+	
+	ch[420] = 60;
+	KaguTest(12002,15);
+	ch[3987] = 0;
+	ch[3990] = 15;
+	ch[3991] = 15;
+	ch[3992] = 0;
+	
+	// クエスト終わり・クエスト終了
+	ch[2002] = 0;
+	ch[2003] = 0;
+	ch[2004] = 1;
+	ch[2006] = 0;
+	ch[2007] = 0;
+	ch[2008] = 0;
+	ch[2009] = 0;
+
+	ch[420] = 58;
+	KaguTest2(30003,1,"@atariyotsu");
+}

@@ -1,0 +1,9 @@
+
+int main()
+{
+	Message(0,"Just press here","and slide this...","","");
+	ch[400] = 5;
+	Message(5,"What are you doing?","","","");
+	Message(0,"N-Nothing!","And I wasn't trying","to open the register!","");
+	ch[400] = -1;
+}

@@ -1,0 +1,7 @@
+
+int main()
+{
+	Message(0,"~Elevators can carry.","Yours, M.~","","");
+	Message(0,"What could that mean?","","","");
+}
+ 

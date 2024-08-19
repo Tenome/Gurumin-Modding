@@ -1,0 +1,24 @@
+
+int main()
+{
+	// ƒ€[ƒr[
+	Black(0,100,15);
+	Wait(15);
+	Mouse(0);
+	PlayMovie("dkt_1_2.txt",0);
+	KaguTest2(10013,0,"mp_208.nod");
+	KaguTest(60005,0);
+	KaguTest(60005,2);
+	KaguTest(60005,17);
+	Black(0,100,0);
+	Wait(5);
+//	Black(0,0,15);
+	Walk(-5,0,1);
+	KaguTest(30057,0);
+	Mouse(1);
+//	BGM(23);
+	LoadMap(208);
+	Black(0,0,15);
+	Wait(15);
+	ch[2510] = 1;
+}

@@ -1,0 +1,75 @@
+
+int main()
+{
+	TekiStop(1);
+	Wait(10);
+	Camera(0,150,-75,500);
+	CrossFade();
+	Wait(15);
+
+	int b;
+	b = Door2C(50);
+
+	Wait(10);
+	
+	if (!ch[200])
+	{
+		KaguTest(30002,b);
+	}
+	if (ch[201])
+	{
+		KaguTest(30002,b+1);
+	}
+	if (!ch[202])
+	{
+		KaguTest(30002,b+2);
+	}	
+	if (ch[203])
+	{
+		KaguTest(30002,b+3);
+	}
+	if (!ch[204])
+	{
+		KaguTest(30002,b+4);
+	}	
+	if (ch[205])
+	{
+		KaguTest(30002,b+5);
+	}
+	if (ch[206])
+	{
+		KaguTest(30002,b+6);
+	}
+	if (ch[207])
+	{
+		KaguTest(30002,b+7);
+	}
+	if (!ch[208])
+	{
+		KaguTest(30002,b+8);
+	}	
+	if (ch[209])
+	{
+		KaguTest(30002,b+9);
+	}
+	if (!ch[210])
+	{
+		KaguTest(30002,b+10);
+	}	
+	if (ch[211])
+	{
+		KaguTest(30002,b+11);
+	}
+	if (!ch[212])
+	{
+		KaguTest(30002,b+12);
+	}	
+
+	Wait(25);
+
+	Mes("The lever switched back.");
+	Camera(-1,0,0,0);
+	CrossFade();
+	Wait(10);
+	TekiStop(0);
+}

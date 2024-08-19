@@ -1,0 +1,7 @@
+
+int main()
+{
+	Message(0,"Something is written here.","","","");
+	Message(0,"~Try targeted attacks.","Yours, M.~","","");
+}
+ 

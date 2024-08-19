@@ -1,0 +1,105 @@
+
+int main()
+{
+	//ポコ
+	ch[423] = 14028;
+	KaguTest2(30024,16,"@Dummy05");
+	GetCharPos(16,ch[420],ch[421],ch[422]);
+	ch[423] = 8805;
+	ch[424] = 0;
+	ch[425] = 0;
+	ch[426] = 0;
+	ch[427] = 100;
+	ch[428] = 0;
+	KaguTest(30045,0);
+	Wait2(20);
+
+	Message(16,"H-hot!","Hot hot hot hot!","","");
+	KaguTest(30077,16);
+	//※アフロが燃え上がってポコの頭からはずれる。
+	ch[421] = 18;
+	ch[422] = 1;
+	KaguTest(30037,16);
+	Wait(20);
+	ch[421] = 18;
+	ch[422] = 1;
+	KaguTest(30037,16);
+	Wait(20);
+	ch[421] = 18;
+	ch[422] = 1;
+	KaguTest(30037,16);
+	Wait(20);
+	ch[421] = 18;
+	ch[422] = 1;
+	KaguTest(30037,16);
+	
+	ch[3962] = 0;
+	Black(0,100,15);
+	Wait(15);
+	ch[2026] = 0;
+	LoadMap(401);
+	ch[400] = 116;
+	KaguTest(20039,16);
+	Look(0,16);
+	Look(16,0);
+	ch[400] = 16;
+	Black(0,0,15);
+	Wait(15);
+
+	//ポコ
+	Message(16,"Whew...","We got it off.","","");
+
+	//パリン
+	Message(0,"Good...","","","");
+
+	//ポコ
+	Message(16,"It was so hot and itchy...","I thought I was gonna faint!","","");
+	Message(16,"Maybe it was cursed?","","","");
+
+	//パリン
+	Message(0,"A cursed Afro?","","","");
+
+	//ポコ
+	Message(16,"When you save a monster from a","curse, he has to reward you.","","");
+	Message(16,"So, take this.","","","");
+
+	if (ch[2027])
+	{
+		// 既に壁紙を手に入れてある
+		// ケーキをあげる
+		KaguTest(20001,20);
+		Mes("You got a ~Shortcake.~");
+		KaguTest(20022,20);
+		GetItem(20);
+		Wait(60);
+		if (ch[430] == 3)
+		{
+			// オーバーしている
+			Mes("You can't hold any more.");
+			Wait(60);
+		}
+	}
+	else
+	{
+		//システム
+		SE(853);
+		KaguTest(10006,0);
+		KaguTest(10007,1);
+		KaguTest2(10008,0,"Got Picture #5: ~Nap Time.~");
+		KaguTest2(10008,2,"It has been added to your Album.");
+		KaguTest2(10008,3,"View it by selecting ~Album~ from the menu.");
+		KaguTest2(10009,0,"kb005s.bmp");
+		KaguTest(10010,10);
+		Wait(10);
+		Message(0,"","","","");
+		KaguTest(10011,10);
+
+		GetItem(2);
+		ch[2027] = 1;
+	}
+
+	//ポコ
+	Message(16,"There are tons","of cursed items out there.","","");
+	Message(16,"Someone had to have","made them. So uncool.","","");
+	ch[400] = -1;
+}

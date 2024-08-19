@@ -1,0 +1,64 @@
+
+int main()
+{
+	if (ch[1538])
+	{
+		MapEvent(0);
+		Walk(0,-8,30);
+		Wait(30);
+		Message(0,"No need to go this way.","","","");
+		Walk(0,-5,20);
+		Wait(20);
+		MapEvent(1);
+		return 0;
+	}
+
+	MapEvent(0);
+	Walk(0,8,11);
+	Wait(11);
+	Event(130);
+	KaguTest2(10012,0,"pota.mmv");
+	Walk(0,5,20);
+	Wait(20);
+	MMV("pota.mmv");
+	KaguTest2(10012,1,"pota.mmv");
+	MapEvent(1);
+	
+	if (!ch[2300])
+	{
+		GAMEOVER(1);
+		// ƒhƒŠƒ‹‚Á‚Ä‚È‚¢A•Â‚¶‚ß‚ç‚ê‚é
+		TekiStop(1);
+		Wait(60);
+		SaveCamera();
+
+		Lock();
+		Camera( Door2C(4) , -300 , -1300 , 400 );		
+		CrossFade();
+		Unlock();
+		
+		Wait(10);
+		Event(107);
+		Wait(30);
+
+		Lock();
+		Camera( Door2C(2) , -300 , -1300 , 400 );
+		CrossFade();
+		Unlock();
+
+		Wait(10);
+		Event(104);
+		Wait(30);
+		
+		Lock();
+		RestoreCamera();
+		Camera( -1 , 0 , 0 , 0 );
+		CrossFade();
+		Unlock();
+		
+		Wait(10);
+	
+		TekiStop(0);
+	}
+}
+

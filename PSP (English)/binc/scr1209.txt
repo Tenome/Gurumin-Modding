@@ -1,0 +1,50 @@
+
+int main()
+{
+	KaguTest(40002,0);
+
+	// クリア
+	int a;
+	a = ch[2286];
+	
+	TekiStop(1);
+	MapEvent(0);
+		// 評価表示
+	KaguTest(10500,120);
+
+	if (ch[2286] < 1)
+	{
+		ch[2286]=1;
+	}
+	
+	Wait(90);
+	
+	Message(0,"","","","");
+
+	// ミニフィールドへ戻る
+	if (ch[512])
+	{
+		KaguTest(10011,1);
+		Wait(1);
+//		KaguTest(20025,0);
+
+		if (!a)
+		{
+			ch[429] = 1;
+			ch[397] = 1;
+		}
+		
+		PostScr(1192);
+
+//		Black(0,100,15);
+//		Wait(15);
+	}
+	else
+	{
+		// オバケホーム崩壊前
+		KaguTest(10011,10);
+		Wait(10);
+		KaguTest(20025,0);
+		PostScr(1210);
+	}
+}

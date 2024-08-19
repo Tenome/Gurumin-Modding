@@ -1,0 +1,5 @@
+
+int main()
+{
+	Mes("The lever is fixed in place.");
+}

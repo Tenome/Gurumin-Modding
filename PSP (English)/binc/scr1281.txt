@@ -1,0 +1,55 @@
+
+int main()
+{
+	ch[400] = 59;
+	if (ch[1538])
+	{
+		// エピローグ
+		ch[259]++;
+		if (ch[259] < 2)
+		{
+			//モスビー
+			Message(59,"Er'tr snpiy fpmr.","","","");
+			Message(59,"O', jimhtu.","Lptrsm NNW ypmohjy.","","");
+
+			//パリン
+			Message(0,"I still have no idea","what he's saying.","","");
+		}
+		else
+		{
+			//モスビー
+			Message(59,"Er'tr snpiy fpmr.","","","");
+			Message(59,"O', jimhtu.","Lptrsm NNW ypmohjy.","","");
+		}
+		ch[400] = -1;
+		return 0;
+	}
+	
+	ch[259]++;
+
+	if (ch[1571] && !ch[1538])
+	{
+		//モスビー
+		Message(59,"Vsm'y nr s lof","gptrbrt, upi lmpe.","","");
+
+//		//パリン
+//		Message(0,"何だか怒ってるわね","","","");
+	}
+	if (ch[1513] && !ch[1571])
+	{
+		//モスビー
+		Message(59,"Divj mpmdrmdr.","Godj ntsom...","","");
+	}
+	if (ch[1505] && !ch[1513])
+	{
+		//モスビー
+		Message(59,"Mp pmr lmped ejsy","yjry str ys;lomh snpiy.","","");
+	}
+	if (!ch[1505])
+	{
+		//モスビー
+		Message(59,"Ejst str upi jrtr gpt?","Esdyomh yo,r?","","");
+		Message(59,":ogr. Divj Mpmdrmdr.","","","");
+	}
+	ch[400] = -1;
+}

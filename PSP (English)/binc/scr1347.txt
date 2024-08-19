@@ -1,0 +1,5 @@
+
+int main()
+{
+	Message(0,"This is a good place","for hide-and-seek...","","");
+}

@@ -1,0 +1,18 @@
+
+int main()
+{
+	// ³‰ğ‚µ‚½
+	SaveCamera();
+
+	Camera(58,125,-125,370);
+	CrossFade();
+	SE(950);
+	Message(58,"You are worthy.","You may pass.","","");
+	Event(302);
+	ch[2049] = 1;
+	Wait(30);
+	
+	Camera(-1,0,0,0);
+	RestoreCamera();
+	CrossFade();
+}

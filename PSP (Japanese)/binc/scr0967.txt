@@ -1,0 +1,65 @@
+
+int main()
+{
+	int x,y,z;
+	int w;
+	w = 0;
+
+	TekiStop(1);
+
+	ch[421] = 0;
+	KaguTest(30034,0);
+	GetCharPos(ch[420],x,y,z);
+	if (x > -205 || x < -245 || y > 3095 || y < 3045)
+	{
+		w = 1;
+	}
+	GetCharPos(ch[420]+1,x,y,z);
+	if (x > -205 || x < -245 || y > 2645 || y < 2605)
+	{
+		w = 1;
+	}
+
+	MapEvent(0);	
+	
+	if (w || !ch[71])
+	{
+		White(0,100,20);
+		SE(954);
+		Wait(20);
+	
+		// 箱を戻す
+		CharPos(ch[420],-225,3075,2175);
+		CharPos(ch[420] + 1,-225,2625,2175);
+
+		ch[421] = 2;
+		KaguTest(30131,ch[420]);
+		KaguTest(30131,ch[420]+1);
+		
+		White(0,0,30);
+	}
+	
+	Walk(0,5,30);
+
+	if (w)
+	{
+		if (ch[71])
+		{
+			Mes("箱の位置が元に戻った。");
+		}
+		else
+		{
+			ch[71] = 1;
+			Mes("箱が現れた。");
+		}
+	}
+	else
+	{
+		Mes("何も起きなかった。");
+	}
+	Wait(30);
+	MapEvent(1);
+	
+	TekiStop(0);
+}
+ 

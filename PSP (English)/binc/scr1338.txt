@@ -1,0 +1,5 @@
+
+int main()
+{
+	Message(0,"Yuck... These potatoes have","eyes growing out of them...","","");
+}

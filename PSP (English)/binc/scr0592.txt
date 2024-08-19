@@ -1,0 +1,7 @@
+
+int main()
+{
+	Message(0,"What's written here?","","","");
+	Message(0,"~Just keep running.","Yours, M.~","","");
+}
+ 

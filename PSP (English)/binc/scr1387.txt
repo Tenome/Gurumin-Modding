@@ -1,0 +1,6 @@
+
+int main()
+{
+	Message(0,"~Fortune Database Storage.~","","","");
+	Message(0,"What's a ~database?~","","","");
+}

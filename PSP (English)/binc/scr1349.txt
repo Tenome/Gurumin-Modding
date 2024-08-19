@@ -1,0 +1,6 @@
+
+int main()
+{
+	Message(0,"Grandpa lives alone, so why","does he need so many dishes?","","");
+	Message(0,"Does he collect them?","","","");
+}

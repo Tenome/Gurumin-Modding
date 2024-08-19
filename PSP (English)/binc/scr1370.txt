@@ -1,0 +1,5 @@
+
+int main()
+{
+	Message(0,"This height is about perfect.","","","");
+}

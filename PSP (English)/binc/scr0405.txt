@@ -1,0 +1,172 @@
+
+int main()
+{
+//	Mes("「イベント」ボス撃破②");
+//	White(0,0,0);
+//	White(0,100,30);
+//	Wait(60);
+
+	KaguTest(40002,0);
+	
+	// デバッグ
+	if (ch[3982] == 1)
+	{
+		// 純粋ボスラッシュ中
+//		ch[1790]++;
+//		ch[1791] = 100;
+//		if (ch[1790] > 2) ch[1790] = 2;
+		KaguTest(20051,0);
+		Scop(0);
+		Scop(1);
+		
+		LoadMapB(606);
+		CharPos(0,0,2000,1050);
+
+		KaguTest(20020,0);
+	//		CharPos(ch[425],0,-300,20);
+			CharPos(ch[425],0,2300,1050);
+			KaguTest(30028,ch[425]);
+			
+			Scop2(ch[425],1,"scop.it3");
+			
+			KaguTest2(30013,50001,"fall_atari_ue");
+
+		Black(0,0,30);
+		Wait(30);
+		SetSavePos2(207,0,0,0);	// 死んだら手巣とマップに戻れ
+//		BGM(7);
+		return 0;
+	}
+	if (ch[3982] == 2)
+	{
+		// シナリオボスラッシュ中
+//		ch[1790]++;
+//		ch[1791] = 100;
+//		if (ch[1790] > 2) ch[1790] = 2;
+		KaguTest(20051,0);
+		Scop(0);
+		Scop(1);
+		
+//		PlayMovie("dkt_3_3.txt",1);
+		ch[1505] = 1;
+		Wait(10);
+//		PlayMovie("houkoku.txt",1);
+		ch[1506] = 1;
+		ch[1515] = 1;
+		ch[528] = 1;
+		Wait(10);
+//		PlayMovie("fukkou.txt",1);
+		ch[1516] = 1;
+		Wait(10);
+//		PlayMovie("pflush2.txt",1);
+		ch[1507] = 1;
+		ch[1508] = 1;
+		Wait(10);
+//		PlayMovie("nise.txt",1);
+		ch[1512] = 1;
+		Wait(10);
+		
+		LoadMapB(606);
+		CharPos(0,0,2000,1050);
+
+		KaguTest(20020,0);
+	//		CharPos(ch[425],0,-300,20);
+			CharPos(ch[425],0,2300,1050);
+			KaguTest(30028,ch[425]);
+			
+			Scop2(ch[425],1,"scop.it3");
+			
+			KaguTest2(30013,50001,"fall_atari_ue");
+
+		Black(0,0,30);
+		Wait(30);
+		SetSavePos2(207,0,0,0);	// 死んだら手巣とマップに戻れ
+//		BGM(7);
+		return 0;
+	}
+	// デバッグここまで
+	
+//	BGM(6);
+
+//	Lock();
+	// 評価表示
+	KaguTest(20020,0);
+	CharPos(ch[425],-200000,0,0);
+	CharPos(ch[425]+1,-200000,0,0);
+	CharPos(ch[425]+2,-200000,0,0);
+	CharPos(ch[425]+3,-200000,0,0);
+	CharPos(ch[425]+4,-200000,0,0);
+	CharPos(ch[425]+5,-200000,0,0);
+	CharPos(ch[425]+6,-200000,0,0);
+	White(0,0,30);
+	Wait(30);
+	KaguTest(10500,120);
+		
+	if (ch[2265] < 1)
+	{
+		ch[2265]=1;
+	}
+	
+	Wait(90);
+		
+	Message(0,"","","","");
+	
+	// ボス倒したことがある場合はそのまま退出
+	if (ch[1505])
+	{
+		Black(0,100,30);
+		Wait(30);
+		KaguTest(10011,5);
+		Wait(5);
+		KaguTest(10100,0);
+		KaguTest(99999,0);
+		TekiStop(0);
+		MapEvent(1);
+		return 0;
+	}	
+
+	White(0,100,30);
+	Wait(30);
+	KaguTest(10011,5);
+	Wait(5);
+//	BGM(0);
+
+	Mouse(0);
+	KaguTest(20065,7);
+	LoadMap(206);
+	PlayMovie("dkt_3_3.txt",0);
+	Mouse(1);
+//	PlayMovie("houkoku.txt",0);
+	ResetFade();
+	Black(0,100,0);
+//	Black(0,0,30);
+	Unlock();
+
+//	SetSavePos2( 206 , 0 , 0 , 38 );
+
+	// いろいろフラグ立てる
+	// ボス撃破　１５０５
+	// 偽パリン誕生イベント見るためのフラグ　１５１５
+	// 町復興フラグ　５２８
+	ch[1505] = 1;
+	ch[1515] = 1;
+	ch[528] = 1;
+	
+	KaguTest(99990,0);
+
+	ch[298] = 1;
+	KaguTest(99999,0);
+	
+	Black(0,100,15);
+	Wait(15);
+	ch[298] = 0;
+	ch[420] = 100;
+	ch[421] = 100;
+	ch[422] = 100;
+	KaguTest(30046,1);
+	Wait(10);
+	Black(0,0,15);
+
+	TekiStop(0);
+	MapEvent(1);
+}

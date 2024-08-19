@@ -1,0 +1,12 @@
+
+int main()
+{
+	Look(64,0);
+	Message(64,"Gya gyaaa.","","","");
+	Message(0,"......","","","");
+	Message(64,"Giga giga....","","","");
+	Message(0,"..............","","","");
+	Message(64,"Crazy mode...","Very hard...","","");
+	Message(0,"Debugging not easy...","","","");
+	Look(64,18);
+}

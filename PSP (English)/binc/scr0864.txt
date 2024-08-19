@@ -1,0 +1,8 @@
+
+int main()
+{
+	if (!ch[2300])
+	{
+		Mes("Something is sticking out of the ground.");
+	}
+}

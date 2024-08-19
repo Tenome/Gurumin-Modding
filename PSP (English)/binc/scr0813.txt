@@ -1,0 +1,267 @@
+
+int main()
+{
+	SaveCamera();
+	ch[420] = 9997;
+	KaguTest2(30003,2,"tekiatari3");
+
+	ch[420] = 1217;
+	ch[421] = 7230;
+	ch[422] = 767;
+	ch[423] = 2595;
+	ch[424] = 8718;
+	ch[425] = -229;
+	KaguTest(30093,30);
+	KaguTest(30019,14);
+	
+	int c;
+	int pt1;
+	int pt2;
+	int pt3;
+	int pt4;
+	ch[420] = 100000;
+	ch[427] = 7;
+	KaguTest(30015,2);
+	KaguTest(30015,3);
+	KaguTest(30025,3);
+	c = ch[420];
+
+	int x;
+	int y;
+	int z;
+	int i;
+//	for (i = -4;i < 4;i++)
+	for (i = -3;i < 3;i++)
+	{
+		GetCharPos(c+i,x,y,z);
+		KaguTest(12006,c+i);
+		CharPos(c+i,x,y,z);
+	}
+	ch[421] = 0;
+//	KaguTest(30131,c+4);
+	KaguTest(30131,c+4);
+	KaguTest(30131,c+5);
+	KaguTest(30131,c+3);
+	ch[420] = 1;
+	ch[421] = 1;
+	ch[422] = 1;
+//	KaguTest(30090,c-4);
+	KaguTest(30090,c-3);
+	KaguTest(30090,c-2);
+	KaguTest(30090,c-1);
+
+	ch[420] = -1;
+//	KaguTest(30051,c-4);
+	KaguTest(30051,c-3);
+	KaguTest(30051,c-2);
+	KaguTest(30051,c-1);
+	KaguTest(30051,c);
+	KaguTest(30051,c+1);
+	KaguTest(30051,c+2);
+//	KaguTest(30051,c+3);
+	
+	KaguTest(30078,c-2);
+	
+	KaguTest(12004,c);
+	pt1 = ch[420];
+	KaguTest(12004,c+1);
+	pt2 = ch[420];
+	KaguTest(12004,c+2);
+	pt3 = ch[420];
+//	KaguTest(12004,c+3);
+//	pt4 = ch[420];
+	KaguTest(12000,c);
+	KaguTest(12000,c+1);
+	KaguTest(12000,c+2);
+//	KaguTest(12000,c+3);
+	Wait(15);
+	// —‰º’†‚©ƒ`ƒFƒbƒN
+	GetCharPos(0,x,y,z);
+	if (z < 290)
+	{
+		// êŠˆÚ“®
+		CharPos(0,1825,7250,300);
+		Look(0,c);
+	}
+	Wait(15);
+	
+	// “Gã‚©‚ç—‚¿‚Ä‚­‚é
+	KaguTest(30077,c-2);
+	// “K“–‚ÉƒGƒ‚
+	ch[420] = 7;
+	ch[429] = 1;
+//	KaguTest(30036,c-4);
+	Wait(40);
+	ch[420] = 13;
+	ch[429] = 1;
+	KaguTest(30036,c-2);
+	Wait(30);
+	ch[420] = 1715;
+	ch[421] = 7557;
+	ch[422] = 1307;
+	ch[423] = 3274;
+	ch[424] = 8609;
+	ch[425] = 769;
+	KaguTest(30093,30);
+	Wait(30);
+	
+	//“G‚Ì”ò‚Ô—ûKŒ©‚é
+	Walk2(c+1,-8,0,60);
+	ch[429] = 0;
+	KaguTest(30039,0);
+	Walk2(c+2,-8,0,20);
+	KaguTest(30039,0);
+//	Walk2(c+3,-8,0,20);
+//	KaguTest(30039,0);
+	ch[420] = c+1;
+	KaguTest(30063,c);	// ’‹
+	Wait(15);
+	ch[421] = 40;
+	ch[422] = 1;
+	KaguTest(30037,c+1);
+	ch[420] = 4;
+	ch[421] = 1;
+	ch[422] = 5;
+	KaguTest(12003,c+1);
+	Wait(30);
+	ch[420] = 2;
+	ch[421] = 1;
+	ch[422] = 5;
+	KaguTest(12003,c+1);
+	
+	// ‘à’·‚Í‚à‚â‚à‚â
+	ch[420] = 4;
+	ch[429] = 1;
+	KaguTest(30036,c);
+	Wait(45);
+	
+	// Ÿ‚Ì“z‚Í­‚µ”ò‚Ô
+	Walk2(c+2,-8,0,90);
+	ch[429] = 0;
+	KaguTest(30039,0);
+	Walk2(c+3,-8,0,20);
+	KaguTest(30039,0);
+	ch[420] = c+2;
+	KaguTest(30063,c);	// ’‹
+	Wait(15);
+	ch[421] = 40;
+	ch[422] = 1;
+	KaguTest(30037,c+2);
+	ch[420] = 4;
+	ch[421] = 1;
+	ch[422] = 5;
+	KaguTest(12003,c+2);
+	Wait(15);
+		// •‚—V
+	ch[420] = 0;
+	KaguTest(30041,c+2);
+	Wait(30);
+		// —‰º
+	ch[420] = 1;
+	KaguTest(30041,c+2);
+	ch[420] = 2;
+	ch[421] = 1;
+	ch[422] = 5;
+	KaguTest(12003,c+2);
+		// ‘à’·‚Í‚æ‚ë‚±‚Ô
+	ch[420] = 7;
+	ch[429] = 1;
+	KaguTest(30036,c);
+	Wait(45);
+	Black(0,100,15);
+	Wait(15);
+	KaguTest(30019,0);
+	RestoreCamera();
+	CrossFade();
+	Wait(15);
+	Black(0,0,15);
+	Wait(15);
+
+	KaguTest(30063,-1);	// ’‹‰ğœ
+	
+
+	//“G‚ğ—‰º‚·‚éˆÊ’u‚Ö
+//	CharPos(c+3,-102750,8775,450);
+	CharPos(c,-102750,8975,450);
+	
+	ch[420] = pt1;
+	KaguTest(12002,c);
+	ch[420] = pt2;
+	KaguTest(12002,c+1);
+	ch[420] = pt3;
+	KaguTest(12002,c+2);
+	ch[420] = pt4;
+//	KaguTest(12002,c+3);
+	ch[420] = 3;
+	KaguTest(12005,c);
+	KaguTest(12005,c+1);
+	KaguTest(12005,c+2);
+//	KaguTest(12005,c+3);
+	
+	ch[420] = 0;
+//	KaguTest(30051,c-4);
+	KaguTest(30051,c-3);
+	KaguTest(30051,c-2);
+	KaguTest(30051,c-1);
+	KaguTest(30051,c);
+	KaguTest(30051,c+1);
+	KaguTest(30051,c+2);
+//	KaguTest(30051,c+3);
+
+	for (i = -2;i < 0;i++)
+	{
+		GetCharPos(c+i,x,y,z);
+		x = x * -1;
+		x = x - 100000;
+		CharPos(c+i,x,y,z);
+	}
+		// ƒ‚[ƒh–ß‚·
+//	for(i = -2;i < 4;i++)
+	for(i = -2;i < 3;i++)
+	{
+		ch[420] = c+i;
+		ch[421] = 15;
+		KaguTest(20044,26);
+	}
+	ch[420] = 1;
+	ch[421] = 1;
+	ch[422] = 1;
+	KaguTest(30090,c+1);
+	KaguTest(30090,c+2);
+
+	// c-2,c-1
+	ch[420] = 1;
+	ch[421] = 1;
+	ch[422] = 1;
+//	KaguTest(30090,c-4);
+	KaguTest(30090,c-3);
+	ch[420] = 98;
+	KaguTest(12002,c-2);
+	KaguTest(12002,c-1);
+	ch[420] = c-2;
+	ch[421] = 2;
+	KaguTest(20044,2);
+	ch[420] = c-1;
+	ch[421] = 2;
+	KaguTest(20044,3);
+	ch[420] = c-2;
+	ch[421] = 0;
+	KaguTest(20044,1);
+	ch[420] = c-1;
+	ch[421] = 0;
+	KaguTest(20044,1);
+
+	GetCharPos(c-2,x,y,z);
+	KaguTest(30132,c-2);
+	CharPos(c-2,x,y,z);
+	GetCharPos(c-1,x,y,z);
+	KaguTest(30132,c-1);
+	CharPos(c-1,x,y,z);
+
+	ch[421] = 4;
+//	KaguTest(30131,c+4);
+	KaguTest(30131,c+4);
+	KaguTest(30131,c+5);
+	KaguTest(30131,c+3);
+}
+ 

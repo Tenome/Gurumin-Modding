@@ -1,0 +1,396 @@
+
+int main()
+{
+	int story;
+	int map;
+
+	ch[400] = 17;
+
+	KaguTest(11000,0);
+	story = ch[420];
+
+	ch[217] = ch[217] + 1;
+	KaguTest(20010,0);
+	map = ch[420];
+
+	if (ch[2538] && map == 310)
+	{
+		//プク
+		Message(17,"There's got to be a way","to open this door.","","");
+		Message(17,"I have a feeling those","4 pillars are the answer.","","");
+		ch[400] = -1;
+		return 0;
+	}
+	if (ch[2521] && map == 607)
+	{
+		if (ch[2533])
+		{
+			//プク
+			Message(17,"That shapeshifter","should be just ahead.","","");
+			Message(17,"Be careful.","","","");
+			ch[400] = -1;
+			return 0;
+		}
+		else
+		{
+			// ドクイベント中
+			Message(17,"You have to find someone","to repair the lever.","","");
+			ch[400] = -1;
+			return 0;
+		}
+	}
+	
+	if (map == 208)
+	{
+		if (ch[2513])
+		{
+			//プク
+			Message(17,"There are mushrooms here","that spray poison gas.","","");
+			Message(17,"Make sure you have","the proper equipment.","","");
+			ch[400] = -1;
+			return 0;
+		}
+		if (ch[2517] && !ch[2513])
+		{
+			// 岩壊し成功ムービー
+			PostScr(1198);
+			ch[400] = -1;
+			return 0;
+		}
+		if (ch[2510] && !ch[2517])
+		{
+			//プク
+			Message(17,"I've actually never met Digby.","","","");
+			Message(17,"I guess he disappeared before","Pino and I moved here.","","");
+			Message(17,"He's... a little strange.","","","");
+			ch[400] = -1;
+			return 0;
+		}
+		if (ch[2509] && !ch[2510])
+		{
+			// 岩壊し失敗ムービー
+			PostScr(1197);
+			ch[400] = -1;
+			return 0;
+		}
+		if (ch[2514] && !ch[2509])
+		{
+			//プク
+			Message(17,"This boulder would pose","no problem to a mole.","","");
+			Message(17,"Maybe you can find one?","","","");
+			ch[400] = -1;
+			return 0;
+		}
+	}
+	
+	// チャッキー・鼻眼鏡クエスト中
+	if (ch[2030] && map == 401)
+	{
+		//プク
+		Message(17,"Strange...","Snow at this time of year.","","");
+		Message(17,"It must be the Dark Mist.","","","");
+		ch[400] = -1;
+		return 0;
+	}
+	
+	if (ch[1538])
+	{
+		if (ch[217] < 2)
+		{
+			//プク
+			Message(17,"A while ago, Motoro went to ","visit a human in town, but...","","");
+			Message(17,"...he found Pino and I,","unconcious, and helped us.","","");
+			//パリン
+			Message(0,"Who was he going to see?","","","");
+			//プク
+			Message(17,"I have an idea, but...","","","");
+			//パリン
+			Message(0,"Really? Who?!","","","");
+			//プク
+			Message(17,"It's probably better to","ask him directly.","","");
+			//パリン
+			Message(0,"Hey, no fair!","Why can't you just tell me?","","");
+			//プク
+			Message(17,"Well, my guess could","be wrong anyway.","","");
+		}
+		else
+		{
+			//プク
+			Message(17,"A while ago, Motoro went to ","visit a human in town, but...","","");
+			Message(17,"...he found Pino and I,","unconcious, and helped us.","","");
+		}
+		ch[400] = -1;
+		return 0;
+	}
+	if (ch[1505] && !ch[1513])
+	{
+		if (ch[2527])
+		{
+			//プク
+			Message(17,"That shapeshifter","has my sister. ","","");
+			Message(17,"Let's get to Pimento Mountain.","","","");
+		}
+		if (ch[2526] && !ch[2527])
+		{
+			//プク
+			Message(17,"This is great Parin!","","","");
+			Message(17,"If Pecky sponsors us, we can","make more progress here.","","");
+		}
+		if (ch[2525] && !ch[2526])
+		{
+			if (ch[217] < 2)
+			{
+				//プク
+				Message(17,"Did you see Pecky, Parin?","","","");
+
+				//パリン
+				Message(0,"I saw him.","He's a little strange.","","");
+
+				//プク
+				Message(17,"He's always been","like that. But there's","got to be a way.","");
+
+				//パリン
+				Message(0,"I'll do my best.","","","");
+			}
+			else
+			{
+				//プク
+				Message(17,"He's always been","like that. But there's","got to be a way.","");
+			}
+		}
+		if (ch[2524] && !ch[2525])
+		{
+			if (ch[217] < 2)
+			{
+				//プク
+				Message(17,"We need Pecky's help.","It's the only way.","","");
+				Message(17,"Pino's right. You should be","the one to go.","","");
+				Message(17,"Pecky's mansion is just","outside Spinach Cavern.","","");
+			}
+			else
+			{
+				//プク
+				Message(17,"We need Pecky's help.","It's the only way.","","");
+				Message(17,"Pecky's mansion is just","outside Spinach Cavern.","","");
+			}
+		}
+		if (ch[2265] && !ch[2524])
+		{
+			// スポンサーイベント
+			//プク
+			Message(17,"Welcome back.","","","");
+			Message(17,"Great timing.","There's something that","we all have to discuss.","");
+			//パリン
+			Message(0,"What is it?","","","");
+			//プク
+			Message(17,"We're about to have a meeting.","Do you have time to join us?","","");
+			//パリン
+			Message(0,"Of course.","","","");
+			ch[2524] = 1;
+			Black(0,100,15);
+			Wait(15);
+			
+			CharPos(17,-27,-184,38);
+			CharPos(6,169,96,38);
+			CharPos(0,-161,47,38);
+			CharPos(18,33,186,38);
+			CharPos(7,129,-136,38);
+			CharPos(11,-132,-137,38);
+			CharPos(16,-81,155,38);
+			
+			Look(0,17);
+			Look(6,17);
+			Look(7,17);
+			Look(11,17);
+			Look(16,17);
+			Look(18,17);
+			Look(17,18);
+			
+			Camera(17,-286,770,560);
+			Wait(15);
+			Black(0,0,15);
+			Wait(15);
+
+			ch[400] = 17;
+			//プク
+			Message(17,"Thanks to everyone,","repairs are going well.","","");
+			Message(17,"But we can't continue","without a sponsor.","","");
+			//パリン
+			Message(0,"A sponsor?","","","");
+			Look(17,0);
+			Wait(10);
+			ch[400] = 17;
+			//プク
+			Message(17,"Rebuilding is expensive.","","","");
+			Look(17,16);
+			Look(16,0);
+			Look(0,16);
+			Look(6,16);
+			Look(7,16);
+			Look(11,16);
+			Look(18,16);
+	//		Camera(16,-55,-612,380);
+			ch[400] = 16;
+			//ポコ
+			Message(16,"I know! We should ask Pecky!","","","");
+			Message(16,"His family's really rich!","","","");
+
+			Camera(18,-822,686,397);
+			ch[400] = 18;
+			Look(16,18);
+			//ピノ
+			Message(18,"But he's so hard to deal with.","","","");
+
+			ch[400] = 16;
+//			Camera(16,465,1275,465);
+			//ポコ
+			Message(16,"Oh yeah...","","","");
+			Message(16,"He's stubborn. He","won't just say 'yes'.","","");
+
+			Look(18,0);
+			Wait(10);
+	//		Camera(18,660,713,633);
+			ch[400] = 18;
+			//ピノ
+			Message(18,"Parin, we need you","to ask him for us.","","");
+
+			Look(0,18);
+			Look(6,0);
+			Look(7,0);
+			Look(11,0);
+			Look(16,0);
+			Look(17,0);
+	//		Camera(0,130,240,262);
+			Camera(0,-822,686,397);
+
+			Wait(10);
+			//パリン
+			Message(0,"Me?","","","");
+
+			Look(6,18);
+			Look(7,18);
+			Look(11,18);
+			Look(16,18);
+			Look(17,18);
+			ch[400] = 18;
+	//		Camera(18,-321,-1155,375);
+			//ピノ
+			Message(18,"We have to gain his trust.","","","");
+			Message(18,"You have the legendary drill!","He has to trust you.","","");
+
+			Look(6,0);
+			Look(7,0);
+			Look(11,0);
+			Look(16,0);
+			Look(17,0);
+			Message(0,"OK, fine...","","","");
+			Camera(-1,0,0,0);
+			Black(0,100,15);
+			Wait(15);
+			LoadMap(401);
+			Black(0,0,15);
+			Wait(15);
+			MapEvent(1);
+			
+			return 0;
+		}
+	}
+	if (ch[1542] && !ch[1505])
+	{
+		if (ch[217] < 2)
+		{
+			//プク
+			Message(17,"Rocko said that the ","Phantoms plan to","revive their old kingdom.","");
+			//パリン
+			Message(0,"So it seems.","","","");
+			//プク
+			Message(17,"That's probably why they","attacked. This isn't good.","","");
+			Message(17,"Parin, I'm sorry but","we still need your help.","","");
+			//パリン
+			Message(0,"I don't mind.","I'd be pretty bored if you","guys weren't around.","");
+		}
+		else
+		{
+			//プク
+			Message(17,"Phantoms plan to revive","their old kingdom.","","");
+			Message(17,"Parin, I'm sorry but","we still need your help.","","");
+		}
+	}
+	if (ch[507] && !ch[1542] && ch[2513])
+	{
+		//プク
+		Message(17,"There are mushrooms here","that spray poison gas.","","");
+		Message(17,"Make sure you have","proper equipment.","","");
+	}
+	if (ch[507] && !ch[1542] && !ch[2513])
+	{
+		//洞窟イベント開始前のホームにいるプクのセリフ追加
+		if (ch[217] < 2)
+		{
+			//プク
+			Message(17,"Pierre is safe, thanks","to you, Parin.","","");
+			Message(17,"When they attacked our","village, the Phantoms","stole all our furniture.","");
+			Message(17,"If you find any furniture,","give it back to it's owner.","","");
+		}
+		else
+		{
+			//プク
+			Message(17,"When they attacked our","village, the Phantoms","stole all our furniture.","");
+			Message(17,"If you find any furniture,","give it back to it's owner.","","");
+		}
+	}
+	if (ch[3200] && !ch[507])
+	{
+		// ポコにラジカセあげたあと
+		ch[400] = 17;
+		//プク
+		Message(17,"The Dark Mist is clearing a bit.","You can access more locations.","","");
+		Message(17,"Poco must be feeling better.","","","");
+		ch[400] = -1;
+		return 0;
+	}
+	if (ch[2260] && !ch[3200])
+	{
+		// ポコはまだ帰ってきていない
+		Message(17,"Poco isn't here...","","","");
+		Message(17,"I guess he took off.","Dodging work again...","","");
+		ch[400] = -1;
+		return 0;
+	}
+	if (ch[2330] && !ch[507])
+	{
+		//プク
+		Message(17,"You can't enter places","covered by Dark Mist.","","");
+		Message(17,"Search the places you can enter","for our missing friends.","","");
+	}
+	if (ch[2317] && !ch[2330])
+	{
+		if (!ch[2328] && !ch[2329])
+		{
+			//プク
+			Message(17,"Pino and Poco are","hiding in the human town.","","");
+			Message(17,"Can you find them for me?","","","");
+		}
+		if (!ch[2328] && ch[2329])
+		{
+			//プク
+			Message(17,"Poco is still hiding somewhere","in the human town.","","");
+			Message(17,"Can you find him for me?","","","");
+		}
+		if (ch[2328] && !ch[2329])
+		{
+			//プク
+			Message(17,"Pino is hiding","in the human town.","","");
+			Message(17,"Can you find her for me?","","","");
+		}
+	}
+	if (ch[1545] && !ch[2317])
+	{
+		// 兄たま発見イベント
+		PostScr(1194);
+		return 0;
+	}
+
+	ch[400] = -1;
+	return 0;
+}

@@ -1,0 +1,114 @@
+
+int main()
+{
+	// ‰‚ß‚Ä‚ÌŽG‹›“|‚µ‚½
+	int x;
+	int y;
+	int z;
+	int ln;
+	SaveCamera();
+	KaguTest(30005,0);
+	x = ch[421];
+	y = ch[422];
+	z = ch[423];
+	if (!ch[301])
+	{
+		// ŽŸ‚ÌŽG‹›‚¾
+		Wait(30);
+		ch[301] = 1;
+
+		ch[420] = 100000;
+		ch[427] = 7;
+		KaguTest(30015,51);
+		ch[420] = -173;
+		ch[421] = 3781;
+		ch[422] = 815;
+		ch[423] = -697;
+		ch[424] = 5194;
+		ch[425] = 215;
+		KaguTest(30019,1);
+		CrossFade();
+		Wait(45);
+		ch[420] = 100000;
+		KaguTest(30015,52);
+		ch[420] = -688;
+		ch[421] = 3925;
+		ch[422] = 647;
+		ch[423] = 496;
+		ch[424] = 5348;
+		ch[425] = 215;
+		KaguTest(30019,1);
+		CrossFade();
+		Wait(45);
+		KaguTest(30019,0);
+		RestoreCamera();
+		CrossFade();
+		Wait(15)
+		return 0;
+	}
+	if (!ch[302])
+	{
+		// ‚»‚Ì‚Ü‚½ŽŸ‚ÌŽG‹›‚¾
+		Wait(30);
+		ch[302] = 1;
+
+		ch[420] = 100000;
+		ch[427] = 7;
+		KaguTest(30015,53);
+		ch[420] = -150;
+		ch[421] = 3533;
+		ch[422] = 805;
+		ch[423] = -150;
+		ch[424] = 4979;
+		ch[425] = 220;
+		KaguTest(30019,1);
+		CrossFade();
+		Wait(75);
+		
+		if (!ch[2153])
+		{
+			ch[420] = -858;
+			ch[421] = 5386;
+			ch[422] = 600;
+			ch[423] = 666;
+			ch[424] = 5830;
+			ch[425] = 145;
+			KaguTest(30019,1);
+			CrossFade();
+			ch[420] = ch[423];
+			ch[421] = ch[424];
+			KaguTest(30070,0);
+			Wait(75);
+			KaguTest(30019,0);
+			RestoreCamera();
+			CrossFade();
+
+			// •Ç‚Æ‚Ì‹——£‚ðŽæ‚é
+			ch[420] = 675;
+			ch[421] = 5850;
+			ch[422] = 150;
+			KaguTest(30112,0);
+			if (ch[423] > 750)
+			{
+				Message(0,"I bet I could","break that wall.","","");
+			}
+			else
+			{
+				Message(0,"This wall looks weak.","","","");
+			}
+			ch[2153] = 1;
+		}
+		else
+		{
+			KaguTest(30019,0);
+			RestoreCamera();
+			CrossFade();
+		}
+		return 0;
+	}
+	if (!ch[303])
+	{
+		// ‘S•”“|‚µ‚½
+		ch[303] = 1;
+	}
+}

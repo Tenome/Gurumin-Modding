@@ -1,0 +1,67 @@
+
+int main()
+{
+	ch[400] = 16;
+	ch[2328] = 1;
+	
+	// 会話
+	//パリン
+	Message(0,"Poco, you're safe!","","","");
+	Message(0,"But, what are you doing?","","","");
+	//ポコ
+	Message(16,"I know humans can't see me,","but I still wanted to hide...","","");
+	//パリン
+	Message(0,"Pretty shy for a dancer.","","","");
+	//ポコ
+	Message(16,"Its hard to ignore my","monster hiding instincts.","","");
+	Message(16,"Anyway, what about the village?","","","");
+	//パリン
+	Message(0,"The Phantoms destroyed it.","","","");
+	//ポコ
+	Message(16,"Oh no...","","","");
+	Message(16,"I guess I'll go back","and have a look...","","");
+	
+	// パリン避ける
+	ch[424] = 1863;
+	ch[425] = 1173;
+	ch[426] = 7;
+	KaguTest(30061,0);
+	KaguTest(30060,0);
+	Walk(ch[421],ch[422],ch[423]);
+	ch[429] = 0;
+	KaguTest(30039,0);
+	Wait(ch[423]);
+	
+	// ポコ立ち去る
+	ch[400] = 116;
+	KaguTest(30005,0);
+	KaguTest(30062,0);
+	ch[420] = 16;
+	KaguTest(30063,0);
+	ch[400] = 116;
+	ch[424] = 1600;
+	ch[425] = 1150;
+	ch[420] = 1;
+	ch[426] = 12;
+	KaguTest(30061,0);
+	KaguTest(30060,16);
+	Walk2(16,ch[421],ch[422],ch[423]);
+	ch[429] = 0;
+	KaguTest(30039,0);
+	Wait(ch[423]);
+	KaguTest(30061,0);
+	ch[424] = 735;
+	ch[425] = 1150;
+	ch[426] = 12;
+	KaguTest(30060,16);
+	Walk2(16,ch[421],ch[422],ch[423]);
+	ch[429] = 0;
+	KaguTest(30039,0);
+	Wait(ch[423]-15);
+	ch[420] = 3;
+	KaguTest(30064,16);
+	Wait(15);
+	CharPos(16,-200000,0,0);
+	KaguTest(30063,-1);
+	ch[400] = -1;
+}

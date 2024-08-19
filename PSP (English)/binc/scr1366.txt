@@ -1,0 +1,6 @@
+
+int main()
+{
+	Message(0,"Maybe I can see another","world through here...","","");
+	Message(0,"Nah!","","","");
+}

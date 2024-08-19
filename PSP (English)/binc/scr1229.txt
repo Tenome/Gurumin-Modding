@@ -1,0 +1,44 @@
+
+int main()
+{
+	Black(0,100,30);
+	Wait(30);
+	KaguTest2(30016,0,"");
+	KaguTest(30019,0);
+//	PlayMovie("kdo_3_5.txt",0);
+	Mouse(0);
+	int movi;
+	KaguTest(20066,0);
+	movi = PlayMovie("kdo_3_5a.txt",0);
+	ch[2540] = 1;
+	KaguTest(100000,0);
+	if (movi)
+	{
+		movi = PlayMovie2("kdo_3_5x.txt",0);
+		KaguTest(100000,0);
+	}
+//	if (movi)
+//	{
+//		movi = PlayMovie2("kdo_3_5b.txt",0);
+//		KaguTest(100000,0);
+//	}
+//	if (movi)
+//	{
+//		movi = PlayMovie2("kdo_3_5c.txt",0);
+//		KaguTest(100000,0);
+//	}
+	PlayMovie2("kdo_3_5d.txt",0);
+	KaguTest(20066,0);
+	Black(0,100,0);
+	Wait(5);
+//	Black(0,0,15);
+	Walk(5,0,1);
+	KaguTest(30057,0);
+	Mouse(1);
+//	BGM(29);
+	ch[2540] = 1;
+	LoadMap(310);
+	CharPos(19,1675,-260,38);
+	KaguTest2(30014,0,"@crroot");
+	Black(0,0,15);
+}

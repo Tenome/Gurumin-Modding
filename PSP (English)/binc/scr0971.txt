@@ -1,0 +1,84 @@
+
+int main()
+{
+	int x;
+	int y;
+	int z;
+	string txt;
+	int w;
+	w = 0;
+	
+	MapEvent(0);
+	Blur(2,200,40);
+	SE(954);
+	Wait(40);
+	
+	if (!ch[300])
+	{
+		// まだ箱出してない
+		ch[421] = 0;
+		KaguTest(30034,0);
+		CharPos(ch[420],-900,900,-262);
+		txt = "Boxes appeared.";
+		w = ch[420];
+		ch[300] = 1;
+	}
+	else
+	{
+		if (ch[301])
+		{
+			// スイッチ押した
+			txt = "Nothing happened.";
+		}
+		else
+		{
+			// 箱位置直す
+			ch[421] = 0;
+			KaguTest(30034,0);
+			GetCharPos(ch[420],x,y,z);
+			if (x < -905 || x > -895 || y < 895 || y > 905)
+			{
+				// 箱位置直す
+				CharPos(ch[420],-900,900,-262);
+				txt = "The boxes' positions were reset.";
+				w = ch[420];
+			}
+			else
+			{
+				txt = "Nothing happened.";
+			}
+		}
+	}
+	Blur(2,0,30);
+	Walk(0,-5,30);
+	
+	if (w)
+	{
+		// 箱見せる
+		ch[420] = 619;
+		ch[421] = 3017;
+		ch[422] = 514;
+		ch[423] = -819;
+		ch[424] = 1006;
+		ch[425] = -191;
+		KaguTest(30019,1);
+		ch[421] = 4;
+		KaguTest(30131,w);
+		CrossFade();
+		Wait(30);
+		Mes(txt);
+		Wait(30);
+		KaguTest(30019,0);
+		CrossFade();
+		ch[421] = 6;
+		KaguTest(30131,w);
+	}
+	else
+	{
+		// このまま終わる
+		Mes(txt);
+	}
+	Wait(15);
+	MapEvent(1);
+}
+ 

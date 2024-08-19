@@ -1,0 +1,156 @@
+
+int main()
+{
+	int x;
+	x = ch[400];
+	
+	KaguTest(12004,x);
+	if (ch[420] != 98)
+	{
+		// ルーチン変更
+		KaguTest(12000,x);
+		ch[420] = 98;
+		KaguTest(12002,x);
+		ch[420] = x;
+		ch[421] = 15;
+		KaguTest(20044,42);
+	}
+	
+	if (ch[2040])
+	{
+		// クリア済み
+		Message(58,"You may pass.","","","");
+	}
+	else
+	{
+		string kotae;
+		if (x == 59)
+		{
+			// 番人１　　４番目文字
+			kotae = "L";
+			switch(ch[2078])
+			{
+			case 0:
+				kotae = "L";
+				break;
+			case 1:
+				kotae = "L";
+				break;
+			case 2:
+				kotae = "L";
+				break;
+			case 3:
+				kotae = "L";
+				break;
+			case 4:
+				kotae = "L";
+				break;
+			}
+			Message(59,"The password is "+kotae+".","The next part is to my front.","","");
+		}
+		if (x == 60)
+		{
+			// 番人２　　１番目文字
+			kotae = "C";
+			switch(ch[2078])
+			{
+			case 0:
+				kotae = "C";
+				break;
+			case 1:
+				kotae = "D";
+				break;
+			case 2:
+				kotae = "S";
+				break;
+			case 3:
+				kotae = "S";
+				break;
+			case 4:
+				kotae = "S";
+				break;
+			}
+			Message(60,"The password is "+kotae+".","The next part is to my front.","","");
+		}
+		if (x == 61)
+		{
+			// 番人３　　３番目文字
+			kotae = "I";
+			switch(ch[2078])
+			{
+			case 0:
+				kotae = "I";
+				break;
+			case 1:
+				kotae = "I";
+				break;
+			case 2:
+				kotae = "I";
+				break;
+			case 3:
+				kotae = "I";
+				break;
+			case 4:
+				kotae = "I";
+				break;
+			}
+			Message(61,"The password is "+kotae+".","The next part is two spaces over.","","");
+		}
+		if (x == 62)
+		{
+			// 番人４　　５番目文字
+			kotae = "L";
+			switch(ch[2078])
+			{
+			case 0:
+				kotae = "L";
+				break;
+			case 1:
+				kotae = "L";
+				break;
+			case 2:
+				kotae = "L";
+				break;
+			case 3:
+				kotae = "L";
+				break;
+			case 4:
+				kotae = "L";
+				break;
+			}
+			Message(62,"The password is "+kotae+".","The first part is to my front and side.","","");
+		}
+		if (x == 63)
+		{
+			// 番人５　　２番目文字
+			kotae = "H";
+			switch(ch[2078])
+			{
+			case 0:
+				kotae = "H";
+				break;
+			case 1:
+				kotae = "R";
+				break;
+			case 2:
+				kotae = "T";
+				break;
+			case 3:
+				kotae = "P";
+				break;
+			case 4:
+				kotae = "K";
+				break;
+			}
+			Message(63,"The password is "+kotae+".","The next part is to the forward left.","","");
+		}
+		if (x == 64)
+		{
+			// 番人１
+			Message(64,"Thinking up passwords is tricky.","","","");
+		}
+	}
+	
+	ch[400] = -1;
+}
+ 

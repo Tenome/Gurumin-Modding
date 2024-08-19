@@ -1,0 +1,81 @@
+
+int main()
+{
+	ch[300] = 1;
+	int pt1;
+	int c1;
+	TekiStop(1);
+	ch[420] = 100000;
+	ch[427] = 7;
+	KaguTest(30015,1);
+	KaguTest(30025,1);
+	c1 = ch[420];
+	KaguTest(12004,c1);
+	pt1 = ch[420];
+	
+	ch[420] = 2;
+	KaguTest(12005,c1);
+	
+	// “G‚ÉƒJƒƒ‰Œü‚¯‚é
+	Camera(c1,-1750,618,137);
+	CrossFade();
+	// ƒpƒŠƒ“‚ÌŠç‚ğ“G‚ÉŒü‚¯‚é
+	ch[420] = -2030;
+	ch[421] = 2358;
+	ch[422] = 321;
+	KaguTest(30019,13);
+	// !•¬o‚µ
+	ch[420] = 15;
+	ch[429] = 1;
+	KaguTest(30036,0);
+//	Message(c1,"~‚Ü‚êI","","","");
+	ch[420] = 13;
+	ch[429] = 1;
+	KaguTest(30036,c1);
+	Wait(45);
+	// “G‰º‚è‚Ä‚­‚é
+	Walk2(c1,0,-8,15);
+	ch[429] = 0;
+	KaguTest(30039,0);
+	Wait(25);
+	KaguTest(30019,0);
+	// ³–Ê‚É—§‚Â
+	Camera(c1,-1750,618,537);
+	Walk2(c1,8,-10,30);
+	ch[429] = 0;
+	KaguTest(30039,0);
+	Wait(5);
+	ch[421] = 40;
+	ch[422] = 1;
+	KaguTest(30037,c1);
+	Wait(25);
+	// ŠÔ‡‚¢‚ğ‹l‚ß‚é
+	Look(0,c1);
+	Look(c1,0);
+	Walk2(c1,0,-5,15);
+	ch[429] = 0;
+	KaguTest(30039,0);
+	Camera(c1,-1487,167,672);
+	Look(0,c1);
+	Look(c1,0);
+	ch[420] = 1;
+	ch[421] = 1;
+	ch[422] = 1;
+	KaguTest(30090,c1);
+	ch[420] = 3;
+	KaguTest(12005,c1);
+//	Message(c1,"‚±‚±‚©‚çæ‚É‚Í","s‚©‚¹‚È‚¢‚¼","","");
+	ch[420] = 15;
+	ch[429] = 1;
+	KaguTest(30036,c1);
+	Wait(45);
+
+	// ƒ‚[ƒh–ß‚·	
+	Camera(-1,0,0,0);
+	CrossFade();
+	Wait(15);
+	
+	TekiStop(0);
+	return 0;
+}
+ 

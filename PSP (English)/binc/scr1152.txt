@@ -1,0 +1,909 @@
+
+int main()
+{
+	int mg;
+	string str;
+	int map;
+	int nukeru;
+	nukeru = 0;
+	mg = 0;
+
+	ch[400] = 14;
+	
+	KaguTest(20010,0);
+	map = ch[420];
+
+	if (map == 607)
+	{
+		// エレベータ解説
+		//プク
+//		ch[400] = 17;
+		ch[420] = -1;
+		KaguTest(12002,14);
+		KaguTest(12002,17);
+		KaguTest(30038,14);
+		KaguTest(30038,17);
+		ch[420] = 100;
+		KaguTest(30103,14);
+		Look(17,0);
+		Message(17,"Parin!","","","");
+		//パリン
+		ch[420] = 89;
+		ch[421] = 130;
+		ch[422] = 600;
+		ch[423] = 18;
+		KaguTest(30065,0);
+		Look(0,17);
+		Message(0,"How does it look?","","","");
+		Message(0,"If this doesn't get fixed,","I can't get up there!","","");
+		ch[400] = 14;
+		//ドク
+		Look(14,0);
+		Message(14,"Got it running.","","","");
+		Look(0,14);
+		Look(17,14);
+		Message(14,"But this... doesn't","look like an accident.","","");
+		//パリン
+		Message(0,"That's right.","I saw someone break it.","","");
+		//ドク
+		Message(14,"It should work now.","","","");
+		
+		// リフト動かす
+		SaveCamera();
+		ch[302] = 2;
+		
+		ch[420] = -11;
+		ch[421] = -694;
+		KaguTest(30070,0);
+		KaguTest(30070,14);
+		KaguTest(30070,17);
+		
+		// エレベーター
+		// 上にいる
+		Wait(15);
+		KaguTest(60003,1);
+		Wait(15);
+		ch[421] = -323;
+		ch[422] = 395;
+		ch[423] = 6450;
+		KaguTest2(30018,1,"@p_null");
+		CrossFade();
+		Wait(30);
+		Event(154);
+		ch[402] = 1;
+		Wait(90);
+		ch[402] = 0;
+		Black(0,100,15);
+		Wait(15);
+		Event(156);
+		KaguTest2(30018,0,"");
+		CrossFade();
+		Wait(15);
+		RestoreCamera();
+		Black(0,0,15);
+		Wait(15);
+		
+		//プク
+		Look(17,14);
+		Look(14,17);
+		Look(0,14);
+		Message(17,"Thanks Doc. Now I can","track down that shapeshifter.","","");
+		//ドク
+		Message(14,"It was nothing.","","","");
+		Message(14,"Back to the lab!","","","");
+		ch[400] = -1;
+
+		KaguTest(30005,0);
+		Camera(14,ch[421],ch[422],ch[423]);
+		KaguTest(30062,0);
+		ch[420] = 14;
+		KaguTest(30063,0);
+		ch[400] = 114;
+		ch[424] = 45;
+		ch[425] = 1450;
+		ch[420] = 1;
+		ch[426] = 12;
+		KaguTest(30060,14);
+		Walk2(14,ch[421]*2,ch[422]*2,ch[423]/2);
+		Wait((ch[423] / 2) - 15);
+		Camera(-1,0,0,0);
+		ch[420] = 3;
+		KaguTest(30064,14);
+		Wait(15);
+		CharPos(14,-200000,0,0);
+		KaguTest(30063,-1);
+
+		ch[2533] = 1;
+		ch[420] = 22;
+		KaguTest(12002,17);
+		KaguTest(12002,14);
+
+		return 0;
+	}
+	if (ch[2531] && !ch[2555])
+	{
+		// ドクイベント続き：ドク、修理に向かえ
+		ch[400] = 114;
+		//パリン
+		Message(0,"Take these Sweaty Parts. Please!!","","","");
+		ch[400] = 14;
+		Wait(10);
+		//ドク
+		Message(14,"Oh perfect, perfect!!","","","");
+		Message(14,"I can repair my sick","computers with these!","","");
+		ch[400] = 114;
+		ch[420] = 1000;
+		ch[421] = -635;
+		KaguTest(30070,14);
+		Black(0,100,15);
+		Wait(15);
+		SE(512);
+		Wait(30);
+		KaguTest(20002,29);
+		ch[2532] = 0;
+		Scop(0);
+		Scop(1);
+		Black(0,0,15);
+		ch[2555] = 1;
+		Wait(15);
+		KaguTest(20023,0);
+		SE(819);
+		Mes("The curse has been lifted.");
+		Wait(70);
+		Look(0,14);
+		//ドク
+		Message(14,"There. Fixed.","","","");
+		//パリン
+		Message(0,"Done?","","","");
+		ch[400] = 14;
+		//ドク
+		Message(14,"All done.","","","");
+		//パリン
+		Message(0,"Then go fix the Pimento","Mountain elevator!","","");
+		//ドク
+		Message(14,"Wait a second there. It's fixed,","but I have to test it now.","","");
+		//パリン
+		Message(0,"What?!","","","");
+		//ドク
+		Message(14,"And you'll make","the perfect guinea pig.","","");
+		//パリン
+		Message(0,"Um... guinea pig?","","","");
+		//ドク
+		Message(14,"Just try it! You'll see!","How about it?","","");
+
+		nukeru = 1;
+	}
+	if (ch[2530] && !ch[2531])
+	{
+		// ドクイベント１：パーツが足りない継続
+		//ドク
+		Message(14,"Those human machine","parts are imperative if I'm","to fix that elevator!","");
+		ch[400] = -1;
+		ch[400] = 114;
+		ch[420] = 1000;
+		ch[421] = -635;
+		KaguTest(30070,14);
+		return 0;
+	}
+	if (ch[2521] && !ch[2530])
+	{
+//		ch[400] = 114;
+		ch[400] = 14;
+
+
+		if (ch[3957])
+		{
+			// ポポン中
+			//ドク
+			Message(14,"A human? Another ","dimensional hole must ","opened somewhere.","");
+			//ポポン
+			Message(0,"Dimensional... hole?","","","");
+			//ドク
+			Message(14,"A rip in the fabric of space-time.","A window into other","worlds, if you will.","");
+			//ポポン
+			Message(0,"Oh, maybe like that hole ","in town I always go through.","","");
+			Message(0,"Anyway, I need you to fix the","Pimento Mountain elevator.","","");
+			//ドク
+			Message(14,"Can't now. Busy!","","","");
+			//ポポン
+			Message(0,"Busy with what?","","","");
+			//ドク
+			Message(14,"Computer is ill. Very ill!","","","");
+			Message(14,"Some components seem","to have failed.","","");
+			//ポポン
+			Message(0,"Can't you fix it?","","","");
+			//ドク
+			Message(14,"These parts, I got them","from a human, long ago.","","");
+			Message(14,"Making them takes time.","Lots and lots of it.","","");
+			Message(14,"But what's this?","","","");
+			//ポポン
+			Message(0,"This?","","","");
+			//ドク
+			Message(14,"Your drill... of course!","I modified it years ago!","","");
+			//ポポン
+			Message(0,"Really?","","","");
+			//ドク
+			Message(14,"And when I did, that human","gave me the leftover parts","to use, if memory serves me.","");
+			//ポポン
+			Message(0,"Ah, the ones you got","back then have broken?","","");
+			//ドク
+			Message(14,"How about I take your drill","apart and use those parts?","","");
+			//ポポン
+			Message(0,"How about no!","","","");
+			//ドク
+			Message(14,"Well then, I have to","make these parts","myself...","");
+			//ポポン
+			Message(0,"How long will that take?","","","");
+			//ドク
+			Message(14,"Let me consult my computer here...","","","");
+			Message(14,"About a hundred years.","","","");
+			//ポポン
+			Message(0,"..............","","","");
+			Message(0,"...Ugh, now a scavenger","hunt for old drill parts?","","");
+			Message(0,"Maybe I can come up","with something else...","","");
+			//ドク
+			Message(14,"What was that?","","","");
+			//ポポン
+			Message(0,"N-nothing.","","","");
+			Message(0,"What if I give you this","brand new Portable Radio?","","");
+			//ドク
+			Message(14,"Oh perfect, perfect!!","","","");
+			Message(14,"With these parts","I can fix my computer!","","");
+			//ポポン
+			Message(0,"Heehee, it worked...","","","");
+			
+			Black(0,100,15);
+			Wait(30);
+			// 改造音
+			SE(512);
+			Wait(30);
+
+			Black(0,0,15);
+			Wait(15);
+
+			//ドク
+			Message(14,"There. Fixed.","","","");
+			//ポポン
+			Message(0,"Done?","","","");
+			//ドク
+			Message(14,"All done.","","","");
+			//ポポン
+			Message(0,"Then go fix the Pimento","Mountain elevator!","","");
+			//ドク
+			Message(14,"Wait a second there. It's fixed,","but I have to test it now.","","");
+			//ポポン
+			Message(0,"What?!","","","");
+			//ドク
+			Message(14,"And you'll make","the perfect guinea pig.","","");
+			//ポポン
+			Message(0,"Um... guinea pig?","","","");
+			//ドク
+			Message(14,"Just try it! You'll see!","How about it?","","");
+
+			nukeru = 1;
+			
+			ch[2530] = 1;
+			ch[2531] = 1;
+			ch[2555] = 1;
+		}
+		else
+		{
+			// ドクイベント１：パーツが足りない
+			//ドク
+			Message(14,"A human? Another ","dimensional hole must ","opened somewhere.","");
+
+			//パリン
+			Message(0,"Dimensional... hole?","","","");
+
+			//ドク
+			Message(14,"A rip in the fabric of space-time.","A window into other","worlds, if you will.","");
+
+			//パリン
+			Message(0,"Oh, maybe like that hole ","in town I always go through.","","");
+			Message(0,"Anyway, I need you to fix the","Pimento Mountain elevator.","","");
+
+			//ドク
+			Message(14,"Can't now. Busy!","","","");
+
+			//パリン
+			Message(0,"Busy with what?","","","");
+
+			//ドク
+			Message(14,"My computer is ill. Very ill!","","","");
+			Message(14,"Some components seem","to have failed.","","");
+
+			//パリン
+			Message(0,"Can't you fix it?","","","");
+
+			//ドク
+			Message(14,"These computer parts, I got","them from a human, long ago.","","");
+			Message(14,"Making them takes time.","Lots and lots of it.","","");
+			Message(14,"But what's this?","","","");
+
+			//パリン
+			Message(0,"This?","","","");
+
+			//ドク
+			Message(14,"Your drill... of course!","I modified it years ago!","","");
+
+			//パリン
+			Message(0,"Really?","","","");
+
+			//ドク
+			Message(14,"And when I did, that human","gave me the leftover parts","to use, if memory serves me.","");
+
+			//パリン
+			Message(0,"Ah, the ones you got","back then have broken?","","");
+
+			//ドク
+			Message(14,"How about I take your drill","apart and use those parts?","","");
+
+			//パリン
+			Message(0,"How about no!","","","");
+
+			//ドク
+			Message(14,"Well then, I have to","make these parts","myself...","");
+
+			//パリン
+			Message(0,"How long will that take?","","","");
+
+			//ドク
+			Message(14,"Let me consult my computer here...","","","");
+			Message(14,"About a hundred years.","","","");
+			ch[2530] = 1;
+			ch[400] = 114;
+			ch[420] = 1000;
+			ch[421] = -635;
+			KaguTest(30070,14);
+			return 0;
+		}
+	}
+	if (ch[2555] && !ch[2534])
+	{
+		if (ch[2555] == 1)
+		{
+			ch[2555] = 2;
+		}
+		else
+		{
+			Message(14,"Just be my guinea pig,","and I'll fix that elevator.","","");
+		}
+		SelStart(50);
+		SelText("Sign me up!",1);
+		SelText("No thanks.",2);
+		SelEnd();
+		
+		if (ch[50] == 1)
+		{
+			Message(14,"Oh goodie!","Right this way please.","","");
+			mg = 1;
+		}
+		else
+		{
+			Message(14,"I'll wait here until you","agree to help me.","","");
+		}
+		nukeru = 1;
+	}
+
+	ch[214]++;
+	if (!nukeru)
+	{
+		// えぴろーぐ
+		if (ch[1538])
+		{
+			if (ch[214] < 2)
+			{
+				//ドク
+				Message(14,"The analysis on Tokaron","is basically complete.","","");
+				//パリン
+				Message(0,"Find anything?","","","");
+				//ドク
+				Message(14,"Whoever cursed him is ","still at large, it seems.","","");
+				Message(14,"One thing is for certain.","The curse has been","completely dispelled.","");
+				Message(14,"He won't be causing","any more trouble.","","");
+				//パリン
+				Message(0,"That's a relief.","","","");
+			}
+			else
+			{
+				//ドク
+				Message(14,"Whoever cursed him is ","still at large, it seems.","","");
+				Message(14,"One thing is for certain.","The curse has been","completely dispelled.","");
+				Message(14,"He won't be causing","any more trouble.","","");
+			}
+			ch[400] = -1;
+			return 0;
+		}
+		
+		// つぼ食え
+		KaguTest(20010,0);
+		if (ch[2533] && !ch[2037] && ch[420] == 22)
+		{
+			ch[400] = 14;
+			Look(14,0);
+			//ドク
+			Message(14,"Oh! Excellent!","You have perfect timing!","","");
+
+			//パリン
+			Message(0,"What's up doc?","","","");
+
+			//ドク
+			Message(14,"I've invented an amazing","urn shaped device!","","");
+
+			//パリン
+			Message(0,"An Urn? What does it do?","","","");
+
+			//ドク
+			ch[400] = 114;
+			Message(14,"Hmm...","","","");
+			Message(14,"Much quicker to just","show you, I think.","","");
+//			Message(14,"ちょうどいい","実験材料がやって来たかも","","");
+			ch[420] = 15;
+			ch[421] = 30;
+			ch[429] = 1;
+			KaguTest(30053,14);
+			ch[420] = 0;
+			ch[421] = -1050;
+			KaguTest(30070,14);
+			Wait(30);
+
+			Message(14,"You! You're just in time to","help test my latest invention.","","");
+
+			CharPos(16,0,-1450,0);
+			KaguTest(12000,16);
+			Walk2(16,0,7,120);
+			KaguTest(20021,16);
+			ch[420] = -226;
+			ch[421] = 175;
+			ch[422] = 310;
+			ch[423] = 7;
+			ch[424] = -629;
+			ch[425] = 70;
+			KaguTest(30093,20);
+			KaguTest(30019,14);
+			CrossFade();
+			
+			Look(0,16);
+			KaguTest(20053,0);
+			Wait(ch[420]);
+			ch[424] = 150;
+			ch[425] = -575;
+			ch[426] = 16;
+			KaguTest(30061,0);
+			KaguTest(30060,14);
+			Walk2(14,ch[421],ch[422],ch[423]);
+			int time;
+			time = ch[423];
+			ch[429] = 0;
+			KaguTest(30039,0);
+			ch[424] = -20;
+			ch[425] = -475;
+			ch[426] = 14;
+			KaguTest(30061,0);
+			KaguTest(30060,0);
+			Walk(ch[421],ch[422],ch[423]);
+			ch[429] = 0;
+			KaguTest(30039,0);
+			
+			if (ch[423] > time)
+			{
+				Wait(time);
+				Look(14,16);
+				ch[420] = 8;
+				ch[429] = 1;
+				KaguTest(30036,16);
+				Wait(ch[423] - time);
+				Look(0,16);
+			}
+			else
+			{
+				Wait(ch[423]);
+				Look(0,16);
+				ch[420] = 8;
+				ch[429] = 1;
+				KaguTest(30036,16);
+				Wait(time - ch[423]);
+				Look(14,16);
+			}
+			//ドク
+			Look(16,0);
+			Message(14,"Simply use this Urn","near a monster...","","");
+			ch[421] = 0;
+			KaguTest(30076,1);
+			ch[420] = 0;
+			KaguTest(30111,16);
+			Wait(20);
+			ch[420] = 50;
+			KaguTest(30103,16);
+			Wait(40);
+			ch[420] = 2009;
+			ch[429] = 1;
+			KaguTest(30036,16);
+			Look(16,14);
+			Look(0,16);
+			Wait(40);
+			//ドク
+			Message(14,"...And it will suck up","their unique energy!","","");
+			Look(16,0);
+			//パリン
+			Message(0,"Wow.","","","");
+			Look(16,14);
+			ch[420] = 8;
+			ch[429] = 1;
+			KaguTest(30036,16);
+			Wait(30);
+			//ポコ
+			Message(16,"? ? ?","","","");
+			Message(16,"Woah.","I feel kind of... light.","","");
+			Message(16,"I... don't feel so good...","I'm going home.","","");
+			Walk2(16,0,-7,120);
+			KaguTest(20021,16);
+			ch[429] = 0;
+			KaguTest(30039,0);
+			Wait(105);
+			ch[420] = 3;
+			KaguTest(30064,16);
+			Wait(15);
+			CharPos(16,-200000,0,0);
+			ch[420] = 23;
+			KaguTest(12002,16);
+			//パリン
+			KaguTest(30019,0);
+			ch[400] = 14;
+			Look(14,0);
+			Look(0,14);
+			Message(0,"So what do you do with","the energy in the urn?","","");
+
+			//ドク
+			Message(14,"Just put the Urn down and","break it to release the energy.","","");
+			Message(14,"Then that energy can be used","in battle for a limited time.","","");
+
+			//パリン
+			Message(0,"Not bad.","","","");
+
+			//ドク
+			Message(14,"It's still a prototype,","so you can only use it","with certain monsters.","");
+			Message(14,"And you'll test it for","me, of course! Here!","","");
+
+			//パリン
+			Message(0,"Yay!","","","");
+
+			ch[420] = 1;
+			KaguTest(30111,0);
+			GetItem(23);
+			KaguTest(20022,23);
+			Mes("You got a ~Blue Urn.~");
+			Wait(60);
+
+			// チュートリアル表示
+		KaguTest(10006,0);
+		KaguTest(10007,7);
+		KaguTest2(10009,0,"tute_23.bmp");
+		ch[423] = 15;
+		ch[424] = 8;
+		ch[425] = 240;
+		ch[426] = 264;
+		ch[427] = 0;
+		ch[428] = 0;
+		ch[429] = 225;
+		ch[430] = 256;
+		ch[431] = 256;
+		KaguTest(10010,10);
+		KaguTest(10006,1);
+		KaguTest(10007,7);
+		KaguTest2(10009,1,"tute_24.bmp");
+		ch[423] = 240;
+		ch[424] = 8;
+		ch[425] = 465;
+		ch[426] = 264;
+		ch[427] = 0;
+		ch[428] = 0;
+		ch[429] = 225;
+		ch[430] = 256;
+		ch[431] = 256;
+		SE(399);
+		KaguTest(10010,10);
+		Wait(10);
+		Message(0,"","","","");
+		ch[420] = 0;
+		KaguTest(10011,10);
+		ch[420] = 1;
+		KaguTest(10011,10);
+		Wait(10);
+
+			ch[2037] = 1;
+			ch[400] = -1;
+			return 0;
+		}
+		
+		// 一般
+		if (ch[1571] && !ch[1538])
+		{
+			if (ch[214] < 2)
+			{
+				//ドク
+				Message(14,"My sensors picked up","a powerful earthquake...","","");
+				Message(14,"But I didn't notice anything.","","","");
+				//パリン
+				Message(0,"Maybe you stayed up all","night and slept through it.","","");
+				//ドク
+				Message(14,"I sleep in mid-air, so","it's unlikely I'd notice","an earthquake.","");
+				//パリン
+				Message(0,"...I wish I could do that.","","","");
+			}
+			else
+			{
+				//ドク
+				Message(14,"Readings indicate this","earthquake was similar","to the one 50 years ago.","");
+			}
+		}
+		if (ch[1513] && !ch[1571])
+		{
+			//ドク
+			Message(14,"I recall modifying this","drill so it could use","Fire and Shock Parts.","");
+			Message(14,"Yes, there are three types","of parts all together.","","");
+		}
+		if (ch[1505] && !ch[1513])
+		{
+			if (ch[2533])
+			{
+				//ドク
+				Message(14,"Back to my beloved research!","","","");
+			}
+			else
+			{
+				ch[400] = 114;
+				if (ch[214] < 2)
+				{
+					//ドク
+					Message(14,"If this component failed,","I'd understand, but...","","");
+					Message(14,"It could be a bit of a problem...","","","");
+					//パリン
+					Message(0,"Working hard?","","","");
+				}
+				else
+				{
+					//ドク
+					Message(14,"If this component failed","I'd understand, but...","","");
+					Message(14,"It could be a bit of a problem...","","","");
+				}
+				return 0;
+			}
+		}
+		if (ch[1542] && !ch[1505])
+		{
+			//ドク
+			ch[400] = 114;
+			Message(14,"If it's not this one,","it must be this one...","","");
+			Message(14,"But if it's this one,","oh boy... not good...","","");
+			return 0;
+		}
+		if (!ch[1542])
+		{
+			ch[400] = 114;
+			if (ch[214] < 2)
+			{
+				//ドク
+				Message(14,"Hmm... Maybe if I jiggle","this part here, and...","","");
+				//パリン
+				Message(0,"Hey!","","","");
+				//ドク
+				Message(14,"No no no, that can't be","it... I just replaced it...","","");
+				//パリン
+				Message(0,"Hello?!","","","");
+				//ドク
+				Message(14,"So then, the problem","is this circuit?","","");
+				//パリン
+				Message(0,"Oh well.","I didn't need him, anyway.","","");
+			}
+			else
+			{
+				//ドク
+				Message(14,"Hmm... Maybe if I jiggle","this part here, and...","","");
+				Message(14,"No no no, that can't be","it... I just replaced it...","","");
+			}
+			return 0;
+		}
+	}
+	
+	if (ch[2533] && map == 22 && !ch[1538])
+	{
+		if (!ch[2311])
+		{
+			// なわとびしたことが無い
+			Message(14,"Behold! My lab.","","","");
+			Message(14,"Recently, I've been","studying 'emotions'.","","");
+			Message(14,"At the moment, I'm","looking at 'panic'.","","");
+			Message(14,"Why do panicked people","make more mistakes?","Fascinating, isn't it?","");
+			Message(14,"I'm still recruiting","test subjects for my new","experiments.","");
+			Message(14,"How about it?","Will you help me?","","");
+			
+			SelStart(50);
+			SelText("Sign me up!",1);
+			SelText("No thanks.",2);
+			SelEnd();
+			
+			if (ch[50] == 1)
+			{
+				// 飛ぶ
+				Message(14,"Excellent.","Right this way please.","","");
+				mg = 1;
+			}
+//			else
+//			{
+//				Message(14,"研究サンプルの目標に達成したら","ドリルのパーツを売ってあげようと","思っていたのに……","");
+//			}
+		}
+		else
+		{
+			// なわとびしたことがある
+			if (ch[2311] < 21)
+			{
+				// なわとび不合格
+				Message(14,"Oh, you're just in time.","","","");
+				if (ch[2311] == 1)
+				{
+					str = "Before, you couldn't dodge even one laser!";
+					Message(14,"Now last time, you couldn't","avoid a single laser.","","");
+					Message(14,"These results will","not do at all...","Pick up the pace!","");
+				}
+				else
+				{
+					str = "Your best result is " + (ch[2311] - 1) + " lasers dodged.";
+					Message(14,"Looking at your previous samples,",str,"","");
+					Message(14,"Interesting results... but I can't","use them in my research.","Next time try harder!","");
+				}
+				Message(14,"Don't be shy. Give me a","hand with my research!","","");
+
+				SelStart(50);
+				SelText("Well, why not?",1);
+				SelText("I'm kind of busy...",2);
+				SelEnd();
+				
+				if (ch[50] == 1)
+				{
+					// 飛ぶ
+					Message(14,"Excellent.","Right this way please.","","");
+					mg = 1;
+				}
+//				else
+//				{
+//					Message(14,"研究サンプルは３０本以上が目安だ。","３０本以上避けられたら","ドリルのパーツを売ってあげよう","");
+//				}
+			}
+			else
+			{
+				// なわとび合格済み
+				ch[400] = 14;
+				Message(14,"Oh, you're just in time.","","","");
+				Message(14,"Willing to be my guinea pig today?","","","");
+				SelStart(50);
+				SelText("Well, why not?",2);
+				SelText("I'm kind of busy...",3);
+				SelEnd();
+				
+				if (ch[50] == 2)
+				{
+					// ミニゲーム
+					Message(14,"Outstanding.","You'll be a great help.","","");
+					str = "Your best result is " + (ch[2311] - 1) + " lasers dodged.";
+					Message(14,"Looking at your previous samples,",str,"","");
+					if (ch[2312])
+					{
+						Message(14,"Try to break your","previous record.","","");
+					}
+					if (!ch[2312] && ch[2311] > 80)
+					{
+						// ８０避け済み
+						Message(14,"I expect you to dodge","at least 80 lasers again.","","");
+					}
+					if (!ch[2312] && ch[2311] < 81)
+					{
+						// まだ
+						Message(14,"If you can, try","dodging at least","80 lasers.","");
+					}
+
+					// 飛ぶ
+					Message(14,"Ok, here we go.","Right this way please.","","");
+					mg = 1;
+				}
+				else 
+				{
+//					if (ch[50] != 2 && ch[50] != 1)
+					{
+						str = "Your best result is " + (ch[2311] - 1) + " lasers dodged.";
+						Message(14,"Looking at your previous samples,",str,"","");
+						Message(14,"Don't be shy. Give me a hand!","","","");
+					}
+				}
+
+			}
+
+		}
+	}
+	
+	ch[400] = -1;
+	
+	if (ch[1538])
+	{
+		return 0;
+	}
+
+	if (mg)
+	{
+		// ミニゲームする
+		ch[420] = -450;
+		ch[421] = 1985;
+		ch[422] = 666;
+		ch[423] = 0;
+		ch[424] = 535;
+		ch[425] = 65;
+		KaguTest(30019,1);
+		CrossFade();
+		Wait(10);
+		Event(231);
+		SE(476);
+		Wait(60);
+		ch[424] = 0;
+		ch[425] = 0;
+		ch[426] = 12;
+		KaguTest(30060,0);
+		Walk(ch[421],ch[422],ch[423]);
+		Wait(ch[423]);
+		ch[2145] = 0;
+		Black(0,100,15);
+		Wait(15);
+		KaguTest(30019,0);
+		ch[2144] = 1;
+		ch[2497] = 1;
+		LoadMap(22);
+		CharPos(0,0,0,-93);
+		Camera(14,-550,900,370);
+		Look(0,14);
+		Look(14,0);
+		KaguTest(12000,58);
+		KaguTest(12001,58);
+		KaguTest(12000,59);
+		KaguTest(12001,59);
+		CrossFade();
+		Wait(15);
+		Black(0,0,15);
+		
+		ch[400] = 14;
+		KaguTest(30141,543);
+		KaguTest(30141,545);
+		KaguTest(30141,546);
+		KaguTest(30141,547);
+		if (ch[2311] < 21)
+		{
+			// 合格して無いとき
+			Message(14,"Now, for the experiment!","","","");
+			Message(14,"Your task is to dodge","all of the lasers that","come at you.","");
+			Message(14,"Touching even one laser","ends the experiment.","","");
+			Message(14,"For every laser that leaves","the field, your score increases.","","");
+			Message(14,"The target sample for","this first trial is...","20 lasers.","");
+		}
+		else
+		{
+			Message(14,"Now, for the experiment!","","","");
+			Message(14,"Your task is to dodge","all of the lasers that","come at you.","");
+			Message(14,"Touching even one laser","ends the experiment.","","");
+			Message(14,"For every laser that leaves","the field, your score increases.","","");
+			Message(14,"Dodge as many as possible,","and I'll analyze the results.","","");
+		}
+		Message(14,"Oh, and good luck.","","","");
+		Wait(15);
+		Camera(0,0,-1000,620);
+		CrossFade();
+		Wait(30);
+		ch[3982] = 4;
+		ch[400] = -1;
+		// テクスチャ読み込んでおく
+		KaguTest2(10009,0,"minigm.iti");
+		Wait(90);
+		BGM(10);
+		ch[2061] = 1;
+	}
+	
+	return 0;
+}

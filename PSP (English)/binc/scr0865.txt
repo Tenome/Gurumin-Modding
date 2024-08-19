@@ -1,0 +1,6 @@
+
+int main()
+{
+	Message(0,"This straw hat is too","big for me.","","");
+}
+ 

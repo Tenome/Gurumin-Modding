@@ -1,0 +1,11 @@
+
+int main()
+{
+	KaguTest(10006,0);//”­Œ¾‰Šú‰»
+
+	KaguTest2(10008,0,"Oh yeah! Chucky kept");
+	KaguTest2(10008,1,"saying he wanted to");
+	KaguTest2(10008,2,"grow up, didn't he?");
+
+	KaguTest(10012,0);
+}

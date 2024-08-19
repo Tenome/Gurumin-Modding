@@ -1,0 +1,393 @@
+
+int main()
+{
+	ch[400] = 56;
+	KaguTest(99993,0);
+	if (ch[420] && ch[421] && ch[422] && ch[425])
+	{
+		// 全制覇済み
+		if (!ch[2038])
+		{
+			// 初会話
+			//ポポン
+			Message(56,"Yaaaawn...","I'm so sleepy...","","");
+			//パリン
+			Message(0,"Who are you?","","","");
+			//ポポン
+			Message(56,"Kyaaa-?!","","","");
+			Message(56,"H-how long have you been ","standing there?","","");
+			//パリン
+			Message(0,"Just for a minute.","","","");
+			//ポポン
+			Message(56,"I-I see...","My name's Popon.","","");
+			Message(56,"I just moved","here today.","","");
+			//パリン
+			Message(0,"Really?!","News to me!","","");
+			//ポポン
+			Message(56,"Heehee. My aunt Pamela","told me about you.","","");
+			Message(56,"You must be Parin, the only","other kid in town, right?","","");
+			//パリン
+			Message(0,"That's me.","","","");
+			//ポポン
+			Message(56,"Well then.","Would you like to be","friends with me?","");
+			//パリン
+			Message(0,"..............","","","");
+
+			//ポポン
+			Message(56,"What is it?","","","");
+			Message(56,"...Something the matter?","","","");
+
+			//パリン
+			Message(0,"YES!!","I have a human friend!","","");
+			Message(0,"You're Popon, right?","Come on, let's play!","","");
+
+			//ポポン
+			Message(56,"OK.","","","");
+
+			//パリン
+			Message(0,"What do you like","to play, Popon?","","");
+
+			//ポポン
+			Message(56,"At home, I practiced fencing","with my grandfather.","","");
+
+			//パリン
+			Message(0,"Fencing? Pretty","athletic then, huh?","","");
+			Message(0,"We could take turns","fighting Phantoms?","","");
+
+			//ポポン
+			Message(56,"Sounds like fun.","","","");
+
+			//パリン
+			Message(0,"OK then!","That was easy.","","");
+			Message(0,"I'll lend you my drill.","If you don't have a weapon,","you can't do too much.","");
+
+			//ポポン
+			Message(56,"Don't worry about that.","","","");
+
+			//パリン
+			Message(0,"What?","","","");
+
+			//ポポン抜刀
+			KaguTest(12000,56);
+
+			White(0,100,0);
+			Scop2(56,1,"spscop.it3");
+			White(0,0,15);
+			
+			ch[420] = 45;
+			ch[421] = 1;
+			ch[422] = 5;
+			KaguTest(12003,56);
+			Wait(30);
+
+			ch[420] = 46;
+			ch[421] = 1;
+			ch[422] = 5;
+			KaguTest(12003,56);
+
+			Wait(50);
+			ch[420] = 2;
+			ch[421] = 1;
+			ch[422] = 10;
+			KaguTest(12003,56);
+			Wait(5);
+			Scop2(56,0,"");
+
+			ch[420] = 87;
+			KaguTest(12002,56);
+
+			//ポポン
+			Message(56,"I have my Dragon Slayer","sword. It's been in my","family for generations!","");
+
+			//パリン
+			Message(0,"One more thing!","","","");
+			Message(0,"Here's the ~Gurumin~","script, ok?","","");
+			Message(0,"If you're to take my place,","you need to know your lines!","","");
+
+			//ポポン
+			Message(56,"No problem.","I'm a fast learner.","","");
+			
+			ch[2038] = 1;
+		}
+		if (!ch[1545] && ch[2038])
+		{
+			//▼兄たま誘拐後&&ドリル入手後 !ch[1545]
+			//ポポン
+			Message(56,"So, I'm off then?","","","");
+		}
+		if (!ch[2330] && ch[1545])
+		{
+			//▼王子と四天王登場後 !ch[2330]
+			//ポポン
+			Message(56,"I should find those","silly monsters and...","","");
+			Message(56,"...I mean, look for my","monster friends! Ho ho!","","");
+		}
+		if (!ch[507] && ch[2330])
+		{
+			//▼襲撃後・３オバケ発見後 !ch[507]
+			//ポポン
+			Message(56,"It's so tiring just","standing here...","","");
+			Message(56,"Oh, hello Parin!","I'm finally facing","the Prince's servants!","");
+			Message(56,"I'm so very excited!","","","");
+		}
+		if (!ch[1542] && ch[507])
+		{
+			//▼ボブー戦終了後 !ch[1542]
+			//ポポン
+			Message(56,"These clothes and","equipment don't fit me.","","");
+			Message(56,"How unfortunate...","","","");
+		}
+		if (!ch[1505] && ch[1542])
+		{
+			//▼モスビー戦終了後 !ch[1505]
+			//ポポン
+			Message(56,"Earning money is much","harder than I imagined.","","");
+		}
+		if (!ch[1513] && ch[1505])
+		{
+			//▼ラッシー戦終了後(ホーム復興イベント) !ch[1513]
+			//ポポン
+			Message(56,"If I were closer to home I'd ask","my father to sponsor them.","But here...","");
+		}
+		if (!ch[1571] && ch[1513])
+		{
+			//▼クリーム戦終了後 !ch[1571]
+			//ポポン
+			Message(56,"How sad...","","","");
+			Message(56,"Ruining someone's good name","and racking up debt...","","");
+			Message(56,"It brings tears to my eyes...","","","");
+		}
+		if (!ch[1538] && ch[1571])
+		{
+			//▼王子戦終了後 !ch[1538]
+			//ポポン
+			Message(56,"This is it, ","the final battle.","","");
+			Message(56,"My life here is much more","fun than back home at","my father's mansion!","");
+		}
+		
+		SelStart(50);
+		SelText("Switch with Popon",1);
+		SelText("Don't switch",2);
+		SelEnd();
+
+		if (ch[50] == 1)
+		{
+			// チェンジ
+			if (ch[2007])
+			{
+				// パリン
+				Message(0,"Now isn't the time to switch.","","","");
+				ch[400] = -1;
+				return 0;
+			}
+			
+			// ドクイベント中？
+			if (ch[2530] && !ch[2533])
+			{
+				// ドクイベント中で交代してはいけない
+				//ポポン
+				Message(56,"Switch?","","","");
+				Message(56,"My apologies, but I","simply don't feel like it.","","");
+				ch[400] = -1;
+				return 0;
+			}
+
+			{
+				// わらしべ中は交代できないようにする
+				int warasibe;
+				warasibe = 0;
+				KaguTest(20001,17);
+				if (ch[430])
+				{
+					warasibe = 1;
+				}
+				KaguTest(20001,18);
+				if (ch[430])
+				{
+					warasibe = 1;
+				}
+				KaguTest(20001,25);
+				if (ch[430])
+				{
+					warasibe = 1;
+				}
+				KaguTest(20001,27);
+				if (ch[430])
+				{
+					warasibe = 1;
+				}
+				KaguTest(20001,30);
+				if (ch[430])
+				{
+					warasibe = 1;
+				}
+				KaguTest(20001,31);
+				if (ch[430])
+				{
+					warasibe = 1;
+				}
+				KaguTest(20001,32);
+				if (ch[430])
+				{
+					warasibe = 1;
+				}
+				if (warasibe)
+				{
+					// わらしべ中だ
+					Message(56,"I don't feel like","playing right now...","","");
+					Message(56,"Invite me another time.","","","");
+					ch[400] = -1;
+					return 0;
+				}
+
+				//パリン
+				Message(0,"I'm counting on you.","","","");
+
+				Black(0,100,15);
+				Wait(20);
+				KaguTest(20070,6);
+//				ch[2501] = 6;
+				ch[3957] = 1;
+				ReloadChar();
+				LoadMapB(12);
+				Black(0,0,15);
+				Wait(15);
+			}
+		}
+		else
+		{
+			// 非チェンジ
+			//パリン
+			Message(0,"Maybe later, ok?","","","");
+
+			//ポポン
+			Message(56,"Oh? That's too bad.","","","");
+		}
+	}
+	else
+	{
+		// まだ交代は出来ない
+		if (!ch[2038])
+		{
+			// 初会話
+			//ポポン
+			Message(56,"Yaaaawn...","I'm so sleepy...","","");
+			//パリン
+			Message(0,"Who are you?","","","");
+			//ポポン
+			Message(56,"Kyaaa?!","","","");
+			Message(56,"H-how long have","you been standing there?","","");
+			//パリン
+			Message(0,"Just for a minute.","","","");
+			//ポポン
+			Message(56,"I-I see...","My name's Popon.","","");
+			Message(56,"I just moved","here today.","","");
+			//パリン
+			Message(0,"Really?!","News to me!","","");
+			//ポポン
+			Message(56,"Heehee. My aunt Pamela","told me about you.","","");
+			Message(56,"You must be Parin, the","only other kid in town, right?","","");
+			//パリン
+			Message(0,"That's me.","","","");
+			//ポポン
+			Message(56,"Well then.","Would you like to be","friends with me?","");
+
+			//パリン
+			Message(0,"..............","","","");
+
+			//ポポン
+			Message(56,"What is it?","","","");
+			Message(56,"...Something the matter?","","","");
+
+			//パリン
+			Message(0,"YES!!","I have a human friend!","","");
+			//パリン
+			Message(0,"You're Popon, right?","Come on, let's play!","","");
+
+			//ポポン
+			Message(56,"Y-you mean right now?","To tell you the truth,","I just arrived in town...","");
+			Message(56,"Could you wait until","I've settled in a bit?","","");
+
+			//パリン
+			Message(0,"I guess you're right.","No problem.","","");
+
+			//ポポン
+			Message(56,"I apologize.","","","");
+			
+			ch[2038] = 1;
+			ch[400] = -1;
+			return 0;
+		}
+		if (!ch[1545] && ch[2038])
+		{
+			//▼兄たま誘拐後&&ドリル入手後 !ch[1545]
+			//ポポン
+			Message(56,"Shouldn't you be at","the ruins rescuing Pino?","","");
+		}
+		if (!ch[2330] && ch[1545])
+		{
+			//▼王子と四天王登場後 !ch[2330]
+			//ポポン
+			Message(56,"That legendary drill looks","fearsomly powerful.","","");
+			Message(56,"Almost as powerful","as my own weapon...","","");
+
+			//パリン
+			Message(0,"You have a weapon?","Show me show me!","","");
+
+			//ポポン
+			Message(56,"It's a secret. Hee hee.","I'll show you when the time comes.","","");
+		}
+		if (!ch[507] && ch[2330])
+		{
+			//▼襲撃後・３オバケ発見後 !ch[507]
+			//ポポン
+			Message(56,"Do you know about","Pictures?","","");
+			Message(56,"If you want to collect ","all of them, try meeting and","talking to everyone.","");
+			Message(56,"And if they ask you to do","something, do it.","","");
+		}
+		if (!ch[1542] && ch[507])
+		{
+			//▼ボブー戦終了後 !ch[1542]
+			//ポポン
+			Message(56,"I'm so jealous of all","your nice outfits.","","");
+			Message(56,"You can do various things","to get new outfits.","","");
+			Message(56,"One method is to","clear a stage on multiple","difficulty settings.","");
+		}
+		if (!ch[1505] && ch[1542])
+		{
+			//▼モスビー戦終了後 !ch[1505]
+			//ポポン
+			Message(56,"A bit ago, Cylinder","asked me on a date.","","");
+			Message(56,"He doesn't seem like a bad","person, but...","","");
+			Message(56,"I wish he'd just buzz off!","","","");
+
+			//パリン
+			Message(0,"What?","","","");
+
+			//ポポン
+			Message(56,"O-oh, it's nothing...","Hohoho...","","");
+		}
+		if (!ch[1513] && ch[1505])
+		{
+			//▼ラッシー戦終了後(ホーム復興イベント) !ch[1513]
+			//ポポン
+			Message(56,"If you find all","those Platinum Medals...","","");
+			Message(56,"...Something should happen.","","","");
+		}
+		if (!ch[1571] && ch[1513])
+		{
+			//▼クリーム戦終了後 !ch[1571]
+			//ポポン
+			Message(56,"Its not just Monster ","Village residents you can","seal in an Urn.","");
+		}
+		if (!ch[1538] && ch[1571])
+		{
+			//▼王子戦終了後 !ch[1538]
+			//ポポン
+			Message(56,"See the ~real~ ending..","","","");
+			Message(56,"Only then can we","play together.","","");
+			Message(56,"I shall show you","my weapon, as promised.","","");
+		}
+	}
+	ch[400] = -1;
+}

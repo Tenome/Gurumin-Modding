@@ -1,0 +1,11 @@
+
+int main()
+{
+	// ƒ\ƒ“ƒuƒŒƒ
+	KaguTest(10006,0);//”­Œ¾‰Šú‰»
+	
+	KaguTest2(10008,0,"Pierre should get to know");
+	KaguTest2(10008,1,"other countries besides France!");
+	
+	KaguTest(10012,0);
+}

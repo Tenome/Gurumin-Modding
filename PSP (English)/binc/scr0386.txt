@@ -1,0 +1,103 @@
+
+int main()
+{
+	int a;
+	a = 0;
+	ch[400] = 25;
+	
+	// 倒したことがある？
+//	KaguTest(20001,48);
+
+	if (ch[2075])
+	{
+		//ブラックビーン
+		Message(25,"Back again, are you?","What can I do for you?","","");
+		
+		SelStart(50);
+		SelText("Who are you?",5);
+		SelText("Let's fight!!",1);
+		SelText("Give me a present!",2);
+		
+		if (ch[3960])
+		{
+			SelText("Defeat Tokaron.",4);
+		}
+
+		SelText("I don't need anything.",3);
+		SelEnd();
+		
+		if (ch[50] == 1)
+		{
+			Message(25,"All right then.","No holding back though.","","");
+		}
+		if (ch[50] == 2)
+		{
+			Message(25,"Bold one, aren't you?","","","");
+			Message(25,"You'll regret it.","","","");
+		}
+		if (ch[50] == 4)
+		{
+			//ブラックビーン
+			Message(25,"Come on!","","","");
+			Message(25,"You got spunk.","I'll take care of that.","","");
+		}
+		if (ch[50] != 1 && ch[50] != 2 && ch[50] != 4)
+		{
+			if (ch[50] == 5)
+			{
+				Message(25,"Ugh... my head...","","","");
+				Message(0,"Are you ok?","","","");
+				Message(25,"Where... am I?","W-who am I?","","");
+			}
+			else
+			{
+				Message(25,"I see...","Nothing today eh?","","");
+				Message(25,"How about a fight?","Got nothing but time on my hands.","","");
+				Message(25,"It's been a","recent habit of mine.","","");
+			}
+		}
+		else
+		{
+			CharPos(58,0,0,0);
+			CharPos(25,-200000,0,0);
+			MMV("boss09.mmv");
+			KaguTest2(10012,1,"boss09.mmv");
+		}
+	
+		ch[400] = -1;
+		return 0;
+	}
+	
+	//ブラックビーン
+	Message(25,"Welcome.","You've come quite far.","","");
+	Message(25,"It's been so boring lately.","Let's 'play' together.","","");
+	
+	SelStart(50);
+	SelText("Who are you?",1);
+	SelText("It's play time!",2);
+	SelEnd();
+	
+	if (ch[50] == 1)
+	{
+		Message(25,"Ugh... my head...","","","");
+		Message(0,"Are you ok?","","","");
+		Message(25,"Where... am I?","W-who am I?","","");
+		ch[400] = -1;
+		return 0;
+	}
+	if (ch[50] != 2)
+	{
+		ch[420] = 2009;
+		ch[429] = 1;
+		KaguTest(30036,25);
+		return 0;
+	}
+	
+	CharPos(58,0,0,0);
+	CharPos(25,-200000,0,0);
+	ch[2075] = 1;
+	ch[400] = -1;
+	MMV("boss09.mmv");
+	KaguTest2(10012,1,"boss09.mmv");
+	return 0;
+}

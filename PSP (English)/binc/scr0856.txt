@@ -1,0 +1,36 @@
+
+int main()
+{
+	MapEvent(0);
+	Black(0,100,11);
+	Walk(0,8,11);
+	Wait(11);
+	Event(6);
+	Black(0,100,0);
+	Wait(5);
+	Black(0,0,15);
+//	Scop(0);
+	// ƒ|ƒR‚ª‚¢‚½‚çˆ—‚·‚é
+	KaguTest(30020,16);
+	if (ch[420] > -20000)
+	{
+		ch[420] = -337;
+		ch[421] = -226;
+		KaguTest(30070,16);
+		ch[420] = -1;
+		KaguTest(30021,-1);
+	}
+	Walk(0,5,30);
+	Wait(30);
+	MapEvent(1);
+	KaguTest(30020,16);
+	if (ch[420] > -20000)
+	{
+		ch[420] = -337;
+		ch[421] = -226;
+		KaguTest(30070,16);
+		ch[420] = -1;
+		KaguTest(30021,-1);
+	}
+}
+ 

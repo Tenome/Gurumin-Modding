@@ -1,0 +1,5 @@
+
+int main()
+{
+	Message(0,"Is that smell...","Gunpowder?","","");
+}

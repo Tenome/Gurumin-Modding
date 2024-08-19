@@ -1,0 +1,10 @@
+
+int main()
+{
+	KaguTest(10006,0);//”­Œ¾‰Šú‰»
+	
+	KaguTest2(10008,0,"No one but Poco would own");
+	KaguTest2(10008,1,"such a bright colored radio.");
+	
+	KaguTest(10012,0);
+}

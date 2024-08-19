@@ -1,0 +1,710 @@
+
+int main()
+{
+	int a;
+	int b;
+	int x;
+	int y;
+	int z;
+	int c;
+	int d;
+	int flag;
+	int flag2501;
+	int flag1790;
+	int flag1791;
+	
+	KaguTest(70005,0);
+	
+	MapEvent(0);
+	GetCharPos(0,x,y,z);
+	KaguTest(20010,0);
+	b = ch[420];
+
+	SelStart(50);
+	KaguTest(70004,0);
+	if (ch[420])
+	{
+		SelText("連続再生モードオフ",97);
+		SelText("連続再生モードオン★",96);
+	}
+	else
+	{
+		SelText("連続再生モードオフ★",97);
+		SelText("連続再生モードオン",96);
+	}
+	SelText("パリン、登場！",1);
+	SelText("ピノとの出会い",2);
+	SelText("オープニングムービー",3);
+	SelText("さらわれたプク",4);
+	SelText("伝説のドリル！",5);
+	SelText("モトロ登場！",6);
+	SelText("プクの救出",7);
+	SelText("ファントム勢ぞろい",8);
+	SelText("オバケホーム廃墟にて",9);
+	SelText("破壊竜の伝説",10);
+	SelText("王子の待ち伏せ①",11);
+	SelText("四天王ボブーとの戦い",12);
+	SelText("ピエール救出",13);
+	SelText("迷子のピノ",14);
+	SelText("モトロ再び",15);
+	SelText("王子の待ち伏せ②",16);
+	SelText("四天王モスビーとの戦い",17);
+	SelText("イワオ救出",18);
+	SelText("邪魔するのは誰？",19);
+	SelText("モグラ兄弟",20);
+	SelText("モトロ三度！",21);
+	SelText("王子の待ち伏せ③",22);
+	SelText("四天王ラッシーとの戦い",23);
+	SelText("チャッキー救出",24);
+	SelText("さらわれたピノ",25);
+	SelText("回り出す運命の歯車",26);
+	SelText("二人のパリン",27);
+	SelText("王子の待ち伏せ④",28);
+	SelText("四天王クリームとの戦い",29);
+	SelText("王子の策動",30);
+	SelText("プクの独語",31);
+	SelText("モトロＶＳ王子",32);
+	SelText("トカロン復活　そして…",33);
+	SelText("プクとの戦闘",34);
+	SelText("プクの誤算",35);
+	SelText("ピノとの再会",36);
+	SelText("トカロンとの激闘",37);
+	SelText("最後の戦い",38);
+	SelText("死闘の果てに…",39);
+	SelText("それから…",40);
+	SelText("伝説の戦士",41);
+	SelText("さよならの時",42);
+	SelText("いつまでも…",43);
+//	SelText("すたふろる",98);
+//	SelText("一括再生",99);
+	SelEnd();
+	
+	a = ch[50];
+	
+	if (a == 97)
+	{
+		KaguTest(70003,0);
+		MapEvent(1);
+		return 0;
+	}
+	if (a == 96)
+	{
+		KaguTest(70003,1);
+		MapEvent(1);
+		return 0;
+	}
+	
+	if (a == -1)
+	{
+		MapEvent(1);
+		return 0;
+	}
+	// フラグ全部リセット
+	c = a;
+	d = a+1;
+	if (c == 99)
+	{
+		c = 1;
+//		d = 43;
+	}
+	d = 44;
+	int movi;
+	int renzoku;
+	KaguTest(70004,0);
+	renzoku = ch[420];
+	if (!ch[420])
+	{
+		d = c + 1;
+	}
+	movi = 1;
+	Mouse(0);
+	KaguTest(20066,-1);
+	for (a = c;a < d;a++)
+	{
+		flag = ch[3961];
+		flag2501 = ch[2501];
+		flag1790 = ch[1790];
+		flag1791 = ch[1791];
+		KaguTest(20029,0);
+		ch[3961] = flag;
+		ch[1790] = flag1790;
+		ch[1791] = flag1791;
+//		ch[2501] = flag2501;
+		KaguTest(20070,flag2501);
+		ch[2300] = 1;
+		ch[506] = 1;
+		KaguTest(100000,0);
+		Scop(1);
+		switch(a)
+		{
+		case 1:
+			ch[2300] = 0;
+			Scop(0);
+			movi = PlayMovie("open1_1.txt",1);
+			Scop(1);
+			break;
+		case 2:
+			Scop(0);
+			ch[2300] = 0;
+			movi = PlayMovie("open1_2.txt",1);
+			Scop(1);
+			break;
+		case 3:
+//			LoadMapB(998);
+			CharPos(0,-200000,0,0);
+			SetWaku(1);
+			BGM(0);
+//			KaguTest(20065,0);
+			Black(0,0,15);
+			PlayAVI("op.avi",1);
+			Black(0,100,0);
+			KaguTest(20066,0);
+			SetWaku(0);
+			break;
+		case 4:
+			Scop(0);
+			ch[2300] = 0;
+			ch[2062] = 0;
+			movi = PlayMovie("open2.txt",1);
+			Scop(1);
+			break;
+		case 5:
+			ch[2300] = 0;
+			ch[2062] = 0;
+			ch[508] = 1;
+			Scop(0);
+			movi = PlayMovie("nuketa.txt",1);
+			Scop(1);
+			break;
+		case 6:
+			movi = PlayMovie("isk_1_1.txt",1);
+			break;
+		case 7:
+			movi = PlayMovie("isk_1_2.txt",1);
+			KaguTest(100000,0);
+			if (movi)
+			{
+				movi = PlayMovie("isk_1_3.txt",1);
+			}
+			break;
+		case 8:
+			ch[2062] = 1;
+			ch[1754] = 0;
+			ch[508] = 1;
+			ch[512] = 1;
+			ch[1755] = 0;
+			movi = PlayMovie("home_1.txt",1);
+			break;
+		case 9:
+			ch[2062] = 1;
+			ch[1754] = 0;
+			ch[508] = 1;
+			ch[512] = 1;
+			ch[1755] = 0;
+			movi = PlayMovie("home_2.txt",1);
+			break;
+		case 10:
+			movi = PlayMovie("isk_2_1.txt",1);
+			break;
+		case 11:
+			movi = PlayMovie("isk_3_1.txt",1);
+			break;
+		case 12:
+//			LoadMapB(105);
+			movi = PlayMovie("isk_3_2.txt",1);
+			break;
+		case 13:
+			movi = PlayMovie("isk_3_3.txt",1);
+			break;
+		case 14:
+			movi = PlayMovie("mri_1_1.txt",1);
+			break;
+		case 15:
+			movi = PlayMovie("mri_2_1.txt",1);
+			break;
+		case 16:
+			movi = PlayMovie("mri_3_1.txt",1);
+			break;
+		case 17:
+			movi = PlayMovie("mri_3_2.txt",1);
+			break;
+		case 18:
+//			PlayMovie("mri_3_3.txt",1);
+			movi = PlayMovie("mri_3_3a.txt",1);
+			KaguTest(100000,0);
+			if (movi)
+			{
+				movi = PlayMovie2("mri_3_3b.txt",1);
+				KaguTest(100000,0);
+			}
+			if (movi)
+			{
+				movi = PlayMovie2("mri_3_3c.txt",1);
+				KaguTest(100000,0);
+			}
+			if (movi)
+			{
+				movi = PlayMovie2("mri_3_3d.txt",1);
+				KaguTest(100000,0);
+			}
+			if (movi)
+			{
+				movi = PlayMovie2("mri_3_3e.txt",1);
+			}
+			break;
+		case 19:
+			movi = PlayMovie("dkt_1_1.txt",1);
+			break;
+		case 20:
+			ch[2514] = 1;
+			movi = PlayMovie("dkt_1_2.txt",1);
+			KaguTest(100000,0);
+			ch[2514] = 1;
+			ch[2516] = 1;
+			ch[2517] = 1;
+			ch[2513] = 1;
+			if (movi)
+			{
+				movi = PlayMovie("dkt_1_3.txt",1);
+			}
+			break;
+		case 21:
+			movi = PlayMovie("dkt_2_1.txt",1);
+			break;
+		case 22:
+			movi = PlayMovie("dkt_3_1.txt",1);
+			break;
+		case 23:
+			movi = PlayMovie("dkt_3_2.txt",1);
+			break;
+		case 24:
+			movi = PlayMovie("dkt_3_3.txt",1);
+			break;
+		case 25:
+			ch[2062] = 1;
+			ch[508] = 1;
+			ch[512] = 1;
+			ch[1755] = 1;
+			ch[1754] = 0;
+			ch[2328] = 1;
+			ch[2329] = 1;
+			ch[2317] = 1;
+			ch[2556] = 1;
+			movi = PlayMovie("home_3.txt",1);
+			break;
+		case 26:
+			ch[3981] = 1;
+			ch[2527] = 1;
+			ch[2328] = 1;
+			ch[2329] = 1;
+			ch[2317] = 1;
+			movi = PlayMovie("yam_1_1.txt",1);
+			ch[3981] = 0;
+			break;
+		case 27:
+			ch[2328] = 1;
+			ch[2329] = 1;
+			ch[2317] = 1;
+			movi = PlayMovie("yam_2_1.txt",1);
+			break;
+		case 28:
+			ch[2328] = 1;
+			ch[2329] = 1;
+			ch[2317] = 1;
+			movi = PlayMovie("yam_3_1.txt",1);
+			break;
+		case 29:
+			ch[2328] = 1;
+			ch[2329] = 1;
+			ch[2317] = 1;
+			movi = PlayMovie("yam_3_2.txt",1);
+			break;
+		case 30:
+			ch[2328] = 1;
+			ch[2329] = 1;
+			ch[2317] = 1;
+			movi = PlayMovie("yam_3_3.txt",1);
+			break;
+		case 31:
+			ch[2328] = 1;
+			ch[2329] = 1;
+			ch[2317] = 1;
+			movi = PlayMovie("kdo_1_1.txt",1);
+			break;
+		case 32:
+			ch[2328] = 1;
+			ch[2329] = 1;
+			ch[2317] = 1;
+			movi = PlayMovie("kdo_2_1.txt",1);
+			break;
+		case 33:
+			ch[2328] = 1;
+			ch[2329] = 1;
+			ch[2317] = 1;
+			movi = PlayMovie("kdo_3_1.txt",1);
+			if (movi)
+			{
+				ch[2062] = 1;
+				ch[1754] = 3;
+				ch[1750] = 2;
+				ch[1751] = 2;
+				ch[1752] = 2;
+				ch[1753] = 2;
+				ch[508] = 1;
+				ch[512] = 1;
+				ch[2328] = 1;
+				ch[2329] = 1;
+				ch[2317] = 1;
+				movi = PlayMovie("kdo_3_5a.txt",1);
+				KaguTest(100000,0);
+				ch[2540] = 1;
+			}
+			if (movi)
+			{
+				movi = PlayMovie2("kdo_3_5x.txt",1);
+				KaguTest(100000,0);
+			}
+			if (movi)
+			{
+				movi = PlayMovie2("kdo_3_5d.txt",1);
+			}
+			break;
+		case 34:
+			ch[2328] = 1;
+			ch[2329] = 1;
+			ch[2317] = 1;
+			ch[2527] = 1;
+			movi = PlayMovie("kdo_3_2.txt",1);
+			KaguTest(100000,0);
+			if (movi)
+			{
+				movi = PlayMovie("kdo_3_3.txt",1);
+			}
+			break;
+		case 35:
+			ch[2328] = 1;
+			ch[2329] = 1;
+			ch[2317] = 1;
+			ch[2527] = 1;
+			ch[2328] = 1;
+			ch[2329] = 1;
+			ch[2317] = 1;
+			ch[2527] = 1;
+			ch[1513] = 1;
+			ch[512] = 1;
+			ch[1750] = 2;
+			ch[1751] = 2;
+			ch[1752] = 2;
+			ch[1753] = 2;
+			ch[1754] = 1;
+			ch[1755] = 3;
+			ch[2556] = 1;
+			ch[2514] = 1;
+			ch[2746] = 1;
+			movi = PlayMovie("kdo_3_4a.txt",1);
+			KaguTest(100000,0);
+			if (movi)
+			{
+				ch[2062] = 1;
+				ch[2556] = 1;
+				movi = PlayMovie2("kdo_3_5b.txt",1);
+				KaguTest(100000,0);
+			}
+			if (movi)
+			{
+				movi = PlayMovie2("kdo_3_5c.txt",1);
+				KaguTest(100000,0);
+			}
+			if (movi)
+			{
+				movi = PlayMovie2("kdo_3_4b.txt",1);
+			}
+			ch[2746] = 0;
+			break;
+		case 36:
+			ch[2328] = 1;
+			ch[2329] = 1;
+			ch[2317] = 1;
+			ch[2062] = 1;
+			ch[1754] = 3;
+			ch[1750] = 2;
+			ch[1751] = 2;
+			ch[1752] = 2;
+			ch[1753] = 2;
+			ch[508] = 1;
+			ch[512] = 1;
+			ch[1755] = 2;
+			ch[1754] = 1;
+			ch[2527] = 1;
+			movi = PlayMovie("GF_1.txt",1);
+			break;
+		case 37:
+			ch[2328] = 1;
+			ch[2329] = 1;
+			ch[2317] = 1;
+			ch[2062] = 1;
+			ch[1750] = 2;
+			ch[1751] = 2;
+			ch[1752] = 2;
+			ch[1753] = 2;
+			ch[1754] = 3;
+			ch[508] = 1;
+			ch[512] = 1;
+			ch[1755] = 3;
+			ch[1754] = 1;
+			ch[2527] = 1;
+			KaguTest(60001,0);
+			movi = PlayMovie("houdai0.txt",1);
+			if (movi)
+			{
+				ch[2328] = 1;
+				ch[2329] = 1;
+				ch[2317] = 1;
+				ch[2062] = 1;
+				ch[1750] = 2;
+				ch[1751] = 2;
+				ch[1752] = 2;
+				ch[1753] = 2;
+				ch[1754] = 3;
+				ch[508] = 1;
+				ch[512] = 1;
+				ch[2527] = 1;
+				KaguTest(60001,1);
+				movi = PlayMovie("houdai2.txt",1);
+			}
+			ch[2328] = 1;
+			ch[2329] = 1;
+			ch[2317] = 1;
+			ch[2062] = 1;
+			ch[1750] = 2;
+			ch[1751] = 2;
+			ch[1752] = 2;
+			ch[1753] = 2;
+			ch[1754] = 3;
+			ch[508] = 1;
+			ch[512] = 1;
+			ch[2527] = 1;
+			KaguTest(60001,4);
+			if (movi)
+			{
+				movi = PlayMovie("houdai3.txt",1);
+			}
+			break;
+		case 38:
+			ch[2328] = 1;
+			ch[2329] = 1;
+			ch[2317] = 1;
+			ch[2062] = 1;
+			ch[1750] = 2;
+			ch[1751] = 2;
+			ch[1752] = 2;
+			ch[1753] = 2;
+			ch[1754] = 3;
+			ch[508] = 1;
+			ch[512] = 1;
+			ch[1755] = 3;
+			ch[1754] = 1;
+			ch[2527] = 1;
+			movi = PlayMovie("GF_2a.txt",1);
+			KaguTest(100000,0);
+			if (movi)
+			{
+				movi = PlayMovie2("GF_2b.txt",1);
+			}
+			break;
+		case 39:
+			ch[2328] = 1;
+			ch[2329] = 1;
+			ch[2317] = 1;
+			ch[2062] = 1;
+			ch[1750] = 2;
+			ch[1751] = 2;
+			ch[1752] = 2;
+			ch[1753] = 2;
+			ch[1754] = 3;
+			ch[508] = 1;
+			ch[512] = 1;
+			ch[1755] = 3;
+			ch[1754] = 1;
+			ch[2527] = 1;
+			movi = PlayMovie("GF_3a.txt",1);
+			KaguTest(100000,0);
+			if (movi)
+			{
+				movi = PlayMovie2("GF_3b.txt",1);
+				KaguTest(100000,0);
+			}
+			if (movi)
+			{
+				movi = PlayMovie2("GF_3c.txt",1);
+			}
+			break;
+		case 40:
+			ch[2328] = 1;
+			ch[2329] = 1;
+			ch[2317] = 1;
+			ch[2062] = 1;
+			ch[1750] = 2;
+			ch[1751] = 2;
+			ch[1752] = 2;
+			ch[1753] = 2;
+			ch[1754] = 1;
+			ch[1755] = 3;
+			ch[508] = 1;
+			ch[1538] = 1;
+			ch[512] = 1;
+			ch[3600] = 1;
+			ch[2527] = 1;
+			ch[2036] = 0;
+			movi = PlayMovie("EP_1.txt",1);
+			ch[2036] = 0;
+			ch[3600] = 0;
+//			LoadMapB(401);
+			break;
+		case 41:
+			ch[2328] = 1;
+			ch[2329] = 1;
+			ch[2317] = 1;
+			ch[2062] = 1;
+			ch[1750] = 2;
+			ch[1751] = 2;
+			ch[1752] = 2;
+			ch[1753] = 2;
+			ch[1754] = 3;
+			ch[508] = 1;
+			ch[1538] = 1;
+			ch[512] = 1;
+			ch[1755] = 3;
+			ch[1754] = 1;
+			ch[2527] = 1;
+			movi = PlayMovie("EP_2.txt",1);
+			break;
+		case 42:
+			ch[2328] = 1;
+			ch[2329] = 1;
+			ch[2317] = 1;
+			ch[2062] = 1;
+			ch[1750] = 2;
+			ch[1751] = 2;
+			ch[1752] = 2;
+			ch[1753] = 2;
+			ch[1754] = 3;
+			ch[508] = 1;
+			ch[1538] = 1;
+			ch[512] = 1;
+			ch[2062] = 1;
+			ch[1754] = 1;
+			ch[508] = 1;
+			ch[1538] = 1;
+			ch[1755] = 3;
+			ch[1754] = 1;
+			ch[2036] = 1;
+			ch[2527] = 1;
+			ch[2546] = 1;
+			movi = PlayMovie("EP_3a.txt",1);
+			if (ch[2501] == 6)
+			{
+				KaguTest(20070,0);
+			}
+			KaguTest(100000,0);
+			if (movi)
+			{
+				movi = PlayMovie2("EP_3b.txt",1);
+				KaguTest(100000,0);
+			}
+			// 頭装備はずす
+			KaguTest(20008,0);
+			if (ch[430])
+			{
+				Soubi(ch[430]);
+			}
+			ch[2300] = 0;
+
+			if (movi)
+			{
+				PlayAVI("ed.avi",0);
+			}
+
+//			SetWaku(1);
+//			KaguTest(99999,1);
+
+//			CharPos(0,-200000,0,0);
+//			Black(0,0,10);
+//			Wait(10);
+
+//			KaguTest(10006,0);
+//			KaguTest(10007,7);
+//			KaguTest2(10009,0,"bdend21.iti");
+//			ch[423] = 112;
+//			ch[424] = 8;
+//			ch[425] = 368;
+//			ch[426] = 264;
+//			ch[427] = 0;
+//			ch[428] = 0;
+//			ch[429] = 256;
+//			ch[430] = 256;
+//			ch[431] = 256;
+//			KaguTest(10010,30);
+//			Wait(30);
+//			Message(0,"","","","");
+//			Wait(60);
+//			ch[420] = 0;
+//			KaguTest(10011,30);
+//			Wait(30);
+//			Black(0,100,15);
+//			Wait(15);
+//			Black(0,100,0);
+//			KaguTest(99998,0);
+//			LoadMapB(998);
+
+//			movi = PlayMovie2("EP_5.txt",1);
+//			SetWaku(0);
+			break;
+		case 43:
+			ch[2328] = 1;
+			ch[2329] = 1;
+			ch[2317] = 1;
+			ch[2062] = 1;
+			ch[1754] = 1;
+			ch[2300] = 0;
+			ch[508] = 1;
+			ch[1538] = 1;
+			ch[512] = 1;
+			ch[1755] = 3;
+			ch[1754] = 1;
+			ch[2527] = 1;
+			movi = PlayMovie("EP_5.txt",1);
+			break;
+		}
+		if (!movi)
+		{
+			// 終了
+			break;
+		}
+		if (renzoku && a == 29)
+		{
+			LoadMap(606);
+		}
+	}
+	KaguTest(20073,0);
+	Mouse(1);
+	KaguTest(20066,0);
+
+	KaguTest(70005,1);
+	KaguTest(100000,0);
+	
+//	if (c == 43)
+//	{
+//		// 戦え
+//		CharPos(59,0,0,0);
+//	}
+//	else
+	{
+		CharPos(0,x,y,z);
+		LoadMap(b);
+	}
+	Black(0,0,30);
+	MapEvent(1);
+	return 0;
+}
+ 

@@ -1,0 +1,53 @@
+
+int main()
+{
+	TekiStop(1);
+
+	Message(0,"Something is written here.","","","");
+
+	//ê‡ñæÇP
+	KaguTest(10006,0);
+	KaguTest(10007,7);
+	KaguTest2(10009,0,"tute_06.bmp");
+	ch[423] = 180;
+	ch[424] = 42;
+	ch[425] = 460;
+	ch[426] = 438;
+	ch[427] = 0;
+	ch[428] = 0;
+	ch[429] = 320;
+	ch[430] = 452;
+	ch[431] = 512;
+	KaguTest(10010,10);
+	Wait(10);
+	Message(0,"","","","");
+	ch[420] = 0;
+	KaguTest(10011,10);
+	Wait(10);
+
+	TekiStop(0);
+
+	if (!ch[3604])
+	{
+		SaveCamera();
+		ch[420] = 3380;
+		ch[421] = -600;
+		ch[422] = 370;
+		ch[423] = 6100;
+		ch[424] = -600;
+		ch[425] = 50;
+		KaguTest(30019,1);
+		Wait(40);
+		
+		KaguTest2(20000,80,"Use magic to defeat the enemy.");
+		
+		Wait(120);
+		KaguTest(30019,0);
+		RestoreCamera();
+		CrossFade();
+		Wait(15);
+
+	//	ch[2100] = 1;
+
+	}
+}

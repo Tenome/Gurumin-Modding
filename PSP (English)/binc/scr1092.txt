@@ -1,0 +1,9 @@
+
+int main()
+{
+	TekiStop(1);
+	Message(0,"Something is written here.","","","");
+	Message(0,"~Feeling bold today?","Insert coin.","Yours, M.~","");
+	TekiStop(0);
+}
+ 

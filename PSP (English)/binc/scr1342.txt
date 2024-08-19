@@ -1,0 +1,6 @@
+
+int main()
+{
+	Message(0,"..............","","","");
+	Message(0,"...Staring at the wall is boring.","","","");
+}

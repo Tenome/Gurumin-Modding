@@ -1,0 +1,5 @@
+
+int main()
+{
+	Message(0,"I can cook a little. Bacon","and eggs is my specialty!","","");
+}

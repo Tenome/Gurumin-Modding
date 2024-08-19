@@ -1,0 +1,138 @@
+
+int main()
+{
+	ch[300] = 1;
+	MapEvent(0);
+	
+	ch[420] = 48;
+	ch[421] = 3266;
+	ch[422] = 158;
+	ch[423] = -971;
+	ch[424] = 2817;
+	ch[425] = -42;
+	KaguTest(30019,1);
+	CrossFade();
+	Wait(15);
+	
+	CharPos(0,150,3300,0);
+	
+	int c;
+	int pt1;
+	int pt2;
+	ch[420] = 100000;
+	ch[427] = 7;
+	KaguTest(30015,3);
+	KaguTest(30025,3);
+	c = ch[420];
+	ch[420] = 36;
+	ch[421] = 0;
+	ch[422] = 1;
+	KaguTest(30115,c);
+
+	KaguTest(12004,c);
+	pt1 = ch[420];
+
+	ch[420] = 2;
+	KaguTest(12005,c);
+	Wait(30);
+	KaguTest(12000,c);
+	
+	Look(c,0);
+	Wait(30);
+	ch[420] = -48;
+	ch[421] = 3266;
+	ch[422] = 158;
+	ch[423] = 971;
+	ch[424] = 2817;
+	ch[425] = -42;
+	KaguTest(30019,1);
+	CrossFade();
+	Wait(15);
+	ch[420] = 100000;
+	ch[427] = 7;
+	KaguTest(30015,4);
+	ch[420] = 36;
+	ch[421] = 0;
+	ch[422] = 1;
+	KaguTest(30115,c+1);
+
+	KaguTest(12004,c+1);
+	pt2 = ch[420];
+	ch[420] = 2;
+	KaguTest(12005,c+1);
+	Wait(30);
+
+	KaguTest(12000,c+1);
+
+	Look(c+1,0);
+	Wait(30);
+	
+	ch[420] = 93;
+	ch[421] = 3229;
+	ch[422] = 258;
+	ch[423] = 138;
+	ch[424] = 2180;
+	ch[425] = -41;
+	KaguTest(30019,1);
+	CrossFade();
+	Wait(30);
+	
+	Event(101);
+	
+	Wait(40);
+
+	KaguTest(30019,0);
+	CrossFade();
+	Wait(15);
+	
+	// “G‚Ìİ’è‚ğ’¼‚·
+	ch[420] = pt1;
+	KaguTest(12002,c);
+	ch[420] = pt2;
+	KaguTest(12002,c+1);
+	ch[420] = 3;
+	KaguTest(12005,c);
+	KaguTest(12005,c+1);
+	ch[420] = 1;
+	KaguTest(30116,c);
+	KaguTest(30116,c+1);
+	KaguTest(30117,c);
+	KaguTest(30117,c+1);
+
+	ch[420] = -1;
+	KaguTest(30137,c);
+	KaguTest(30137,c+1);
+
+	KaguTest(30090,c);
+	KaguTest(30090,c+1);
+
+	
+	// •¦‚­“Gˆ—
+//	ch[420] = 100000;
+//	ch[427] = 7;
+//	KaguTest(30015,1);
+//	KaguTest(30015,2);
+//	KaguTest(30015,5);
+//	KaguTest(30025,5);
+//	c = ch[420];
+//	ch[420] = 26;
+//	ch[421] = 002;
+//	KaguTest(30115,c);
+//	ch[421] = 003;
+//	KaguTest(30115,c+1);
+//	ch[421] = 004;
+//	KaguTest(30115,c+2);
+//	ch[421] = 005;
+//	KaguTest(30115,c+3);
+//	ch[421] = 006;
+//	KaguTest(30115,c+4);
+//	ch[421] = 007;
+//	KaguTest(30115,c+5);
+//	ch[421] = 008;
+//	KaguTest(30115,c+6);
+//	ch[421] = 009;
+//	KaguTest(30115,c+7);
+
+	MapEvent(1);
+}
+ 

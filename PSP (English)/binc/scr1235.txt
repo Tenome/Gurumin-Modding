@@ -1,0 +1,45 @@
+
+int main()
+{
+	// マナエフェクト
+
+	// あたり設定
+	KaguTest(99986,0);
+	KaguTest2(30014,0,"@ClearORoot");
+	KaguTest2(30014,2,"yama1");
+	
+	// 遷移計算呼び出し
+	ch[422] = 75;
+	ch[420] = -2575;
+	ch[421] = -525;
+	ch[423] = 90;
+	KaguTest(99988,0);
+	KaguTest(99987,1);
+	
+	ch[3203] = 1;
+
+	// カメラ位置
+	KaguTest(99996,16);
+	KaguTest(30033,70);
+	KaguTest(30032,-2500);
+	Wait(30);
+	Black(0,0,15);
+	Wait(150);
+	
+	ch[2527] = 1;
+	// オバケホームに戻る＆会話続き
+	Black(0,100,15);
+	Wait(15);
+	KaguTest(99998,0);
+	KaguTest(30033,100);
+	KaguTest(30032,0);
+	LoadMap(401);
+	Wait(15);
+	CharPos(0,-50,600,0);
+	Wait(5);
+	Black(0,100,0);
+	Black(0,0,30);
+	MapEvent(1);
+
+//	ch[294] = 1;
+}

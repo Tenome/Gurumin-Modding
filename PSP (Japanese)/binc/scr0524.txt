@@ -1,0 +1,169 @@
+
+int main()
+{
+	KaguTest(20010,0);
+	WaitD(0);
+	
+	if (ch[2497] && ch[420] == 315)
+	{
+		// ブラックビーン中間マップ
+		float fx;
+		float fy;
+		int x;
+		int y;
+		// 裏マップ
+		MapEvent(0);
+		SaveCamera();
+		ch[424] = 0;
+		ch[425] = -4550;
+		ch[426] = 12;
+		KaguTest(30061,0);
+		KaguTest(30060,0);
+		Walk(ch[421],ch[422],ch[423]);
+		Wait(ch[423]);
+		ch[420] = 0;
+		ch[421] = -3115;
+		ch[422] = 220;
+		ch[423] = 0;
+		ch[424] = -4567;
+		ch[425] = -200;
+		KaguTest(30019,1);
+		KaguTest(20042,180);
+		CrossFade();
+		Wait(35);
+		Event(112);
+		ch[420] = 762;
+		KaguTest(30100,0);
+		Wait(115);
+		Walk(0,-5,130);
+		Wait(30);
+		Event(113);
+		ch[420] = 762;
+		KaguTest(30100,0);
+		Wait(100);
+		Event(114);
+		Wait(1);
+//		Black(0,100,30);
+//		Wait(30);
+		RestoreCamera();
+		CrossFade();
+		Event(111);
+		Blur(5,0,30);
+		Black(0,0,30);
+		Walk(0,8,30);
+		KaguTest(30057,0);
+		Wait(30);
+		MapEvent(1);
+		KaguTest2(30014,3,"trance2");
+		KaguTest2(30014,2,"trance3");
+		Blur(5,120,90);
+		return 0;
+	}
+	
+	if (ch[2497])
+	{
+		float fx;
+		float fy;
+		int x;
+		int y;
+		// 裏マップ
+		MapEvent(0);
+		SaveCamera();
+		ch[424] = 50;
+		ch[425] = 535;
+		ch[426] = 12;
+		KaguTest(30061,0);
+		KaguTest(30060,0);
+		Walk(ch[421],ch[422],ch[423]);
+		Wait(ch[423]);
+		ch[420] = 50;
+		ch[421] = -550;
+		ch[422] = 370;
+		ch[423] = 45;
+		ch[424] = 675;
+		ch[425] = 375;
+		KaguTest(30019,1);
+		KaguTest(20042,180);
+		CrossFade();
+		Wait(35);
+		Event(112);
+		ch[420] = 762;
+		KaguTest(30100,0);
+		Wait(115);
+		Walk(0,5,130);
+		Wait(30);
+		Event(113);
+		ch[420] = 762;
+		KaguTest(30100,0);
+		Wait(100);
+		Event(114);
+		Wait(1);
+//		Black(0,100,30);
+//		Wait(30);
+		RestoreCamera();
+		CrossFade();
+		Event(111);
+		Blur(5,160,90);
+		Black(0,0,30);
+		Walk(6,-2,30);
+		KaguTest(30057,0);
+		Wait(30);
+		MapEvent(1);
+	}
+	else
+	{
+		ch[50] = 1;
+		if (ch[1541])
+		{
+			// 選択させる
+			WaitD(0);
+			SelStart(50);
+			SelText("トカロンと戦う",1);
+			SelText("アーマートカロンと戦う",2);
+			SelEnd();
+		}
+		
+		MapEvent(0);
+		Walk(-8,0,11);
+		Wait(11);
+
+		if (ch[50] == 2)
+		{
+			// 308へ
+			White(0,100,15);
+			Wait(15);
+			CharPos(0,0,-300,0);
+			LoadMap(308);
+			CharPos(0,0,-300,0);
+		// モンスター_MONSHITO取得して配置
+			KaguTest(20020,0);
+			CharPos(ch[425],0,900,0000);
+			KaguTest(30028,ch[425]);
+			Wait(5);
+			Walk(0,5,1);
+			KaguTest(30057,0);
+			
+			TekiStop(1);
+			KaguTest2(10012,0,"boss08.mmv");
+			White(0,0,30);
+			Wait(30);
+			TekiStop(0);
+			MMV("boss08.mmv");
+			KaguTest2(10012,1,"boss08.mmv");
+			MapEvent(1);
+			return 0;
+		}
+		
+		Black(0,100,15);
+		Wait(15);
+//		ch[1541] = 0;
+		Event(110);
+	//	Walk(-5,0,20);
+	//	Wait(20);
+		MapEvent(1);
+	//	ch[2502] = 1;
+		PostScr(413);
+	}
+}
+
+ 

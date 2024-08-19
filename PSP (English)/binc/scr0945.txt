@@ -1,0 +1,161 @@
+
+int main()
+{
+	KaguTest(20025,0);
+	ch[299] = 1;
+	ch[420] = 50;
+	ch[421] = 50;
+	ch[422] = 50;
+	KaguTest(30046,0);
+	
+	KaguTest(20010,0)
+	if (ch[420] == 999)
+	{
+		KaguTest(30032,700);
+	}
+	else
+	{
+		KaguTest(30033,150);
+	}
+	Wait(20);
+	
+//	if (ch[1107] == 2285)
+//	{
+//		// ブラックビーンボーナス
+//		Mes("『覇者の面』を手に入れた。");
+//		GetItem(48);
+//		KaguTest(20022,48);
+//		Wait(90);
+//		return 0;
+//	}
+	
+
+//	switch(ch[1792])
+//	{
+//	case 0:
+//		Mes("『ラジカセ』を手に入れた。");
+//		GetItem(74);
+//		KaguTest(20022,74);
+//		break;
+//	case 1:
+//		Mes("「下駄箱」を手に入れた");
+//		GetItem(68);
+//		KaguTest(20022,68);
+//		break;
+//	case 2:
+//		Mes("「本棚」を手に入れた");
+//		GetItem(59);
+//		KaguTest(20022,59);
+//		break;
+//	case 3:
+//		Mes("「コンポ」を手に入れた");
+//		GetItem(75);
+//		KaguTest(20022,75);
+//		break;
+//	case 4:
+//		Mes("「テーブル」を手に入れた");
+//		GetItem(60);
+//		KaguTest(20022,60);
+//		break;
+//	case 5:
+//		Mes("「帽子掛け」を手に入れた");
+//		GetItem(69);
+//		KaguTest(20022,69);
+//		break;
+//	case 6:
+//		Mes("「ソファー」を手に入れた");
+//		GetItem(63);
+//		KaguTest(20022,63);
+//		break;
+//	case 7:
+//		Mes("「高級本棚」を手に入れた");
+//		GetItem(66);
+//		KaguTest(20022,66);
+//		break;
+//	case 8:
+//		Mes("「傘たて」を手に入れた");
+//		GetItem(67);
+//		KaguTest(20022,67);
+//		break;
+//	case 9:
+//		Mes("「洋服箪笥」を手に入れた");
+//		GetItem(65);
+//		KaguTest(20022,65);
+//		break;
+//	case 10:
+//		Mes("「あひる」を手に入れた");
+//		GetItem(70);
+//		KaguTest(20022,70);
+//		break;
+//	case 11:
+//		Mes("「ぬいぐるみ」を手に入れた");
+//		GetItem(72);
+//		KaguTest(20022,72);
+//		break;
+//	case 12:
+//		Mes("「ちゃぶ台」を手に入れた");
+//		GetItem(58);
+//		KaguTest(20022,58);
+//		break;
+//	case 13:
+//		Mes("「桐の箪笥」を手に入れた");
+//		GetItem(64);
+//		KaguTest(20022,64);
+//		break;
+//	case 14:
+//		Mes("「石像」を手に入れた");
+//		GetItem(50);
+//		KaguTest(20022,50);
+//		break;
+//	case 15:
+//		Mes("「秘伝の書」を手に入れた");
+//		GetItem(51);
+//		KaguTest(20022,51);
+//		break;
+//	case 16:
+//	case 17:
+//	case 18:
+//	case 19:
+//	case 20:
+//	case 21:
+//		Mes("「ＭＰアップ」を手に入れた");
+//		GetItem(17);
+//		KaguTest(20022,17);
+//		Wait(45);
+//		KaguTest(20032,1);
+//		Mes("ＭＰの最大値が１０上がった。");
+//		KaguTest(20002,17);
+//		break;
+//	}
+
+	GetCharPos(0,ch[420],ch[421],ch[422]);
+	ch[422] = ch[422] - 100;
+	ch[423] = 1881;
+	ch[424] = 0;
+	ch[425] = 0;
+	ch[426] = 0;
+	ch[427] = 100;
+	ch[428] = 0;
+	KaguTest(30045,0);
+	KaguTest(30045,20);
+	KaguTest(30045,40);
+
+	Wait(40);
+	
+	Mes("You got a ~Gold Medal.~");
+	KaguTest(20022,79);
+//	GetItem(79);
+
+//	ch[1792]++;
+	
+	Wait(90);
+	ch[420] = 100;
+	ch[421] = 100;
+	ch[422] = 100;
+	KaguTest(30046,0);
+	KaguTest(30032,0);
+	KaguTest(30033,100);
+	Wait(20);
+
+	ch[299] = 0;
+}

@@ -1,0 +1,5 @@
+
+int main()
+{
+	Message(0,"Looking through someone's","mail is pretty mean.","","");
+}

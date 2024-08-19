@@ -1,0 +1,6 @@
+
+int main()
+{
+	Message(0,"This dresser looks pricy...","","","");
+	Message(0,"...Was it Grandma's?","","","");
+}

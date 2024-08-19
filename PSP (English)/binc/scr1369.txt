@@ -1,0 +1,5 @@
+
+int main()
+{
+	Message(0,"Ever been surprised how","quickly you can flip on","a low bar?","");
+}

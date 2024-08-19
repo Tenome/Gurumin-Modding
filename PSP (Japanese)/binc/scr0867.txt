@@ -1,0 +1,685 @@
+
+int main()
+{
+	int smcl;
+	int ukky;
+	int tyugoku;
+	int paja;
+	int meido;
+	int hudangi;
+	int kigaeru;
+	int seihuku;
+	int kimono;
+
+	int nasu;
+	int dokata;
+	int buruma;
+
+	int yuko;
+	int suku;
+
+	int tui1;
+	int tui2;
+	int tui3;
+	int tui4;
+	int tui5;
+	int tui6;
+	int tui7;
+
+	
+	KaguTest(99993,0);
+	ukky = ch[420];
+	paja = ch[421];
+	tyugoku = ch[422];
+	smcl = ch[423];
+	meido = ch[424];
+	seihuku = ch[425];
+	hudangi = 0;
+	kigaeru = 0;
+	nasu = ch[427];
+	dokata = ch[428];
+	buruma = ch[429];
+	yuko = ch[430];
+	suku = ch[431];
+
+	tui1 = ch[432];
+	tui2 = ch[433];
+	tui3 = ch[434];
+	tui4 = ch[435];
+	tui5 = ch[436];
+//	tui6 = ch[437];
+//	tui7 = ch[438];
+
+
+	if (ch[2089])
+	{
+		kimono = 1;
+	}
+	else
+	{
+		kimono = 0;
+	}
+
+	if (ch[2088])
+	{
+		tui6 = 1;
+	}
+	else
+	{
+		tui6 = 0;
+	}
+	
+	if ((!smcl && !kimono && !tui6 && !tui1 && !tui2  && !tui3 && !tui4 && !tui5) || ch[2501] == 6)
+	{
+//		KaguTest(10006,0);
+//		KaguTest(10007,0);
+//		KaguTest2(10008,0,"クローゼットがある。");
+//		KaguTest(10010,10);
+//		Wait(10);
+//		
+//		Message(0,"","","","");
+//		
+//		KaguTest(10011,10);
+//		Wait(10);
+
+		if (ch[2501] == 6)
+		{
+			Message(0,"大した服が入ってないわね","","","");
+		}
+		else
+		{
+			Message(0,"変わった服は入ってないわ","","","");
+		}
+		
+		return 0;
+	}
+
+//	KaguTest(10006,0);
+//	KaguTest(10007,0);
+//	KaguTest2(10008,0,"クローゼットがある。");
+//	KaguTest(10010,10);
+//	Wait(10);
+//	
+//	Message(0,"","","","");
+//	
+//	KaguTest(10011,10);
+//	Wait(10);
+	Message(0,"何に着替えようかな？","","","");
+
+	SelStart(50)
+
+
+
+
+
+
+
+
+
+
+
+	if (ukky)
+	{
+		if (ch[2501]==1)
+		{
+			// 猿着てる
+			hudangi = 1;
+		}
+		else
+		{
+			// 猿以外着てる
+			SelText("おさる服に着替える",1);
+		}
+	}
+	else
+	{
+		SelText("？？？？に着替える",55);
+	}
+
+	if (paja)
+	{
+		if (ch[2501]==2)
+		{
+			// パジャマ着てる
+			hudangi = 1;
+		}
+		else
+		{
+			// パジャマ以外着てる
+			SelText("パジャマに着替える",2);
+		}
+	}
+	else
+	{
+		SelText("？？？？に着替える",55);
+	}
+
+	if (tyugoku)
+	{
+		if (ch[2501]==3)
+		{
+			// チャイナドレス着てる
+			hudangi = 1;
+		}
+		else
+		{
+			// チャイナドレス以外着てる
+			SelText("チャイナドレスに着替える",3);
+		}
+	}
+	else
+	{
+		SelText("？？？？に着替える",55);
+	}
+
+
+	if (seihuku)
+	{
+		if (ch[2501] == 5)
+		{
+			// 制服着てる
+			hudangi = 1;
+		}
+		else
+		{
+			// 制服以外着てる
+			SelText("制服に着替える",7);
+		}
+	}
+	else
+	{
+		SelText("？？？？に着替える",55);
+	}
+	
+
+	if (yuko)
+	{
+		if (ch[2501]==11)
+		{
+			// 着物着てる
+			hudangi = 1;
+		}
+		else
+		{
+			// 着物以外着てる
+			SelText("ひょう（特別効果）に着替える",12);
+		}
+
+	}
+	else
+	{
+		SelText("？？？？に着替える",55);
+	}
+
+
+
+
+
+
+	if (buruma)
+	{
+		if (ch[2501]==10)
+		{
+			// 着物着てる
+			hudangi = 1;
+		}
+		else
+		{
+			// 着物以外着てる
+			SelText("体操着に着替える",11);
+		}
+
+	}
+	else
+	{
+		SelText("？？？？に着替える",55);
+	}
+
+
+
+
+	if (dokata)
+	{
+		if (ch[2501]==9)
+		{
+			// 着物着てる
+			hudangi = 1;
+		}
+		else
+		{
+			// 着物以外着てる
+			SelText("作業着に着替える",10);
+		}
+
+	}
+	else
+	{
+		SelText("？？？？に着替える",55);
+	}
+
+
+
+	if (nasu)
+	{
+		if (ch[2501]==8)
+		{
+			// 着物着てる
+			hudangi = 1;
+		}
+		else
+		{
+			// 着物以外着てる
+			SelText("ナース（特別効果）に着替える",9);
+		}
+
+	}
+	else
+	{
+		SelText("？？？？に着替える",55);
+	}
+
+	if (suku)
+	{
+		if (ch[2501]==12)
+		{
+			// 着物着てる
+			hudangi = 1;
+		}
+		else
+		{
+			// 着物以外着てる
+			SelText("スク水（特別効果）に着替える",13);
+		}
+
+	}
+	else
+	{
+		SelText("？？？？に着替える",55);
+	}
+	
+	
+	
+
+
+	if (meido)
+	{
+		if (ch[2501] == 4)
+		{
+			// メイド服着てる
+			hudangi = 1;
+		}
+		else
+		{
+			// メイド服以外着てる
+			SelText("ゴスロリに着替える",6);
+		}
+	}
+	else
+	{
+		SelText("？？？？に着替える",55);
+	}
+
+	
+
+
+
+
+	if (kimono)
+	{
+		if (ch[2501]==7)
+		{
+			// 着物着てる
+			hudangi = 1;
+		}
+		else
+		{
+			// 着物以外着てる
+			SelText("振袖に着替える",8);
+		}
+	}
+
+
+	if (tui6)
+	{
+		if (ch[2501]==18)
+		{
+			// 着物着てる
+			hudangi = 1;
+		}
+		else
+		{
+			// 着物以外着てる
+			SelText("サンタ服に着替える",19);
+		}
+
+	}
+	
+	if (tui4)
+	{
+		if (ch[2501]==16)
+		{
+			// 着物着てる
+			hudangi = 1;
+		}
+		else
+		{
+			// 着物以外着てる
+			SelText("防護服に着替える",17);
+		}
+
+	}
+	else
+	{
+		SelText("？？？？に着替える",55);
+	}
+
+
+
+	if (tui3)
+	{
+		if (ch[2501]==15)
+		{
+			// 着物着てる
+			hudangi = 1;
+		}
+		else
+		{
+			// 着物以外着てる
+			SelText("プリンセスドレスに着替える",16);
+		}
+
+	}
+	else
+	{
+		SelText("？？？？に着替える",55);
+	}	
+	
+	if (tui1)
+	{
+		if (ch[2501]==13)
+		{
+			// 着物着てる
+			hudangi = 1;
+		}
+		else
+		{
+			// 着物以外着てる
+			SelText("吸血娘に着替える",14);
+		}
+
+	}
+	else
+	{
+		SelText("？？？？に着替える",55);
+	}
+	
+	
+	
+	if (tui5)
+	{
+		if (ch[2501]==17)
+		{
+			// 着物着てる
+			hudangi = 1;
+		}
+		else
+		{
+			// 着物以外着てる
+			SelText("魔女っ娘に着替える",18);
+		}
+
+	}
+	else
+	{
+		SelText("？？？？に着替える",55);
+	}
+	
+	
+	
+	if (tui2)
+	{
+		if (ch[2501]==14)
+		{
+			// 着物着てる
+			hudangi = 1;
+		}
+		else
+		{
+			// 着物以外着てる
+			SelText("平家の鎧に着替える",15);
+		}
+
+	}
+	else
+	{
+		SelText("？？？？に着替える",55);
+	}
+
+
+
+
+
+	
+	
+	if (hudangi)
+	{
+		SelText("普段着に着替える",4);
+	}
+	SelText("着替えない",5);
+	SelEnd();
+	
+	if (ch[50] == 1)
+	{
+		// 猿に変身
+		KaguTest(20070,1);
+//		ch[2501] = 1;
+		kigaeru = 1;
+	}
+	if (ch[50] == 2)
+	{
+		// パジャマに着替える
+		KaguTest(20070,2);
+//		ch[2501] = 2;
+		kigaeru = 1;
+	}
+	if (ch[50] == 3)
+	{
+		// チャイナドレスに着替える
+		KaguTest(20070,3);
+//		ch[2501] = 3;
+		kigaeru = 1;
+	}
+	if (ch[50] == 4)
+	{
+		// 普段着に着替える
+		KaguTest(20070,0);
+//		ch[2501] = 0;
+		kigaeru = 1;
+	}
+	if (ch[50] == 6)
+	{
+		// メイド服に着替える
+		KaguTest(20070,4);
+//		ch[2501] = 4;
+		kigaeru = 1;
+	}
+	if (ch[50] == 7)
+	{
+		// 制服に着替える
+		KaguTest(20070,5);
+//		ch[2501] = 5;
+		kigaeru = 1;
+	}
+	if (ch[50] == 8)
+	{
+		// 制服に着替える
+		KaguTest(20070,7);
+//		ch[2501] = 5;
+		kigaeru = 1;
+	}
+	if (ch[50] == 9)
+	{
+		// なすに着替える
+		KaguTest(20070,8);
+//		ch[2501] = 5;
+		kigaeru = 1;
+	}
+	if (ch[50] == 10)
+	{
+		// どかたに着替える
+		KaguTest(20070,9);
+//		ch[2501] = 5;
+		kigaeru = 1;
+	}
+	if (ch[50] == 11)
+	{
+		// ぶるまに着替える
+		KaguTest(20070,10);
+//		ch[2501] = 5;
+		kigaeru = 1;
+	}
+	if (ch[50] == 12)
+	{
+		// ぶるまに着替える
+		KaguTest(20070,11);
+//		ch[2501] = 5;
+		kigaeru = 1;
+	}
+	if (ch[50] == 13)
+	{
+		// ぶるまに着替える
+		KaguTest(20070,12);
+//		ch[2501] = 5;
+		kigaeru = 1;
+	}
+
+	if (ch[50] == 14)
+	{
+		// ぶるまに着替える
+		KaguTest(20070,13);
+//		ch[2501] = 5;
+		kigaeru = 1;
+	}
+
+
+	if (ch[50] == 15)
+	{
+		// ぶるまに着替える
+		KaguTest(20070,14);
+//		ch[2501] = 5;
+		kigaeru = 1;
+	}
+
+	if (ch[50] == 16)
+	{
+		// ぶるまに着替える
+		KaguTest(20070,15);
+//		ch[2501] = 5;
+		kigaeru = 1;
+	}
+
+	if (ch[50] == 17)
+	{
+		// ぶるまに着替える
+		KaguTest(20070,16);
+//		ch[2501] = 5;
+		kigaeru = 1;
+	}
+
+	if (ch[50] == 18)
+	{
+		// ぶるまに着替える
+		KaguTest(20070,17);
+//		ch[2501] = 5;
+		kigaeru = 1;
+	}
+
+	if (ch[50] == 19)
+	{
+		// ぶるまに着替える
+		KaguTest(20070,18);
+//		ch[2501] = 5;
+		kigaeru = 1;
+	}
+
+	if (ch[50] == 55)
+	{
+		Message(0,"まだ手に入れてないみたいね","","","");
+		
+	}
+
+	if (!kigaeru)
+	{
+		// 着替えない
+		return 0;
+	}
+	
+	// 着替える
+	Black(0,100,15);
+	Wait(20);
+	SE(565);
+
+	int nozoki;
+	nozoki = 0;
+	// のぞきクエストチェック
+	if (!ch[2007] && ch[3960] && !ch[2004] && !ch[2002])
+	{
+		nozoki = 1;
+	}
+	
+	int x;
+	int y;
+	int z;
+	GetCharPos(58,x,y,z);
+	
+	if (nozoki && x > -20000 && z > -500)
+	{
+		// のぞきクエスト開始
+		ch[2002] = 1;
+		ch[2003] = 1;
+		ch[2007] = 1;
+		nozoki = 1;
+		Wait(30);
+		SE(723);
+		Wait(45);
+		ch[2006] = 0;
+		ch[2008] = 0;
+		ch[2009] = 0;
+		
+		ch[3984] = 0;
+		ch[3987] = -1;	// シリンダーは配置しない
+		ch[3990] = 0;
+	}
+	else
+	{
+		nozoki = 0;
+		Wait(75);
+	}
+
+	ReloadChar();
+	LoadMapB(2);
+//	Scop(0);
+	Black(0,0,15);
+	Wait(15);
+	
+	if (nozoki)
+	{
+		// のぞきが出た
+		ch[420] = 8;
+		ch[421] = 30;
+		ch[429] = 1;
+		KaguTest(30053,0);
+		Wait(30);
+
+		//パリン
+		Message(0,"なんの音だろ？","","","");
+
+		SE(724);
+		Wait(15);
+
+		//パリン
+		Message(0,"……………………","","","");
+		Message(0,"…もしかして、のぞき！？","","","");
+	}
+}
+ 

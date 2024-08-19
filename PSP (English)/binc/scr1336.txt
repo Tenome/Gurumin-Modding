@@ -1,0 +1,6 @@
+
+int main()
+{
+	Message(0,"I think I remember a statue","like this in my last town...","","");
+	Message(0,"A world-famous chef?","","","");
+}

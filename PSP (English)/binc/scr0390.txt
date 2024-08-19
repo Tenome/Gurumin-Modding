@@ -1,0 +1,1151 @@
+
+int main()
+{
+	int meda;
+	int medama;
+	int ukky;
+	int night;
+	int odango;
+	int dou;
+	int gin;
+	int kin;
+	int tmp;
+	string text;
+	string text2;
+	int nukeru;
+	int ismeda;
+	int qnuke;
+	qnuke = 0;
+	nukeru = 0;
+	ismeda = 0;
+	
+	ch[400] = 20;
+	
+	ch[220]++;
+
+	KaguTest(20001,79);
+	meda = ch[430];
+	KaguTest(20001,56);
+	ukky = ch[430];
+	KaguTest(20001,57);
+	night = ch[430];
+	KaguTest(20001,61);
+	odango = ch[430];
+	KaguTest(20001,77);
+	dou = ch[430];
+	KaguTest(20001,76);
+	gin = ch[430];
+	kin = meda;
+	if (kin || gin || dou)
+	{
+		ismeda = 1;
+	}
+
+	if (ch[2007] && !ch[2018])
+	{
+		// クエスト中
+		ch[400] = 20;
+		if (ch[2002])
+		{
+			// のぞきクエスト
+			ch[420] = ch[2006];
+			KaguTest(20043,1);
+			if (ch[420])
+			{
+				//ハイパボリック
+				Message(20,"Cylinder?","Nope, haven't seen him.","","");
+			}
+			else
+			{
+				//パリン
+				Message(0,"Hey Grandpa!","Have you seen Cylinder?","","");
+				//ハイパボリック
+				Message(20,"Cylinder?","Nope, haven't seen him.","","");
+				//パリン
+				Message(0,"That's funny...","","","");
+				Message(0,"You're standing here","all day, so I thought","you'd have seen him.","");
+				
+				ch[420] = ch[2006];
+				KaguTest(20052,1);
+				ch[2006] = ch[420];
+			}
+			
+			if (ch[2003] == 2 && ch[2006] == 15)
+			{
+				// ファン以外の全員から話を聞いた
+				ch[2003] = 3;
+			}
+		}
+		if (ch[2010])
+		{
+			// ビラ貼りクエスト中
+			qnuke = 1;
+		}
+
+		if (ch[2020])
+		{
+			// プラチナメダルクエスト中
+			KaguTest(20001,54);
+			if (ch[430])
+			{
+				// プラチナメダル発見した
+				//パリン
+				Message(0,"Look Grandpa!","I found a new medal!","","");
+
+				//ハイパボリック
+				Message(20,"Well now lookie here.","This is quite extraordinary!","","");
+				Message(20,"Some collectors","specialize in these, you know.","","");
+
+				//パリン
+				Message(0,"Wow, really?","","","");
+
+				//ハイパボリック
+				Message(20,"Good job finding it.","Here's your reward.","","");
+
+				//システム
+				SE(853);
+				KaguTest(10006,0);
+				KaguTest(10007,1);
+				KaguTest2(10008,0,"Got Picture #2: ~Evening Stroll.~");
+				KaguTest2(10008,2,"It has been added to your Album.");
+				KaguTest2(10008,3,"View it by selecting ~Album~ from the menu.");
+				KaguTest2(10009,0,"kb002s.bmp");
+				KaguTest(10010,10);
+				Wait(10);
+				Message(0,"","","","");
+				KaguTest(10011,10);
+
+				GetItem(2);
+
+				//ハイパボリック
+				Message(20,"This kind of medal","isn't easy to find.","","");
+				Message(20,"To find more, search ","every nook and cranny.","","");
+				
+				ch[2020] = 0;
+				ch[2021] = 1;
+				ch[2007] = 0;
+				
+				ch[420] = 58;
+				KaguTest2(30003,1,"@atariyotsu");
+				
+			}
+			else
+			{
+				// プラチナメダル発見してない
+				Message(20,"Well now, have you found","any rare medals for me?","","");
+				Message(0,"Grandpa, come on!","Tell me where they're hidden!","","");
+				Message(20,"Ho ho, Parin. Telling","you wouldn't be any fun!","","");
+				Message(20,"You're not giving up, are you ?","","","");
+				
+				SelStart(50);
+				SelText("Give up",1);
+				SelText("No way!",2);
+				SelEnd();
+				
+				if (ch[50] == 1)
+				{
+					Message(0,"I'm getting tired.","I think I'll give up.","","");
+					ch[2020] = 0;
+					ch[2007] = 0;
+					ch[2022] = 1;
+
+					ch[420] = 58;
+					KaguTest2(30003,1,"@atariyotsu");
+				}
+				else
+				{
+					Message(0,"I'm not giving up!","I'll find them!","","");
+				}
+			}
+		}
+		
+		if (!qnuke)
+		{
+			ch[400] = -1;
+			return 0;
+		}
+	}
+	
+//	if (ch[2018])
+	if (ch[2501] != 6)
+	{
+		// わらしべクエスト中
+		KaguTest(20001,30);
+		if (ch[430])
+		{
+			//ハイパボリック
+			Message(20,"Ohh! My sweet tooth","is acting up again.","","");
+
+			//パリン
+			Message(0,"Then take a look at this.","","","");
+
+			//ハイパボリック
+			Message(20,"Oho! Is this one of Fan's","new creations?","","");
+			Message(20,"Well, I'll trade you","my lunch for it!","","");
+
+			//パリン
+			Message(0,"Ok grandpa!","Here you go.","","");
+
+			//ハイパボリック
+			Message(20,"Well, what a nice","granddaughter I have.","","");
+
+			//システム
+			Mes("You got a ~Rump Steak.~");
+			KaguTest(20022,31);
+			KaguTest(20002,30);
+			GetItem(31);
+			Wait(60);
+			ch[400] = -1;
+			return 0;
+		}
+	}
+
+	// プラチナメダルクエスト発動チェック
+	if (!ch[2007] && (ch[2023] + ch[2024] + ch[2025]) > 2 && !ch[2021] && !ch[2022] && ch[2501] != 6)
+	{
+		// 発動
+		//ハイパボリック
+		Message(20,"Well, look at all","these medals you've found...","","");
+		Message(20,"But don't think you're","a real collector just yet...","","");
+		Message(20,"There's still one, very rare","medal that you haven't seen...","","");
+
+		//パリン
+		Message(0,"What kind of medal?","","","");
+
+		//ハイパボリック
+		Message(20,"Ho ho, curious?","I've hidden one of them","somewhere in town, my dear.","");
+		Message(20,"Your questions will be","answered, if you find it!","","");
+
+		//パリン
+		Message(0,"OK! I'll go look.","","","");
+
+		ch[2007] = 1;
+		ch[2020] = 1;
+		
+		ch[400] = -1;
+
+		KaguTest(20010,0);
+		if (ch[420] == 12)
+		{
+			PostScr(1287);
+		}
+		ch[400] = -1;
+		return 0;
+	}
+
+	if (ismeda && !ch[3958])
+	{
+		// じじぃ発動
+		// 発動してなければ必ずここに来るべし
+		//ハイパボリック
+		Message(20,"You know, child...","","","");
+		Message(20,"I am a serious medal","collector now.","","");
+		Message(20,"...Maybe I told you already.","","","");
+		//パリン
+		Message(0,"No you didn't!","","","");
+		//ハイパボリック
+		Message(20,"My my, today you","have a rare looking medal.","","");
+		Message(20,"How about you give","it to old grandpa?","","");
+		Message(20,"In exchange for a present!","","","");
+		ch[3958] = 1;
+		nukeru = 1;
+	}
+	else
+	{
+		if (ch[1571] && !ch[1538])
+		{
+			if (ch[220] < 2)
+			{
+				//ハイパボリック
+				Message(20,"Oh, that earthquake","really shook me up... ","","");
+				Message(20,"I hope the town","isn't damaged too much.","","");
+				if (ismeda)
+				{
+					Message(20,"Oh, and by the way,","nice looking medal there.","","");
+					Message(20,"How about you give","it to old grandpa?","","");
+					//パリン
+					Message(0,"One track mind, I see.","","","");
+				}
+			}
+			else
+			{
+				if (ismeda)
+				{
+					//ハイパボリック
+					Message(20,"My, you have a","nice looking medal there.","","");
+					Message(20,"How about you give","it to old grandpa?","","");
+				}
+				else
+				{
+					//ハイパボリック
+					Message(20,"Oh, that earthquake","really shook me up... ","","");
+					Message(20,"I hope the town isn't","damaged too much.","","");
+				}
+			}
+		}
+		if (ch[1513] && !ch[1571])
+		{
+			if (ch[220] < 2)
+			{
+				//ハイパボリック
+				Message(20,"Ho ho, child.","You must be bored.","","");
+				Message(20,"We need to find you a little","friend now, don't we?","","");
+				//パリン
+				Message(0,"Don't worry about me Grandpa.","I've been pretty busy lately.","Busy, but happy.","");
+				//ハイパボリック
+				Message(20,"When I was a child like you,","I had a good friend.","","");
+				Message(20,"He is in my thoughts always.","Too bad it's impossible to meet him.","","");
+				if (ismeda)
+				{
+					Message(20,"Oh, and by the way,","nice looking medal there.","","");
+					Message(20,"How about you give","it to old grandpa?","","");
+				}
+			}
+			else
+			{
+				if (ismeda)
+				{
+					//ハイパボリック
+					Message(20,"My, you have a","nice looking medal there.","","");
+					Message(20,"How about you give","it to old grandpa?","","");
+				}
+				else
+				{
+					//ハイパボリック
+					Message(20,"Ho ho, child.","You must be bored here?","","");
+					Message(20,"We need to find you a little","friend now, don't we?","","");
+				}
+			}
+		}
+		if (ch[1505] && !ch[1513])
+		{
+			if (!ch[2527])
+			{
+				if (ch[220] < 2)
+				{
+					//ハイパボリック
+					Message(20,"Long ago, at the mountain,","there was a big explosion.","","");
+					Message(20,"The trees and plants were all","completely destroyed.","","");
+					//パリン
+					Message(0,"How did that happen?","","","");
+					//ハイパボリック
+					Message(20,"One of the workers got","careless with the gunpowder.","Now, don't you play with fire.","");
+					if (ismeda)
+					{
+						Message(20,"Oh, and by the way,","nice looking medal there.","","");
+						Message(20,"How about you give","it to old grandpa?","","");
+					}
+				}
+				else
+				{
+					if (ismeda)
+					{
+						//ハイパボリック
+						Message(20,"My, you have a","nice looking medal there.","","");
+						Message(20,"How about you give","it to old grandpa?","","");
+					}
+					else
+					{
+						//ハイパボリック
+						Message(20,"Long ago, at the mountain,","there was a big explosion.","The trees and plants were all","completely destroyed.");
+					}
+				}
+			}
+			else
+			{
+				if (ch[220] < 2)
+				{
+					//ハイパボリック
+					Message(20,"Word in town is that","you've been quite the","mischievious one lately.","");
+					//パリン
+					Message(0,"I didn't do it! Honest!","","","");
+					//ハイパボリック
+					Message(20,"Ah, well ok then...","","","");
+					if (ismeda)
+					{
+						Message(20,"Oh, and by the way,","nice looking medal there.","","");
+						Message(20,"How about you give","it to old grandpa?","","");
+					}
+				}
+				else
+				{
+					if (ismeda)
+					{
+						//ハイパボリック
+						Message(20,"My, you have a","nice looking medal there.","","");
+						Message(20,"How about you give","it to old grandpa?","","");
+					}
+					else
+					{
+						//ハイパボリック
+						Message(20,"Word in town is that","you've been quite the","mischievious one lately.","");
+						//パリン
+						Message(0,"It wasn't me!","","","");
+					}
+				}
+			}
+		}
+		if (ch[1542] && !ch[1505])
+		{
+			if (ch[220] < 2)
+			{
+				//ハイパボリック
+				Message(20,"Ho ho, and I got a letter","from your parents.","","");
+				//パリン
+				Message(0,"What did they say?","","","");
+				//ハイパボリック
+				Message(20,"Seems they've found a new ruin...","","","");
+				Message(20,"If they find something neat,","they'll send it to you.","","");
+				//パリン
+				Message(0,"Last year, my parents sent me","a voodoo doll for my birthday.","","");
+				//ハイパボリック
+				Message(20,"You have some strange parents...","","","");
+				if (ismeda)
+				{
+					Message(20,"Oh, and by the way,","nice looking medal there.","","");
+					Message(20,"How about you give","it to old grandpa?","","");
+				}
+			}
+			else
+			{
+				if (ismeda)
+				{
+					//ハイパボリック
+					Message(20,"My, you have a very","nice looking medal there.","","");
+					Message(20,"How about you give","it to old grandpa?","","");
+				}
+				else
+				{
+					//ハイパボリック
+					Message(20,"Your parents have","found a new ruin, I see.","","");
+					Message(20,"If they find something neat,","they'll send it to you.","","");
+				}
+			}
+		}
+		if (ch[507] && !ch[1542])
+		{
+			if (ch[220] < 2)
+			{
+				//パリン
+				Message(0,"When you were a little boy,","you grew up here, right Grandpa?","","");
+				Message(0,"Did you ever notice...","anything... unusual?","","");
+				//ハイパボリック
+				Message(20,"Unusual...?","","","");
+				Message(20,"..............","","","");
+				Message(20,"Ho ho! It's been so long","that I've forgotten!","","");
+				//パリン
+				Message(0,"Jeez, why ask...","","","");
+				if (ismeda)
+				{
+					//ハイパボリック
+					Message(20,"Oh, and by the way,","nice looking medal there.","","");
+					Message(20,"How about you give","it to old grandpa?","","");
+				}
+			}
+			else
+			{
+				if (ismeda)
+				{
+					//ハイパボリック
+					Message(20,"My, you have a","nice looking medal there.","","");
+					Message(20,"How about you give","it to old grandpa?","","");
+				}
+				else
+				{
+					//ハイパボリック
+					Message(20,"Ho ho! I've forgotton all","about life in the past...","","");
+				}
+			}
+		}
+		if (ch[2330] && !ch[507])
+		{
+			if (ch[220] < 2)
+			{
+				//ハイパボリック
+				Message(20,"All these new fangled machines","make the mines much busier.","","");
+				Message(20,"I'd love to make my","town just a little bigger.","","");
+				//パリン
+				Message(0,"Then I could make","more friends...","","");
+				//ハイパボリック
+				Message(20,"Oh, you could, my child!","","","");
+				if (ismeda)
+				{
+					Message(20,"And by the way,","nice looking medal there.","","");
+					Message(20,"How about you give","it to old grandpa?","","");
+				}
+			}
+			else
+			{
+				if (ismeda)
+				{
+					Message(20,"My, you have a","nice looking medal there.","","");
+					Message(20,"How about you give","it to old grandpa?","","");
+				}
+				else
+				{
+					//ハイパボリック
+					Message(20,"If more people move here","maybe you could","make some little friends...","");
+				}
+			}
+		}
+		if (ch[1545] && !ch[2330])
+		{
+			if (ismeda)
+			{
+				//ハイパボリック
+				Message(20,"My, you have a","nice looking medal there.","","");
+				Message(20,"How about you give","it to old grandpa?","","");
+			}
+			else
+			{
+				//ハイパボリック
+				Message(20,"My mind could be playing tricks,","but you seem a little down...","","");
+				//パリン
+				Message(0,"I'm fine Grandpa.","","","");
+			}
+		}
+		nukeru = 1;
+	}
+	if (ch[2300] && !ch[1545])
+	{
+		if (ch[220] < 2)
+		{
+//			ch[400] = 220;
+//			ch[420] = 4;
+//			ch[421] = 1;
+//			ch[422] = 5;
+//			KaguTest(12003,20);
+			
+//			Message(20,"！","","","");
+//			ch[400] = 20;
+			//ハイパボリック
+			Message(20,"My my, Parin...","","","");
+			Message(20,"Where did you find that drill?","","","");
+			//パリン
+			Message(0,"It was a gift.","","","");
+			//ハイパボリック
+			Message(20,"Ho ho! Feel like working","in the mines, do you?","","");
+			Message(20,"Children aren't allowed, I'm afraid.","","","");
+			//パリン
+			Message(0,"I don't want to work in","some dark old mine.","","");
+			Message(0,"Didn't you work in the","mine, Grandpa?","","");
+			//ハイパボリック
+			Message(20,"Yes. I may not look it now, but","I was quite a famous miner.","","");
+			//パリン
+			Message(0,"And Mom and Dad are archeologists.","Looks like my family likes digging...","","");
+			//ハイパボリック
+			Message(20,"Ho ho! You could say that!","","","");
+		}
+		else
+		{
+			//ハイパボリック
+			Message(20,"Where did you find that drill?","","","");
+			//パリン
+			Message(0,"It was a gift.","I already told you.","","");
+		}
+		ch[400] = -1;
+		return 0;
+	}
+	if (ch[508] && !ch[2300])
+	{
+		if (ch[220] < 2)
+		{
+			//ハイパボリック
+			Message(20,"Parin, you're always","out and about.","","");
+			Message(20,"Where are you going?","","","");
+			//パリン
+			Message(0,"Oh, here and there.","","","");
+			//ハイパボリック
+			Message(20,"Now child, don't stay out","too late, all right?","","");
+			//パリン
+			Message(0,"Yes grandpa.","","","");
+		}
+		else
+		{
+			//ハイパボリック
+			Message(20,"Parin, you're always","out and about.","","");
+			Message(20,"Now child, don't stay out","too late, you hear?","","");
+		}
+		ch[400] = -1;
+		return 0;
+	}
+	if (!ch[2552])
+	{
+		//OP前
+		if (ch[220] < 2)
+		{
+			Message(20,"Ho ho. I'm so ","forgetful lately.","","");
+			Message(0,"A mayor shouldn't be","so absent-minded!","","");
+		}
+		//ハイパボリック
+		Message(20,"Oh, I just remembered...","There's a hole in that darn wall.","","");
+		Message(20,"I keep forgetting to have","someone fix it for us...","","");
+		if (ch[220] < 2)
+		{
+			Message(0,"That's grandpa!","","","");
+		}
+		
+		ch[2547] = 1;
+		
+		if (ch[2548] && ch[2549] && ch[2550] && ch[2551])
+		{
+			// 全員と会話済み
+//			Message(0,"誰も相手してくれないのね。","","","");
+//			Message(0,"どこかに面白いことないかしら。","","","");
+//			Message(0,"路地裏にでも入ってみようかな。","","","");
+			ch[2553] = 1;
+		}
+		
+		ch[400] = -1;
+		return 0;
+	}
+
+	if (!ch[3958])
+	{
+		ch[400] = -1;
+		return 0;
+	}
+
+	if (!ismeda)
+	{
+		// メダル持ってなければ戻る
+		ch[400] = -1;
+		return 0;
+	}
+
+	// メダルチェック
+	if (dou)
+	{
+		if (ch[2023] < dou)
+		{
+			ch[2023] = dou;
+		}
+	}
+	if (gin)
+	{
+		if (ch[2024] < gin)
+		{
+			ch[2024] = gin;
+		}
+	}
+	if (kin)
+	{
+		if (ch[2025] < kin)
+		{
+			ch[2025] = kin;
+		}
+	}
+
+	SelStart(50);
+	SelText("Give him a Gold Medal",1);
+	SelText("Give him a Silver Medal",2);
+	SelText("Give him a Bronze Medal",3);
+	SelText("Don't give him anything",4);
+	SelEnd();
+	
+	if (ch[50] == 1)
+	{
+		if (ukky && night && odango)
+		{
+			if (kin <= 0)
+			{
+				Message(20,"Oh, no Gold Medals","for me today, Parin?","","");
+				Message(20,"Such a shame now...","","","");
+				ch[400] = -1;
+				return 0;
+			}
+
+			Message(20,"Well, you've cleaned me out!","Take some money instead.","","");
+			int kane;
+			if (ch[2064] && ch[2065] && ch[2066])
+			{
+				kane = kin * 100;
+			}
+			else
+			{
+				kane = kin * 5000;
+			}
+			SE(893);
+			text = "You got \" + kane + ".";
+			Mes(text);
+			Wait(60);
+			SetGP(GetGP() + kane);
+			KaguTest(20002,79);
+			ch[400] = -1;
+			return 0;
+		}
+
+		int odane;
+		int nigne;
+		int ukkne;
+		int bunpai;
+		int bunpain;
+		int takai;
+		takai = 0;
+		bunpai = 0;
+		odane = 19;
+		nigne = 7;
+		ukkne = 4;
+		bunpain = 0;
+		
+		if (ch[2064])
+		{
+			// 既におだんご交換済み
+			bunpai = odane - 1;
+			odane = 1;
+		}
+		else
+		{
+			bunpain++;
+		}
+		if (ch[2065])
+		{
+			bunpai = bunpai + nigne - 1;
+			nigne = 1;
+		}
+		else
+		{
+			bunpain++;
+		}
+		if (ch[2066])
+		{
+			bunpai = bunpai + ukkne - 1;
+			ukkne = 1;
+		}
+		else
+		{
+			bunpain++;
+		}
+		
+		if (bunpain < 3)
+		{
+			if (!ch[2064])
+			{
+				odane = odane + (bunpai / bunpain);
+			}
+			if (!ch[2065])
+			{
+				nigne = nigne + (bunpai / bunpain);
+			}
+			if (!ch[2066])
+			{
+				ukkne = ukkne + (bunpai / bunpain);
+			}
+		}
+		int a;
+		a = odane + nigne + ukkne;
+		if (a < 30)
+		{
+			if (ukkne != 1)
+			{
+				ukkne = 30 - odane - nigne;
+			}
+			else
+			{
+				if (nigne != 1)
+				{
+					nigne = 30 - odane - ukkne;
+				}
+				else
+				{
+					if (odane != 1)
+					{
+						odane = 30 - nigne - ukkne;
+					}
+				}
+			}
+		}
+		
+		if (ukky && night && !odango)
+		{
+			odane = 30 - ukkne - nigne;
+			takai = 1;
+		}
+		if (!ukky && night && odango)
+		{
+			ukkne = 30 - odane - nigne;
+			takai = 1;
+		}
+		if (ukky && !night && odango)
+		{
+			nigne = 30 - ukkne - odane;
+			takai = 1;
+		}
+		if (takai && ch[2064] && ch[2065] && ch[2066])
+		{
+			takai = 2;
+		}
+
+		if (meda > 0)
+		{
+			// 交換可能
+			text = "You have " + kin + " Gold Medals.";
+			Message(20,text,"Very nice, very nice.","","");
+			Message(20,"Well, take a close look","at my selection here...","What would you like?","");
+			if (takai == 2)
+			{
+				Message(20,"This is the last one,","so you'll need many medals...","Try to save up now!","");
+			}
+			SelStart(50);
+
+			string txt;
+			txt = "Monkey Hat #s100（"+ukkne+" medals）";
+			if (!ukky)
+			{
+				SelText(txt,1);
+			}
+			txt = "Nightcap #s100（"+nigne+" medals）";
+			if (!night)
+			{
+				SelText(txt,2);
+			}
+			txt = "Hair Buns #s100（"+odane+" medals）";
+			if (!odango)
+			{
+				SelText(txt,3);
+			}
+			SelText("Don't trade",4);
+			SelEnd();
+			a = 0;
+			switch(ch[50])
+			{
+			case 1: // おサルの帽子
+				if (ukkne > kin)
+				{
+					a = 1;
+				}
+				break;
+			case 2: // ナイトキャップ
+				if (nigne > kin)
+				{
+					a = 1;
+				}
+				break;
+			case 3: // おだんご
+				if (odane > kin)
+				{
+					a = 1;
+				}
+				break;
+			}
+			if (a)
+			{
+				ch[50] = 0;
+			}
+			
+			switch(ch[50])
+			{
+			case 1:	// お猿の帽子
+				KaguTest(20022,56);
+				GetItem(56);
+				Mes("You got the ~Monkey Hat.~");
+				ch[420] = ukkne;
+				KaguTest(20006,79);
+				Wait(40);
+
+				ukky = 1;
+				ch[50] = 5;
+				break;
+			case 2:	// ナイトキャップ
+				KaguTest(20022,57);
+				GetItem(57);
+				Mes("You got the ~Nightcap.~");
+				ch[420] = nigne;
+				KaguTest(20006,79);
+				Wait(40);
+
+				night = 1;
+				ch[50] = 5;
+				break;
+			case 3:	// おだんご
+				KaguTest(20022,61);
+				GetItem(61);
+				Mes("You got the ~Hair Buns.~");
+				ch[420] = odane;
+				KaguTest(20006,79);
+				Wait(40);
+
+				odango = 1;
+				ch[50] = 5;
+				break;
+			case 0: // メダル足りない
+				Message(20,"That's not enough medals...","","","");
+				break;
+			default:
+				ch[50] = 0;
+				Message(20,"Ah, well...","","","");
+				Message(20,"Let me know if you","change your mind!","","");
+				ch[400] = -1;
+				return 0;
+				break;
+			}
+			if (ch[50] == 5 && odango && night && ukky)
+			{
+				Message(20,"Oh....!","","","");
+				Message(0,"What is it?","","","");
+				Message(20,"Thanks to you, I now own","a total of 100 medals!","","");
+				Message(20,"Ho ho, now I can go to","my grave a happy man.","","");
+
+				KaguTest(20001,87);
+				if (ch[455] == 1 && !ch[430])
+				{
+					// 銅の勲章くれる
+					Message(20,"Here is your reward.","","","");
+					GetItem(87);
+					Mes("You got a ~Bronze Award.~");
+					KaguTest(20022,87);
+					Wait(60);
+					KaguTest(99022,3);
+					if(ch[440])
+					{
+						Message(20,"I thought this might happen...","","","");
+						Message(20,"So I put new clothes","in your Dresser.","","");
+						Message(0,"Hey!!","You can't just open that!!","","");
+					}
+					
+				}
+				KaguTest(20001,88);
+				if (ch[455] == 0 && !ch[430])
+				{
+					// 銀の勲章くれる
+					Message(20,"Here is your reward.","","","");
+					GetItem(88);
+					Mes("You got a ~Silver Award.~");
+					KaguTest(20022,88);
+					Wait(60);
+					KaguTest(99022,2);
+					if(ch[440])
+					{
+						Message(20,"I thought this might happen...","","","");
+						Message(20,"So I put new clothes","in your Dresser.","","");
+						Message(0,"Hey!!","You can't just open that!!","","");
+					}
+				}
+				KaguTest(20001,89);
+				if (ch[455] == 2 && !ch[3961] && !ch[430])
+				{
+					// 金の勲章くれる
+					Message(20,"Here is your reward.","","","");
+					GetItem(89);
+					Mes("You got a ~Gold Award.~");
+					KaguTest(20022,89);
+					Wait(60);
+					KaguTest(99022,0);
+					if(ch[440])
+					{
+						Message(20,"I thought this might happen...","","","");
+						Message(20,"So I put new clothes","in your Dresser.","","");
+						Message(0,"Hey!!","You can't just open that!!","","");
+					}
+				}
+				KaguTest(20001,90);
+				if (ch[455] == 2 && ch[3961]==1 && !ch[430])
+				{
+					// 白金の勲章くれる
+					Message(20,"Here is your reward.","","","");
+					GetItem(90);
+					Mes("You got a ~Platinum Award.~");
+					KaguTest(20022,90);
+					Wait(60);
+					KaguTest(99022,4);
+					if(ch[440])
+					{
+						Message(20,"I thought this might happen...","","","");
+						Message(20,"So I put new clothes","in your Dresser.","","");
+						Message(0,"Hey!!","You can't just open that!!","","");
+					}
+				}
+				KaguTest(20001,91);
+				if (ch[455] == 2 && ch[3961]==2 && !ch[430])
+				{
+					// 白金の勲章くれる
+					Message(20,"Here is your reward.","","","");
+					GetItem(91);
+					Mes("You got a ~Uranium Award.~");
+					KaguTest(20022,91);
+					Wait(60);
+					KaguTest(99022,1);
+					if(ch[440])
+					{
+						Message(20,"I thought this might happen...","","","");
+						Message(20,"So I put new clothes","in your Dresser.","","");
+						Message(0,"Hey!!","You can't just open that!!","","");
+					}
+				}
+								
+			}
+		}
+		else
+		{
+			Message(20,"Don't even have one","Gold Medal?","","");
+			Message(20,"That's too bad.","","","");
+		}
+		ch[400] = -1;	
+		return 0;
+	}
+	
+	if (ch[50] == 2)
+	{
+		if (gin <= 0)
+		{
+			Message(20,"Don't even have one","Silver Medal?","","");
+			Message(20,"That's too bad.","","","");
+			ch[400] = -1;
+			return 0;
+		}
+		
+		text = "You have " + gin + " medals.";
+		text2 = "So that comes to \" + (gin * 1000) + ".";
+		Message(20,"How about \1,000 for each Silver Medal?",text,text2,"");
+		text2 = "Trade them for \" + (gin * 1000) + ".";
+		SelStart(50);
+		SelText(text2,1);
+		SelText("Never mind",2);
+		SelEnd();
+		
+		if (ch[50] == 1)
+		{
+			Message(20,"We got a deal!","","","");
+			int kane;
+			SE(893);
+			kane = gin * 1000;
+			text = "You got \" + kane + ".";
+			Mes(text);
+			Wait(60);
+			SetGP(GetGP() + kane);
+			KaguTest(20002,76);
+			ch[400] = -1;
+			return 0;
+		}
+		
+		Message(20,"Well, that's too bad.","","","");
+		ch[400] = -1;
+		return 0;
+	}
+
+	if (ch[50] == 3)
+	{
+		if (dou <= 0)
+		{
+			Message(20,"Don't even have one","Bronze Medal?","","");
+			Message(20,"That's too bad.","","","");
+			ch[400] = -1;
+			return 0;
+		}
+		
+		text = "You have " + dou + " medals.";
+		text2 = "So that comes to \" + (dou * 100) + ".";
+		Message(20,"I'll give you \100 for each Bronze Medal.",text,text2,"");
+		text2 = "Trade them for \" + (dou * 100) + ".";
+		SelStart(50);
+		SelText(text2,1);
+		SelText("Never mind",2);
+		SelEnd();
+		
+		if (ch[50] == 1)
+		{
+			Message(20,"Ok, it's a deal.","","","");
+			int kane;
+			kane = dou * 100;
+			SE(893);
+			text = "You got \" + kane + ".";
+			Mes(text);
+			Wait(60);
+			SetGP(GetGP() + kane);
+			KaguTest(20002,77);
+			ch[400] = -1;
+			return 0;
+		}
+		
+		Message(20,"Well, that's too bad.","","","");
+		ch[400] = -1;
+		return 0;
+	}
+	
+//	if (ch[50] == 5)
+//	{
+//		Message(20,"そ、そ、そ、","それは！！！","","");
+//		Message(0,"どうしたの？","","","");
+//		Message(20,"プ、プ、プ、","プラチナメダルじゃないか！","","");
+//		Message(20,"長年メダルを集めてきたのじゃが","プラチナメダルを見るのは","初めてじゃわい","");
+//		Message(0,"へ～","そんなに珍しいメダルなんだ","","");
+//		Message(20,"わしが手にするには","あまりにも勿体ないわい","","");
+//		Message(20,"世界にはわしよりもさらに","メダルマニアな男が五万といるらしい","","");
+//		Message(20,"そのメダルをあげるのなら","そういう男達にあげると良いじゃろう","","");
+//		Message(0,"わかったわ。","もしそんな変な人を見かけたら","その人にあげることにするわ","");
+//		ch[400] = -1;
+//		ch[2115] = 1;
+//	}
+
+	Message(20,"That's too bad.","","","");
+
+	ch[400] = -1;	
+	return 0;
+
+
+	// 居場所で話す内容が変わる
+	KaguTest(20014,20);
+	// 今いる場所（家具テストでチェックした内容）
+	switch(ch[430])
+	{
+	case 2:	// 炭鉱前
+		Message(20,"Where do I live again...?","","","");
+		break;
+	case 3: // 研究所前
+		Message(20,"This blue building is my lab,","filled with my life's work.","","");
+		Message(0,"What kind of research?","","","");
+		Message(20,"Oh, I uh... well...","...what kind was it again?","","");
+		break;
+	case 4: // 研究所前小広場
+	case 5: // 町見下ろし場
+	case 6: // 道具屋前
+	case 11: // 家具屋前
+		Message(20,"This town... has changed...","","","");
+		Message(20,"Once such a natural place, now","it's all stone and metal. Even this","old man can see time marching on...","");
+		break;
+	case 7: // 道具屋入り口
+	case 8: // 道具屋右端
+	case 9:	// 道具屋店主前
+	case 10: // 道具屋棚前
+		Message(20,"And these newfangled shops...","","","");
+		Message(20,"Who on earth buys these ","silly Gas Masks?","","");
+		break;
+	case 12: // 家具屋入り口前
+	case 13: // 家具屋店主前
+	case 14: // 家具屋家具前
+		Message(20,"Mmm hmm! I can't resist","the smell of this bakery...","","");
+		Message(20,"But those prices are","simply unbelievable.","","");
+		break;
+	case 15: // 広場
+		Message(20,"This town certainly has grown...","","","");
+		break;
+	case 16: // 大家の部屋
+	case 19: // 駅前
+		Message(20,"I'm getting old now...","Can't find my way around.","","");
+		Message(20,"Don't even know where I am now...","But it's kind of fun!","","");
+		break;
+	case 17: // 大家の部屋階段横
+	case 18: // 大家の部屋階段下
+	case 21: // テラスへの階段下
+	case 22: // テラスへの階段上
+	case 23: // パリン部屋階段上
+	case 29: // パリン部屋前～階段上
+		Message(20,"Oh, these blasted stairs...","getting old are we?","","");
+		break;
+	case 24: // パリン部屋
+	case 26: // パリン部屋入り口
+		Message(20,"What are you doing in my house?","","","");
+		Message(0,"This is my house, too!","","","");
+		break;
+	case 25: // テラス
+	case 28: // パリン部屋前
+	case 27: // テラス渡り廊下
+		Message(20,"I can see, I can see!","","","");
+		Message(0,"Were you blind before?","","","");
+		Message(20,"Tomorrow will be sunny!","I can see it in the sky!","","");
+		break;
+	}
+
+	ch[400] = -1;
+}
+ 
