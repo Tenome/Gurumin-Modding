@@ -5,7 +5,7 @@ The Western PC release of Gurumin, by Mastiff, contains some errors in dialogue 
 
 [Steam thread with notes on my attempts at modding.](https://steamcommunity.com/app/322290/discussions/0/3431200155187214220/)
 
-[Steam guide with notes on modding Gurumin (file types, tools used](https://steamcommunity.com/sharedfiles/filedetails/?id=1555446052)
+[Steam guide with notes on modding Gurumin (file types, tools used)](https://steamcommunity.com/sharedfiles/filedetails/?id=1555446052)
 
 ## PSP
 ### Japanese:
