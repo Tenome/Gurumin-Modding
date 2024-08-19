@@ -4,6 +4,7 @@ Repository for the original dialog/UI text of Gurumin: A Monstrous Adventure, as
 The Western PC release of Gurumin, by Mastiff, contains some errors in dialogue such as typos, untranslated lines, and broken speech bubbles. This repository will host corrections to the script, as well as the original script files from all versions of Gurumin for reference and posterity.
 
 [Steam thread with notes on my attempts at modding.](https://steamcommunity.com/app/322290/discussions/0/3431200155187214220/)
+[Steam guide with notes on modding Gurumin (file types, tools used](https://steamcommunity.com/sharedfiles/filedetails/?id=1555446052)
 
 ## PSP
 ### Japanese:
