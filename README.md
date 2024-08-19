@@ -1,4 +1,4 @@
-# Gurumin-Script-Fixes
+# Gurumin Modding and Script Fixes
 Repository for the original dialog/UI text of Gurumin: A Monstrous Adventure, as well as corrections for the PC version and some notes on my attempt at modding Gurumin. All files have been converted to txt via itmcnv.exe (or just renaming the file extension, in the case of the PSP scr .bin files).
 
 The Western PC release of Gurumin, by Mastiff, contains some errors in dialogue such as typos, untranslated lines, and broken speech bubbles. This repository will host corrections to the script, as well as the original script files from all versions of Gurumin for reference and posterity.
