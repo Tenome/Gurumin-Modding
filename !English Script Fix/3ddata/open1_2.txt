@@ -114,12 +114,12 @@
 ##1336,---,7, (o) 
 ##1336,FL2,0,1.00
 ##1442,---,7,Žš–‹
-##1442,ZIM,Pamela: Who in the world are you\ntalking to^ child?,2.90,-1,400,150
+##1442,ZIM,Plane: Who in the world are you\ntalking to^ child?,2.90,-1,400,150
 ##1442,CS2,50,4,O03_017_
 ##1442,---,7, (o) 
 ##1442,FL2,4,2.70
 ##1536,---,7,Žš–‹
-##1536,ZIM,Pamela: Cute! An imaginary friend.,2.04,-1,400,150
+##1536,ZIM,Plane: Cute! An imaginary friend.,2.04,-1,400,150
 ##1536,CS2,50,4,O03_018_
 ##1536,---,7, (o) 
 ##1536,FL2,4,2.04
