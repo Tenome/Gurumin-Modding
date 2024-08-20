@@ -9,6 +9,10 @@ The English PC map.itm is included with modified medal prices and all closet opt
 
 [Steam guide with notes on modding Gurumin (file types, tools used)](https://steamcommunity.com/sharedfiles/filedetails/?id=1555446052)
 
+I'm going over the PSP vs. PC differences again to see if there are any lines I might've missed. If someone wants to help me, that'd be nice. It's a wall of text. In this zip, you'll find the PC and PSP scripts dumped into their own txt files, and then a diff txt file that I generated with a Python script that should contain all the lines that are in the PSP txt, but not the PC txt. A lot of them aren't actually missing lines, though, but got marked because the pointer or some other number in the line is different in the PSP version. You can help by reading the English lines in the diff.txt, and then checking against the PC.txt to see if the line is in there, or if it's different. Sometimes lines got a better translation in the PSP version, etc.
+
+mediafire.com/file/uhuwb7f44bqiouc/ 
+
 ## PSP
 ### Japanese:
 The Japanese PSP release contains 75 loose txt files in *3dData* which encompass both text and code, and 4 loose txt files in *map*. In addition, *binc* contains more dialogue/UI text in 824 scr*.bin files (which seem to just be txt files), and some code for things such as the new costumes. scr0867.bin in the PSP version contains the code for the bonus outfits.
