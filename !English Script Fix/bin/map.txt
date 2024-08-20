@@ -1,4 +1,7 @@
 #VERSION 2201
+// Gurumin Script Fix v.08-20-2024
+// https://github.com/Tenome/Gurumin-Modding
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //    各種スクリプト、テーブル定義ファイル
@@ -17583,12 +17586,12 @@ int main()
 	KaguTest(10007,0);
 	KaguTest2(10008,0,"This　is　a　nice　fluffy　bed.");
 	KaguTest(10010,10);
-	Wait(10);
+// Wait(10);
 	
 	Message(0,"","","","");
 	
 	KaguTest(10011,10);
-	Wait(10);
+// Wait(10);
 	return 0;
 
 	int a;
@@ -28319,7 +28322,7 @@ int main()
 				KaguTest2(10008,3,"to change a desktop wallpaper.");
 				KaguTest2(10009,0,"kb007s.bmp");
 				KaguTest(10010,10);
-				Wait(10);
+//			Wait(10);
 				Message(0,"","","","");
 				KaguTest(10011,10);
 
@@ -29269,7 +29272,7 @@ int main()
 					KaguTest2(10008,3,"to change a desktop wallpaper.");
 					KaguTest2(10009,0,"kb009s.bmp");
 					KaguTest(10010,10);
-					Wait(10);
+//			Wait(10);
 					Message(0,"","","","");
 					KaguTest(10011,10);
 
@@ -31379,7 +31382,7 @@ int main()
 				KaguTest2(10008,3,"to change a desktop wallpaper.");
 				KaguTest2(10009,0,"kb001s.bmp");
 				KaguTest(10010,10);
-				Wait(10);
+//			Wait(10);
 				Message(0,"","","","");
 				KaguTest(10011,10);
 
@@ -32614,7 +32617,7 @@ int main()
 				KaguTest2(10008,3,"to change a desktop wallpaper.");
 				KaguTest2(10009,0,"kb003s.bmp");
 				KaguTest(10010,10);
-				Wait(10);
+//			Wait(10);
 				Message(0,"","","","");
 				KaguTest(10011,10);
 
@@ -33850,7 +33853,7 @@ int main()
 				KaguTest2(10008,3,"to change a desktop wallpaper.");
 				KaguTest2(10009,0,"kb002s.bmp");
 				KaguTest(10010,10);
-				Wait(10);
+//			Wait(10);
 				Message(0,"","","","");
 				KaguTest(10011,10);
 
@@ -38636,7 +38639,7 @@ int main()
 			Message(0,"","","","");
 			
 			KaguTest(10011,10);
-			Wait(10);
+//			Wait(10);
 			
 			Message(0,"I　haven't　saved　much　yet.","","","");
 			
@@ -38649,7 +38652,7 @@ int main()
 			Message(0,"","","","");
 			
 			KaguTest(10011,10);
-			Wait(10);
+//			Wait(10);
 			
 			return 0;
 		case 1:
@@ -38662,7 +38665,7 @@ int main()
 			Message(0,"","","","");
 			
 			KaguTest(10011,10);
-			Wait(10);
+//			Wait(10);
 			
 			Message(0,"I'll　wait　till　I'm　grown　up...","","","");
 			
@@ -38675,7 +38678,7 @@ int main()
 			Message(0,"","","","");
 			
 			KaguTest(10011,10);
-			Wait(10);
+//			Wait(10);
 			return 0;
 		case 2:
 			KaguTest(10006,0);
@@ -38687,7 +38690,7 @@ int main()
 			Message(0,"","","","");
 			
 			KaguTest(10011,10);
-			Wait(10);
+//			Wait(10);
 			
 			Message(0,"..............","","","");
 			
@@ -38700,7 +38703,7 @@ int main()
 			Message(0,"","","","");
 			
 			KaguTest(10011,10);
-			Wait(10);
+//			Wait(10);
 			return 0;
 //		case 3:
 //			KaguTest(10006,0);
@@ -38792,7 +38795,7 @@ int main()
 			Message(0,"","","","");
 			
 			KaguTest(10011,10);
-			Wait(10);
+//			Wait(10);
 			
 			Message(0,"I　haven't　saved　much　yet.","","","");
 			
@@ -38805,7 +38808,7 @@ int main()
 			Message(0,"","","","");
 			
 			KaguTest(10011,10);
-			Wait(10);
+//			Wait(10);
 			
 			return 0;
 		case 1:
@@ -38818,7 +38821,7 @@ int main()
 			Message(0,"","","","");
 			
 			KaguTest(10011,10);
-			Wait(10);
+//			Wait(10);
 			
 			Message(0,"I'll　wait　till　I'm　grown　up...","","","");
 			
@@ -38831,7 +38834,7 @@ int main()
 			Message(0,"","","","");
 			
 			KaguTest(10011,10);
-			Wait(10);
+//			Wait(10);
 			return 0;
 		case 2:
 			KaguTest(10006,0);
@@ -38843,7 +38846,7 @@ int main()
 			Message(0,"","","","");
 			
 			KaguTest(10011,10);
-			Wait(10);
+//			Wait(10);
 			
 			Message(0,"..............","","","");
 			
@@ -38856,7 +38859,7 @@ int main()
 			Message(0,"","","","");
 			
 			KaguTest(10011,10);
-			Wait(10);
+//			Wait(10);
 			return 0;
 		}
 	}
@@ -39313,12 +39316,12 @@ int main()
 	KaguTest(10007,0);
 	KaguTest2(10008,0,"Ducky　was　always　\nmy　favorite...");
 	KaguTest(10010,10);
-	Wait(10);
+// Wait(10);
 	
 	Message(0,"","","","");
 	
 	KaguTest(10011,10);
-	Wait(10);
+// Wait(10);
 
 //	ch[50] = 0;
 //	if (!ch[1757])
@@ -39350,12 +39353,12 @@ int main()
 	KaguTest(10007,0);
 	KaguTest2(10008,0,"Books　from　Dad...");
 	KaguTest(10010,10);
-	Wait(10);
+// Wait(10);
 	
 	Message(0,"","","","");
 	
 	KaguTest(10011,10);
-	Wait(10);
+//	Wait(10);
 	
 	SelStart(50);
 	SelText("Have　a　read",1);
@@ -39379,12 +39382,12 @@ int main()
 			KaguTest2(10008,6,"Rumors　of　monsters　appearing　in　the　area");
 			KaguTest2(10008,7,"have　also　piqued　people's　interest.");
 			KaguTest(10010,10);
-			Wait(10);
+//		Wait(10);
 			
 			Message(0,"","","","");
 			
 			KaguTest(10011,10);
-			Wait(10);
+//		Wait(10);
 
 			Message(0,"...Pretty　boring　actually.","","","");
 			break;
@@ -39408,7 +39411,7 @@ int main()
 		KaguTest2(10008,1,"Gurumin as wallpaper for your");
 		KaguTest2(10008,2,"Windows desktop");
 		KaguTest(10010,10);
-		Wait(10);
+//	Wait(10);
 		Message(0,"","","","");	
 		KaguTest(10011,10);
 	
@@ -39462,7 +39465,7 @@ int main()
 			{
 				// 壁紙８
 				// バイトクエスト御褒美
-				SelText("A　Boring　Class",8);
+				SelText("Really　Boring　Class",8);
 			}
 			if (ch[2029])
 			{
@@ -39536,7 +39539,7 @@ int main()
 				ch[431] = 256;
 
 				KaguTest(10010,10);
-				Wait(10);
+//			Wait(10);
 				
 				SelStart(50);
 				SelText("Change my Windows desktop wallpaper to this picture",1);
@@ -39544,7 +39547,7 @@ int main()
 				SelEnd();
 				
 				KaguTest(10011,10);
-				Wait(11);
+//			Wait(11);
 				
 				if (ch[50] == 1)
 				{
@@ -39568,12 +39571,12 @@ int main()
 		KaguTest(10007,0);
 		KaguTest2(10008,0,"It's　nice　and　neat.");
 		KaguTest(10010,10);
-		Wait(10);
+//		Wait(10);
 		
-		Message(0,"","","","");
+//		Message(0,"","","","");
 		
 		KaguTest(10011,10);
-		Wait(10);
+//		Wait(10);
 	}
 }
 #EndScript
@@ -39584,13 +39587,13 @@ int main()
 {
 	KaguTest(10006,0);
 	KaguTest(10007,0);
-	KaguTest2(10008,0,"Dad　took　all　these　photos.");
-	KaguTest(10010,10);
+	Message(0,"Dad took all these photos.","","","");
+	Message(0,"Scenery from around the world...","Too bad they're all blurry.","","");
+    
+//	Message(0,"","","","");
 
-	Message(0,"","","","");
-	
 	KaguTest(10011,10);
-	Wait(10);
+//	Wait(10);
 }
 #EndScript
 
@@ -39604,10 +39607,10 @@ int main()
 	{
 		// 入れる
 		Message(0,"Something　is　written　here.","","","");
-		Message(0,"|You've　got　all　the　pictures，　eh?","speak　the　password.","","");
+		Message(0,"You've　got　all　the　pictures，　eh?","Speak　the　password.","","");
 		string txt;
 		txt = Type(600);
-		if (strcmp(txt,"Legendary") == 0)
+		if (strcmp(txt,"legendary") == 0 || strcmp(txt,"Legendary") == 0 || strcmp(txt,"LEGENDARY") == 0)
 		{
 			// 正解
 			TekiStop(1);
@@ -65768,7 +65771,7 @@ int main()
 		SE(853);
 		KaguTest(10006,0);
 		KaguTest(10007,1);
-		KaguTest2(10008,0,"Got　Wallpaper　#5:　|A Boring Class|");
+		KaguTest2(10008,0,"Got　Wallpaper　#5:　|Really Boring Class|");
 		KaguTest2(10008,2,"You can use the desk in Parin's house");
 		KaguTest2(10008,3,"to change a desktop wallpaper.");
 		KaguTest2(10009,0,"kb008s.bmp");
