@@ -618,7 +618,7 @@
 ##0813,---,7, (o) 
 ##0813,FL2,0,1.30
 ##0873,---,7,Žš–‹
-##0873,ZIM,Roger: That was close!,1.31,-1,400,150
+##0873,ZIM,Lassi: That was close!,1.31,-1,400,150
 ##0873,CS2,50,5,d030007_
 ##0965,---,7,Žš–‹
 ##0965,ZIM,Cream: Yeah. You should totally thank\nus!,2.41,-1,400,150

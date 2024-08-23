@@ -35,29 +35,29 @@
 ##0625,---,5,字幕
 ##0625,ZIM,???: Well well well.,1.26,-1,400,150##0625,CS2,20,2,B14_003_
 ##0674,---,7,字幕
-##0674,ZIM,Roger: Helping a lowly monster?,2.07,-1,400,150##0674,CS2,30,2,B14_004_
+##0674,ZIM,Lassi: Helping a lowly monster?,2.07,-1,400,150##0674,CS2,30,2,B14_004_
 ##0754,---,7,字幕
 ##0754,ZIM,Parin: I've come for Chucky!,1.49,-1,400,150##0754,CS2,50,0,B14_005_
 ##0754,---,7, (o) 
 ##0754,FL2,0,1.70
 ##0800,---,7,字幕
-##0800,ZIM,Roger: Humans only know how to\ndestroy. They don't help.,3.11,-1,400,150##0800,CS2,40,2,B14_006_
+##0800,ZIM,Lassi: Humans only know how to\ndestroy. They don't help.,3.11,-1,400,150##0800,CS2,40,2,B14_006_
 ##0900,---,7,字幕
-##0900,ZIM,Roger: Or are you feeling guilty?,2.35,-1,400,150##0900,CS2,40,2,B14_007_
+##0900,ZIM,Lassi: Or are you feeling guilty?,2.35,-1,400,150##0900,CS2,40,2,B14_007_
 ##0979,---,7,字幕
-##0979,ZIM,Roger: No matter. You're in our way.,3.21,-1,400,150##0979,CS2,30,2,B14_008_
+##0979,ZIM,Lassi: No matter. You're in our way.,3.21,-1,400,150##0979,CS2,30,2,B14_008_
 ##1078,---,7,字幕
 ##1078,ZIM,Parin: You're the one in the way^ lady!,1.53,-1,400,150##1078,CS2,50,0,B14_009_
 ##1078,---,7, (o) 
 ##1078,FL2,0,1.80
 ##1146,---,7,字幕
-##1146,ZIM,Roger: Lady?! How dare you!,2.11,-1,400,150##1146,CS2,50,2,B14_010_
+##1146,ZIM,Lassi: Lady?! How dare you!,2.11,-1,400,150##1146,CS2,50,2,B14_010_
 ##1226,---,7,字幕
-##1226,ZIM,Roger: My mother^ she's a lady.,1.95,-1,400,150##1226,CS2,50,2,B14_011_
+##1226,ZIM,Lassi: My mother^ she's a lady.,1.95,-1,400,150##1226,CS2,50,2,B14_011_
 ##1290,---,7,字幕
-##1290,ZIM,Roger: One day you'll understand.,2.25,-1,400,150##1290,CS2,50,2,B14_012_
+##1290,ZIM,Lassi: One day you'll understand.,2.25,-1,400,150##1290,CS2,50,2,B14_012_
 ##1370,---,7,字幕
-##1370,ZIM,Roger: Except^ my dear^ you won't be\naround.,3.45,-1,400,150##1370,CS2,20,2,B14_013_
+##1370,ZIM,Lassi: Except^ my dear^ you won't be\naround.,3.45,-1,400,150##1370,CS2,20,2,B14_013_
 ##1415,CS2,10,2,b14_13a_
 ##0568,---,4,RTエフェクト
 ##0568,REF,3005,-930,-23,-60

@@ -1,5 +1,5 @@
 ##0031,---,7,Žš–‹
-##0031,ZIM,Roger: Rebuilding the kingdom will be\nhard.,2.54,-1,400,150
+##0031,ZIM,Lassi: Rebuilding the kingdom will be\nhard.,2.54,-1,400,150
 ##0031,CS2,50,4,b09b_001_
 ##0116,---,7,Žš–‹
 ##0116,ZIM,Cream: Like duh^ of course.,2.04,-1,400,150
@@ -17,7 +17,7 @@
 ##0296,---,7, (o) 
 ##0296,FL2,3,3.06
 ##0439,---,7,Žš–‹
-##0439,ZIM,Roger: I'd do anything for you^ your\nhighness!,3.43,-1,400,150
+##0439,ZIM,Lassi: I'd do anything for you^ your\nhighness!,3.43,-1,400,150
 ##0439,CS2,50,4,B09b_005_
 ##0526,---,7,Žš–‹
 ##0526,ZIM,Cream: Hey! Get your dirty flippers off\nmy Princey!,3.62,-1,400,150

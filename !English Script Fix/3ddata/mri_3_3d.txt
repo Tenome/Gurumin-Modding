@@ -2,7 +2,7 @@
 ##0095,ZIM,Cream: I thought it was like over for sure\nwhen we got separated from the Prince.,3.68,-1,400,150
 ##0095,CS2,35,-1,b09a_005_
 ##0241,---,7,Žš–‹
-##0241,ZIM,Roger: Thank goodness he found us\nagain.,1.81,-1,400,150
+##0241,ZIM,Lassi: Thank goodness he found us\nagain.,1.81,-1,400,150
 ##0241,CS2,35,-1,b09a_006_
 ##0000,---,2,COLORƒCƒ“
 ##0000,BLS,0,0,0

@@ -1,7 +1,7 @@
 ##0001,---,0,ƒLƒƒƒ‰•\Ž¦
 ##0001,VIC,3,char11.it3
 ##0064,---,7,Žš–‹
-##0064,ZIM,Roger: The Phantom Kingdom destroyed^\ninstantly...,3.04,-1,400,150
+##0064,ZIM,Lassi: The Phantom Kingdom destroyed^\ninstantly...,3.04,-1,400,150
 ##0064,CS2,35,-1,b09a_001_
 ##0195,---,7,Žš–‹
 ##0195,ZIM,Cream: That was like totally scary.,2.64,-1,400,150

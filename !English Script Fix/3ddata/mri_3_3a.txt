@@ -37,7 +37,7 @@
 ##0267,---,7, (o) 
 ##0267,FL2,2,2.83
 ##0370,---,7,Žš–‹
-##0370,ZIM,Roger: I certainly won't let her do that\nto me!,2.75,-1,400,150
+##0370,ZIM,Lassi: I certainly won't let her do that\nto me!,2.75,-1,400,150
 ##0370,CS2,50,4,B09_003_
 ##0460,---,7,Žš–‹
 ##0460,ZIM,Cream: We'll see.,0.62,-1,400,150
@@ -50,10 +50,10 @@
 ##0493,---,7, (o) 
 ##0493,FL2,2,3.90
 ##0620,---,7,Žš–‹
-##0620,ZIM,Roger: Well^ I'm next and I'm going to\nbeat her.,3.36,-1,400,150
+##0620,ZIM,Lassi: Well^ I'm next and I'm going to\nbeat her.,3.36,-1,400,150
 ##0620,CS2,50,4,B09_006_
 ##0732,---,7,Žš–‹
-##0732,ZIM,Roger: No chance for you to impress the\nPrince. Sorry.,2.41,-1,400,150
+##0732,ZIM,Lassi: No chance for you to impress the\nPrince. Sorry.,2.41,-1,400,150
 ##0732,CS2,50,4,B09_007_
 ##0815,---,7,Žš–‹
 ##0815,ZIM,Cream: Oooh^ I'll show you^ bait breath!,3.19,-1,400,150
@@ -61,7 +61,7 @@
 ##0815,---,7, (o) 
 ##0815,FL2,2,3.19
 ##0955,---,7,Žš–‹
-##0955,ZIM,Roger: I'm just glad we have the Prince\nto lead us.,3.07,-1,400,150
+##0955,ZIM,Lassi: I'm just glad we have the Prince\nto lead us.,3.07,-1,400,150
 ##0955,CS2,50,4,B09_009_
 ##1046,---,7,Žš–‹
 ##1046,ZIM,Cream: Duh. The man said go^ so we went.\nIf it weren't for him...,3.46,-1,400,150

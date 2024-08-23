@@ -2,7 +2,7 @@
 ##0059,ZIM,Cream: It's like such a good thing Great\nFang connected our worlds...,3.22,-1,400,150
 ##0059,CS2,35,-1,b09a_003_
 ##0176,---,7,éöñã
-##0176,ZIM,Roger: But we were still lost in there for\ndecades.,3.32,-1,400,150
+##0176,ZIM,Lassi: But we were still lost in there for\ndecades.,3.32,-1,400,150
 ##0176,CS2,35,-1,b09a_004_
 ##0002,---,2,MOTì«çû(â§éq)
 ##0002,LMT,3,char11m.it3

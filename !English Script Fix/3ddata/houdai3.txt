@@ -77,7 +77,7 @@
 ##0538,ZIM,Bob: Heheheheh! Bulls-eye!,2.65,-1,400,150
 ##0538,CS2,50,10,d02_016_
 ##0619,---,7,Žš–‹
-##0619,ZIM,Roger: That's for destroying our\nkingdom!,1.94,-1,400,150
+##0619,ZIM,Lassi: That's for destroying our\nkingdom!,1.94,-1,400,150
 ##0619,CS2,50,2,d02_017_
 ##0679,---,7,Žš–‹
 ##0679,ZIM,Cream: And eating our Prince!,2.64,-1,400,150

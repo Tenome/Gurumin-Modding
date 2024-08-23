@@ -17,7 +17,7 @@
 ##0314,---,7, (o) 
 ##0314,FL2,3,4.37
 ##0453,---,7,Žš–‹
-##0453,ZIM,Roger: That bracelet is his. No question\nabout it.,3.42,-1,400,150
+##0453,ZIM,Lassi: That bracelet is his. No question\nabout it.,3.42,-1,400,150
 ##0453,CS2,50,5,d03_025_
 ##0583,---,7,Žš–‹
 ##0583,ZIM,Puku: I was exploring Great Fang^ and I\nhappened to find it.,3.32,-1,400,150
@@ -115,7 +115,7 @@
 ##2471,---,7, (o) 
 ##2471,FL2,2,1.40
 ##2543,---,7,Žš–‹
-##2543,ZIM,Roger: Motoro told us about what\nhappened to you.,2.38,-1,400,150
+##2543,ZIM,Lassi: Motoro told us about what\nhappened to you.,2.38,-1,400,150
 ##2543,CS2,50,5,d03_046_
 ##2621,---,7,Žš–‹
 ##2621,ZIM,Cream: You know^ we did lose our home^\ntoo.,3.73,-1,400,150
@@ -137,7 +137,7 @@
 ##3130,ZIM,Cream: Hey! I'll like^ totally forgive you if\nyou'll take me out!,3.14,-1,400,150
 ##3130,CS2,50,3,d03_051_
 ##3232,---,7,Žš–‹
-##3232,ZIM,Roger: Wait a minute! Me first!,1.79,-1,400,150
+##3232,ZIM,Lassi: Wait a minute! Me first!,1.79,-1,400,150
 ##3232,CS2,50,5,d03_052_
 ##3273,---,7,Žš–‹
 ##3273,ZIM,Cream: Back off! Me first!,1.99,-1,400,150
