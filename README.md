@@ -9,6 +9,27 @@ The English PC map.itm is included with modified medal prices and all closet opt
 
 [Steam guide with notes on modding Gurumin (file types, tools used)](https://steamcommunity.com/sharedfiles/filedetails/?id=1555446052)
 
+Other mods and misc.:
+
+[Mediafire folder](https://www.mediafire.com/folder/3xd1misdnh92q/Gurumin)
+
+[Mute the dodge and jump sound effects, which might be annoying for some (especially speedrunners).](https://www.mediafire.com/file/3tyjbftzwagm3ig/)
+
+[Japanese dub](https://www.mediafire.com/file/ct9xica21v77bi0/)
+
+[Japanese text](https://www.mediafire.com/file/amfm3jp4t3fy8iq/%2521Japanese_text.zip/file)
+
+[PSP outfit files (I haven't been able to mod them back in)](https://www.mediafire.com/file/d7yfgf0p6m4gxy8/)
+
+[Quieter movement](https://www.mediafire.com/file/3srcmanhd9o9cdo/)
+
+[Panty shot unlock, normally unlocked after getting to Crazy Mode (virtually impossible to see anyway, you have to do specific moves for a single frame's view)](https://www.mediafire.com/file/5ssau7biacbspu6/)
+
+[Archived interview with JP voice cast](https://www.mediafire.com/file/8dgvbcgocpr1oog/Japanese_Interview_with_Dubbing_Cast.zip/file) If I figure out how to do speech bubble checks, maybe I can insert this interview into the Boss Rush room?
+
+[Cream's doppelganger recolor](https://www.mediafire.com/file/5fm5nqhr24as982/)
+
+![](https://i.imgur.com/GLV7Djc.jpeg)
 
 ## PSP
 ### Japanese:
