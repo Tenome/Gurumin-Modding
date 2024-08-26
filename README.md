@@ -143,4 +143,4 @@ Boss Rush room:
 
 * Boss room:
 * Bobo:  Replaced lines about the original JP PC release's benchmark tool, since  the benchmark tool doesn't come with Steam/GOG and thus it doesn't make much sense to leave it. Replaced with PSP's dialogue. If I can figure out how to give them multiple speech bubbles depending on whether you talked to them or not, I can add both.
-* Imported a feature from the PSP version that lets you select the difficulty level of the buss rush. It seems to work, but let me know if the bosses have the wrong HP/damage or something.
+* Imported a feature from the PSP version that lets you select the difficulty level of the boss rush. It seems to work, but let me know if the bosses have the wrong HP/damage or something.
