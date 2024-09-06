@@ -106,13 +106,13 @@ Boss Rush room:
 * Changed the password to Eggplant Caverns - Ruby Cave to match either SentenceCase, lowercase, or UPPERCASE. The password fields don't support the space key so I can't split it.
 * Fixed typos while working at Fan's shop (comming -> coming, … -> ...)
 * Fixed an incorrect bubble from Chucky when you give him the scroll
-* Fan's work minigame: Changed all orders to lowercase (IceCream -> icecream etc.) I dont' have a save file at this spot so I can't test if I can put in multiple correct answers for different cases. If you have a save file that can play this game, please upload it so I can test.
+* Fan's work minigame: Changed all orders to lowercase (IceCream -> icecream etc.) I don't have a save file at this spot so I can't test if I can put in multiple correct answers for different cases. If you have a save file that can play this game, please upload it so I can test.
 * Added a missing "Can I help you?" bubble when talking to Fan after the cake thefts
 * Changed "Ok, we got a deal" to "We got a deal!" from the PSP script when exchanging for bronze or silver medals
 * Revised + fixed a missing partial line when you beat the Motoro Astrals to closer match the JP dialogue
 * Fixed a missing line from Fan about prices being high
 * Adjusted Motoro's introduction when meeting him in his home to match JP dialogue more closely
-* Adjusted a couple of Peke's lines when doin the laser experiment
+* Adjusted a couple of Peke's lines when doing the laser experiment
 * Fixed a typo when Fan comments on your outfit
 * Fixed a typo when Cylinder is asking you out for a cup of tea
 * Fixed a missing partial Fan line about prices going up
