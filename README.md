@@ -124,27 +124,41 @@ Boss Rush room:
 * Added Giga's dialogue from PSP version, but you can't actually speak to him. Parin makes a joke about the collision being different in the PC version, so that seems to be the real reason (in the PSP version, you have to talk to him at an angle, so the collision probably is janky/not working on PC). Not sure if this can be fixed, since of course no one knows how to edit collision yet (probably something to do with the .exe)... Here's the dialogue.
 
 > 	"Giiiiigaaaa."
+>
 > 	"That's strange...","You couldn't talk in the original PC version.","Maybe the collision detection is different..."
+> 
 > 	"Giga giga..."
+> 
 > 	"Poor thing.","You can only talk in one place,","and that's all you get to say..."
+> 
 > 	""You called，master?""
+> 
 > 	"That was your line，right?"
+> 
 > 	"Giga giga..."
 
 * There is some dummied out dialogue  after giving Motoro a platinum medal that makes it clear that Motoro was talking to Grandpa about you earlier (after you show Grandpa a platinum medal), but this dialogue was left out by Falcom since it contradicts the ending where Motoro states that only children can see them (and also since Motoro was already leaving hints on signs for you)
 
 >なるほど。彼の言っていた女の子は君の事だったであるか……
+>
 >なんのこと？彼って…？
+>
 >"な、なんでも無いのである。気にしないでほしいのである
 
 * There is some dummied out dialogue that seems to be by Hyperbolic when you show him a platinum medal for the first time. He's much more excited and tells you find a collector who is obsessed with them, whereas the current dialogue is rather muted but still tells you to find a collector (same way in JP). However, I'm confused because the code is in the block where you give Motoro the medals, which would imply that it's Motoro getting excited (which doesn't make sense, since the dialogue tells you to give it to a "real collector" who is worthy of it, like what Hyperbolic says.) If the dialogue is supposed to be by Hyperbolic, though, it doesn't make sense continuity-wise either since Hyperbolic gives you your first Platinum Medal and would have no reason to react like this. So both of these points tell me this was dummied out earlier in development. Since I don't know how to cleanly insert it in a way that makes sense, I'll just paste it here.
 
 >そ、そ、そ、それは！！！
+>
 >どうしたの？
+>
 >"プ、プ、プ、プラチナメダルじゃないか！
+>
 >長年メダルを集めてきたのじゃが","プラチナメダルを見るのは","初めてじゃわい"
+>
 >へ～そんなに珍しいメダルなんだ
+>
 >わしが手にするにはあまりにも勿体ないわい
+>
 >世界にはわしよりもさらにメダルマニアな男が五万といるらしい
 >そのメダルをあげるのならそういう男達にあげると良いじゃろう
 >わかったわ。もしそんな変な人を見かけたらその人にあげることにするわ
