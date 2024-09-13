@@ -72,6 +72,7 @@ The English PC release contains 75 .itm files in *3dData* which encompass both t
 * Fixed incomplete sentence when Disk thanks you for putting up ads, and adjusted second line to be more in line with JP
 
 ### Typos
+* All the typos I fixed before making this Github
 * Fixed typo on password door
 * Fixed other typo on password door (had to compare it to JP)
 *  Fixed a misplaced line when giving the Old Scroll back to Rocko
