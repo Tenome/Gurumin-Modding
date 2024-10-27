@@ -126,6 +126,10 @@
 ##2751,ZIM,Bob: Tokaron destroyed the Phantom Kingdom^\njust like humans destroyed your home.,4.73,-1,400,150
 ##2751,CS2,50,4,d03_048_
 ##2901,---,7,éöñã
+// Mosby
+// JP ÇÌÇΩÇ≠ÇµÇÃë‰éåÇ∑Ç≠Ç»Ç¢ÇÊÇÀ
+// Original EN They didn't give me many lines...
+// I DON'T HAVE MANY LINES
 ##2901,ZIM,Mosby: Yjru fofm'y hobr ^r ^smu ;omrdÅc,2.03,-1,400,150
 ##2901,CS2,50,6,d03_049_
 ##2981,---,7,éöñã

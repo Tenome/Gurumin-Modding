@@ -75,6 +75,10 @@
 ##1026,---,7, (o) 
 ##1026,FL2,2,2.35
 ##1116,---,7,字幕
+// Mosby
+//  JP: ねーね、ちょっと来たんだよね
+// Official: I'm here, look my way!
+// TL Check: HEY HEY I'M HERE NOW
 ##1116,ZIM,???: O'^ jrtr^ ;ppl ^u esu!,1.75,-1,400,150
 ##1116,CS2,50,3,B04_011_
 ##1210,---,7,字幕
@@ -83,6 +87,10 @@
 ##1210,---,7, (o) 
 ##1210,FL2,2,1.46
 ##1268,---,7,字幕
+// Mosby
+// JP: こっち向いて話してよね
+// Official: I am so misunderstood.
+// TL Check: LOOK THIS WAY WHEN YOU'RE TALKING TO ME
 ##1268,ZIM,Mosby: O s^ dp ^odimfrtdyppf.,0.77,-1,400,150
 ##1268,CS2,50,3,B04_013_
 ##1308,---,7,字幕
@@ -96,6 +104,9 @@
 ##1357,---,7, (o) 
 ##1357,FL2,2,1.18
 ##1431,---,7,字幕
+// Mosby
+// JP: やる気無いんだよね
+// Official: I don't feel like it.
 ##1431,ZIM,Mosby: O fpm'y grr; ;olr oy.,1.64,-1,400,150
 ##1431,CS2,50,3,B04_016_
 ##1489,---,7,字幕
@@ -104,6 +115,10 @@
 ##1489,---,7, (o) 
 ##1489,FL2,2,1.17
 ##1559,---,7,字幕
+//Mosby
+// JP: 定時帰りだよね
+// Official: Gotta get out of here at 6... 
+// TL Check: NO OVERTIME TODAY
 ##1559,ZIM,Mosby: Hpyys hry piy pg jrtr sy 6…,0.80,-1,400,150
 ##1559,CS2,50,3,B04_018_
 ##1654,---,7,字幕

@@ -46,12 +46,20 @@
 ##0391,---,7, (o) 
 ##0391,FL2,0,1.16
 ##0462,---,7,字幕
+// Mosby
+// JP: そうなんだよね
+// Official: Yea, I guess so.
+// TL Check: THAT'S RIGHT
 ##0462,ZIM,Mosby: Urs^ O hirdd dp.,1.59,-1,400,150
 ##0462,CS2,50,2,B08_004_
 ##0523,---,7,字幕
 ##0523,ZIM,Parin: What was that?,1.36,-1,400,150
 ##0523,CS2,50,0,B08_005_
 ##0575,---,7,字幕
+// Mosby
+// JP: そういう仕様だからね
+// Original EN: Said I'm next.
+// That's the way it is. / That's how it is.
 ##0575,ZIM,Mosby: Dsof O'^ mrcy.,2.06,-1,400,150
 ##0575,CS2,50,2,B08_006_
 ##0631,---,7,字幕
@@ -60,6 +68,9 @@
 ##0631,---,7, (o) 
 ##0631,FL2,0,1.92
 ##0696,---,7,字幕
+// Mosby
+// JP: そうかもね
+// Original EN: I guess so.
 ##0696,ZIM,Mosby: O hirdd dp.,0.58,-1,400,150
 ##0696,CS2,50,2,B08_008_
 ##0696,---,7, (o) 
@@ -80,6 +91,10 @@
 ##0903,---,7, (o) 
 ##0903,FL2,1,1.57
 ##1031,---,7,字幕
+// Mosby
+// JP 最近仕事きついんだよね
+// Original EN: Work is such a pain.
+// WORK IS TOUGH LATELY
 ##1031,ZIM,Mosby: Ertl od divj s @som.,65,-1,400,150
 ##1031,CS2,30,2,B08_012_
 ##1031,---,7, (o) 
@@ -95,6 +110,10 @@
 ##1412,---,7, (o) 
 ##1412,FL2,1,0.64
 ##1525,---,7,字幕
+// Mosby
+// JP どういたしましてよね
+// Original EN: All work and no play...
+//  You're welcome.
 ##1525,ZIM,Mosby: S;; eptl smf mp ［;sy...,1.25,-1,400,150
 ##1525,CS2,50,2,B08_015_
 ##1525,---,7, (o) 

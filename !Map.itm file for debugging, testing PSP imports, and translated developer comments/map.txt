@@ -325,13 +325,13 @@
 // 2518 203 (Motoro 3 times) saw the movie
 // 2519 211 (pre-Lassie map) saw the movie
 // 2520 601 (Mountain first) saw the movie
-// 2521 610 (Fake Palin Appearance) Watched the movie
+// 2521 610 (Fake Parin Appearance) Watched the movie
 // 2522 Dark fog check
 // 2523 Sponsored Event, Chucky
 // 2524 sponsored event, accepted
 // 2525 Sponsored event at Peke
 // 2526 sponsored event whack-a-mole done
-// 2527 Sponsor event ends, learns the fact that fake Palin took Pino
+// 2527 Sponsor event ends, learns the fact that fake Parin took Pino
 // 2528 I've been to Peke.
 // 2529 sponsored event, held back by her aunt.
 // 2530 Doc event, met Doc
@@ -350,7 +350,7 @@
 // 2543 I have a chucky pot
 // 2544 I have a rockfish
 // 2545 I have a black bean pot
-// 2546 Epilogue I saw a pass exchange with Motro
+// 2546 Epilogue I saw a pass exchange with Motoro
 // 2547 Prologue: Talked to Grandpa
 // 2548 Prologue: Talked with Uncle
 // 2549 Prologue: Talked to Auntie
@@ -412,9 +412,9 @@
 // 2646 Ghost home rock 4
 // 2647 Ghost home rock 5
 // 2648 Moglenu minigame still
-// 2649 Palin original coordinate X for movement when buying parts
-// 2650 Palin original coordinate Y for movement when buying parts
-// 2651 Palin original coordinate Z for movement when purchasing parts
+// 2649 Parin original coordinate X for movement when buying parts
+// 2650 Parin original coordinate Y for movement when buying parts
+// 2651 Parin original coordinate Z for movement when purchasing parts
 // 2652 Cylinder original coordinate X for movement when purchasing parts
 // 2653 Cylinder original coordinate Y for movement when purchasing parts
 // 2654 Cylinder original coordinate Z for movement when purchasing parts
@@ -521,7 +521,7 @@
 //
 // 3949 Saving with script (PSP ADDED LINE)
 // 3950 Box drop OK flag (no drop when 0) (PSP ADDED LINE)
-// 3951 Palin dance motion number
+// 3951 Parin dance motion number
 // 3952 no save flag (epilogue only)
 // 3953 in hard mode
 // 3954 in normal mode
@@ -545,7 +545,7 @@
 // 3972 Bringing ghost number 3 (nothing is taken when 0)
 // 3973 ghost number 2 to bring (nothing when 0)
 // 3974 Ghost number to bring (nothing is taken when 0)
-// 3975 Motro Magic (discounted at all stores)
+// 3975 Motoro Magic (discounted at all stores)
 // 3976 store discounts
 // 3977 Consuming candy.
 // 3978 candy effect?
@@ -565,7 +565,7 @@
 // 3991 Plain Aunt Position Hold Flag 2
 // 3992 Plain Aunt map inter-map flag
 //
-// 3993 Tiese Town Palin room door flag (ID is 1)
+// 3993 Tiese Town Parin room door flag (ID is 1)
 // 3994 Tiese Town Landlord room door flag (ID is 2)
 // 3995 Tiese Town Furniture store door flag (ID is 3)
 // 3996 Tiese Town - Tool shop door flag (ID is 4)
@@ -579,7 +579,7 @@
 // 506 in-game check
 // (508) OP
 // (510) Minimap first time //Poco Directions
-// Not used (600) Motro instruction
+// Not used (600) Motoro instruction
 // (511) Moto first time // Warp 1 on again
 // (509) Boss battle ‡@
 // (507) Boss Defeat ‡@ Boboo Defeated
@@ -590,8 +590,8 @@
 // (1503) Event in Dungeon 2 Neutral
 // (1504) Boss battle 2
 // (1505) Boss defeated ‡A Lassie defeated
-// (1506) Birth of Fake Palin
-// (1515) Flag to see fake Palin birth event
+// (1506) Birth of Fake Parin
+// (1515) Flag to see fake Parin birth event
 // (528) Village Reconstruction
 // (1516) Conversation event with ghosts
 // (1507) Examine the slate on the road leading to Dungeon 3
@@ -625,7 +625,7 @@
 // (1534) Motoro Mujinhakou
 // 1535 Big Brother Meteor
 // 1536 Motoro Majin Ranbu refused
-// 1537 Motro Explosion supremacy cut off
+// 1537 Motoro Explosion supremacy cut off
 // 1538 ending
 // 1539 potted plant check
 // 1540 save first
@@ -709,7 +709,7 @@
 // 1754 map 403 (0) map 404 (1) switching
 // 1755 town stage (0: 1st stage 1: 2nd stage 2: 3rd stage 3: 4th stage)
 // 1756 fishbowl buy flag
-// 1757 Palin Room/Duck Flag
+// 1757 Parin Room/Duck Flag
 // 1758
 // 1759 minifield current key
 // 1760 minifield location
@@ -939,7 +939,7 @@
 // 750~ item use script
 // 800~ Flag setting script for item acquisition confirmation
 // 804~ for back map
-// Room 865-871 Palin
+// Room 865-871 Parin
 //
 // 4095 for debugging
 //
@@ -9996,7 +9996,7 @@
 0003 00 30 00 24 ---- ---- ---- ---- ----- REG      00000094 00000001 -0000400 -0000120 00000000 00000030
 // 18
 0003 00 30 00 24 ---- ---- ---- ---- ----- REG      00000094 00000002 -0000460 -0000292 00000000 00000030
-// Palin room road point
+// Parin room road point
 // 23
 0002 00 30 00 24 ---- ---- ---- ---- ----- REG      00000094 00000000 00000292 -0000290 00000000 00000030
 // 24

@@ -310,6 +310,10 @@
 ##0937,---,7, (o) 
 ##0937,FL2,5,2.74
 ##1027,---,7,字幕
+//Mosby 
+//JP: その話し方古いよね 
+// Official TL: Such an airhead.
+// TL Check: That way of speaking is old/old-fashioned
 ##1027,ZIM,???: Divj sm sotjrsf.,1.41,-1,400,150
 ##1027,CS2,50,2,A04_003_
 ##1027,---,7, (o) 
@@ -386,6 +390,10 @@
 ##2463,---,7, (o) 
 ##2463,FL2,5,3.22
 ##2523,---,7,字幕
+// Mosby
+// JP: 王子色白だね
+//  Official: He's a decent looking guy...
+// TL Check: The Prince has such fair skin...
 ##2523,ZIM,???: Jr'd s frvrmy ;pplomh hiu...,1.21,-1,400,150
 ##2523,CS2,50,2,A04_021_
 ##2523,---,7, (o) 
@@ -418,6 +426,10 @@
 ##3013,ZIM,???: Yes sir!,1.28,-1,400,150
 ##3013,CS2,50,3,A04_033_
 ##3059,---,7,字幕
+//Mosby
+// JP: カメラに突進だね  ("rush on the camera")
+// Official: Here's a good closeup!
+// TL Check: CHARGE TOWARD THE CAMERA!
 ##3059,ZIM,???: Jrtr'd s hppf v;pdri[ p[!,1.05,-1,400,150
 ##3059,CS2,50,2,A04_034_
 ##3059,---,7, (o) 
