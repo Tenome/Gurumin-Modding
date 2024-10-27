@@ -3,6 +3,8 @@ Repository for the original dialog/UI text of Gurumin: A Monstrous Adventure, as
 
 The Western PC release of Gurumin, by Mastiff, contains some errors in dialogue such as typos, untranslated lines, and broken speech bubbles. This repository will host corrections to the script, as well as the original script files from all versions of Gurumin for reference and posterity. Before installing, backup map.itm in your bin folder and all .itm files in your 3dData folder.
 
+## I have not playtested this, so please report any bugs.
+
 A modified English PC map.itm is included with modified medal prices and all closet options revealed from "???" to their respective outfits (for trying to hack in the PSP costumes, no luck yet) for testing purposes, and a WIP Google TL of the dev comments that are included.
 
 [Steam thread with notes on my attempts at modding.](https://steamcommunity.com/app/322290/discussions/0/3431200155187214220/)
