@@ -17327,7 +17327,7 @@ int main()
 			Message(0,"O-oh，　nothing...","","","");
 			//Fan
 			Message(3,"So many missing cakes... ","Prices are high today...","","");
-            Message(3,"Can I help you?","","");
+            Message(3,"Can I help you?","","","");
 			ch[2557] = 1;
 		}
 		else
@@ -26346,7 +26346,7 @@ int main()
 }
 #EndScript
 
-// 0304:レバーひくと扉開く
+// 0304: Pull the lever to open the door
 #Script:00588
 int main()
 {
