@@ -1,5 +1,5 @@
 #VERSION 2201
-// Gurumin Script Fix v.10-26-2024
+// Gurumin Script Fix v.10-29-2024
 // https://github.com/Tenome/Gurumin-Modding
 // Dev comments are being Google TL'd. Since there are a lot and I'm just copy-pasting to get through them, some names might be wrong.
 // Unfortunately, it looks like loading in the PSP costumes might be impossible (for me, anyway). The eboot.bin PSP executable is where the costumes are loaded into the game, and I would need to decompile/disassemble the PC exe to insert them. I don't know anything about that. Maybe if I insert the PSP object filenames, and delete some bytes elsewhere to keep the filesize the same, it might load? I'll have to try later. Probably not. If you end up trying yourself, the easiest way to test it is to set your clock to Christmas and see if you can load the Santa outfit from the PSP ISO (char02bj.it3, char02bj.dat).
@@ -57802,7 +57802,7 @@ int main()
 			ch[400] = 14;
 			Message(14,"Extraordinary!","You'reÅ@aÅ@natural!","","");
 			//str = "" + ch[2145] + "ñ{îÇØÇƒÇ¢ÇÈÇ©Ç‡";
-			str = "You dodged " + ch[2145] + "lasers.";
+			str = "You dodged " + ch[2145] + "  lasers.";
 			Message(14,str,"","","");
 			if (!ch[2312])
 			{
