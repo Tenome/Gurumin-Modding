@@ -1,5 +1,5 @@
 #VERSION 2201
-// Gurumin Script Fix v.10-29-2024
+// Gurumin Script Fix v.10-31-2024
 // https://github.com/Tenome/Gurumin-Modding
 // Dev comments are being Google TL'd. Since there are a lot and I'm just copy-pasting to get through them, some names might be wrong.
 // Unfortunately, it looks like loading in the PSP costumes might be impossible (for me, anyway). The eboot.bin PSP executable is where the costumes are loaded into the game, and I would need to decompile/disassemble the PC exe to insert them. I don't know anything about that. Maybe if I insert the PSP object filenames, and delete some bytes elsewhere to keep the filesize the same, it might load? I'll have to try later. Probably not. If you end up trying yourself, the easiest way to test it is to set your clock to Christmas and see if you can load the Santa outfit from the PSP ISO (char02bj.it3, char02bj.dat).
@@ -15838,11 +15838,11 @@ SET 0093 0002 0260 0269 -001 0000 後ダメージ
 
 0035 Mystery　Bag     0000 1 1 0 2 1 ---------- ---------- 0000027   1230 010000 00004 0000 0000 0000 Who　knows　what's　inside?
 
-0036 Gothic　Lolita　Maid   0000 1 1 0 2 1 mt_eat.it3 ---------- 0000061    083 010000 00004 0000 0000 0000 Increases your maximum HP. 
+0036 Gothic　Lolita　Maid   0000 1 1 0 2 1 mt_eat.it3 ---------- 0000061    083 010000 00004 0000 0000 0000 Increases　your　maximum　HP. 
 0037 Headdress 0000 1 1 0 2 1 mt_sou.it3 eq_014.it3 0000050 104 010000 00004 0000 0000 0000 Worn　by　all　true　maids.
 
-0038 Afro		0000 1 1 0 2 1 ---------- ---------- 0000030   1084 010000 00004 0000 0000 0000 Long live Mr. Afro! // Original JP is ミスターアフロ、万歳! original English is: Makes the wearer very...funky.
-0039 Sombrero 0000 1 1 0 2 1 ---------- ---------- 0000027   1067 010000 00004 0000 0000 0000 From today on, you, too, can be Mexican!  // Original JP is 今日からあなたもメキシカン。Original EN is : Yo quiero Gurumin!
+0038 Afro		0000 1 1 0 2 1 ---------- ---------- 0000030   1084 010000 00004 0000 0000 0000 Long　live　Mr.　Afro! // Original JP is ミスターアフロ、万歳! original English is: Makes the wearer very...funky.
+0039 Sombrero 0000 1 1 0 2 1 ---------- ---------- 0000027   1067 010000 00004 0000 0000 0000 From　today　on,　you,　too,　can　be　Mexican!  // Original JP is 今日からあなたもメキシカン。Original EN is : Yo quiero Gurumin!
 0040 Cat　Ears   0000 1 1 0 2 1 mt_sou.it3 eq_002.it3 0000050    080 010000 00004 0000 0000 0000 Complete　with　whiskers.　Improves　hearing.
 0041 Goggles   0000 1 1 0 2 1 mt_sou.it3 eq_000.it3 0000050    081 010000 00004 0000 0000 0000 Allows　you　to　open　your　eyes　under　water.
 0042 Gas　Mask 0000 1 1 0 2 1 mt_sou.it3 eq_001.it3 0000050    082 010000 00004 0000 0000 0000 Filters　out　poisonous　gasses. 
@@ -16002,8 +16002,8 @@ SET 0093 0002 0260 0269 -001 0000 後ダメージ
 0036 Gothic　Lolita　Maid		0000 8 0 1 2 1 00036 0100 0000 000 000 000 001 000 000 000 036 0031 0000010 00003 0000 0000 Increases　your　maximum　HP.  
 0037 Headdress   0001 34 1 0 2 1 0063 0000 0000 000 000 000 000 000 000 000 032 0196 0059800 00003 0012 0078 Worn　by　all　true　maids.
 
-0038 Afro		 	0004 80 1 0 2 1 0004 0000 0000 000 000 000 000 050 050 050 032 0246 0000050 00003 -004 0045 Long live Mr. Afro! // Original JP is ミスターアフロ、万歳! original English is: Makes the wearer very...funky.
-0039 Sombrero		0004 81 1 0 2 1 0007 0000 0000 000 000 000 000 050 045 035 032 0247 0000600 00003 0004 0060 From today on, you, too, can be Mexican!  // Original JP is 今日からあなたもメキシカン。Original EN is : Yo quiero Gurumin!
+0038 Afro		 	0004 80 1 0 2 1 0004 0000 0000 000 000 000 000 050 050 050 032 0246 0000050 00003 -004 0045 Long　live　Mr.　Afro! // Original JP is ミスターアフロ、万歳! original English is: Makes the wearer very...funky.
+0039 Sombrero		0004 81 1 0 2 1 0007 0000 0000 000 000 000 000 050 045 035 032 0247 0000600 00003 0004 0060 From　today　on,　you,　too,　can　be　Mexican!  // Original JP is 今日からあなたもメキシカン。Original EN is : Yo quiero Gurumin!
 0040 Cat　Ears		0001 25 1 0 2 1 0017 0000 0000 000 000 000 000 000 000 000 032 0043 0004980 00003 0004 0078 Complete　with　whiskers.　Improves　hearing.
 0041 Goggles		0001 21 1 0 2 1 0037 0000 0000 000 000 000 000 000 000 000 032 0250 0000010 00003 0019 0081 Allows　you　to　open　your　eyes　under　water.  
 0042 Gas　Mask		0001 22 1 0 2 1 0016 0000 0000 000 000 000 000 000 000 000 032 0045 0000980 00003 0031 0000 Filters　out　poisonous　gasses.
