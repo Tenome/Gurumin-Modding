@@ -19,7 +19,7 @@ Other mods and misc.:
 
 [Japanese dub](https://www.mediafire.com/file/ct9xica21v77bi0/)
 
-[Japanese text (updated Nov 2024 to include boss/level cards)](https://www.mediafire.com/file/l8n5d5ex76e7e93/))
+[Japanese text (updated Nov 2024 to include boss/level cards)](https://www.mediafire.com/file/l8n5d5ex76e7e93/)
 
 [PSP outfit files (I haven't been able to mod them back in)](https://www.mediafire.com/file/d7yfgf0p6m4gxy8/)
 
