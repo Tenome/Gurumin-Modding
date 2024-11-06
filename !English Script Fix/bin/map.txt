@@ -68036,7 +68036,7 @@ int main()
 				{
 					//番人
 					Message(58,"One　of　my　brothers　differs","from　the　rest　of　us.","","");
-					Message(58,"If you wish to pass,","tell me where he is.","","");
+					Message(58,"If you wish to pass，","tell me where he is.","","");
 				}
 				else
 				{
@@ -68109,7 +68109,7 @@ int main()
 			}
 			string type;
 			type = Type(600);
-			if (strcmp(txt,"ShadowGrotto") == 0 || strcmp(txt,"shadowgrotto") == 0 || strcmp(txt,"SHADOWGROTTO") == 0)
+			if (strcmp(type,"shadowgrotto") == 0 || strcmp(type,"ShadowGrotto") == 0 || strcmp(type,"SHADOWGROTTO") == 0)
 			{
 				SE(950);
 				//番人
