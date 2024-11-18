@@ -17264,7 +17264,7 @@ int main()
 				//Fan
 				Message(3,"I@see...","","","");
                 Message(3,"So many missing cakes... ","Prices are high today...","","");
-                Message(3,"Can I help you?","","");
+                Message(3,"Can I help you?","","","");
 			}
 			else
 			{
