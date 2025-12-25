@@ -17554,6 +17554,7 @@ int main()
 int main()
 {
 	//薬草、ケアルの使用
+    //Medicine, healing spells
 	Recover(0,-1,1.0,0.0,10.0);
 
 	return 0;
@@ -36864,6 +36865,7 @@ int main()
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 // プチ薬草クッキー
+// Cookies
 #Script:00750
 int main()
 {
@@ -36887,6 +36889,7 @@ int main()
 #EndScript
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 // 草チョコ
+// Chocolate bar
 #Script:00752
 int main()
 {
@@ -66109,22 +66112,34 @@ int main()
 #EndScript
 
 // ガトーショコラ使用
+// Eating Chocolate Cake
 #Script:01299
 int main()
 {
 //	KaguTest(10006,0);//発言初期化
 //	
 //	KaguTest2(10008,0,"今は食べたい気分じゃないわ");
+//	KaguTest2(10008,0,"I don't feel like eating right now.");
 //	
 //	KaguTest(10012,0);
+
+    // We use the trading quest flag for when you give the cake to Grandpa to lock this out so you don't accidentally eat it.
+    if (ch[400] != -1)
+    {
+        GetItem(30);   // Return Choco Cake
+        // Make it obvious that Parin doesn't want any more (despite her eating animation), and that maybe she should find someone to share it with
+        Message(0,"I have some leftover cake!","","","");
+        return 0;
+    }
 	// 食べる
-	// ＨＰ全快　＆　ドリルレベル１アップ
-	Recover(0,100,1.0,0.0,10.0);
-	KaguTest(20051,0);
-	ch[2018] = 0;
-	ch[2007] = 0;
-	ch[420] = 58;
-	KaguTest2(30003,1,"@atariyotsu");
+	// ＨＰ全快　＆　ドリルレベル１アップ	
+    //Recover(0,100,1.0,0.0,10.0);
+	//KaguTest(20051,0);
+	//ch[2018] = 0;
+	//ch[2007] = 0;
+	//ch[420] = 58;
+	//KaguTest2(30003,1,"@atariyotsu");
+    return 0;
 }
 #EndScript
 
