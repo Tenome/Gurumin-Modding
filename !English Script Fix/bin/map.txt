@@ -1,5 +1,5 @@
 #VERSION 2201
-// Gurumin Script Fix v.10-31-2024
+// Gurumin Script Fix v.12-29-2025
 // https://github.com/Tenome/Gurumin-Modding
 // Dev comments are being Google TL'd. Since there are a lot and I'm just copy-pasting to get through them, some names might be wrong.
 // Unfortunately, it looks like loading in the PSP costumes might be impossible (for me, anyway). The eboot.bin PSP executable is where the costumes are loaded into the game, and I would need to decompile/disassemble the PC exe to insert them. I don't know anything about that. Maybe if I insert the PSP object filenames, and delete some bytes elsewhere to keep the filesize the same, it might load? I'll have to try later. Probably not. If you end up trying yourself, the easiest way to test it is to set your clock to Christmas and see if you can load the Santa outfit from the PSP ISO (char02bj.it3, char02bj.dat).
@@ -70714,10 +70714,601 @@ int main()
 	{
 		Message(65,"You've　beaten　the　boss　rush!","","","");
 	}
-	Message(65,"To　reward　you　for　all　your","effort，　I'll　show　you","movies　from　the　game.","");
-	Message(65,"Select　a　movie.","","","");
-	PostScr(699);
+	Message(65,
+				"As a reward for all your hard work，　",
+				"you've unlocked some new stuff.",
+				"",
+				""
+			);
+
+	// Main menu
+	SelStart(50);
+	SelText("Cutscene Viewer", 1);
+	SelText("Cast Interviews", 2);
+	SelText("Leave", 0);
+	SelEnd();
+
+	// Option 1: Cutscenes
+	if (ch[50] == 1)
+	{
+		PostScr(699);
+		ch[400] = -1;
+		return 0;
+	}
+
+	// Option 2: Interviews
+	if (ch[50] == 2)
+	{
+		while (1) // loop for interview screen
+		{
+			ch[50] = -1;
+			SelStart(50)
+			SelText("Interview with Masako Okochi (Parin)", 1);
+			SelText("Interview with Moyu Arishima (Pino)，　Chie Satou (Poco)", 2);
+			SelText("Interview with Hisayoshi Suganuma (Puku)", 3);
+			SelText("Back", 0);
+			SelEnd();
+
+			if (ch[50] == 0) // Back
+			{
+				break; 
+			}
+
+			if (ch[50] == 1) // Masako Okochi
+			{
+				while (1)
+				{
+					ch[50] = -1;
+
+					SelStart(50);
+					SelText("What kind of girl is Parin-chan?", 1);
+					SelText("Are there any parts of her that resemble you，　Okochi-san?", 2);
+					SelText("Were there any difficulties you encountered while acting in this role?", 3);
+					SelText("What do you think about all the surrounding characters being ghosts?", 4);
+					SelText("There are some pretty intense battles with the drill，　aren't there?", 5);
+					SelText("Are there any parts of Gurumin that you'd like people to pay attention to?", 6);
+					SelText("Back", 0);
+					SelEnd();
+
+					if (ch[50] == 0)
+					{
+						break; // returns to Interview Selection Screen
+					}
+
+					if (ch[50] == 1)
+					{
+						Message(65,
+							"She has some childlike qualities，",
+							"but she's also precocious",
+							"and very much a modern child.",
+							"She's a cute girl."
+						);
+					}
+					if (ch[50] == 2)
+					{
+						Message(65,
+							"Our personalities are different，",
+							"but we're both quite sharp-tongued",
+							"and tend to say things that",
+							"leave people speechless."
+						);
+					}
+					if (ch[50] == 3)
+					{
+						Message(65,
+							"She speaks in a matter-of-fact way，",
+							"so I had to think about how much",
+							"emotion to express.",
+							""
+						);
+					}
+					if (ch[50] == 4)
+					{
+						Message(65,
+							"It's unusual，　but more importantly，　",
+							"they're all her friends.",
+							"",
+							""
+						);
+					}
+					if (ch[50] == 5)
+					{
+						Message(65,
+							"Even in battle，　we tried to keep Parin cute.",
+							"It's not like she's destructive by nature.",
+							"",
+							""
+						);
+					}
+					if (ch[50] == 6)
+					{
+						Message(65,
+							"It's a healing type of story.",
+							"I hope people feel warm and fuzzy",
+							"while playing.",
+							""
+						);
+					}
+				}
+			}
+
+			if (ch[50] == 2) // Moyu Arishima & Chie Satou
+			{
+				while (1)
+				{
+					ch[50] = -1;
+
+					SelStart(50);
+					SelText("What's it like playing them?", 1);
+					SelText("Acting approaches?", 2);
+					SelText("Seen the artwork?", 3);
+					SelText("Memorable acting moments?", 4);
+					SelText("Recording with others，　right?", 5);
+					SelText("Impressions of Parin and Puku?", 6);
+					SelText("Pino and Poco's charms?", 7);
+					SelText("Back", 0);
+					SelEnd();
+
+					if (ch[50] == 0)
+					{
+						break; // returns to Interview Selection Screen
+					}
+
+					if (ch[50] == 1)
+					{
+						Message(0,
+							"The characters in Gurumin all",
+							"have very cute designs，　but",
+							"what's it like playing them?",
+							""
+						);
+						Message(65,
+							"Arishima: Pino is younger than Parin，　",
+							"so I'm trying to portray her as a",
+							"pure，　innocent little child，　",
+							"so that everyone will love her."
+						);
+						Message(65,
+							"Satou: Poco loves dancing，　",
+							"and at first I had a very",
+							"energetic image of him...",
+							""
+						);
+
+						Message(65,
+							"but actually，　he's surprisingly",
+							"gentle and laid-back.",
+							"",
+							""
+						);
+					}
+
+					if (ch[50] == 2)
+					{
+						Message(0,
+							"In Gurumin，　everyone but Parin is a ghost.",
+							"",
+							"",
+							""
+						);
+
+						Message(0,
+							"Are there any differences in how",
+							"you approach playing them?",
+							"",
+							""
+						);
+
+						Message(65,
+							"Arishima: Pino doesn't really pay much",
+							"attention to that or make distinctions.",
+							"",
+							""
+						);
+
+						Message(65,
+							"I'm just trying to portray her as an",
+							"elementary or kindergarten child.",
+							"",
+							""
+						);
+
+						Message(65,
+							"Satou: Poco's lines end with 'po，　",
+							"and that's how I differentiate",
+							"him from humans.",
+							""
+						);
+
+						Message(65,
+							"I'd be happy if people could appreciate",
+							"Poco's unique and interesting character.",
+							"",
+							""
+						);
+					}
+
+					if (ch[50] == 3)
+					{
+						Message(0,
+							"Have you seen the",
+							"game's artwork yet?",
+							"",
+							""
+						);
+
+						Message(65,
+							"Satou: This time，　we're recording while",
+							"looking at the artwork (laughs).",
+							"So the characters are interesting",
+							"and easy to empathize with."
+						);
+
+						Message(65,
+							"Arishima: When you say ghost，　",
+							"you usually think of something scary.",
+							"But this is a laid-back and cute world!",
+							""
+						);
+
+						Message(65,
+							"Satou: The characters move well",
+							"in sync with the sound.",
+							"",
+							""
+						);
+
+						Message(65,
+							"I want to add things like",
+							"Po，　Po，　Po ♪，　",
+							"but I'm refraining from doing that.",
+							""
+						);
+
+						Message(65,
+							"Even when they're not speaking，　",
+							"the other characters move in subtle ways.",
+							"",
+							""
+						);
+					}
+
+					if (ch[50] == 4)
+					{
+						Message(0,
+							"Are there any memorable",
+							"moments while you were",
+							"acting?",
+							""
+						);
+
+						Message(65,
+							"Arishima: Since Parin is so nonchalant，　",
+							"I've been able to do whatever I want，　",
+							"which I enjoy.",
+							""
+						);
+
+						Message(65,
+							"Satou: The characters are very well-developed.",
+							"The visuals and sound are perfectly synchronized.",
+							"",
+							""
+						);
+
+						Message(65,
+							"Arishima: Pino and Poco are the comedic duo.",
+							"They're a heartwarming pair to watch.",
+							"",
+							""
+						);
+
+						Message(65,
+							"Satou: They're very endearing characters.",
+							"",
+							"",
+							""
+						);
+					}
+
+					if (ch[50] == 5)
+					{
+						Message(0,
+							"This time，　you're recording in the studio",
+							"with other people，　right?",
+							"",
+							""
+						);
+
+						Message(65,
+							"Satou: It's fun because",
+							"it's mostly dialogue-based.",
+							"",
+							""
+						);
+
+						Message(65,
+							"But the timing is different，　",
+							"and it's bad if our breaths",
+							"overlap. That's the difficult part.",
+							""
+						);
+
+						Message(65,
+							"Arishima: Since we're all creating it",
+							"together，　it's easier to grasp the world",
+							"and the atmosphere.",
+							""
+						);
+					}
+
+					if (ch[50] == 6)
+					{
+						Message(0,
+							"What are your impressions of Parin，　",
+							"played by Okochi-san，　and Puku，　",
+							"played by Suganuma-san?",
+							""
+						);
+
+						Message(65,
+							"Arishima: Parin is quite calm and",
+							"collected，　and a little different.",
+							"",
+							""
+						);
+
+						Message(65,
+							"For Pino，　ghosts are normal，　",
+							"so she thinks humans are strange.",
+							"Puku is very reliable.",
+							""
+						);
+
+						Message(65,
+							"Satou: Puku was kidnapped，　so I haven't met him yet.",
+							"Parin keeps making calm，　deadpan remarks to me.",
+							"",
+							""
+						);
+
+						Message(65,
+							"Arishima: Puku is Pino's older brother.",
+							"But it's me who knows Suganuma-kun well.",
+							"",
+							""
+						);
+
+						Message(65,
+							"Oh，　right，　he's my older brother.",
+							"Oh! Wow! That's the feeling.",
+							"(laughs)",
+							""
+						);
+						}
+						if (ch[50] == 7)
+						{
+						Message(0,
+							"What are some of Pino and Poco's charms，　",
+							"and what aspects would you like people",
+							"to pay attention to?",
+							""
+						);
+
+						Message(65,
+							"Arishima: Pino is incredibly cute，　",
+							"the idol of the ghost world.",
+							"",
+							""
+						);
+
+						Message(65,
+							"I tried to portray her with a",
+							"very pure and innocent feeling.",
+							"",
+							""
+						);
+
+						Message(65,
+							"Her speech ends with a -deshu kind of sound.",
+							"I tried hard to not try too hard.",
+							"",
+							""
+						);
+
+						Message(65,
+							"Wait，　what am I even saying? (laughs)",
+							"Um，　I tried to make her seem a little clumsy.",
+							"So that people would want to hug her!",
+							""
+						);
+
+						Message(65,
+							"Satou: Poco is small，　and I'd want",
+							"him as a cell phone strap.",
+							"",
+							""
+						);
+
+						Message(65,
+							"He's the kind of ghost I'd want to be friends with.",
+							"His movements are also very cute.",
+							"",
+							""
+						);
+
+						Message(65,
+							"Arishima: I like that Poco tries his best，",
+							"but still gets teased. He tries so hard，",
+							"but it backfires.",
+							""
+						);
+
+						Message(65,
+							"Sato: He's a very laid-back character.",
+							"When he's curious or happy，　I add expressions.",
+							"Even though he uses the same Po sound",
+							"at the end of his sentences"
+						);
+						}
+				}
+			}
+			if (ch[50] == 3) // Hisayoshi Suganuma
+			{
+				while (1)
+				{
+					ch[50] = -1;
+
+					SelStart(50);
+					SelText("What kind of character is Puku?", 1);
+					SelText("Arishima-san's reaction to your casting?", 2);
+					SelText("Are there any things you're careful about when playing Puku?", 3);
+					SelText("What's it like recording together in the studio?", 4);
+					SelText("It sounds like you have a lot of lines，　so it must be tough.", 5);
+					SelText("Back", 0);
+					SelEnd();
+
+					if (ch[50] == 0)
+					{
+						break; // returns to Interview Selection Screen
+					}
+
+					if (ch[50] == 1)
+					{
+						Message(0,
+							"What kind of character is Puku?",
+							"",
+							"",
+							""
+						);
+
+						Message(65,
+							"He's quite a worrier，　a kind of leader",
+							"among the ghosts who cares about everyone.",
+							"",
+							""
+						);
+
+						Message(65,
+							"He's a very anxious character in every way.",
+							"He doesn't show much emotion at first,",
+							"but he gradually changes.",
+							""
+						);
+
+						Message(65,
+							"He's like a good source of hints and an advisor.",
+							"He met Parin by chance，　and felt anxious at first.",
+							"I hope people will see how his feelings change",
+							"as he realizes she's a good person."
+						);
+					}
+
+					if (ch[50] == 2)
+					{
+						Message(0,
+							"Arishima-san，　who plays Pino，　reacted with",
+							"'Oh，　really?' when she heard that Suganuma-san",
+							"was playing the older brother role.",
+							""
+						);
+
+						Message(65,
+							"Arishima and I are the same age，　",
+							"and we've known each other for",
+							"about 7 or 8 years. So we know ",
+							"everything about each other."
+						);
+
+						Message(65,
+							"She thinks of herself as the older sister，　like",
+							"'Leave it to me!'",
+							"So I can only act bossy in situations like this.",
+							"(laughs)"
+						);
+
+						Message(65,
+							"But there aren't many scenes where I can",
+							"actually act bossy. He's a kind older",
+							"brother who worries about his sister，　Pino，",
+							"and wants to protect her."
+						);
+					}	
+
+					if (ch[50] == 3)
+					{	
+						Message(0,
+							"Are there any things you're careful",
+							"about when playing Puku?",
+							"",
+							""
+						);
+
+						Message(65,
+							"At first，　I tried using a strong，　forceful voice，",
+							"but I was told to make it softer and gentler.",
+							"From there，　it was like a 120-degree shift.",
+							"I'm playing him as a kind，　older brother after all."
+						);
+
+
+					}
+
+					if (ch[50] == 4)
+					{
+						Message(0,
+							"What's it like recording together in the studio?",
+							"",
+							"",
+							""
+						);
+
+						Message(65,
+							"The visuals are all perfectly done.",
+							"When you're face-to-face with your co-star，　",
+							"it really sparks your imagination.",
+							"It ignites your acting spirit!"
+						);
+					}
+
+					if (ch[50] == 5)
+					{
+						Message(0,
+							"It sounds like you had a lot of lines，",
+							"so it must have been tough.",
+							"",
+							""
+						);
+
+						Message(65,
+							"Parin has the most appearances，　since she's the protagonist.",
+							"But Puku acts as the narrator，　so he has the most lines.",
+							"So it's quite challenging.",
+							""
+						);
+
+						Message(65,
+							"Everyone's working really hard，　",
+							"so I hope your enjoy our performances.",
+							"",
+							""
+						);
+
+						Message(0,
+							"Thank you very much.",
+							"",
+							"",
+							""
+						);
+					}
+				}
+			}
+		}
+	}
+
 	Look(65,18);
+	ch[400] = -1;
+	return 0;
 }
 #EndScript
 
