@@ -29,7 +29,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
-// Yamashita flag declaration
+// Mountain base flag declaration
 //
 // ・Global flag
 // 2001 Cylinder will be able to sell parts
@@ -1072,14 +1072,28 @@
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
-/////マップ定義
+///// Map Definition
 //
-// マップ番号とファイル名を関連付けます。時間帯、フラグ別の定義も可能です。
+// Associates map numbers with file names. Definitions can also be conditional on time of day or flags.
 //
-//ユーザーダンジョンの場合　USDGXXXと書きます。ユーザーダンジョンの形状は後述のテーブルで書きます。
-// ETCFILEに小文字[i]で水凍らない大文字[I]で水最初から凍った状態
+// For user dungeons, write as USDGXXX. The shape/layout of the dungeon is defined in a separate table (see below).
 //
-//No 日付　時間  FL1  FL2  FL3  FL4  MAPFILE  DISTFILE ETCFILE  X座標 Y座標 Z座標 BGM 名称     ステージ名
+// ETCFILE: use lowercase [i] for water that does not freeze, uppercase [I] for water that is frozen initially.
+//
+// Columns:
+// No         : Map number
+// Date       : Optional date condition
+// Time       : Optional time condition
+// FL1?FL4    : Flag conditions
+// MAPFILE    : Map file name
+// DISTFILE   : Distance/obstruction file
+// ETCFILE    : Special conditions file
+// X座標      : X coordinate
+// Y座標      : Y coordinate
+// Z座標      : Z coordinate
+// BGM        : Background music file
+// 名称       : Map display name
+// ステージ名 : Stage name (internal or descriptive)
 //XX XX XX XX XX XXXX XXXX XXXX XXXX XXXXXXXX XXXXXXXX XXXXXXXX XXXXX XXXXX XXXXX XXX XXXXXXXX XXXXXXXX
 #MapTable
 //0996 00 30 00 24 -2497 --- ---- ---- mp_996   mp_996bk -------- 04725 -1350 -0600 020 山前半1			山前半1 (PSP ADDED LINE - LOW RES MOUNTAINS?)
@@ -1278,41 +1292,41 @@
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
-/////マップイベント定義、ゲート初期化など
+// =========================
+///// Map Event Definitions, Gate Initialization, etc.
 //
-// ここは重要です。
-// ゲーム中に発生したイベントをフックして、さまざまな処理に分岐させます。
-// いくつかのシンプルなサブコマンドをｲﾍﾞﾝﾄ番号に割り当てます。　	
-// 30000-39999のｲﾍﾞﾝﾄはシステムｲﾍﾞﾝﾄで、任意に使うことは出来ません。
-// 30000 アクティブ（戦える状態）なモンスターに触れたとき発生します。
+// This section is important.
+// It hooks events that occur during the game and routes them to various processing routines.
+// Some simple subcommands are assigned to event numbers.
+// Events numbered 30000-39999 are system events and cannot be used arbitrarily.
+// 30000 triggers when interacting with an active (battle-ready) monster.
 //
+// MAPNo 9999 refers to a global map not tied to the current map.
 //
-//  MAPNoが9999は現在のマップに関係なしのグローバルマップです。
+// ・Common Event Numbers (MapNo 9999)
+//   30000～39999   For system events
+//   20000～        For NPC dialogue (usable up to the max number of NPCs, e.g., 21000 might be valid)
+//     191～192     Healing spring / Warp 101
+//     361          For front/back movement
 //
-// ・共通イベントナンバー(MapNo 9999)
-//   30000～39999	システムイベント用
-//   20000～		ＮＰＣ発言用（ＮＰＣ最大数までなので、２１０００とかは使用可能そう）
-//     191～192		回復泉・１０１ワープ
-//          361     裏表移動用
+//               ※ Entries marked with @ are currently supported.
 //
-//					※@がついているものは現在サポートされています。
+//                 @JUMP     Destination MAP  X coordinate  Y coordinate  Z coordinate  Direction  Instant Camera
+//                 @JUMP2    Destination MAP  Node name   Direction   Unused      Unused     Instant Camera
+//                 @JUMP3    Destination MAP  Node name   Direction   Z offset    Unused     Instant Camera
+//                 @ENC      Opponent       Opponent    Opponent    /// Specify 0 to use register & encounter 0-2
+//                 @SCRIPT   No
+//                 @ANIME    Node name      Animation   Flag No     Flag Value
+//                 @DROPEN   ID          // Opens the door
+//                 @DRCLOSE  ID          // Closes the door
+//                 @LIFTON   ID          bttmp[15]      // Activates lift
+//                 @FLAG     Flag No       Flag Value
+//                 @HIDE     Node name     Hide On 1 / Off 0
+//                 @EVENT    No
 //
-//				           @JUMP     行先MAP  X座標　　Y座標　　Z座標　　方向    Camera瞬時
-//				           @JUMP2    行先MAP  ノード名 方向     未使用　　未使用　Camera瞬時 
-//				           @JUMP3    行先MAP  ノード名 方向     Zオフ　　未使用　Camera瞬時  
-//				           @ENC	     戦う相手 戦う相手 戦う相手    ///0を指定するとレジスタの&エンカウント0-2が使われます。
-//			               @SCRIPT   No
-//				           @ANIME    ノード名 アニメ名 フラグ番 フラグ数値
-//				           @DROPEN   ID                                    //ドアを開ける
-//				           @DRCLOSE  ID                                    //ドアを開ける
-//				           @LIFTON   ID		bttmp[15]                  //ドアを開ける
-//                         @FLAG     フラグ番 フラグ数
-//                         @HIDE     node名   ハイドオン１オフ０
-//				           @EVENT    No
-//
-//   XXXXXはｲﾍﾞﾝﾄ発生時		       
-//   INIT はマップ初期化時
-//MAPｲﾍﾞﾝﾄ 日付　時間  FL1  FL2  FL3  FL4  SUBCOM   Param1   Param2   Param3   Param4   Param5   Param6
+//   XXXXX occurs when the event triggers
+//   INIT occurs during map initialization
+//MAP EVENT  Date  Time  FL1  FL2  FL3  FL4  SUBCOM   Param1   Param2   Param3   Param4   Param5   Param6
 //XX XXXXX XX XX XX XX XXXX XXXX XXXX XXXX XXXXXXXX XXXXXXXX XXXXXXXX XXXXXXXX XXXXXXXX XXXXXXXX XXXXXXXX
 #MapEventTable
 // デバッグ
@@ -3607,30 +3621,32 @@
 #EndMapEventTable
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
-////ｲﾍﾞﾝﾄ発生条件
+// =========================
+//// Event Trigger Conditions
 //
-// フィールドマップ中の会話、アクションで発生するｲﾍﾞﾝﾄを定義します。
-// 特に会話はアクションボタンを押したとき、TALKとして任意のイベントを発生さます。それをマップｲﾍﾞﾝﾄとしてフックして利用します。
+// Defines events that occur on the field map through Conversations or Actions.
+// Specifically, a Conversation triggers an event when the action button is pressed (as TALK). 
+// This event is then hooked as a map event and can be used in scripts.
 //
-//  MAPNoが9999は現在のマップに関係なしのグローバルです
+// MAPNo 9999 refers to a global map not tied to the current map.
 //
-//					※@がついているものが現在サポートされています。
+//               ※ Entries marked with @ are currently supported.
 //
-//				           TAKE     誰       範囲（X,Y-X,Y）  //誰かを連れて行くと
-//				          @TALK     誰      			//話したとき
-//					  @OPEN     宝箱フラグ
-//					  @DEAD     ID指定したモンスターが死んだ時　6体まで指定できる　000000は無視
-//					  @LEVERON  ID       指定したレバーがＯＮになった時
-//					  @LEVEROFF ID       指定したレバーがＯＦＦになった時
-//					  @DROPEN   ID       指定したドアが開いた時
-//					  @DRCLOSE  ID       指定したドアが閉じた時
-//                    @HOTTA    ID       指定したユーザーダンジョン定義が掘り出された時（-1時はどれかが掘り出されると反応）
-//                    @GAMEOVER FLAG     ゲームオーバーになったときにくるらしい
-//					  @KSKON    No
-//					  @MFIREON  No		// マップ上のファイアオン
-//					  @MFIREOFF No		// マップ上のファイアオフ
+//                 TAKE      Who       Range (X,Y - X,Y)  // Triggered when someone is taken along
+//                 @TALK     Who                     // Triggered when talked to
+//                 @OPEN     Treasure chest flag
+//                 @DEAD     ID of monster(s) that died (up to 6 IDs, 000000 ignored)
+//                 @LEVERON  ID       Triggered when specified lever is ON
+//                 @LEVEROFF ID       Triggered when specified lever is OFF
+//                 @DROPEN   ID       Triggered when specified door is opened
+//                 @DRCLOSE  ID       Triggered when specified door is closed
+//                 @HOTTA    ID       Triggered when specified user dungeon is dug up (-1 triggers if any is dug up)
+//                 @GAMEOVER FLAG     Triggered when game over occurs
+//                 @KSKON    No
+//                 @MFIREON  No       // Fire turned ON on map
+//                 @MFIREOFF No       // Fire turned OFF on map
 //
-//MAP日付　時間  FL1  FL2  FL3  FL4  ｲﾍﾞﾝﾄ 条件     Param1   Param2   Param3   Param4   Param5   Param6
+//MAP Date  Time  FL1  FL2  FL3  FL4  Event  Condition  Param1   Param2   Param3   Param4   Param5   Param6
 //XX XX XX XX XX XXXX XXXX XXXX XXXX XXXXX XXXXXXXX XXXXXXXX XXXXXXXX XXXXXXXX XXXXXXXX XXXXXXXX XXXXXXXX
 #EventTrigger
 //0901 00 30 00 24 ---- ---- ---- ---- 00201 OPEN     00002010 00000000 00000000 00000000 00000000 00000000
@@ -4333,68 +4349,66 @@
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
-////マップトリガー設定
+// =========================
+//// Map Trigger Settings
 //
-// マップの初期化時にこのテーブルが参照されて、宝箱やDAOのセッティングができます。
-// 宝箱は完全自動化をサポートしており、宝箱内の親ノードを指定することで機能します。また他と同様にEVENT発生も可能です。
-// フラグはローカルまたはグローバルフラグどちらでも指定できます。
-// DAOは宝箱以外のターゲットに利用します。特定のｲﾍﾞﾝﾄを発生させ、それをマップｲﾍﾞﾝﾄとしてフックして利用します。
+// This table is referenced during map initialization, allowing you to set up treasure chests and DAOs.
+// Treasure chests are fully automated and function by specifying the parent node inside the chest.
+// As with other objects, events can also be triggered.
+// Flags can be either local or global.
+// DAOs are used for targets other than treasure chests. Specific events can be triggered and hooked as map events.
 //
-// アイコンや宝箱に使用するIT3オブジェクトはキャッシュ登録してあるもので、それぞれ仕様に合ったフォーマットで無ければなりません。
-// 1つのマップに8個しか宝箱、ICONを置くことが出来ません。ユーザーダンジョンの場合4つまでです。
+// IT3 objects used for icons or treasure chests must be pre-registered in the cache and must follow the required format.
+// Only 8 treasure chests or icons can be placed on a single map. For user dungeons, the limit is 4.
 //
-//  MAPNoが9999は現在のマップに関係なしのグローバルです。
+// MAPNo 9999 refers to a global map, not tied to the current map.
 //
-//					※@がついているものが現在サポートされています。
+//               ※ Entries marked with @ are currently supported.
 //
-//			                  //@BOX      ノード名 アイテム 個数     フラグ   OPEN     CLOSE                    //指定マップノードに宝箱のセット 
-//					  @DAO　　  X 	     Y        Z        範囲     表示名   EVENT                    //DAOのセット
-//					  @DAO2　　 ノード名 範囲　　 表示名   EVENT		                          //ノードのポジションにDAOセット
-//					  @ADOOR    ICON No  X        Y        Z        ID   	角度      LOCK	   FLAG   //完全両開き自動ドア(閉)  IDは制御に使う一意の数値 開くときFLAGに1をセットできます。   
-//					  @!ADOOR   ICON No  X        Y        Z        ID   	角度      LOCK	   FLAG   //完全両開き自動ドア(開)  IDは制御に使う一意の数値 閉じるときFLAGに0をセットできます。  
-//					  @ADOOR1   ICON No  X        Y        Z        ID   	角度   	  LOCK	   FLAG   //完全上下自動ドア(閉)  IDは制御に使う一意の数値 開くときFLAGに1をセットできます。
-//					  @!ADOOR1  ICON No  X        Y        Z        ID   	角度   	  LOCK	   FLAG   //完全上下自動ドア(開)  IDは制御に使う一意の数値 開くときFLAGに0をセットできます。
-//					  @LEVER    ICON No  X        Y        Z        ID   	角度   	  FLAG            //完全自動レバー(ＯＦＦ)  IDは制御に使う一意の数値 FLAGに状態（0/1でＯＮ/ＯＦＦ）を記憶できます。  
-//					  @!LEVER    ICON No  X        Y        Z        ID   	角度   	  FLAG            //完全自動レバー(ＯN)  IDは制御に使う一意の数値 FLAGに状態（0/1でＯＮ/ＯＦＦ）を記憶できます。  
-//					  @BUTTON    ICON No  X        Y        Z        ID   	角度   	  FLAG            //完全自動ボタン(ＯＦＦ)  IDは制御に使う一意の数値 FLAGに状態（0/1でＯＮ/ＯＦＦ）を記憶できます。  
-//					  @!BUTTON   ICON No  X        Y        Z        ID   	角度   	  FLAG            //完全自動ボタン(ＯN)  IDは制御に使う一意の数値 FLAGに状態（0/1でＯＮ/ＯＦＦ）を記憶できます。  
-//					  @ABOX     ICON No  X        Y        Z        アイテム 個数     フラグ   角度   //完全自動宝箱   
-//					  @FIRE     ICON No  X        Y        Z	ID        　　　　　                        //アイコンナンバーはキャッシュテーブル値です.
-//					  @ICON     ICON No  X        Y        Z        　　　　　                        //アイコンナンバーはキャッシュテーブル値です.
-//					  @PCON     ICON No  X        Y        Z        アイテム 個数     フラグ          //自動木箱   アイコンナンバーはキャッシュテーブル値です.
-//					  @TCON     ICON No  X        Y        Z        　　　　　                        //自動鉄箱   アイコンナンバーはキャッシュテーブル値です.
-//					  @NCON     ICON No  X        Y        Z        　　　　　                        //自動木箱壊せない   アイコンナンバーはキャッシュテーブル値です.
-//		固定リフト    @LIFT     ICON No  X        Y        Z	ID	行動ＰＴ   bttmp[10] bttmp[11]       　　　　　                        //アイコンナンバーはキャッシュテーブル値です.
-//		自由リフト	  @LIFT2    ICON No  X        Y        Z	ID	行動ＰＴ   bttmp[10] bttmp[11]       　　　　　                        //アイコンナンバーはキャッシュテーブル値です.
-//		怪しいからダメ@LIFT3怪しい
-//	新型自由リフト    @LIFT4    ICON No  X        Y        Z    ID	行動ＰＴ   bttmp[10] bttmp[11]       　　　　　                        //アイコンナンバーはキャッシュテーブル値です.
-//					  @TUBO     ICON No  X        Y        Z	アイテム 個数     フラグ 角度          //アイコンナンバーはキャッシュテーブル値です.
-//					  @STUBO    ICON No  X        Y        Z    //アイコンナンバーはキャッシュテーブル値です.
-//                    @ROCK     ICON No(15) X     Y        Z    壊れパタ 角度     フラグ    アイテム（上４桁）＋数（下４桁）           //アイコンナンバーはキャッシュテーブル値です.
-//					  @EVENT    EVENT No     //イベントを発生させ、フック可能
-//					  @OBJ      X        Y        Z        ICON No  角度   //キャラとしてではなく背景の一部として指定ノードの子供にアイコンを設置します。１つのマップに16個までです。
-//					  @OBJ2     ノード名 ICON No                     //キャラとしてではなく背景の一部として指定ノードの子供にアイコンを設置します。１つのマップに16個までです。
-//					  @EFFECT   EFFECTID X        Y        Z        frame  //エフェクトを指定位置にずっと出す。間隔をフレームで指定する。
-//					  @EFFECT2  EFFECTID ノード名 frame  //エフェクトを指定位置にずっと出す。間隔をフレームで指定する。
-//					  @EFFECTD  EFFECTID X        Y        Z        frame  damage //エフェクトを指定位置にずっと出す。間隔をフレームで指定する。
-//                    @HORI     X        Y        Z        ID		COLOR    TEXTURE  アイテム        ?		// 掘れる床設置
-//                                                                  １桁　色　　　　　下４番号
-//                                                                  ２桁　形　　　　　上４深さ
-//                                                                  ３桁復活(0-ON)
-//                    @ROCK     ICON No  X        Y        Z        壊れパタ 角度     FLAG     アイテム（上４）＋個数（下４）  // 岩を設置
-//                    @FLAG     フラグ番 フラグ数
-//					  @ENVSE    SE No    X        Y        Z // 3D SEを指定した地点にならす
-//					  @ENVSE2    SE No   ノード名 // 3D SEを指定した地点にならす
-//					  @SNOW     タイプ   Xmin     Ymin     Xmax     Ymax		// タイプ-1雪 2火の粉 XYmin ～ XYmaxのRECT内にキャラがいる時のみ発生
-//					  @TRUCK    ファイル名 // トロッコ
-//					  @IWA      ICON No  X        Y        Z // トロッコ障害物
-//					  @KSKK		No		 金		　フラグ	// 掘削ポイントのお金（でふぉで１２えん）（フラグは掘削済かどうか：フラグが立ってると掘削できない）
-//                    @HOUDAI	X        Y        Z        角度     No        壊れNo	// 固定砲台
-//                    @HOUDAI2	X        Y        Z        角度     No        壊れNo	// 回転砲台
-//					  @SETJUMP	X		 Y		  Z		   type	// type:0-jump 1-Vjump 2-Yjump 3以降-Zjump
-//					  @SETJUMP2 キャラ番号　ノード名　type
+//                 //@BOX      NodeName Item Count Flag   OPEN     CLOSE                   // Place a treasure chest at the specified map node
+//                 @DAO       X        Y       Z     Range   DisplayName EVENT             // Place DAO
+//                 @DAO2      NodeName Range   DisplayName EVENT                             // Place DAO at node position
+//                 @ADOOR     ICON No  X       Y       Z   ID    Angle   LOCK   FLAG        // Fully automated double door (closed). ID is unique for control. FLAG sets 1 when opening.
+//                 @!ADOOR    ICON No  X       Y       Z   ID    Angle   LOCK   FLAG        // Fully automated double door (open). ID is unique for control. FLAG sets 0 when closing.
+//                 @ADOOR1    ICON No  X       Y       Z   ID    Angle   LOCK   FLAG        // Fully automated vertical door (closed). FLAG sets 1 when opening.
+//                 @!ADOOR1   ICON No  X       Y       Z   ID    Angle   LOCK   FLAG        // Fully automated vertical door (open). FLAG sets 0 when closing.
+//                 @LEVER     ICON No  X       Y       Z   ID    Angle   FLAG             // Fully automated lever (OFF). ID is unique; FLAG stores ON/OFF state (0/1)
+//                 @!LEVER    ICON No  X       Y       Z   ID    Angle   FLAG             // Fully automated lever (ON). ID is unique; FLAG stores ON/OFF state (0/1)
+//                 @BUTTON    ICON No  X       Y       Z   ID    Angle   FLAG             // Fully automated button (OFF). Stores state in FLAG
+//                 @!BUTTON   ICON No  X       Y       Z   ID    Angle   FLAG             // Fully automated button (ON). Stores state in FLAG
+//                 @ABOX      ICON No  X       Y       Z   Item Count Flag Angle           // Fully automated treasure chest
+//                 @FIRE      ICON No  X       Y       Z   ID                                 // Icon number is cache table value
+//                 @ICON      ICON No  X       Y       Z                                     // Icon number is cache table value
+//                 @PCON      ICON No  X       Y       Z   Item Count Flag                     // Automatic wooden box
+//                 @TCON      ICON No  X       Y       Z                                     // Automatic iron box
+//                 @NCON      ICON No  X       Y       Z                                     // Unbreakable wooden box
+//                 @LIFT      ICON No  X       Y       Z   ID ActionPT bttmp[10] bttmp[11]   // Fixed lift. Icon number from cache
+//                 @LIFT2     ICON No  X       Y       Z   ID ActionPT bttmp[10] bttmp[11]   // Free lift
+//                 @LIFT4     ICON No  X       Y       Z   ID ActionPT bttmp[10] bttmp[11]   // New type free lift
+//                 @TUBO      ICON No  X       Y       Z   Item Count Flag Angle              // Icon number from cache
+//                 @STUBO     ICON No  X       Y       Z                                     // Icon number from cache
+//                 @ROCK      ICON No(15) X   Y       Z   BrokenPattern Angle Flag Item      // Icon number from cache
+//                 @EVENT     EVENT No         // Triggers event, can be hooked
+//                 @OBJ       X       Y       Z   ICON No Angle                               // Place icon as part of background (not a character), max 16 per map
+//                 @OBJ2      NodeName ICON No                                           // Same as @OBJ but positioned by node
+//                 @EFFECT    EFFECTID X       Y       Z   Frame                                // Continuous effect at position; interval in frames
+//                 @EFFECT2   EFFECTID NodeName Frame                                        // Continuous effect at node position
+//                 @EFFECTD   EFFECTID X       Y       Z   Frame Damage                        // Continuous damaging effect
+//                 @HORI      X       Y       Z   ID COLOR TEXTURE Item ?                      // Place diggable floor
+//                 @ROCK      ICON No  X       Y       Z   BrokenPattern Angle FLAG ItemCount // Place rock
+//                 @FLAG      FlagNo  FlagValue
+//                 @ENVSE     SE No   X       Y       Z                                         // Play 3D SE at specified location
+//                 @ENVSE2    SE No   NodeName                                                // Play 3D SE at node
+//                 @SNOW      Type    Xmin    Ymin    Xmax    Ymax                            // Type: -1 snow, 2 sparks; triggers only when character is within XY rectangle
+//                 @TRUCK     FileName                                                     // Trolley car
+//                 @IWA       ICON No X       Y       Z                                         // Trolley car obstacle
+//                 @KSKK      No      Gold    Flag                                              // Excavation point money. Flag indicates if dug (cannot dig if set)
+//                 @HOUDAI    X       Y       Z   Angle No BrokenNo                             // Fixed turret
+//                 @HOUDAI2   X       Y       Z   Angle No BrokenNo                             // Rotating turret
+//                 @SETJUMP   X       Y       Z   Type                                           // Type: 0-jump, 1-Vjump, 2-Yjump, 3+ Zjump
+//                 @SETJUMP2  CharacterNo NodeName Type
 //
-//MAP日付　時間  FL1  FL2  FL3  FL4  ｲﾍﾞﾝﾄ 条件     Param1   Param2   Param3   Param4   Param5   Param6   Param7   Param8
+//MAP Date  Time  FL1  FL2  FL3  FL4  Event  Condition  Param1   Param2   Param3   Param4   Param5   Param6   Param7   Param8
 //XX XX XX XX XX XXXX XXXX XXXX XXXX XXXXX XXXXXXXX XXXXXXXX XXXXXXXX XXXXXXXX XXXXXXXX XXXXXXXX XXXXXXXX XXXXXXXX XXXXXXXX
 #MapEventTrigger
 // デバッグ
@@ -9543,9 +9557,10 @@
 0999 00 30 00 24 1538 ---- ---- ---- ----- REG      00000027 00000000 -0000001 -0000001 -0000001 -0000001	// 無効ｆｒｍ
 
 /////////////////////////////////////
-// こっちじゃないぽ									     ポイントＩＤ 設定値１ 設定値２ 設定値３ 設定値４
-//                                                         ０のみ特別 設定数
-//                                                             １以降        X        Y        Z     範囲
+/////////////////////////////////////
+// This is not the right one                                     Point ID  Value1  Value2  Value3  Value4
+//                                                                Only 0 is special  Number of settings
+//                                                                From 1 onward     X       Y       Z      Range
 0999 00 30 00 24 ---- ---- ---- ---- ----- REG      00000093 00000000 00000000 00000000 00000000 00000000
 
 0999 00 30 00 24 -1545 --- ---- ---- ----- REG      00000093 00000000 00000004 00000000 00000000 00000000
@@ -9555,11 +9570,11 @@
 0999 00 30 00 24 -1545 --- ---- ---- ----- REG      00000093 00000004 00000706 -0000900 00000000 00000300
 
 ////////////////////////////////////
-// ミニフィールド設定関連
+// Mini Field Settings
 //
-//													　　　　          設定種別
-//                                                              -1以降設定無し
-//                                                               0発着ポイント       数　   予備　　 予備
+//                                                                   Setting Type
+//                                                                   No settings after -1
+//                                                                    0 Arrival/Departure Point    Count   Reserved   Reserved
 0999 00 30 00 24 ---- ---- ---- ---- ----- REG      00000094 00000000 00000000 00000035 00000000 00000000
 0999 00 30 00 24 ---- ---- ---- ---- ----- REG      00000094 00000001 -0000001 00000000 00000000 00000000
 
@@ -10101,15 +10116,15 @@
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
-/////キャッシュファイル定義
+// =========================
+///// Cache File Definitions
 //
-//	エフェクトやモーションなど頻繁に使う物を定義しておくと起動時にキャッシュを作って
-//	以後ローディングがなくなります。
-//	it3ファイルのみです。付随のテクスチャもキャッシングされます。
-//	キャラに関しては自動的に起動時に読み込むので、キャッシングする必要はありません。
-//      
+// Defining frequently used items such as effects and motions creates a cache at startup,
+// eliminating loading times afterward.
+// Only IT3 files are supported. Associated textures are also cached.
+// Cylinders are automatically loaded at startup, so caching them is unnecessary.
 //
-//	Noは0-255です。
+// No is 0-255.
 //No FILE 
 //XX XXXXXXXXXXXXX
 #CCTable
@@ -10407,17 +10422,17 @@
 // 注意：最大２５６
 #EndCCTable
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////
-/////SE 定義
-//o ファイル 予備----------
-//X XXXXXXXX loop dis NO3D XXX
+// =========================
+///// SE Definitions
+// o File  Reserved ----------
+// X XXXXXXXX loop dis NO3D XXX
 #SE_Table
-//No File  Loop -- --- ---
-// No   ＳＥ定義番号
-// File ファイル名（拡張子除く）
-// Loop ループの有無
-// dis	距離・もしくは音量（ＮＯ３Ｄ時）
-// NO3D どんな呼ばれ方をされても３Ｄ再生はしない
+// No File  Loop -- --- ---
+// No    SE definition number
+// File  File name (without extension)
+// Loop  Whether it loops
+// dis   Distance or volume (when NO3D)
+// NO3D Do not play in 3D regardless of how called
 000 gseET015 000 200 000 000	//（適用）足音通常
 001 gseET016 000 200 000 000	//（適用）同上
 002 gseET017 000 200 000 000	//（適用）同上
@@ -11760,8 +11775,8 @@
 #EndFaceTable
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
-/////主人公モーションフレームフェイス定義
-//   指定したフレームで指定した顔アニメ　１２８個まで
+///// Protagonist Motion Frame Face Definition
+//   Assigns a specific face animation to a specific frame, up to 128 entries
 //Fr  Face 
 //XX XXXX 
 #FaceFrameTable
@@ -11828,9 +11843,9 @@
 1867 0052 // ダンス３
 #EndFaceFrameTable
 /////////////////////////////////////////////////////////////////////////////////////////////////////
-/////キャラクター通常モーション定義
+/////Character Normal Motion Definitions
 //
-//   移動や待機中のモーション定義
+//   Defines motions for movement and idle states
 //
 #CharMotTable:0001
 //filename
@@ -13530,20 +13545,21 @@ SET 0093 0002 0260 0269 -001 0000 後ダメージ
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
-/////キャラクターバトルモーション定義
+// =========================
+///// Cylinder Character Battle Motion Definitions
 //
-//   バトルモーション用のテーブルです。
-//   これらのモーションファイルはキャッシュされません。明示的にキャッシュテーブルで書く必要があります。
-//   LOOPが
-//  0だと、モーション再生後もそのままの状態をキープします。
-//　1だと、そのモーションをループ再生します。
-//  2だと、モーション再生後にNEXTモーションに移行します。
+//   This table is for battle motions.
+//   These motion files are not cached; they must be explicitly added to the cache table.
+//   LOOP behavior:
+//     0 ? Keeps the state as is after motion playback
+//     1 ? Loops the motion
+//     2 ? Transitions to the NEXT motion after playback
 //
-//  バトルモーション発動時にエフェクトの起動も可能です。
+//   Effects can also be triggered when a battle motion is activated.
 //
-//  FILE名を"NONE"とすると、モーション読まれませんがキーフレームだけが適用されます。
+//   If the FILE name is "NONE", the motion is not loaded, but only the keyframes are applied.
 //
-//   ファイル名   StFrm EdFrm LOOP NEXT EFFECT     遅延 継続
+//   File Name   StFrm EdFrm LOOP NEXT EFFECT     Delay Duration
 //XX XXXXXXXXXXXX XXXXX XXXXX XXXX XXXX XXXXXXXXXX XXXX XXXX
 #BtMotTable
 0000 taiki.it3    00000 00015 0001 0000 ---------- 0000 0000
@@ -13575,29 +13591,30 @@ SET 0093 0002 0260 0269 -001 0000 後ダメージ
 //kickcom.it3
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
-/////キャラクター定義
+// =========================
+/////  Character Definitions
 //
-//   キャラクターの名称、3D、モーションファイル名、状態を定義します。
-//　名前は5文字まで　ハイパボリクはどうするか検討中。　
+//   Defines the character name, 3D model, motion file, and state.
+//   Names are limited to 5 characters. Hyperbolic names are under consideration.
 //
-//  Noは0-58の範囲で　主人公は0 定義は1-57　MONS 58-91 92-はオブジェクトアイコンで利用するため使えません。
-//　後半の4つはバトルモーション定義の番号です。戦闘中に自動的につかわれます。
-//　　
-//    TYPE = 0 主人公    3 TEKI      2 NPC
+//   No ranges from 0-58: protagonist is 0, definitions 1-57, MONS 58-91. 
+//   92+ is used for object icons and cannot be used.
+//   The last four numbers are for battle motion definitions, automatically used in combat.
 //
+//    TYPE = 0 Protagonist    3 ENEMY      2 NPC
 //
-//	Ｅ型			スライム
-//	Ｃ型ＨＮＢＦ	砲台（上から順）
-//	Ｈ型			羽つき
-//	Ｆ型			火の玉
-//	Ｓ型			魚
-//	Ｋ型			亀
-//	Ｔ型			角生えた
-//	Ｂ型			こうもり
-//	ＮＣ型			とげとげ円
-//	ＮＬ型			とげとげ直
+//  E-type       Slime
+//  C-type HNBF  Turret (top-down order)
+//  H-type       Winged
+//  F-type       Fireball
+//  S-type       Fish
+//  K-type       Turtle
+//  T-type       Horned
+//  B-type       Bat
+//  NC-type      Spiked circle
+//  NL-type      Spiked line
 //
-//No 名前       FILE           行動 速% LINK FC TYPE   待機MOT  ダメージ 倒れ     通常モーション 参照ノード レンジ 弾けサイズ
+// No  Name      FILE           Action  Speed% LINK FC TYPE   IdleMOT  Damage  Fall  NormalMotion  ReferenceNode  Range  BurstSize
 //XX XXXXXXXXXX XXXXXXXXXXXXX  XXXX XXX XXX XXX XXXXXX XXXXXXXX XXXXXXXX XXXXXXXX XXXXXXXX
 #CharTable
 0000 Parin			  char02b  0000 100 000 000 000000 00000000 00000001 00000002 00000001 NONE 0 0
@@ -13680,28 +13697,29 @@ SET 0093 0002 0260 0269 -001 0000 後ダメージ
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
-/////ステータス定義
+// =========================
+///// Status Definitions
 //
-// 各キャラのステータス定義します。モンスターは各4つまでのアビリティを使えます。
-// 戦闘時は覚えているアビリティを駆使するようにAI化されています。
-//　仲間にしてレベルを上げればすべてのアビリティを使うことも可能ですが、登録の便宜上、初期値は4つまでとしています。
-//　モンスターのNoの範囲は24-95で、キャラクター定義と同じでなければなりません。
-//　ここでの名前はボスモンスター以外は無視されます。通常モンスターではキャラクター定義のものが使われます。
-//  No0-23を定義すると主人公等の初期ステータスとなります。
-//  No100-159はボスクラスオブジェモンスターです。キャラとして登場しないような、巨大なものに使います。
+// Defines the status for each character. Monsters can use up to 4 abilities each.
+// In battle, AI will utilize the abilities they know.
+// If leveled up as allies, they can use all abilities, but for convenience of registration, initial values are limited to 4.
+// Monster No range is 24-95, and must match the character definitions.
+// Names here are ignored for non-boss monsters; regular monsters use the names from the character definitions.
+// Defining No 0-23 sets the initial status for the protagonist and similar characters.
+// No 100-159 is for boss-class object monsters, typically huge creatures that do not appear as Cylinders.
 //
-//  モンスター　KPにガード属性
-//  モンスター　MPに弱点属性
-//	属性     1 火　  2 水    4 雷   8 無属性    16 直接攻撃効かない		32 直接攻撃しか効かない
-//			strongの場合は上
-//			zzokuの場合は2 4 8 1 32の順
+// Monsters: KP is guard attribute
+// Monsters: MP is weakness attribute
+// Attributes: 1 Fire, 2 Water, 4 Lightning, 8 Neutral, 16 Immune to direct attacks, 32 Only affected by direct attacks
+//     "strong" uses the values above
+//     "zzoku" uses the order 2, 4, 8, 1, 32
 //
-// GETは仲間にする方法です。
-// X,防御タイプ（０、どこからでもくらう　１、前防御　２、前後横防御
+// GET defines how to recruit as an ally
+// X: Defense type (0: vulnerable from any direction, 1: front defense, 2: front/back/side defense)
 //
-// SP : 表示優先度（０標準　１～グループ番号　１００～優先距離	－１絶対表示
+// SP: Display priority (0 standard, 1~ group number, 100+ priority distance, -1 always displayed)
 //
-//ABには持っているアイテム                          100%30% 20% 5%
+// AB: Items held                          100% 30% 20% 5%
 //No Name       HP     SP  OP  DP  KP  EMP MP  EXP  AB1 AB2 AB3 AB4 GET GP     X    Y    Z    MES
 #StatusTable
 0000 主人公     000050 000 010 005 000 000 050 0010 000 000 000 000 001 000004 0000 0000 0000 ？？？？？
@@ -13795,18 +13813,19 @@ SET 0093 0002 0260 0269 -001 0000 後ダメージ
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-//NPCポジション強制
+// =========================
+// NPC Forced Positions
 //
-// 特に自立移動していないキャラのゲーム中の固定ポジションを定義します。
-// ムービーで使うキャラもここで定義してつかいます。
+// Defines fixed positions in-game for characters that do not move autonomously.
+// characters used in cutscenes are also defined and used here.
 //
-//   追加機能
-//		NPC動的配置　（FLAGのあとにキャラファイル名 名前 モーションＴＢＩＤ
+//   Additional Feature
+//     Dynamic NPC placement (after FLAG: Cylinder file name, Name, Motion TBID)
 //
-//		 登録していないキャラをＮＰＣとして配置する。
-//		 注：TALKイベントの組み方を考えないとうまくいかなくなるかも・・・
+//       Allows placing characters not registered as NPCs.
+//       Note: You need to carefully design the TALK event, or it may not work properly.
 //
-//No 時間条件    FL1  FL2  FL3  FL4  場所 座標X    Y        Z        FLAG  ファイル名　名前　モーションＴＢＩＤ
+// No  Time Condition  FL1  FL2  FL3  FL4  Location  X    Y    Z    FLAG  File Name  Name  Motion TBID
 #CharPos
 // 非固定キャラ配置
 //0059 00 30 00 24 -2552 ---- ---- --- 0012 -0200000 00001300 00000000 00000000 g_004.it3 ？？？ 13	// 街：Pino
@@ -15751,31 +15770,33 @@ SET 0093 0002 0260 0269 -001 0000 後ダメージ
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
-/////アビリティ定義
+///// Ability Definitions
 //
-//  現在は属性と予備部分しか使いません
+// Currently, only Attributes and Reserved fields are used
 //
-// アビリティの詳細を決めます。
-// No1-10はカテゴリでアビリティをまとめるフォルダのようなものです。
-// No11-15は使用禁止
-// No16-19はシステムアビリティです。
-// No20-127はアビリティ自体を定義します。
-// TYPEはカテゴリの番号です。
-// 使用時はスクリプトが呼び出されます。バトル中、フィールドで共通に呼ばれます。
-// バトル、フィールドで違う動作をさせたい場合はスクリプト中でIsBattle()で分岐させてください。
+// Defines the details of each ability.
+// No1-10: Categories that group abilities (like folders)
+// No11-15: Forbidden to use
+// No16-19: System abilities
+// No20-127: Defines the abilities themselves
+// TYPE is the category number
+// When used, scripts are called. Scripts are shared between battle and field.
+// To differentiate behavior between battle and field, branch in the script using IsBattle().
 //
-//	予備　　　レベルアップまでのヒット数
-//	属性     1 火　  2 水    3 雷   4 無属性
-// 
-// モンスターのAI行動で　攻DM 回HPを、行動するときの判断材料に使っているので、回復、攻撃アビリティは必ず値を入れてください。
+// Reserved     Hits required to level up
+// Attributes   1 Fire, 2 Water, 3 Lightning, 4 Neutral
 //
-//                   フィールド使用可能
-//                   | バトル時使用可能
-//                   | | ＭＰ消費するか
-//                   | | | 敵がターゲットか 2,3で味方敵全      ダメージ計算の際魔法防御が使われます。
-//                   | | | | 複数ターゲットか                   |   ダメージ計算の際、調整用に使います。
-//                   | | | | |                                  |    |
-//No Name       TYPE F B S T M motion     3Dfile     motionF SCRIPT  EXP BTSCT 特殊 属性 YOBI HELP
+// For monster AI behavior, AttackDM and HealHP are used as decision criteria.
+// Make sure to provide values for healing and attack abilities.
+//
+//                   Usable on field
+//                   | Usable in battle
+//                   | | Consumes MP
+//                   | | | Targets enemies? 2,3 for all allies/enemies
+//                   | | | | Multiple targets?                 |  Magic defense is used in damage calculation
+//                   | | | | |                                    |  Used for adjustments in damage calculation
+//
+// No  Name       TYPE F B S T M motion     3Dfile     motionF SCRIPT  EXP BTSCT Special Attribute Reserved HELP
 #AbTable
 //34
 
@@ -15912,32 +15933,32 @@ SET 0093 0002 0260 0269 -001 0000 後ダメージ
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
-/////アイテム定義
+///// Item Definitions
 //
-// アイテムの強さ（装備時）や使ったときの効果を記述します。
-// アイテムNoは1-127の範囲です。
-// 使用時はスクリプト呼び出しが可能で、バトル中、フィールドで共通に呼ばれます。
-// バトル、フィールドで違う動作をさせたい場合はスクリプト中でIsBattle()で分岐させてください。
-// ICONはアイテムのキャラファイルのキャッシュテーブル番号です。
-// ABはアビリティNo
+// Describes the power of the item (when equipped) and its effects when used.
+// Item No ranges from 1-127.
+// Scripts can be called when used, shared between battle and field.
+// To differentiate behavior between battle and field, branch in the script using IsBattle().
+// ICON is the cache table number for the item's character file.
+// AB is the Ability No
 //
-// 80以降は拾ってすぐ使うもの
-// ABはつかわない
-// TYPE　0000=一般  0001=装備品  0002=家具 0003=家具大 0004=メダル
-//                   フィールド使用可能
+// Items from 80 onward are usable immediately upon pickup
+// AB is not used
+// TYPE: 0000=General, 0001=Equipment, 0002=Furniture, 0003=Large Furniture, 0004=Medal
+//                   Usable on field
 //                   | 
-//                   | | 消費するか                                            
-//                   | | | 敵がターゲットか　2,3で味方敵全   　　　　　　　　　　　　　
-//                   | | | | 複数ターゲットか                                                     
+//                   | | Consumed when used                                            
+//                   | | | Targets enemies? 2,3 = all allies/enemies                                  
+//                   | | | | Multiple targets?                                                     
 //                   | | | | |                
 //                   | | | | |                
-//                   | | | | |                       ＨＰ満タン時は使えない
-//                   | | | | |						 |  ミニフィールドでは使えない
-//                   | | | | |						 |   |  このフラグがたっている時は使えない
-//                   | | | | |                       |   |   |  アイテム図鑑には載せない
+//                   | | | | |                       Cannot use when HP is full
+//                   | | | | |                       | Cannot use in Mini Field
+//                   | | | | |                       |   | Cannot use if this flag is set
+//                   | | | | |                       |   |   | Do not list in item catalog
 //                   | | | | |                       |   |   |   |
-//No Name           TYPE F B S T M 2DICO 回HP 回MP +HP +SP +OP +DP +KP+MIP+KAI AB  ICON GP     SCRIPT 特殊 属性 HELP
-//No Name           TYPE F B S T M 2DICO 回HP 回MP +HP +SP +OP +DP +KP+MIP+KAI AB  ICON GP     SCRIPT 特殊 属性 HELP
+//No  Name           TYPE F B S T M 2DICO HealHP HealMP +HP +SP +OP +DP +KP +MIP +KAI AB  ICON GP  SCRIPT Special Attribute HELP
+//No  Name           TYPE F B S T M 2DICO HealHP HealMP +HP +SP +OP +DP +KP +MIP +KAI AB  ICON GP  SCRIPT Special Attribute HELP
 #ItemTable
 0001 Alpha　Parts 0000 1 0 1 2 1 00001 0100 0000 000 000 000 001 000 000 000 032 0000 0000500 00003 0040 0000 Allows　you　to　use　Forward　Slash　attack.
 //0002 強化パーツＢ   0000 1 0 1 2 1 00001 0100 0000 000 000 000 001 000 000 000 032 0000 0000800 00003 0040 0000 必殺技「爆裂蹴り」が使えます。
@@ -16287,20 +16308,20 @@ SET 0093 0002 0260 0269 -001 0000 後ダメージ
 
 
 
-//// 旧仕様
-/////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////ユーザーダンジョン定義
+//// Old Specification
+// =========================
+/////// User Dungeon Definitions
 ///////  TYPE 
-//////   0     = 小さい家具台
-//////   1     = 大きい家具台
-//////   2     = アイテム　　Ｒがアイテム番号
+//////   0     = Small furniture platform
+//////   1     = Large furniture platform
+//////   2     = Item        R is the item number
 //////
-//////   Noごとに露出か、入手かどうかを保持しセーブされるためフラグ不要です。
+//////   For each No, it stores whether it is revealed or obtainable, so no flag is needed.
 //////
-//////  最後に-1のＴＹＰＥをつけること。
+//////   Always include a TYPE of -1 at the end.
 ////No TYPE     X       Y       Z       R   
 
-// 新仕様
+// New Specification
 ///////////////////////////////////////////////////////////////////
 // 家具配置定義
 // No ItemNo  X        Y        Z        R
@@ -16422,276 +16443,239 @@ SET 0093 0002 0260 0269 -001 0000 後ダメージ
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
-////ぐるみんスクリプト　
+///// Gurumin Script
 //
-//　1.スクリプトは8本のパイプラインがありそれぞれ別々に非同期に動作します。
-//   本来どのパイプラインも等価ですが、ゲームの都合上、違う役割を与えています。
-//   パイプラインが空いてない、つまり別のスクリプトが実行中は同じパイプラインを使うスクリプトの呼び出しは失敗します。
+// 1. There are 8 script pipelines, each running asynchronously.
+//    Normally, all pipelines are equivalent, but for game purposes, they have different roles.
+//    If a pipeline is busy (i.e., another script is running), calling a script on the same pipeline will fail.
 //
-//  Uパイプライン（ID:0）
-//  	会話メッセージや通常ｲﾍﾞﾝﾄに利用します。#MapEventTableのサブコマンドのSCRIPTで実行されると、このパイプラインで実行されます。
-//  	このパイプラインからはV,Wパイプラインのスクリプトを直接実行することが出来ます。最上位パイプラインです。
-//　	Uパイプスクリプトが実行中はゲームの入力（特にキャラ操作）を受けつけないので注意してください。
+// U Pipeline (ID:0)
+//    Used for Conversation messages and normal events. When executed via the SCRIPT subcommand in #MapEventTable, it runs on this pipeline.
+//    From this pipeline, scripts on V and W pipelines can be executed directly. This is the top-level pipeline.
+// Please note that while the U-pipe script is running, the game will not accept input (especially character controls).
 //
-//  Vパイプライン*3（ID:1-3）
-//  	アイテム使用時のスクリプト、アビリティ使用時のスクリプト、バトルスクリプト、リアルタイムムービースクリプトで使われます。
-//　	#ItemTable、#AbTableのSCRIPTを定義していると、このパイプラインで実行されます。
-//  	Uパイプ上からはExecV()関数を使うと、このパイプラインを使ってリアルタイムムービーとして実行されます。
-//　　　このパイプラインは同じ物が3つあって、実行されると空いてるパイプが自動的に使われます。
-//	そのため3つの処理を同時に実行できます。バトル時の3人がコンボ技としてバラバラに動くことが可能です。
+// V Pipelines *3 (ID:1-3)
+//    Used for item scripts, ability scripts, battle scripts, and real-time movie scripts.
+//    If SCRIPT is defined in #ItemTable or #AbTable, it runs on this pipeline.
+//    From the U-pipe, you can use ExecV() to run scripts on this pipeline as real-time movies.
+//    There are 3 identical V-pipelines; the system automatically uses an available pipeline when executed.
+//    This allows up to 3 processes to run simultaneously, e.g., 3 characters performing combo moves in battle.
 //
-//  Wパイプライン*4（ID:4-7）
-// 	あまり使うことはありませんが、より低レベルな処理をするパイプラインです。エフェクト発動時の座標計算などに使います。
-//　　　このパイプラインは同じ物が4つあって、実行されると空いてるパイプが自動的に使われます。
-//	そのため4つの処理を同時に実行できます。
-//  	U,VパイプからExecW()関数を使うと実行できます。尚、ゲームシステムからの直接実行はしていません。
+// W Pipelines *4 (ID:4-7)
+//    Rarely used, for lower-level processing like effect coordinate calculations.
+//    There are 4 identical W-pipelines; the system automatically uses an available pipeline when executed.
+//    This allows up to 4 processes to run simultaneously.
+//    Can be executed from U or V pipelines via ExecW(). Not directly executed by the game system.
 //
-//　2.スクリプトの開始
+// 2. Script Start
 //
-//　ゲーム中にスクリプトが実行されると
-//　定義されている#Script:?????のmain()から開始されます。ゲームと非同期で実行されるため、どのような処理を書いても
-//  ゲーム自体がとまることはありませんが、main()関数を出ない限り、パイプラインは開放されず次のスクリプトは実行できないことがあるため、必ず
-//  main()関数から離脱するようにプログラムするか、もしくはQuit()関数で強制終了してください。
-//  
+//    Scripts in the game start from the main() function defined in #Script:?????. 
+//    Scripts run asynchronously with the game. The game will not stop, but pipelines remain occupied until main() exits.
+//    Always ensure main() exits or call Quit() to forcibly terminate, otherwise the next script may not run.
 //
-//　3.書式
+// 3. Syntax
 //
-//  書式はC言語をベースにしており
-//  for,while,switch,if..else,等の制御文をサポートしています。自動変数、関数定義もサポートしています。 
-//　少数計算系の関数sin(),cos(),sqrt()等は一通りサポートしています。
-//  型はint,float,stringがあります。class,structのサポートはしていません。
-//  下記の各関数は内部でゲームと同期していて、安全性、整合性が保証されています。
-//  関数にはUVWパイプ別に定義されているため、パイプラインによっては使えないものがあります。
+//    Based on C language, supporting for, while, switch, if..else, etc.
+//    Supports local variables and function definitions.
+//    Standard math functions like sin(), cos(), sqrt() are supported.
+//    Types: int, float, string. class and struct are not supported.
+//    Functions are synchronized with the game internally and are safe. Availability depends on the pipeline (U, V, W).
 //
-//　4.レジスタ
+// 4. Registers
 //
-//  スクリプト内に暗黙的に存在する変数のようなものがいくつかあります。それをレジスタと呼んでいます。
-//　各パイプラインごとにそれぞれ別のレジスタを持っています。
-//  戦闘時、アイテム使用時、アビリティ使用時に、スクリプトを起動すると以下のパラメーターが一時的にレジスタに代入されます。
-//　スクリプト起動命令（ExecV()等）で起動した場合、起動元のパイプラインのレジスタと同じ値が代入されます。
-//  
-//  &ターゲット　　　　　　 //プレイヤーの選択によるキャラNo値、複数選択も対応しています。　
-//  &カレントユーザー　　　 //バトル時やアビリティ時の現在のキャラNo値。　
-//  &攻DM　　　　　　　　　 //Item Ab等のテーブル値　　　　
-//　&回HP		　　//Item Ab等のテーブル値
-//  &回MP                   //Item Ab等のテーブル値
-//  &アキュムレーター0-2    //計算結果を保持、ダメージ計算などで複数になった場合用に3つあります。
-//  &エンカウント0-2        //触れたモンスターのキャラＮｏ　触れたものの近くにいた3体までのＮｏを保持しています。
-//　
-//　これらはダメージ計算や、回復量計算の関数、ゲームシステム等で内部的に使われます。
-//　これらの値を直接参照することは出来ませんが、関数内で多用しますので注意が必要です。
+//    Implicit variables in scripts are called registers.
+//    Each pipeline has its own separate registers.
+//    During battle, item use, or ability use, the following parameters are temporarily assigned to registers.
+//    If launched via a script command (e.g., ExecV()), registers inherit values from the originating pipeline.
 //
+//    &Target                // Character No selected by player (supports multiple selections)  
+//    &CurrentUser           // Current Character No in battle or ability use  
+//    &AtkDM                 // Value from Item/Ability tables  
+//    &HealHP                // Value from Item/Ability tables  
+//    &HealMP                // Value from Item/Ability tables  
+//    &Accumulator0-2        // Stores calculation results; 3 for multiple uses (e.g., damage calculation)  
+//    &Encounter0-2          // Character Nos of monsters touched; stores up to 3 closest ones  
 //
-//  5.エラー処理
+//    These are used internally by damage/healing calculation functions and game system functions.
+//    Direct access is not allowed, but they are frequently used in functions, so be cautious.
 //
-//  ミスタイプ等で記述にエラーがある場合、エラーを無視します。しかし重大なエラーが発生した時点でスクリプトは強制終了します。
+// 5. Error Handling
 //
+//    Typographical or minor errors are ignored. Critical errors forcibly terminate the script.
 //
-//  6.ゲーム用外部変数
-//  
-//  ch[????]        フラグの数値です。
+// 6. Game External Variables
 //
+//    ch[????]        Flag values
 //
-// 00000はスターティングスクリプトで新規ゲーム開始時に呼ばれます。フラグの初期化などに利用します。
-// 現在04095が上限です。
+// 00000 is called by the starting script when starting a new game, e.g., for flag initialization.
+// Current upper limit is 04095.
 //
-//◆ゲーム制御専用関数/////////////////////////////////////////////////////////////////////////////////
-//BT?????はバトル時専用です。
-//その他はバトル、フィールド共通で使えます。
-//
-//@●int Message(int キャラ番号,string テキスト1,string テキスト1,string テキスト1,string テキスト1);
-//名前付会話4行メッセージを表示します。キー入力で文字送りをするまでブロックされます。Uパイプのみ実行可能。
-//
-//@●int SelStart(int フラグＮｏ)
-//選択肢の項目の登録開始をします。以後のSelectText()で項目を追加する。選択肢をキャンセルした場合フラグに-1がセットされる。
-//@●int SelText(string 選択肢文字列,int 数値)
-//選択肢の項目を登録する。この選択肢が選ばれた場合SelectStart()で指定したフラグに値がセットされる。
-//@●int SelEnd()
-//選択肢の項目を登録完了して、メニューを開く、選択が終わるまでブロックされる。
-//
-//@●int ShopStart();
-//ショップメニューの項目を登録開始する。以後のShopItem()で売り物を定義する。ShopEnd()と対にして使う。
-//@●int ShopItem(int アイテムNo);
-//ショップメニューの項目を登録する。ShopEnd()までの項目が売り物となる。
-//@●int ShopEnd();
-//ショップメニューの項目を登録を完了してメニューを開く、買い物が終わるまでブロックされる。
-//
-//●int ExecV(int スクリプト番号);
-//Vパイプスクリプトを起動します。Uパイプのみ実行可能。
-//戻り値にパイプIDが返ります。終了を監視するにはこのIDが必要です。
-//
-//●int ExecW(int スクリプト番号);
-//Wパイプスクリプトを起動します。U,Vパイプのみ実行可能です。
-//戻り値にパイプIDが返ります。終了を監視するにはこのIDが必要です。
-//
-//●int WaitV(int パイプID);
-//指定したIDのVパイプスクリプトが終了するまで待ちます。Uパイプのみ実行可能です。
-//
-//●int WaitW();
-//指定したIDのWパイプスクリプトが終了するまで待ちます。U,Vパイプのみ実行可能です。
-//
-//@●int Quit();
-//スクリプトを強制終了します。
-//
-//●int Next(int スクリプト番号);
-//スクリプトを強制終了します。そのあと、指定のスクリプトを実行します。レジスタ、パイプラインは、そのまま使われます。
-//
-//@●int SetSignal(int シグナル番号);
-//シグナルフラグを立てます。
-//
-//@●int DelSignal(int シグナル番号);
-//シグナルフラグを消します。
-//
-//@●int WaitSignal(int シグナル番号);
-//シグナルがセットされるまで待ちます。デットロックが起こる可能性があるため300フレームまで待ちます。
-//
-//@●int Recover(int ターゲット番号（複数可）,int 回復値,float 乗数,float 加数,float ランダム係数);
-//HPを回復します。
-//回復値*乗数+加数をランダム係数％の幅でランダムにしたものがアキュムレーターと戻り値にセットされHPがその分回復します。
-//計算の結果0未満になった場合は0にクランプされます。 
-//ターゲットに-1をセットするとレジスタ&ターゲットが使われます。
-//ターゲットに-2をセットするとレジスタ&カレントユーザーが使われます。
-//回復値-1をセットするとレジスタ&回HPが使われます。
-//
-//@●int Damage(int 攻撃者番号,int ターゲット番号（複数可）,int 攻撃補正値,int 攻撃補正値2,float ランダム係数);
-//ターゲットにダメージを与えます。（HPを減らす。）
-//（アビリティ、もしくはアイテムの攻撃力+攻撃者基本攻撃力+攻撃者装備攻撃力+攻撃補正値）をコンボ数、チャージ数で補正し
-//ターゲットの防御力（属性や物理、魔法で変化））)を引いて
-//ランダム係数％でランダムした結果をクランプし（0未満や99999以上になった場合）
-//さらに攻撃補正値2を加えたものをクランプしたものがダメージ量となり、ターゲットHPから引かれて、アキュムレーターと戻り値にセットされます。 
-//ターゲットに-1をセットするとレジスタ&ターゲットが使われます。
-//攻撃者に-1をセットするとレジスタ&カレントユーザーが使われます。
-//バトル中は、登録されているやられモーションになります。死んだ場合、死にモーションになります。
-//モンスターサイドの場合、死んだ時は、消えていきます。モンスターが全滅した場合、戦闘終了となります。
-//味方側が全滅した場合、ゲームオーバーになります。
-//ダメージ計算は複雑なため、あまり自由度はありません。固定値をダメージとして与えたい場合、攻撃補正値に極端なマイナス値を入れて、固定値を攻撃補正値2にいれて
-//ランダムを0にすることで可能です。
-//
-//@●int BTNum(int ターゲット番号（複数可）,int 数字);
-//バトル中のダメージ表示をします。数字が0以上の場合白いフォント、0未満で緑色となります。-（マイナス）表示は出ません。
-//ターゲットに-1をセットするとレジスタ&ターゲットが使われます。
-//ターゲットに-2をセットするとレジスタ&カレントユーザーが使われます。
-//数字に100000以上の数字を入れた場合アキュムレーターが使われます。
-//
-//@●int BTMes(string メッセージ);
-//バトル中にメッセージ表示します。主に技名などに使います。
-//
-//@●int BTMotion(int ターゲット,int バトルモーション);
-//バトル中にバトルモーション再生をします。
-//ターゲットに-1をセットするとレジスタ&ターゲットが使われます。
-//ターゲットに-2をセットするとレジスタ&カレントユーザーが使われます。
-//
-//@●int Motion(ターゲット番号,ファイル名,スタートフレーム,エンドフレーム,ループ設定);
-//ファイル名を指定して、モーションファイルを読み込んで再生します。
-//通常はキャッシュがあるためロード遅延はありません。
-//キャッシュに無い場合モーションが読み終わるまで、現状を維持してゲームは流れていきます。
-//ファイル名に"NONE"を入れることでキーフレームのみ適応されます。
-//ターゲットに-1をセットするとレジスタ&ターゲットが使われます。
-//ターゲットに-2をセットするとレジスタ&カレントユーザーが使われます。
-//ループの場合ループ設定に1、ループしない場合、0をセットします。
-//
-//@●int MoveC2C(ターゲット番号1,ターゲット番号2,フレーム数);
-//ターゲット番号1をターゲット番号2の近くまで動かします。
-//ターゲットに-1をセットするとレジスタ&ターゲットが使われます。
-//ターゲットに-2をセットするとレジスタ&カレントユーザーが使われます。
-//
-//@●int MoveC2C2(ターゲット番号1,ターゲット番号2,移動量);
-//ターゲット番号1をターゲット番号2の近くまで動かします。
-//ターゲットに-1をセットするとレジスタ&ターゲットが使われます。
-//ターゲットに-2をセットするとレジスタ&カレントユーザーが使われます。
-//戻り値に、移動にかかるフレーム数が返ります。
-//
-//@●int MoveC2D(ターゲット番号,フレーム数);
-//ターゲット番号1をデフォルト位置に動かします。デフォルト位置とは戦闘開始時の位置です。
-//ターゲットに-1をセットするとレジスタ&ターゲットが使われます。
-//ターゲットに-2をセットするとレジスタ&カレントユーザーが使われます。
-//
-//@●int MoveC2D2(ターゲット番号,移動量);
-//ターゲット番号1をデフォルト位置に動かします。デフォルト位置とは戦闘開始時の位置です。
-//ターゲットに-1をセットするとレジスタ&ターゲットが使われます。
-//ターゲットに-2をセットするとレジスタ&カレントユーザーが使われます。
-//戻り値に、移動にかかるフレーム数が返ります。
-//
-//@●int Wait(フレーム数);
-//フレーム数分スリープします。
-//非同期のため数フレームの誤差が出る場合があります。
-//
-//@●int WaitCombo(フレーム数);
-//フレーム数分スリープします。
-//非同期のため数フレームの誤差が出る場合があります。
-//待機中にコンボ対象になった場合、現在のパイプラインを内部で強制終了します。
-//
-//@●int Combo(int 次の技,int 発動する技);
-//技の連携に対する非常に複雑な処理をします。
-//バトル時に次のターンの行動が味方の場合でセットされてるコマンドが「次の技」の場合、
-//本来セットされていた技はキャンセルされて、「発動する技」に置き換わります。
-//そしてすぐにターンを進めて、「発動する技」が別パイプラインで実行されます。
-//しかし、次のキャラが自分の場合、現在のパイプラインを内部で強制終了してから「発動する技」を実行します。
-//戻り値があり、1のときはコンボ成立となります。しかし、次のキャラが自分の場合はパイプラインを強制終了するため
-//戻り値のチェックは出来ません。
-//
-//@●int TEffect(int ターゲット（複数可）,string ファイル名,int 遅延時間,int 継続時間);
-//指定したターゲットの位置にエフェクトファイルを再生します。
-//通常はキャッシュがあるためロード遅延はありません。
-//ターゲットに-1をセットするとレジスタ&ターゲットが使われます。複数選択の場合はすべてのターゲットに発動します。
-//ターゲットに-2をセットするとレジスタ&カレントユーザーが使われます。
-//ターゲットに-3をセットするとレジスタ&ターゲットが使われます。複数ある場合平均座標に1つ発動します。
-//遅延時間（フレーム）後に再生開始します。継続時間（フレーム）後に自動破棄されます。
-//
-//@●int BTCamera(int タイプ);
-//バトル用オートカメラのタイプを指定します。ターゲット、ユーザー等のレジスタにより自動化されています。
-//0=背後から。
-//1=背後、前、近いほう。
-//2=サイドから。
-//50=カレントキャラのモーションに含まれているカメラワーク
-//
-//@●int IsBattle();
-//バトル中なら1、その他なら0を返します。
-//
-//@●int BTKeiyaku(int ターゲット);
-//ターゲットに契約を申し込みます。
-//契約が成功した場合モンスターはいなくなります。
-//失敗した場合、失敗メッセージを表示します。
-//ターゲットに-1をセットするとレジスタ&ターゲットが使われます。
-//ターゲットに-2をセットするとレジスタ&カレントユーザーが使われます。
-//
-//@●int BTAddBuki(int ターゲット,string ふぁいる);
-//ターゲットキャラの右手に武器オブジェを追加します。
-//
-//@●int BTNageBuki(int ターゲット,int ターゲット2,int フレーム);
-//ターゲットキャラの右手の武器をターゲット2へ、フレーム間に移動します。
-//
-//@●int BTDelBuki(int ターゲット);
-//ターゲットキャラの右手の武器を消します。
-//
-//@●int CrossFade();
-//クロスフェードをします。現在の画面を記憶して次のフレームに合成します。。
-//
-//@●int AddInfo(string a,int iro);
-//インフォメーションウインドウにテキストを追加します。チュートリアルなどで使える。
-//
-//@●int LoadMap(int map);
-//マップを読み込みます。
-//
-//@●int CharPos(int no,int x,int y,int z);
-//キャラ座標を変更。
-//@●int RCharEffect(int no,int effectid);
-//リアルタイムエフェクトをキャラ座標で表示。
-//@●SetSavePos()
-//セーブした時の位置を設定します。
-//@●GetGP();
-//所持金数の取得
-//@●SetGP(int gp);
-//所持金の設定
-//@●KaguTest(int,int);
-//かぐテスト
-//@●KaguTest2(int,int,char*);
-//かぐテスト文字列アリ版
-//@●Ksk(int);
-//壁紙交換
-//@●Kabe(char*);	// 拡張子itmのファイル名。拡張子表記はいらない
-//掘削ポイント破壊
+///////////////////////////////////////////////////////////////////////////////////
+//◆ Game Control Dedicated Functions
 
+// BT????? functions are battle-only.
+// Others can be used in both battle and field.
+//
+// @●int Message(int CharacterNo, string Text1, string Text2, string Text3, string Text4);
+// Displays a named 4-line Conversation message. Blocks until key input advances the text. Only executable on the U-pipeline.
+//
+// @●int SelStart(int FlagNo);
+// Begins registration of selectable options. Subsequent SelectText() calls add options. If cancelled, the flag is set to -1.
+//
+// @●int SelText(string OptionText, int Value);
+// Registers an option. When selected, the value is assigned to the flag specified in SelStart().
+//
+// @●int SelEnd();
+// Completes option registration and opens the menu. Blocks until selection finishes.
+//
+// @●int ShopStart();
+// Begins registration of shop menu items. Subsequent ShopItem() calls define items. Pair with ShopEnd().
+//
+// @●int ShopItem(int ItemNo);
+// Registers an item in the shop menu. Items until ShopEnd() are available for sale.
+//
+// @●int ShopEnd();
+// Completes shop item registration and opens the menu. Blocks until shopping finishes.
+//
+// ●int ExecV(int ScriptNo);
+// Executes a V-pipeline script. Only executable on U-pipeline.
+// Returns the pipeline ID. Required to monitor completion.
+//
+// ●int ExecW(int ScriptNo);
+// Executes a W-pipeline script. Executable on U and V pipelines only.
+// Returns the pipeline ID. Required to monitor completion.
+//
+// ●int WaitV(int PipeID);
+// Waits for the specified V-pipeline script to finish. Only executable on U-pipeline.
+//
+// ●int WaitW();
+// Waits for the specified W-pipeline script to finish. Executable on U and V pipelines only.
+//
+// @●int Quit();
+// Forces script termination.
+//
+// ●int Next(int ScriptNo);
+// Forces the script to exit and immediately executes the specified script.
+// Registers and pipeline remain unchanged.
+//
+// @●int SetSignal(int SignalNo);
+// Sets a signal flag.
+//
+// @●int DelSignal(int SignalNo);
+// Clears a signal flag.
+//
+// @●int WaitSignal(int SignalNo);
+// Waits for the signal to be set. Maximum wait 300 frames to avoid deadlock.
+//
+// @●int Recover(int TargetNo(s), int Value, float Multiplier, float Addend, float RandomFactor);
+// Heals HP. Calculation: (Value * Multiplier + Addend) randomized by RandomFactor%, result set in accumulator and returned.
+// Clamped to 0 minimum. Target -1 uses &Target register; Target -2 uses &CurrentUser; Value -1 uses &HealHP.
+//
+// @●int Damage(int AttackerNo, int TargetNo(s), int AttackMod1, int AttackMod2, float RandomFactor);
+// Deals damage (reduces HP) to target(s). Calculation includes attack power, defense, and random factor, clamped appropriately.
+// Target -1 uses &Target; Attacker -1 uses &CurrentUser.
+// In battle, applies hit/death animations. If monsters die, they disappear; if player side is wiped, game over.
+// Fixed damage possible by adjusting AttackMod1/2 and setting RandomFactor to 0.
+//
+// @●int BTNum(int TargetNo(s), int Number);
+// Displays damage numbers in battle. ?0 = white, <0 = green. No negative signs.
+// Target -1 uses &Target; Target -2 uses &CurrentUser. Numbers ?100000 use accumulator.
+//
+// @●int BTMes(string Message);
+// Displays a battle message (e.g., skill name).
+//
+// @●int BTMotion(int Target, int BattleMotion);
+// Plays a battle motion. Target -1 uses &Target; Target -2 uses &CurrentUser.
+//
+// @●int Motion(TargetNo, FileName, StartFrame, EndFrame, LoopFlag);
+// Plays a motion file. Cached motions have no load delay. FileName "NONE" applies only keyframes.
+// Target -1 uses &Target; Target -2 uses &CurrentUser. LoopFlag: 1 = loop, 0 = no loop.
+//
+// @●int MoveC2C(TargetNo1, TargetNo2, Frames);
+// Moves TargetNo1 close to TargetNo2. Target -1 uses &Target; Target -2 uses &CurrentUser.
+//
+// @●int MoveC2C2(TargetNo1, TargetNo2, Distance);
+// Moves TargetNo1 close to TargetNo2. Returns frames required.
+//
+// @●int MoveC2D(TargetNo, Frames);
+// Moves target to default battle position. Target -1 uses &Target; Target -2 uses &CurrentUser.
+//
+// @●int MoveC2D2(TargetNo, Distance);
+// Moves target to default battle position. Returns frames required.
+//
+// @●int Wait(Frames);
+// Sleeps for specified frames. Minor timing discrepancies possible due to asynchronous execution.
+//
+// @●int WaitCombo(Frames);
+// Sleeps for frames. If used as combo target during wait, pipeline is forcibly terminated.
+//
+// @●int Combo(int NextSkill, int ExecutedSkill);
+// Complex handling of skill combos. Replaces the originally queued skill with ExecutedSkill if conditions met.
+// Returns 1 if combo successful. If next character is self, pipeline forcibly terminates; return check unavailable.
+//
+// @●int TEffect(int TargetNo(s), string FileName, int Delay, int Duration);
+// Plays effect at target position(s). Target -1 = &Target; -2 = &CurrentUser; -3 = average position of multiple targets.
+// Delay and duration are in frames. Cached effects have no load delay.
+//
+// @●int BTCamera(int Type);
+// Sets battle auto-camera type.
+// 0 = behind
+// 1 = behind/front, closer side
+// 2 = side
+// 50 = camera work included in current Character motion
+//
+// @●int IsBattle();
+// Returns 1 if in battle, 0 otherwise.
+//
+// @●int BTKeiyaku(int Target);
+// Initiates contract with target. Success = monster disappears; failure shows message.
+// Target -1 uses &Target; Target -2 uses &CurrentUser.
+//
+// @●int BTAddBuki(int Target, string FileName);
+// Adds weapon object to target’s right hand.
+//
+// @●int BTNageBuki(int Target1, int Target2, int Frames);
+// Moves weapon from Target1’s right hand to Target2 over specified frames.
+//
+// @●int BTDelBuki(int Target);
+// Deletes weapon in target’s right hand.
+//
+// @●int CrossFade();
+// Performs crossfade between current and next frame.
+//
+// @●int AddInfo(string Text, int Color);
+// Adds text to information window (e.g., tutorial).
+//
+// @●int LoadMap(int MapNo);
+// Loads the specified map.
+//
+// @●int CharPos(int No, int X, int Y, int Z);
+// Sets character position.
+//
+// @●int RCharEffect(int No, int EffectID);
+// Plays real-time effect at character position.
+//
+// @●SetSavePos();
+// Sets save position.
+//
+// @●GetGP();
+// Gets current gold.
+//
+// @●SetGP(int GP);
+// Sets current gold.
+//
+// @●KaguTest(int, int);
+// Furniture test.
+//
+// @●KaguTest2(int, int, char*);
+// Furniture test with string.
+//
+// @●Ksk(int);
+// Change wallpaper.
+//
+// @●Kabe(char*);
+// Change wallpaper using itm file (extension not needed).  
+// Digs/Breaks excavation points.
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 #Script:00000
 int main()
